@@ -4,9 +4,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "game.h"
 #include "essentials.h"
-// #include "game_objects.h"
-// #include "globals.h"
 #include "application.h"
 
 // For exception handling in main
