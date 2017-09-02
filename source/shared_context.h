@@ -44,7 +44,6 @@ struct SharedContext
 	sf::RenderWindow* pWindow = nullptr;
 	sf::View view;
 
-	float m_desktopResY = 0.f;
 	// TODO convert to a struct?
 	float m_resx = 0.f;
 	float m_resy = 0.f;
