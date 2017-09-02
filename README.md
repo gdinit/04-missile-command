@@ -1,6 +1,6 @@
 # MISSILE COMMAND
 ### A clone of the Classic Game Missile Command by gdinit
-***This Software is in pre-release phase!***
+***This Software is in PRE-ALPHA phase!***
 
 Intro
 --------------
