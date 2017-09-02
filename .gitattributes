@@ -1,4 +1,5 @@
 *.rb linguist-language=cpp
+source/cmake/* linguist-vendored
 
 #sources
 *.c text
