@@ -53,9 +53,6 @@ void Application::createWindow()
 {
 	sf::VideoMode	desktopVM = sf::VideoMode::getDesktopMode();
 
-	// TODO	really 'detect' this from desktop mode
-	m_sCtxt.m_desktopResY = 1080.f;
-
 	int32		w = 0, h = 0;
 	h = C_WIN_H;
 	w = C_WIN_W;
@@ -66,7 +63,6 @@ void Application::createWindow()
 		" with Fullscreen requested: " << h << "," << w <<
 		" Detected bpp is: " << desktopVM.bitsPerPixel << "\n";
 		#endif
-
 		m_window.create( sf::VideoMode( w, h
 				, desktopVM.bitsPerPixel )
 			, C_WIN_TITLETEXT
@@ -78,13 +74,11 @@ void Application::createWindow()
 		" Requested: " << w << "," << h << "," <<
 		" Detected bpp is: " << desktopVM.bitsPerPixel << "\n";
 		#endif
-
 		m_window.create( sf::VideoMode( w, h
 				, desktopVM.bitsPerPixel )
 			, C_WIN_TITLETEXT
 			, sf::Style::Default );
 	}
-
 	m_sCtxt.view.setSize( w, h );
 	m_sCtxt.view.setCenter( m_sCtxt.view.getSize().x / 2
 		, m_sCtxt.view.getSize().y / 2 );
@@ -100,15 +94,9 @@ void Application::loadSettings()
 	SETTINGS->ballSpeed = C_BALL_SPEED;
 }
 
-void Application::loadGlobals()
-{
-	// Nothing here -- TODO remove this?
-}
-
 void Application::run()
 {
 	loadSettings();
-	loadGlobals();
 
 	// Create render window
 	sf::ContextSettings windowSettings;

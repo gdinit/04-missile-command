@@ -19,7 +19,6 @@ class Application
 		virtual ~Application();
 		void	createWindow();
 		void	loadSettings();
-		void	loadGlobals();
 		void	run();
 
 	private:
