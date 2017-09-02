@@ -17,7 +17,7 @@ Hud::Hud()
 	#endif
 
 	// HUD TEXT
-	m_hudTextFont.loadFromFile( "assets/fonts/atic.ttf" );
+	m_hudTextFont.loadFromFile( "assets/fonts/sansation.ttf" );
 	m_hudText.setFont( m_hudTextFont );
 	m_hudText.setCharacterSize( 36u );
 	m_hudText.setFillColor( sf::Color::White );
