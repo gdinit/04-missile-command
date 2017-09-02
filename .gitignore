@@ -39,6 +39,7 @@ __tmp__*.txt
 
 # IGNORE everything under these directories
 **/build
+**/buildscripts
 **/.vscode
 **/source.tmp.cleaned-up
 
