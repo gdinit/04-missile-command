@@ -1,0 +1,49 @@
+In random order.
+If you have any comments, correction requests, please let me know by creating an
+ issue at GitHub here https://github.com/gdinit/03-breakout/issues
+
+* This game is built on the very awesome C++ library SFML
+	Simple and Fast Multimedia Library
+	http://www.sfml-dev.org/ 
+	Copyright © Laurent Gomila & SFML Team
+
+* Game Engine functionality built on 'Small Game Engine'
+	programmed by Lukas 'eXpl0it3r' Dürrenberger
+	https://github.com/eXpl0it3r/SmallGameEngine
+
+* Lukas's engine code is based on original code by Anthony Lewis 
+	http://gamedevgeek.com/tutorials/managing-game-states-in-c/
+	http://anthonylewis.com/about/
+
+* utility.h > setOrigin method by authors of the book 'SFML Game Development': 
+	by Jan Haller, Henrik Vogelius Hansson, Artur Moreira
+	https://www.amazon.co.uk/SFML-Game-Development-Jan-Haller/dp/1849696845
+	https://github.com/SFML/SFML-Game-Development-Book
+	Note: great book! buy it! :)
+
+* make_unique.h by JLBorges at cplusplus.com forums
+	http://www.cplusplus.com/user/JLBorges/
+
+* The following members of SFML Official IRC room deserve a big thank you for 
+  having assisted the game's development by sharing their technical knowledge:
+	In order of consultation date
+	fallahn
+	Aster
+	therocode
+	Veltas
+	noob_prodigy
+	Jonny
+	Rosme
+	danhedron
+	_Dbug_
+	StonedXander
+	@ http://chat.sfml-dev.org/
+
+* Assert macro code taken from therocode's Thero project.
+  	https://github.com/therocode/thero
+
+ARTWORK & SOUNDS
+* created by gdinit:	breakout.ico Windows icon.
+* sounds:		//TODO
+* fonts:		"Athletic" Font (used in HUD Text) Philip Schilling
+			"Sansation" Font (used everywhere) by Bernd Montag
