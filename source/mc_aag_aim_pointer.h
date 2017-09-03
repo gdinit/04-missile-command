@@ -71,6 +71,8 @@ class AAGAimPointer : public sf::Transformable
 
 	private:
 		const t_objectName	m_myObjNameStr;
+		float			m_resX = -1;
+		float			m_resY = -1;
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
