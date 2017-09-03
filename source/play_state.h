@@ -17,7 +17,6 @@
 #include "ball.h"
 #include "arena.h"
 #include "hud.h"
-#include "3rd-party\json\v.2.1.1\json.hpp"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
