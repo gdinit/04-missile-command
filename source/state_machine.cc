@@ -58,9 +58,8 @@ void StateMachine::lastState()
 
 void StateMachine::drawPrevious()
 {
-	// in PauseState, let's draw PlayState instantiated objects
+	// in PauseState, draw PlayState instantiated objects
 	if ( m_states.size() == 2 ) {
-		// m_states.at(m_states.size() - 1)->draw();
 		m_states.at( 0 )->draw();
 	}
 }
