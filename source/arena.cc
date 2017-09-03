@@ -80,6 +80,7 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
+	target.draw( AAGAimPointer.m_sprite );
 	// target. draw(	topBar.m_sprite );
 	// target. draw(	leftBar.m_sprite );
 	// target. draw(	rightBar.m_sprite );

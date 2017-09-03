@@ -47,7 +47,7 @@ void Hud::update( sf::Time timeSinceLastUpdate )
 }
 
 void Hud::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
-	target.draw( m_hudText );
+	// HIDING FOR NOW	target.draw( m_hudText );
 }
 
 void Hud::newRound( sf::Vector2f res )

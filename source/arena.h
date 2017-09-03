@@ -7,6 +7,7 @@
 #include "essentials.h"
 #include "config.h"
 #include "ball.h"
+#include "mc_aag_aim_pointer.h"
 #include "paddle.h"
 #include "play_area_bar.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
@@ -59,6 +60,7 @@ class Arena : public sf::Transformable, public sf::Drawable
 		sf::SoundBuffer		m_sndbfColPaddle;
 		sf::Sound		m_soundColPaddle;
 		Ball			ball;
+		AAGAimPointer		AAGAimPointer;
 		Paddle			paddle;
 		PlayAreaBar		topBar = { "topBar" };
 		PlayAreaBar		leftBar = { "leftBar" };
