@@ -10,8 +10,29 @@
 // #include "utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 // #include "make_unique.h"
+// ================= BEGIN: Production Assert Handling =================
+#include <assert.h>
+
+#ifndef EMSCRIPTEN
+#define BREAK_ACTION exit( 1 )
+#else
+#define BREAK_ACTION raise( SIGTRAP )
+#endif
+
+#define PASSERT( condition, message ) \
+	do \
+	{ \
+		if ( !( condition ) ) { \
+			std::cerr << "Assertion `"#condition "` failed in " << \
+			__FILE__ << " function " << __func__ << " line " << \
+			__LINE__ << ": " << message << std::endl; \
+			BREAK_ACTION; \
+		} \
+	} while ( false )
+// ================= END: Production Assert Handling =================
 
 #include <SFML/Graphics.hpp>
+#include "3rd-party\json\v.2.1.1\json.hpp"
 
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 // #include <memory>
@@ -19,12 +40,15 @@
 // #include <string>
 //// Required for RNG
 // #include <chrono>
+// Required for ifstream for JSON
+#include <fstream>
 
 class AAGAimPointer : public sf::Transformable
 		    , public sf::Drawable
 		    , private sf::NonCopyable
 {
 	public:
+		// Anti Aircraft Gun Aim Pointer
 		AAGAimPointer();
 		virtual ~AAGAimPointer();
 		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
@@ -47,6 +71,9 @@ class AAGAimPointer : public sf::Transformable
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
+		float			m_defAAGPointerW = -888;
+		float			m_defAAGPointerV = -888;
+		float			m_defAAGPointerH = -888;
 };
 
 #endif	// MC_AAG_AIM_POINTER_H
