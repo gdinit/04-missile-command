@@ -34,7 +34,6 @@ class PlayAreaBar : public sf::Transformable
 		void	draw( sf::RenderTarget &target
 		, sf::RenderStates states ) const;
 		void	newRound( sf::Vector2f res );
-		void	init( sf::Vector2f res );
 		float	getX()       const noexcept;
 		float	getY()       const noexcept;
 		float	getTop()     const noexcept;

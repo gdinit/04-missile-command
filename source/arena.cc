@@ -17,10 +17,10 @@ std::ostream & operator <<( typename std::enable_if <std::is_enum <T>::value
 
 Arena::Arena()
 	: m_myObjNameStr( "Arena" )
-	, m_hgPaddle{ 0 }
-	, m_hgTopBar{ 0 }
-	, m_hgLeftBar{ 0 }
-	, m_hgRightBar{ 0 }
+	// , m_hgPaddle{ 0 }
+	// , m_hgTopBar{ 0 }
+	// , m_hgLeftBar{ 0 }
+	// , m_hgRightBar{ 0 }
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
@@ -74,16 +74,17 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	// }
 	// paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
 	// , rightBar.getLeft() );
+	AAGAimPointer.update( timeSinceLastUpdate, res, dir, 1.f, 1.f );
 	// ball.update( timeSinceLastUpdate, res );
 	// paintCells();
 	// colDetRespond();
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
-	target.draw( AAGAimPointer.m_sprite );
-	// target. draw(	topBar.m_sprite );
-	// target. draw(	leftBar.m_sprite );
-	// target. draw(	rightBar.m_sprite );
+	target. draw(	AAGAimPointer.m_sprite );
+	target. draw(	topBar.m_sprite );
+	target. draw(	leftBar.m_sprite );
+	target. draw(	rightBar.m_sprite );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
 	// if ( m_cDetDB [ n ].HP > 0 && m_cDetDB [ n ].visible &&
@@ -100,9 +101,9 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	"newRound() has been triggered.\tLevel is: " << level << "\n";
 	#endif
 	// m_tmpRes = res;
-	// topBar.newRound( res );
-	// leftBar.newRound( res );
-	// rightBar.newRound( res );
+	topBar.newRound( res );
+	leftBar.newRound( res );
+	rightBar.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );
 	// ball.newRound( res );

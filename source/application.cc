@@ -91,7 +91,6 @@ void Application::loadSettings()
 	SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
 	SETTINGS->debugPrintToConsole = C_D_CO;
 	SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
-	SETTINGS->ballSpeed = C_BALL_SPEED;
 }
 
 void Application::run()

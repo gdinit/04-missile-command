@@ -6,8 +6,33 @@
 extern std::unique_ptr <Settings>	SETTINGS;
 extern std::unique_ptr <Globals>	GLOBALS;
 
+// OBJECT SIZE RATIOS
+// TODO: MOVE TO DEFINES
+constexpr double			CEXPR_TBXRATIO { 0.10 };
+// constexpr double			CEXPR_TBYRATIO { 0.15 };
+constexpr double			CEXPR_TBYRATIO { 0.05 };
+constexpr double			CEXPR_TBWRATIO { 0.78 };
+// constexpr double			CEXPR_TBHRATIO { 0.06 };
+constexpr double			CEXPR_TBHRATIO { 0.00398406374501992 };
+constexpr double			CEXPR_LBXRATIO { 0.10 };
+constexpr double			CEXPR_LBYRATIO { 0.15 };
+constexpr double			CEXPR_LBHRATIO { 0.06 };
+constexpr double			CEXPR_RBXRATIO { 0.10 };
+constexpr double			CEXPR_RBYRATIO { 0.15 };
+constexpr double			CEXPR_RBWRATIO { 0.4347826086956522 };
+constexpr double			CEXPR_RBHRATIO { 0.06 };
+// constexpr double			CEXPR_VBWRATIO { 23.0 };
+// constexpr double			CEXPR_VBWRATIO { 0.00398406374501992 };
+constexpr double			CEXPR_VBWRATIO { 0.003985 };
+// constexpr double			CEXPR_VBHRATIO { 1.347290640394089 };
+constexpr double			CEXPR_VBHRATIO { 1.15 };
+constexpr float				CEXPR_BRHRATIO { 0.02564102564102564f };
+constexpr float				CEXPR_BRPYRATIO { 0.3113553113553114f };
+constexpr float				CEXPR_BRWRATIO { 0.0461f };
+constexpr float				CEXPR_BRPXRATIO { 0.1293f };
+
 PlayAreaBar::PlayAreaBar()
-	: m_myObjNameStr( "unnamed PlayAreaBar" )
+	: m_myObjNameStr( "Unnamed PlayAreaBar" )
 	, m_width( 1.f )
 {
 	#if defined DBG
@@ -64,13 +89,13 @@ void PlayAreaBar::newRound( sf::Vector2f res ) {
 		m_myObjNameStr << "\n";
 		#endif
 	} else if ( m_myObjNameStr == "leftBar" ) {
-		sizeW = res.x / CEXPR_VBWRATIO;
+		sizeW = res.x * CEXPR_VBWRATIO;
 		m_width = sizeW;
 		posL = topBarPosL - ( sizeW / 2.f );
 		posT = res.y * CEXPR_TBYRATIO;
 		sizeH = res.y / CEXPR_VBHRATIO;
 	} else if ( m_myObjNameStr == "rightBar" ) {
-		sizeW = res.x / CEXPR_VBWRATIO;
+		sizeW = res.x * CEXPR_VBWRATIO;
 		m_width = sizeW;
 		posL = ( topBarPosL + topBarSizeW ) - sizeW / 2.f;
 		posT = res.y * CEXPR_TBYRATIO;

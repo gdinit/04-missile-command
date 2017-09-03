@@ -113,26 +113,6 @@ constexpr bool	C_D_DFPS_CO { 0 };
 // WINDOW (hardcoded)
 const std::string	C_WIN_TITLETEXT { "Breakout" };
 
-// TODO: MOVE TO GAME  -- OBJECT SIZE RATIOS
-constexpr double	CEXPR_TBXRATIO { 0.10 };
-constexpr double	CEXPR_TBYRATIO { 0.15 };
-constexpr double	CEXPR_TBWRATIO { 0.78 };
-constexpr double	CEXPR_TBHRATIO { 0.06 };
-constexpr double	CEXPR_LBXRATIO { 0.10 };
-constexpr double	CEXPR_LBYRATIO { 0.15 };
-constexpr double	CEXPR_LBWRATIO { 0.4347826086956522 };
-constexpr double	CEXPR_LBHRATIO { 0.06 };
-constexpr double	CEXPR_RBXRATIO { 0.10 };
-constexpr double	CEXPR_RBYRATIO { 0.15 };
-constexpr double	CEXPR_RBWRATIO { 0.4347826086956522 };
-constexpr double	CEXPR_RBHRATIO { 0.06 };
-constexpr double	CEXPR_VBWRATIO { 23.0 };
-constexpr double	CEXPR_VBHRATIO { 1.347290640394089 };
-constexpr float		CEXPR_BRHRATIO { 0.02564102564102564f };
-constexpr float		CEXPR_BRPYRATIO { 0.3113553113553114f };
-constexpr float		CEXPR_BRWRATIO { 0.0461f };
-constexpr float		CEXPR_BRPXRATIO { 0.1293f };
-
 // BALL
 constexpr float		C_BALL_W { 7.f };
 constexpr float		C_BALL_H { 7.f };

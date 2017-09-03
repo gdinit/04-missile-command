@@ -14,7 +14,6 @@
 #include "utility.h"
 #include "make_unique.h"
 #include "game_objects.h"
-#include "ball.h"
 #include "arena.h"
 #include "hud.h"
 

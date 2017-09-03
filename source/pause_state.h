@@ -12,7 +12,6 @@
 // For centerOrigin
 #include "utility.h"
 #include "game_objects.h"
-#include "ball.h"
 #include "arena.h"
 #include "hud.h"
 
