@@ -15,7 +15,6 @@ PlayState::PlayState( StateMachine &machine
 {
 	// Reset to prevent instant-game-over next time
 	GLOBALS->returnToMainMenuRequested = 0;
-
 	initializeState();
 }
 

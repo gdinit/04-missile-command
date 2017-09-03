@@ -10,13 +10,14 @@
 #include "main_menu_state.h"
 #include "pause_state.h"
 #include "config.h"
-// For centerOrigin
+// Required for centerOrigin
 #include "utility.h"
 #include "make_unique.h"
 #include "game_objects.h"
 #include "ball.h"
 #include "arena.h"
 #include "hud.h"
+#include "3rd-party\json\v.2.1.1\json.hpp"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -29,12 +30,14 @@
 #include <SFML/Audio.hpp>
 
 // to in-line document
-// For std::unique_ptr
+// Required for std::unique_ptr
 #include <memory>
-// For debugging -- TODO REMOVE THIS
+// Required for debugging -- TODO REMOVE THIS
 #include <iostream>
-// For capturing last windowResizeEvent
+// Required for capturing last windowResizeEvent
 #include <chrono>
+// Required for JSON
+#include <fstream>
 
 class StateMachine;
 
