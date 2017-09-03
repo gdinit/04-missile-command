@@ -102,7 +102,7 @@ void MainMenuState::initializeState()
 	m_desiredAspectRatio = 640.f / 480.f;
 	#if defined DBG
 	std::cout << "[DEBUG]\tm_desiredAspectRatio is: \t" <<
-	m_desiredAspectRatio << " (" << m_myObjNameStr << ")\n";
+	m_desiredAspectRatio << " //" << m_myObjNameStr << "\n";
 	#endif
 
 	m_sCtxt.mustMainMenu = false;
