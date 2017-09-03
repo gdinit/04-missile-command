@@ -79,7 +79,7 @@ void Paddle::manageMovement( sf::Vector2f res, Direction dir, float leftBarRE
 	m_requestedMoveDistance.x = ( 0.f );
 	m_requestedMoveDistance.y = ( 0.f );
 
-	// TODO add a meaningful enum here
+	// TODO add a meaning ful enum here
 	switch ( dir ) {
 		case Direction::LEFT:
 			// move left requested. validate & action (if legal!)
