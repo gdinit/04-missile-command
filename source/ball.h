@@ -8,13 +8,13 @@
 #include "config.h"
 // For normalizing ballNewVel
 #include "utility.h"
-// For GLOBALS & SETTINGS (for now, till we move them to play_state)
+// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "make_unique.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-// For GLOBALS & SETTINGS (for now, till we move them to play_state)
+// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include <memory>
 // For object name
 #include <string>

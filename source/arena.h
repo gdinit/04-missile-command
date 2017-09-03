@@ -9,7 +9,7 @@
 #include "ball.h"
 #include "paddle.h"
 #include "play_area_bar.h"
-// For GLOBALS & SETTINGS (for now, till we move them to play_state)
+// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "make_unique.h"
 
 #include <SFML/Graphics.hpp>
