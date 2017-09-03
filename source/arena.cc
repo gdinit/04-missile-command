@@ -104,6 +104,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	topBar.newRound( res );
 	leftBar.newRound( res );
 	rightBar.newRound( res );
+	AAGAimPointer.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );
 	// ball.newRound( res );
