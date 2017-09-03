@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 set (CMAKE_CXX_STANDARD 11)
 
 project(04-missile-command)
-SET(PROJECT_STATIC_RUNTIME TRUE CACHE BOOL "Use statically linked standard/runtime libraries?")
+SET(PROJECT_STATIC_RUNTIME FALSE CACHE BOOL "Use statically linked standard/runtime libraries?")
+mark_as_advanced	(PROJECT_STATIC_RUNTIME)
 
 list(APPEND CMAKE_MODULE_PATH	"${PROJECT_SOURCE_DIR}/cmake/modules")
 find_package(SFML 2.4 COMPONENTS graphics audio window system network)
@@ -39,7 +40,6 @@ IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
-#SET(BUILD_SHARED_LIBRARIES OFF)
 SET(BUILD_SHARED_LIBRARIES ON)
 
 SET(CMAKE_RC_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE}")
@@ -99,6 +99,8 @@ if	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
 	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/extras/dependencies $<TARGET_FILE_DIR:${PROJECT_NAME}>/)
 	# copy ASSETS for Visual Studio so that debug run can find assets
 	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_SOURCE_DIR}/build/source/assets)
+	# copy DATA for Visual Studio so that debug run can find assets
+	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data ${CMAKE_SOURCE_DIR}/build/source/data)
 endif()
 
 ################################################################################
@@ -112,6 +114,8 @@ endif()
 #----------------------------------------
 # copy ASSETS
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets)
+# copy DATA
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:${PROJECT_NAME}>/data)
 # copy DOCUMENTATION
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/documentation $<TARGET_FILE_DIR:${PROJECT_NAME}>/documentation)
 #----------------------------------------
