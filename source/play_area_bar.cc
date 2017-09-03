@@ -30,6 +30,8 @@ constexpr float				CEXPR_BRHRATIO { 0.02564102564102564f };
 constexpr float				CEXPR_BRPYRATIO { 0.3113553113553114f };
 constexpr float				CEXPR_BRWRATIO { 0.0461f };
 constexpr float				CEXPR_BRPXRATIO { 0.1293f };
+// TODO rename or remove this
+constexpr float				C_BALL_H { 7.f };
 
 PlayAreaBar::PlayAreaBar()
 	: m_myObjNameStr( "Unnamed PlayAreaBar" )
