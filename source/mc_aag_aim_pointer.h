@@ -53,6 +53,9 @@ class AAGAimPointer : public sf::Transformable
 		virtual ~AAGAimPointer();
 		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
 		res );
+		void	update( sf::Time timeSinceLastUpdate
+		, sf::Vector2f r, Direction dir, float leftBarRE, float
+		rightBarLE );
 		void	draw( sf::RenderTarget &target
 		, sf::RenderStates states ) const;
 		void	newRound( sf::Vector2f res );

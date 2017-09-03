@@ -57,33 +57,47 @@ AAGAimPointer::~AAGAimPointer()
 	#endif
 }
 
-void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
+void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
+	, Direction dir, float leftBarRE, float rightBarLE )
 {
-	// calculate next step
-	sf::Vector2f	moveDistance;
-	moveDistance.x = ( m_velocity.x * m_defAAGPointerV ) *
-		timeSinceLastUpdate.asMilliseconds();
-	moveDistance.y = ( m_velocity.y * m_defAAGPointerV ) *
-		timeSinceLastUpdate.asMilliseconds();
+	/*
+	THESE ARE COMING FROM:
 
-	// 'normal' values go as low|high as N
-	float		CLAMPMAXVALPOS = 5.f;
-	float		CLAMPMAXVALNEG = -5.f;
-	// clamp X
-	if ( moveDistance.x > CLAMPMAXVALPOS ) {
-		moveDistance.x = CLAMPMAXVALPOS;
-	} else if ( moveDistance.x < CLAMPMAXVALNEG ) {
-		moveDistance.x = CLAMPMAXVALNEG;
-	}
-	// clamp Y
-	if ( moveDistance.y > CLAMPMAXVALPOS ) {
-		moveDistance.y = CLAMPMAXVALPOS;
-	} else if ( moveDistance.y < CLAMPMAXVALNEG ) {
-		moveDistance.y = CLAMPMAXVALNEG;
-	}
+	paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
+	, rightBar.getLeft() );
+	*/
 
-	// Now, we can move.
-	m_sprite.move( moveDistance );
+	// manageMovement( r, dir, leftBarRE, rightBarLE );
+	//
+	// #if defined DBG
+	// std::cout << "Paddle bottom: " << getBottom() << "\n";
+	// #endif
+
+	//// calculate next step
+	// sf::Vector2f	moveDistance;
+	// moveDistance.x = ( m_velocity.x * m_defAAGPointerV ) *
+	// timeSinceLastUpdate.asMilliseconds();
+	// moveDistance.y = ( m_velocity.y * m_defAAGPointerV ) *
+	// timeSinceLastUpdate.asMilliseconds();
+
+	//// 'normal' values go as low|high as N
+	// float		CLAMPMAXVALPOS = 5.f;
+	// float		CLAMPMAXVALNEG = -5.f;
+	//// clamp X
+	// if ( moveDistance.x > CLAMPMAXVALPOS ) {
+	// moveDistance.x = CLAMPMAXVALPOS;
+	// } else if ( moveDistance.x < CLAMPMAXVALNEG ) {
+	// moveDistance.x = CLAMPMAXVALNEG;
+	// }
+	//// clamp Y
+	// if ( moveDistance.y > CLAMPMAXVALPOS ) {
+	// moveDistance.y = CLAMPMAXVALPOS;
+	// } else if ( moveDistance.y < CLAMPMAXVALNEG ) {
+	// moveDistance.y = CLAMPMAXVALNEG;
+	// }
+
+	//// Now, we can move.
+	// m_sprite.move( moveDistance );
 }
 
 void AAGAimPointer::draw( sf::RenderTarget &target, sf::RenderStates states )
@@ -109,13 +123,11 @@ float AAGAimPointer::getY() const noexcept {
 }
 
 float AAGAimPointer::getTop() const noexcept {
-	return getY() - (
-		m_defAAGPointerH / 2.f );
+	return getY() - ( m_defAAGPointerH / 2.f );
 }
 
 float AAGAimPointer::getBottom() const noexcept {
-	return getY() + (
-		m_defAAGPointerH / 2.f );
+	return getY() + ( m_defAAGPointerH / 2.f );
 }
 
 float AAGAimPointer::getLeft() const noexcept {
