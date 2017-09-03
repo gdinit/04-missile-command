@@ -34,7 +34,9 @@ struct SharedContext
 	// Game
 	bool gameIsPaused = false;
 	bool mustMainMenu = false;
+	bool moveUpReqActive = false;
 	bool moveLeftReqActive = false;
+	bool moveDownReqActive = false;
 	bool moveRightReqActive = false;
 
 	// Window

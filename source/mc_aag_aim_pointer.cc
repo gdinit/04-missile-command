@@ -61,7 +61,9 @@ AAGAimPointer::~AAGAimPointer()
 }
 
 void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
-	, Direction dir, float leftBarRE, float rightBarLE )
+	, Direction dir, float topBarBE, float leftBarRE, float bottomBarTE
+	, float
+	rightBarLE )
 {
 	/*
 	THESE ARE COMING FROM:
@@ -70,7 +72,8 @@ void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 	, rightBar.getLeft() );
 	*/
 
-	// manageMovement( r, dir, leftBarRE, rightBarLE );
+	// TODO update this -- dir to be removed? to be extended?
+	manageMovement( r, dir, topBarBE, leftBarRE, bottomBarTE, rightBarLE );
 	//
 	// #if defined DBG
 	// std::cout << "Paddle bottom: " << getBottom() << "\n";
@@ -101,6 +104,76 @@ void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 
 	//// Now, we can move.
 	// m_sprite.move( moveDistance );
+}
+
+void AAGAimPointer::manageMovement( sf::Vector2f res, Direction dir
+	, float topBarBE, float leftBarRE, float bottomBarTE, float rightBarLE )
+{
+	// Notes:
+	// 1. maybe we will move, maybe we wont...
+	// 2. SinglePlayer game demo scene can have a computerControlled paddle
+	// 3. instructed by player or AI don't matter, in any case a request is
+	// passed or not
+	m_requestedMoveDistance.x = ( 0.f );
+	m_requestedMoveDistance.y = ( 0.f );
+
+	// TODO add a meaningful enum here
+	switch ( dir ) {
+		case Direction::UP:
+			// move up requested. validate & action (if legal!)
+			m_requestedMoveDistance.y = MC_AAGAIMPOINTER_MOVSTEP *
+				-1.f;
+			valAndActionMove( res, dir, topBarBE, leftBarRE
+			, bottomBarTE, rightBarLE );
+			break;
+		case Direction::LEFT:
+			// move left requested. validate & action (if legal!)
+			m_requestedMoveDistance.x = MC_AAGAIMPOINTER_MOVSTEP *
+				-1.f;
+			valAndActionMove( res, dir, topBarBE, leftBarRE
+			, bottomBarTE, rightBarLE );
+			break;
+		case Direction::DOWN:
+			// move up requested. validate & action (if legal!)
+			m_requestedMoveDistance.y = MC_AAGAIMPOINTER_MOVSTEP;
+			valAndActionMove( res, dir, topBarBE, leftBarRE
+			, bottomBarTE, rightBarLE );
+			break;
+		case Direction::RIGHT:
+			// move right requested. validate & action (if legal!)
+			m_requestedMoveDistance.x = MC_AAGAIMPOINTER_MOVSTEP;
+			valAndActionMove( res, dir, topBarBE, leftBarRE
+			, bottomBarTE, rightBarLE );
+			break;
+		case Direction::NONE:
+		default:
+			// no movement
+			break;
+	}
+}
+
+void AAGAimPointer::valAndActionMove( sf::Vector2f res, Direction dir, float
+	topBarBE, float leftBarRE, float bottomBarTE, float rightBarLE ) {
+	PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
+		   Direction::DOWN || dir == Direction::RIGHT )
+		, "dir can be LEFT or RIGHT!\n" );
+	if ( dir == Direction::UP ) {
+		if ( getTop() > topBarBE ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
+	} else if ( dir == Direction::LEFT ) {
+		if ( getLeft() > ( leftBarRE + m_defAAGPointerW ) ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
+	} else if ( dir == Direction::DOWN ) {
+		if ( getBottom() < bottomBarTE ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
+	} else if ( dir == Direction::RIGHT ) {
+		if ( getRight() < rightBarLE ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
+	}
 }
 
 void AAGAimPointer::draw( sf::RenderTarget &target, sf::RenderStates states )

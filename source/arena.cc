@@ -74,7 +74,8 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	// }
 	// paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
 	// , rightBar.getLeft() );
-	AAGAimPointer.update( timeSinceLastUpdate, res, dir, 1.f, 1.f );
+	AAGAimPointer.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
+		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	// ball.update( timeSinceLastUpdate, res );
 	// paintCells();
 	// colDetRespond();
@@ -84,6 +85,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	target. draw(	AAGAimPointer.m_sprite );
 	target. draw(	topBar.m_sprite );
 	target. draw(	leftBar.m_sprite );
+	target. draw(	bottomBar.m_sprite );
 	target. draw(	rightBar.m_sprite );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
@@ -103,6 +105,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	// m_tmpRes = res;
 	topBar.newRound( res );
 	leftBar.newRound( res );
+	bottomBar.newRound( res );
 	rightBar.newRound( res );
 	AAGAimPointer.newRound( res );
 	// createCells( res, level );

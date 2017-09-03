@@ -35,9 +35,11 @@ typedef wchar_t wchar;
 typedef std::string t_objectName;
 
 enum class Direction : std::int32_t {
-	LEFT = -1
-	, NONE = 0
-	, RIGHT = 1
+	NONE = 0
+	, UP = 1
+	, LEFT = 2
+	, DOWN = 3
+	, RIGHT = 4
 };
 
 #endif	// ESSENTIALS_H

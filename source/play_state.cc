@@ -34,9 +34,10 @@ void PlayState::initializeState()
 	#endif
 
 	// TODO FIX ME ********** restartStateClock();
-
 	m_systemResizeHourglass = 0;
+	m_sCtxt.moveUpReqActive = 0;
 	m_sCtxt.moveLeftReqActive = 0;
+	m_sCtxt.moveDownReqActive = 0;
 	m_sCtxt.moveRightReqActive = 0;
 
 	// TODO base these values on config variables
@@ -166,14 +167,33 @@ void PlayState::update()
 		// obtain current screen res - need to pass it to game objects
 		m_res = static_cast <sf::Vector2f>
 			( m_window.getSize() );
-
+		// TODO update for Missile Command -- add 8 directions?
 		// obtain requested moveDirection - need to pass it to paddle
-		if ( m_sCtxt.moveLeftReqActive &&
-		     !m_sCtxt.moveRightReqActive ) {
+		// Up
+		if ( m_sCtxt.moveUpReqActive
+		     && !m_sCtxt.moveLeftReqActive
+		     && !m_sCtxt.moveDownReqActive
+		     && !m_sCtxt.moveRightReqActive ) {
+			m_moveDirection = Direction::UP;
+			// Left
+		} else if ( m_sCtxt.moveLeftReqActive
+			    && !m_sCtxt.moveUpReqActive
+			    && !m_sCtxt.moveDownReqActive
+			    && !m_sCtxt.moveRightReqActive ) {
 			m_moveDirection = Direction::LEFT;
-		} else if ( !m_sCtxt.moveLeftReqActive &&
-			    m_sCtxt.moveRightReqActive ) {
+			// Down
+		} else if ( m_sCtxt.moveDownReqActive
+			    && !m_sCtxt.moveUpReqActive
+			    && !m_sCtxt.moveLeftReqActive
+			    && !m_sCtxt.moveRightReqActive ) {
+			m_moveDirection = Direction::DOWN;
+			// Right
+		} else if ( m_sCtxt.moveRightReqActive
+			    && !m_sCtxt.moveUpReqActive
+			    && !m_sCtxt.moveLeftReqActive
+			    && !m_sCtxt.moveDownReqActive ) {
 			m_moveDirection = Direction::RIGHT;
+			// None
 		} else {
 			m_moveDirection = Direction::NONE;
 		}
@@ -335,9 +355,19 @@ void PlayState::processEvents()
 								m_sCtxt
 								, true );
 						break;
+					case sf::Keyboard::Up:
+					case sf::Keyboard::W:
+						m_sCtxt.moveUpReqActive
+							= true;
+						break;
 					case sf::Keyboard::Left:
 					case sf::Keyboard::A:
 						m_sCtxt.moveLeftReqActive
+							= true;
+						break;
+					case sf::Keyboard::Down:
+					case sf::Keyboard::S:
+						m_sCtxt.moveDownReqActive
 							= true;
 						break;
 					case sf::Keyboard::Right:
@@ -362,10 +392,20 @@ void PlayState::processEvents()
 				break;
 			case sf::Event::KeyReleased:
 				switch ( evt.key.code ) {
+					case sf::Keyboard::Up:
+					case sf::Keyboard::W:
+						m_sCtxt.moveUpReqActive
+							= false;
+						break;
 					case sf::Keyboard::Left:
 					case sf::Keyboard::A:
 						m_sCtxt.moveLeftReqActive =
 							false;
+						break;
+					case sf::Keyboard::Down:
+					case sf::Keyboard::S:
+						m_sCtxt.moveDownReqActive
+							= false;
 						break;
 					case sf::Keyboard::Right:
 					case sf::Keyboard::D:

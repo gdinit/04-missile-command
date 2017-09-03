@@ -17,6 +17,7 @@ constexpr double			CEXPR_TBHRATIO { 0.00398406374501992 };
 constexpr double			CEXPR_LBXRATIO { 0.10 };
 constexpr double			CEXPR_LBYRATIO { 0.15 };
 constexpr double			CEXPR_LBHRATIO { 0.06 };
+constexpr double			CEXPR_BBYRATIO { 0.92 };
 constexpr double			CEXPR_RBXRATIO { 0.10 };
 constexpr double			CEXPR_RBYRATIO { 0.15 };
 constexpr double			CEXPR_RBWRATIO { 0.4347826086956522 };
@@ -96,6 +97,22 @@ void PlayAreaBar::newRound( sf::Vector2f res ) {
 		posL = topBarPosL - ( sizeW / 2.f );
 		posT = res.y * CEXPR_TBYRATIO;
 		sizeH = res.y / CEXPR_VBHRATIO;
+	} else if ( m_myObjNameStr == "bottomBar" ) {
+		// m_width = sizeW;
+		// posL = topBarPosL;
+		// posT = res.y * CEXPR_BBYRATIO;
+		// sizeH = res.y * CEXPR_TBHRATIO;
+		posL = topBarPosL;
+		// posT = res.y * CEXPR_TBYRATIO;
+		posT = res.y * CEXPR_BBYRATIO;
+		sizeW = topBarSizeW;
+		m_width = sizeW;
+		sizeH = res.y * CEXPR_TBHRATIO;
+		#if defined DBG
+		std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
+		"\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
+		m_myObjNameStr << "\n";
+		#endif
 	} else if ( m_myObjNameStr == "rightBar" ) {
 		sizeW = res.x * CEXPR_VBWRATIO;
 		m_width = sizeW;

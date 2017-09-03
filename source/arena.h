@@ -57,9 +57,9 @@ class Arena : public sf::Transformable, public sf::Drawable
 		sf::SoundBuffer		m_sndbfColPaddle;
 		sf::Sound		m_soundColPaddle;
 		AAGAimPointer		AAGAimPointer;
-		// AAGAimPointer		AAGAimPointer = { 100, 100 };
 		PlayAreaBar		topBar = { "topBar" };
 		PlayAreaBar		leftBar = { "leftBar" };
+		PlayAreaBar		bottomBar = { "bottomBar" };
 		PlayAreaBar		rightBar = { "rightBar" };
 };
 

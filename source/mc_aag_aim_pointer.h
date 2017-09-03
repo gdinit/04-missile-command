@@ -53,12 +53,24 @@ class AAGAimPointer : public sf::Transformable
 		virtual ~AAGAimPointer();
 		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
 		res );
+		// void	update( sf::Time timeSinceLastUpdate
+		// , sf::Vector2f r, Direction dir, float leftBarRE, float
+		// rightBarLE );
 		void	update( sf::Time timeSinceLastUpdate
-		, sf::Vector2f r, Direction dir, float leftBarRE, float
-		rightBarLE );
+		, sf::Vector2f r, Direction dir, float topBarBE
+		, float leftBarRE, float bottomBarTE, float rightBarLE );
+
 		void	draw( sf::RenderTarget &target
 		, sf::RenderStates states ) const;
 		void	newRound( sf::Vector2f res );
+		// void	manageMovement( sf::Vector2f res, Direction dir
+		// , float leftBarRE, float rightBarLE );
+		void	manageMovement( sf::Vector2f res, Direction dir, float
+		topBarBE, float leftBarRE, float bottomBarTE, float
+		rightBarLE );
+		void	valAndActionMove( sf::Vector2f res, Direction dir, float
+		topBarBE, float leftBarRE, float bottomBarTE, float
+		rightBarLE );
 		float	getX()       const noexcept;
 		float	getY()       const noexcept;
 		float	getTop()     const noexcept;
@@ -79,6 +91,7 @@ class AAGAimPointer : public sf::Transformable
 		float			m_defAAGPointerW = -888;
 		float			m_defAAGPointerV = -888;
 		float			m_defAAGPointerH = -888;
+		sf::Vector2f		m_requestedMoveDistance;
 };
 
 #endif	// MC_AAG_AIM_POINTER_H
