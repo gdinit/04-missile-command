@@ -113,6 +113,9 @@ void City::newRound( sf::Vector2f res ) {
 	m_sprite.setTextureRect( sf::IntRect( posL, posT, sizeW, sizeH ) );
 	m_sprite.setPosition( posL, posT );
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
 }
 
 float City::getX() const noexcept { return m_sprite.getPosition().x; }

@@ -84,8 +84,6 @@ class AAGAimPointer : public sf::Transformable
 
 	private:
 		const t_objectName	m_myObjNameStr;
-		float			m_resX = -1;
-		float			m_resY = -1;
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
@@ -93,6 +91,7 @@ class AAGAimPointer : public sf::Transformable
 		float			m_defAAGPointerV = -888;
 		float			m_defAAGPointerH = -888;
 		sf::Vector2f		m_requestedMoveDistance;
+		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
 #endif	// MC_AAG_AIM_POINTER_H

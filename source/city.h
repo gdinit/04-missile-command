@@ -50,6 +50,7 @@ class City : public sf::Transformable
 		sf::Texture		m_texture;
 		sf::Vector2f		m_position;
 		float			m_width;
+		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
 #endif	// CITY_H

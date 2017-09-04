@@ -5,8 +5,6 @@
 
 AAGAimPointer::AAGAimPointer()
 	: m_myObjNameStr( "AAGAimPointer" )
-	, m_resX( -6666 )
-	, m_resY( -6666 )
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
@@ -48,7 +46,7 @@ AAGAimPointer::AAGAimPointer()
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
 	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_defAAGPointerW / 2.f );
 	// m_sprite.setPosition( 0, 0 );
-	m_sprite.setPosition( m_resX / 2, m_resY / 2 );
+	m_sprite.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
 	m_velocity.x = 0.f;
 	m_velocity.y = 0.f;
 }
@@ -189,6 +187,9 @@ void AAGAimPointer::newRound( sf::Vector2f res ) {
 	// place the object for new round -- ball goes to the centre
 	// m_sprite.setPosition( res.x / 2.f, res.y * 0.75f );
 	m_sprite.setPosition( res.x / 2.f, res.y / 2.f );
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
 }
 
 float AAGAimPointer::getX() const noexcept {
