@@ -23,4 +23,4 @@ Please refer to "documentation/".
 
 License
 -------
-See the additional LICENSE file, under "documentation/".
+Please refer to "documentation/".
