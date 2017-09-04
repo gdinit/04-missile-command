@@ -7,6 +7,7 @@
 #include "essentials.h"
 #include "config.h"
 #include "play_area_bar.h"
+#include "city.h"
 #include "mc_aag_aim_pointer.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "make_unique.h"
@@ -61,6 +62,9 @@ class Arena : public sf::Transformable, public sf::Drawable
 		PlayAreaBar		leftBar = { "leftBar" };
 		PlayAreaBar		bottomBar = { "bottomBar" };
 		PlayAreaBar		rightBar = { "rightBar" };
+		City			leftCity = { "leftCity" };
+		City			middleCity = { "middleCity" };
+		City			rightCity = { "rightCity" };
 };
 
 #endif	// ARENA_H

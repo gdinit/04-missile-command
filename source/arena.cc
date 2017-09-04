@@ -87,6 +87,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	target. draw(	leftBar.m_sprite );
 	target. draw(	bottomBar.m_sprite );
 	target. draw(	rightBar.m_sprite );
+	target. draw(	leftCity.m_sprite );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
 	// if ( m_cDetDB [ n ].HP > 0 && m_cDetDB [ n ].visible &&
@@ -108,6 +109,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	bottomBar.newRound( res );
 	rightBar.newRound( res );
 	AAGAimPointer.newRound( res );
+	leftCity.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );
 	// ball.newRound( res );

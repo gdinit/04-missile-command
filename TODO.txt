@@ -5,8 +5,8 @@
 
 //  THINGS TO ADD ==============================================================
 // Objects -----------------------------
-AAG Aim Pointer
 Background terrain
+AAG Aim Pointer
 AAG (Anti-aircraft Gun) (blue)
 AAG firing lane (blue line)
 Enemy Missile (white dots)
