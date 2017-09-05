@@ -56,7 +56,7 @@ void Application::createWindow()
 	int32		w = 0, h = 0;
 	h = C_WIN_H;
 	w = C_WIN_W;
-	if ( C_WIN_FULLSCREEN ) {
+	if ( CONST_WIN_FULLSCREEN ) {
 		// use:	fixed-res & fullscreen
 		#if defined DBG
 		std::cout << "[DEBUG]\tFixed Resolution"
@@ -65,7 +65,7 @@ void Application::createWindow()
 		#endif
 		m_window.create( sf::VideoMode( w, h
 				, desktopVM.bitsPerPixel )
-			, C_WIN_TITLETEXT
+			, CONST_GAME_NAME
 			, sf::Style::Fullscreen );
 	} else {
 		// use:	fixed-res & windowed (no fullscreen)
@@ -76,7 +76,7 @@ void Application::createWindow()
 		#endif
 		m_window.create( sf::VideoMode( w, h
 				, desktopVM.bitsPerPixel )
-			, C_WIN_TITLETEXT
+			, CONST_GAME_NAME
 			, sf::Style::Default );
 	}
 	m_engineSharedContext.view.setSize( w, h );

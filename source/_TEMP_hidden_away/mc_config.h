@@ -105,7 +105,7 @@ constexpr int32	CONFIG_COLUMNS = { 16 };
 // SOFT SETTINGS (INITIAL CONFIG ONLY) -- THEN USE FROM SETTINGS.JSON //////////
 ////////////////////////////////////////////////////////////////////////////////
 // WINDOW
-constexpr bool	C_WIN_FULLSCREEN { 0 };
+constexpr bool	CONST_WIN_FULLSCREEN { 0 };
 // constexpr int32	C_WIN_W = { 640 };
 // constexpr int32	C_WIN_H = { 480 };
 constexpr int32	C_WIN_W = { 320 };
