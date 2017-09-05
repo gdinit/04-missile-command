@@ -59,41 +59,6 @@ void PlayState::initializeState()
 	m_statisticsText.setFillColor( sf::Color::White );
 	updateDebugOverlayTextIfEnabled( true );
 
-	// PREGAME ANIMATION STUFF
-	// TODO place this in a function
-	restartPregameAnimationClock();
-	// TODO takeback this TEMP change: turning animation off to speed up dev
-	// m_sCtxt.preGameAnimationNeeded = 1;
-	m_sCtxt.preGameAnimationNeeded = 0;
-	// anim stage 1
-	m_preGameAnimationStep1Text.setFont( m_font );
-	m_preGameAnimationStep1Text.setCharacterSize( 60u );
-	m_preGameAnimationStep1Text.setFillColor( sf::Color::White );
-	m_preGameAnimationStep1Text.setString( "3" );
-	centerOrigin( m_preGameAnimationStep1Text );
-	m_preGameAnimationStep1Text.setPosition( C_PGA_POS_X, C_PGA_POS_Y );
-	// anim stage 2
-	m_preGameAnimationStep2Text.setFont( m_font );
-	m_preGameAnimationStep2Text.setCharacterSize( 60u );
-	m_preGameAnimationStep2Text.setFillColor( sf::Color::White );
-	m_preGameAnimationStep2Text.setString( "2" );
-	centerOrigin( m_preGameAnimationStep2Text );
-	m_preGameAnimationStep2Text.setPosition( C_PGA_POS_X, C_PGA_POS_Y );
-	// anim stage 3
-	m_preGameAnimationStep3Text.setFont( m_font );
-	m_preGameAnimationStep3Text.setCharacterSize( 60u );
-	m_preGameAnimationStep3Text.setFillColor( sf::Color::White );
-	m_preGameAnimationStep3Text.setString( "1" );
-	centerOrigin( m_preGameAnimationStep3Text );
-	m_preGameAnimationStep3Text.setPosition( C_PGA_POS_X, C_PGA_POS_Y );
-	// anim stage 4
-	m_preGameAnimationStep4Text.setFont( m_font );
-	m_preGameAnimationStep4Text.setCharacterSize( 60u );
-	m_preGameAnimationStep4Text.setFillColor( sf::Color::White );
-	m_preGameAnimationStep4Text.setString( "Go!" );
-	centerOrigin( m_preGameAnimationStep4Text );
-	m_preGameAnimationStep4Text.setPosition( C_PGA_POS_X, C_PGA_POS_Y );
-
 	// SOUNDS
 	// TODO place this in a function
 	if ( !m_sbClicked.loadFromFile(
@@ -197,12 +162,9 @@ void PlayState::update()
 		} else {
 			m_moveDirection = Direction::NONE;
 		}
-		// update other game objects only if animation is not playing
-		if ( !m_sCtxt.preGameAnimationNeeded ) {
-			arena.update( m_elapsedTime, m_res, m_moveDirection );
-			// why update HUD separately? process it with arena?
-			hud.update( m_elapsedTime );
-		}
+		arena.update( m_elapsedTime, m_res, m_moveDirection );
+		// why update HUD separately? process it with arena?
+		hud.update( m_elapsedTime );
 		if ( m_sCtxt.mustMainMenu == true ) {
 			// go to main menu immediately (all lives lost)
 			m_next = StateMachine::build <MainMenuState> (
@@ -254,11 +216,6 @@ void PlayState::draw()
 	arena.draw( m_window, sf::RenderStates::Default );
 	hud.draw( m_window, sf::RenderStates::Default );
 
-	// Conditional draws & display.
-	if ( m_sCtxt.preGameAnimationNeeded &&
-	     !m_sCtxt.gameIsPaused ) {
-		drawPreGameAnimation();
-	}
 	if ( !m_sCtxt.gameIsPaused && SETTINGS->inGameOverlay ) {
 		m_window.draw( m_statisticsText );
 	}
@@ -424,70 +381,6 @@ void PlayState::processEvents()
 
 void PlayState::onResize()
 {
-}
-
-// Animation Stuff
-void PlayState::restartPregameAnimationClock()
-{
-	m_animationClock.restart();
-	m_animationAge = m_animationClock.restart();
-	// std::cout << "m_animationClock.restart() triggered!\t\tm_animationAge
-	// is:" << m_animationAge << "\n";	// TODO REMOVE THIS
-}
-
-float PlayState::getPreGameAnimationAgeAsSeconds()
-{
-	sf::Time	tmp = sf::Time::Zero;
-
-	tmp = m_animationClock.getElapsedTime();
-	float		val = tmp.asSeconds();
-
-	return val;
-}
-
-void PlayState::drawPreGameAnimation()
-{
-	// Each step to be displayed for 1 second:
-	// preGameAnimationStep1Needed	"3"
-	// preGameAnimationStep2Needed	"2"
-	// preGameAnimationStep3Needed	"1"
-	// preGameAnimationStep4Needed	"Go!"
-	if ( getPreGameAnimationAgeAsSeconds() <= C_PGA_SD * 1 ) {
-		m_sCtxt.preGameAnimationRunning = true;
-		m_window.draw( m_preGameAnimationStep1Text );
-		if ( m_sCtxt.preGameAnimationStep1SFXNeeded ) {
-			m_sBlip2.play();
-			m_sCtxt.preGameAnimationStep1SFXNeeded = false;
-		}
-	} else if ( getPreGameAnimationAgeAsSeconds() <= C_PGA_SD * 2 ) {
-		m_window.draw( m_preGameAnimationStep2Text );
-		if ( m_sCtxt.preGameAnimationStep2SFXNeeded ) {
-			m_sBlip2.play();
-			m_sCtxt.preGameAnimationStep2SFXNeeded = false;
-		}
-	} else if ( getPreGameAnimationAgeAsSeconds() <= C_PGA_SD * 3 ) {
-		m_window.draw( m_preGameAnimationStep3Text );
-		if ( m_sCtxt.preGameAnimationStep3SFXNeeded ) {
-			m_sBlip2.play();
-			m_sCtxt.preGameAnimationStep3SFXNeeded = false;
-		}
-		// } else if ( getPreGameAnimationAgeAsSeconds() <= C_PGA_SD * 4
-		// ) {
-	} else if ( getPreGameAnimationAgeAsSeconds() < C_PGA_SD * 4 ) {
-		m_sCtxt.preGameAnimationRunning = false;
-		m_window.draw( m_preGameAnimationStep4Text );
-		if ( m_sCtxt.preGameAnimationStep4SFXNeeded ) {
-			m_sBlip2.play();
-			m_sCtxt.preGameAnimationStep4SFXNeeded = false;
-		}
-	} else if ( getPreGameAnimationAgeAsSeconds() >= C_PGA_SD * 5 ) {
-		m_sCtxt.preGameAnimationNeeded = false;
-		// clear 'SFXNeeded's
-		m_sCtxt.preGameAnimationStep1SFXNeeded = true;
-		m_sCtxt.preGameAnimationStep2SFXNeeded = true;
-		m_sCtxt.preGameAnimationStep3SFXNeeded = true;
-		m_sCtxt.preGameAnimationStep4SFXNeeded = true;
-	}
 }
 
 // ===================================80 chars==================================
