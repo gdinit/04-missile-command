@@ -4,7 +4,6 @@
 #include "en_play_state.h"
 
 // TODO delete these?
-// TODO reenable these without breaking engine separation
 extern std::unique_ptr <Settings>	SETTINGS;
 extern std::unique_ptr <Globals>	GLOBALS;
 
@@ -15,7 +14,6 @@ PlayState::PlayState( StateMachine &machine
 	: State{ machine, window, context, replace }
 	, m_myObjNameStr( "PlayState" )
 {
-	TODO reenable these without breaking engine separation
 	// Reset to prevent instant-game-over next time
 	GLOBALS->returnToMainMenuRequested = 0;
 	initializeState();
@@ -89,7 +87,9 @@ void PlayState::initializeState()
 	// only level 1 is implemented so far
 	m_engineSharedContext.gameLevel = 1;
 	arena.newRound( m_res, m_engineSharedContext.gameLevel );
-	hud.newRound( m_res );
+
+	// TODO fix me
+	// hud.newRound( m_res );
 
 	// TODO delete this?	GLOBALS->arenaNewRoundRequested = true;
 
@@ -113,9 +113,8 @@ void PlayState::update()
 	} else {
 	}
 
-	// if returning from pause(), let's jump in time to prevent slow
-	catchup
-	// process
+	// if returning from pause(), let's jump in time to prevent
+	// slow catchup process
 	if ( m_justResumed ) {
 		m_timeSinceLastUpdate = TimePerFrame;
 	}
@@ -169,7 +168,8 @@ void PlayState::update()
 		}
 		arena.update( m_elapsedTime, m_res, m_moveDirection );
 		// why update HUD separately? process it with arena?
-		hud.update( m_elapsedTime );
+		// todo fix me
+		// hud.update( m_elapsedTime );
 		if ( m_engineSharedContext.mustMainMenu == true ) {
 			// TODO rename to allLivesLost. 'go to main menu
 			// immediately (dead)'
@@ -221,7 +221,9 @@ void PlayState::draw()
 	m_window.setView( m_engineSharedContext.view );
 
 	arena.draw( m_window, sf::RenderStates::Default );
-	hud.draw( m_window, sf::RenderStates::Default );
+
+	// todo fixme
+	// hud.draw( m_window, sf::RenderStates::Default );
 
 	if ( !m_engineSharedContext.gameIsPaused && SETTINGS->inGameOverlay ) {
 		m_window.draw( m_statisticsText );
@@ -369,16 +371,6 @@ void PlayState::processEvents()
 						break;
 				}
 				break;
-				TODO reenable these without breaking engine
-					separation
-			////
-			////
-			////
-			////
-			////
-			////
-			////
-			////
 			case sf::Event::KeyReleased:
 				switch ( evt.key.code ) {
 					case sf::Keyboard::Up:

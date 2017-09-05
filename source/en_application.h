@@ -8,7 +8,7 @@
 #include "en_shared_context.h"
 #include "en_defines.h"
 #include "en_intro_state.h"
-// TODO remove this #include "mc_globals.h"
+#include "en_globals.h"
 // TODO remove this #include "mc_config.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>

@@ -3,8 +3,10 @@
 
 #include "en_application.h"
 
-// TODO remove this extern std::unique_ptr <Settings>	SETTINGS;
-// TODO remove this extern std::unique_ptr <Globals>	GLOBALS;
+// TODO remove this
+extern std::unique_ptr <Settings>	SETTINGS;
+// TODO remove this
+extern std::unique_ptr <Globals>	GLOBALS;
 
 Application::Application()
 	: m_myObjNameStr( "Application" )
@@ -91,9 +93,9 @@ void Application::createWindow()
 void Application::loadSettings()
 {
 	// TODO move this somewhere in Game
-	// SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
-	// SETTINGS->debugPrintToConsole = C_D_CO;
-	// SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
+	SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
+	SETTINGS->debugPrintToConsole = C_D_CO;
+	SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
 }
 
 void Application::run()

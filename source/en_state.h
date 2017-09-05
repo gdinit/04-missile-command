@@ -10,7 +10,7 @@
 //// make configuration values to all derived classes
 // TODO remove this #include "mc_config.h"
 //// forward declare Settings struct
-// TODO remove this #include "mc_globals.h"
+#include "en_globals.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
@@ -30,7 +30,8 @@
 // For round()
 #include <cmath>
 
-// TODO remove this extern std::unique_ptr <Settings> SETTINGS;
+// TODO remove this
+extern std::unique_ptr <Settings> SETTINGS;
 
 sf::View getLetterboxView( sf::View view, int windowWidth, int windowHeight );
 

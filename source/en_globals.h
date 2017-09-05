@@ -1,8 +1,8 @@
-/* mc_globals.h */
+/* en_globals.h */
 // ===================================80 chars==================================
 
-#ifndef MC_GLOBALS_H
-#define MC_GLOBALS_H
+#ifndef EN_GLOBALS_H
+#define EN_GLOBALS_H
 
 #include "en_essentials.h"
 
@@ -29,7 +29,7 @@ struct Globals {
 	bool returnToMainMenuRequested = 0;
 };
 
-#endif	// MC_GLOBALS_H
+#endif	// EN_GLOBALS_H
 
 // ===================================80 chars==================================
 /* EOF */

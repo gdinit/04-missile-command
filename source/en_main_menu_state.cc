@@ -75,10 +75,11 @@ void MainMenuState::draw()
 {
 	m_window.clear();
 
-	m_window.setView( m_engineSharedContext.view );
-	if ( SETTINGS->inGameOverlay ) {
-		m_window.draw( m_statisticsText );
-	}
+	// TODO fix this (fast tracking during engine/game separation)
+	// m_window.setView( m_engineSharedContext.view );
+	// if ( SETTINGS->inGameOverlay ) {
+	// m_window.draw( m_statisticsText );
+	// }
 	m_window.	draw(	m_sprPlay );
 	m_window.	draw(	m_textPlay );
 	m_window.	draw(	m_sprCredits );
@@ -107,8 +108,9 @@ void MainMenuState::initializeState()
 	#endif
 
 	m_engineSharedContext.mustMainMenu = false;
-	m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
-	m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
+	// TODO fix this (fast tracking during engine/game separation)
+	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
+	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
 
 	m_urgentUpdateNeeded = 10;
 
@@ -128,13 +130,13 @@ void MainMenuState::initializeState()
 
 	// PlayMenuButton ======================
 	m_sprPlay.setTexture( m_textureWhite );
-	m_sprPlay.setTextureRect( sf::IntRect( 0, 0, C_MENU_BOX_WIDTH
-			, C_MENU_BOX_HEIGHT ) );
-	m_sprPlay.setOrigin( C_MENU_BOX_WIDTH / 2.f
-		, C_MENU_BOX_HEIGHT / 2.f );
+	m_sprPlay.setTextureRect( sf::IntRect( 0, 0, CONST_MENU_BOX_WIDTH
+			, CONST_MENU_BOX_HEIGHT ) );
+	m_sprPlay.setOrigin( CONST_MENU_BOX_WIDTH / 2.f
+		, CONST_MENU_BOX_HEIGHT / 2.f );
 	m_sprPlay.setPosition( ( m_engineSharedContext.view.getSize().x / 2 )
 		, ( m_engineSharedContext.view.getSize().y *
-		    C_MENU_BUTTON_1 ) );
+		    CONST_MENU_BUTTON_1 ) );
 	m_sprPlayNeedSFX = true;
 	m_sprPlayButtonHot = false;
 	m_fontPlayText.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -146,18 +148,18 @@ void MainMenuState::initializeState()
 	m_textPlay.setPosition( ( m_engineSharedContext.view.getSize().x / 2
 				  )
 		, ( m_engineSharedContext.view.getSize().y *
-		    C_MENU_BUTTON_1 ) );
+		    CONST_MENU_BUTTON_1 ) );
 	// =====================================
 
 	// CreditsMenuButton ===================
 	m_sprCredits.setTexture( m_textureWhite );
-	m_sprCredits.setTextureRect( sf::IntRect( 0, 0, C_MENU_BOX_WIDTH
-			, C_MENU_BOX_HEIGHT ) );
-	m_sprCredits.setOrigin( C_MENU_BOX_WIDTH / 2.f
-		, C_MENU_BOX_HEIGHT / 2.f );
+	m_sprCredits.setTextureRect( sf::IntRect( 0, 0, CONST_MENU_BOX_WIDTH
+			, CONST_MENU_BOX_HEIGHT ) );
+	m_sprCredits.setOrigin( CONST_MENU_BOX_WIDTH / 2.f
+		, CONST_MENU_BOX_HEIGHT / 2.f );
 	m_sprCredits.setPosition( ( m_engineSharedContext.view.getSize().x / 2 )
 		, ( m_engineSharedContext.view.getSize().y *
-		    C_MENU_BUTTON_2 ) );
+		    CONST_MENU_BUTTON_2 ) );
 	m_sprCreditsNeedSFX = true;
 	m_sprCreditsButtonHot = false;
 	m_fontCreditsText.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -169,18 +171,18 @@ void MainMenuState::initializeState()
 	m_textCredits.setPosition( ( m_engineSharedContext.view.getSize().x /
 				     2 )
 		, ( m_engineSharedContext.view.getSize().y *
-		    C_MENU_BUTTON_2 ) );
+		    CONST_MENU_BUTTON_2 ) );
 	// =====================================
 
 	// QuitMenuButton ======================
 	m_sprQuit.setTexture( m_textureWhite );
-	m_sprQuit.setTextureRect( sf::IntRect( 0, 0, C_MENU_BOX_WIDTH
-			, C_MENU_BOX_HEIGHT ) );
-	m_sprQuit.setOrigin( C_MENU_BOX_WIDTH / 2.f
-		, C_MENU_BOX_HEIGHT / 2.f );
+	m_sprQuit.setTextureRect( sf::IntRect( 0, 0, CONST_MENU_BOX_WIDTH
+			, CONST_MENU_BOX_HEIGHT ) );
+	m_sprQuit.setOrigin( CONST_MENU_BOX_WIDTH / 2.f
+		, CONST_MENU_BOX_HEIGHT / 2.f );
 	m_sprQuit.setPosition( ( m_engineSharedContext.view.getSize().x / 2 )
 		, ( m_engineSharedContext.view.getSize().y *
-		    C_MENU_BUTTON_3 ) );
+		    CONST_MENU_BUTTON_3 ) );
 	m_sprQuitNeedSFX = true;
 	m_sprQuitButtonHot = false;
 	m_fontQuitText.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -192,7 +194,7 @@ void MainMenuState::initializeState()
 	m_textQuit.setPosition( ( m_engineSharedContext.view.getSize().x / 2
 				  )
 		, ( m_engineSharedContext.view.getSize().y *
-		    C_MENU_BUTTON_3 ) );
+		    CONST_MENU_BUTTON_3 ) );
 	// =====================================
 }
 
@@ -239,7 +241,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 			( m_engineSharedContext.view.getSize().x / 2
 			)
 			, ( m_engineSharedContext.view.getSize().y *
-			    C_MENU_BUTTON_1 ) );
+			    CONST_MENU_BUTTON_1 ) );
 		m_sprPlayButtonHot = true;
 		if ( m_sprPlayNeedSFX ) {
 			m_sMouseOver.play();
@@ -254,7 +256,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 			( m_engineSharedContext.view.getSize().x / 2
 			)
 			, ( m_engineSharedContext.view.getSize().y *
-			    C_MENU_BUTTON_1 ) );
+			    CONST_MENU_BUTTON_1 ) );
 	}
 	// End MenuButton: Play ====================
 
@@ -274,7 +276,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 		m_textCredits.setPosition(
 			( m_engineSharedContext.view.getSize().x / 2 )
 			, ( m_engineSharedContext.view.getSize().y *
-			    C_MENU_BUTTON_2 ) );
+			    CONST_MENU_BUTTON_3 ) );
 		m_sprCreditsButtonHot = true;
 		if ( m_sprCreditsNeedSFX ) {
 			m_sMouseOver.play();
@@ -288,7 +290,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 		m_textCredits.setPosition(
 			( m_engineSharedContext.view.getSize().x / 2 )
 			, ( m_engineSharedContext.view.getSize().y *
-			    C_MENU_BUTTON_2 ) );
+			    CONST_MENU_BUTTON_3 ) );
 	}
 	// End MenuButton: Credits ====================
 
@@ -308,7 +310,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 		m_textQuit.setPosition( (
 				m_engineSharedContext.view.getSize().x / 2 )
 			, ( m_engineSharedContext.view.getSize().y *
-			    C_MENU_BUTTON_3 ) );
+			    CONST_MENU_BUTTON_3 ) );
 		m_sprQuitButtonHot = true;
 		if ( m_sprQuitNeedSFX ) {
 			m_sMouseOver.play();
@@ -323,7 +325,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 			( m_engineSharedContext.view.getSize().x / 2
 			)
 			, ( m_engineSharedContext.view.getSize().y *
-			    C_MENU_BUTTON_3 ) );
+			    CONST_MENU_BUTTON_3 ) );
 	}
 	// End MenuButton: Quit ====================
 }
@@ -347,8 +349,6 @@ void MainMenuState::processEvents()
 						, evt.size.width
 						, evt.size.height );
 				break;
-				TODO reenable these without breaking engine
-					separation
 			case sf::Event::MouseButtonPressed:
 				if ( m_sprPlayButtonHot ) {
 					// we will be destroyed soon but

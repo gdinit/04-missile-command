@@ -236,10 +236,11 @@ void PauseState::draw()
 	m_window.	draw(	m_textPressToContinue );
 	m_window.	draw(	m_textPressToContinueLine2 );
 
-	// statsText
-	if ( SETTINGS->inGameOverlay ) {
-		m_window.draw( m_statisticsText );
-	}
+	// TODO fix this (fast tracking during engine/game separation)
+	//// statsText
+	// if ( SETTINGS->inGameOverlay ) {
+	// m_window.draw( m_statisticsText );
+	// }
 
 	m_window.display();
 }

@@ -4,10 +4,13 @@
 #ifndef  MC_HUD_H
 #define  MC_HUD_H
 
+// TODO fixme
+#define C_LIVES 5
+
 #include "en_essentials.h"
 #include "mc_config.h"
 // Required for HUD Text
-#include "mc_globals.h"
+#include "en_globals.h"
 // Required for centerOrigin
 #include "en_utility.h"
 

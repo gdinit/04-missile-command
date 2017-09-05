@@ -6,6 +6,7 @@
 
 #include "en_essentials.h"
 #include "mc_config.h"
+#include "en_globals.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>

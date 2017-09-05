@@ -4,7 +4,7 @@
 #include "en_arena.h"
 
 // Required for lives etc.	TOOD remove this global
-extern std::unique_ptr <Globals> GLOBALS;
+// extern std::unique_ptr <Globals> GLOBALS;
 
 // For ImpactZone debug cout
 template<typename T>
@@ -76,31 +76,6 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	// , rightBar.getLeft() );
 	AAGAimPointer.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
-	// ball.update( timeSinceLastUpdate, res );
-	// paintCells();
-	// colDetRespond();
-}
-
-void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
-	dir ) {
-	//// Hourglass decrements
-	// if ( m_hgPaddle > 0 ) {
-	// --m_hgPaddle;
-	// }
-	// if ( m_hgTopBar > 0 ) {
-	// --m_hgTopBar;
-	// }
-	// if ( m_hgLeftBar > 0 ) {
-	// --m_hgLeftBar;
-	// }
-	// if ( m_hgRightBar > 0 ) {
-	// --m_hgRightBar;
-	// }
-	// paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
-	// , rightBar.getLeft() );
-	// AAGAimPointer.update( timeSinceLastUpdate, res, dir,
-	// topBar.getBottom()
-	// , leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	// ball.update( timeSinceLastUpdate, res );
 	// paintCells();
 	// colDetRespond();

@@ -22,6 +22,16 @@ struct EngineSharedContext
 	// Game Run State
 	bool gameIsPaused = false;
 
+	// Game
+	bool mustMainMenu = false;
+	bool moveUpReqActive = false;
+	bool moveLeftReqActive = false;
+	bool moveDownReqActive = false;
+	bool moveRightReqActive = false;
+	int32 currentScore = -9999;
+	int32 livesLeft = -9999;
+	int32 gameLevel = -9999;
+
 	// Time Stuff
 	std::chrono::steady_clock::time_point tIntroFirstLaunchTime;
 

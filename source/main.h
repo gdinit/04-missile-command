@@ -6,7 +6,7 @@
 
 /// ============== CONFIGURE ME ==============
 // ENABLE THE NEXT LINE *AFTER* MODIFYING IT TO SUIT YOUR GAME
-#include "ga_game_defines.h"
+// #include "ga_game_defines.h"
 /// ============== CONFIGURE ME ==============
 
 /// ============== DO NOT TOUCH ==============

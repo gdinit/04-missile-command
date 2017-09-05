@@ -12,12 +12,6 @@
 
 struct GameSharedContext
 {
-	// Game
-	bool mustMainMenu = false;
-	bool moveUpReqActive = false;
-	bool moveLeftReqActive = false;
-	bool moveDownReqActive = false;
-	bool moveRightReqActive = false;
 	// Window
 	// TODO: Change this
 	// For now we only save a pointer & access it via a pointer.
@@ -29,9 +23,6 @@ struct GameSharedContext
 	float m_resy = 0.f;
 	// bool windowHasFocus = false;
 	// HUD Data
-	int32 currentScore = -9999;
-	int32 livesLeft = -9999;
-	int32 gameLevel = -9999;
 };
 
 #endif	// GA_SHARED_CONTEXT_H

@@ -4,6 +4,10 @@
 #ifndef MC_AAG_AIM_POINTER_H
 #define MC_AAG_AIM_POINTER_H
 
+// TODO move to JSON
+#define MC_AAGAIMPOINTER_MOVSTEP 7.9f
+#define MC_AAGAIMPOINTER_W 60.f
+
 #include "en_essentials.h"
 #include "mc_config.h"
 //// For normalization

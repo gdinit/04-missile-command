@@ -13,7 +13,8 @@
 // Required for centerOrigin
 #include "en_utility.h"
 #include "en_make_unique.h"
-// TODO remove this #include "mc_game_objects.h"
+// TODO remove this
+#include "mc_game_objects.h"
 #include "en_arena.h"
 // TODO remove this #include "mc_hud.h"
 
@@ -61,8 +62,7 @@ class PlayState : public State
 
 	private:
 		const t_objectName	m_myObjNameStr;
-		// TODO reenable these without breaking engine separation
-		// Arena			arena;
+		Arena			arena;
 		// TODO remove this Hud			hud;
 		sf::Vector2f		m_res;
 
