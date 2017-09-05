@@ -1,8 +1,8 @@
-/* city.h */
+/* mc_city.h */
 // ===================================80 chars==================================
 
-#ifndef CITY_H
-#define CITY_H
+#ifndef MC_CITY_H
+#define MC_CITY_H
 
 #include "essentials.h"
 #include "config.h"
@@ -48,7 +48,7 @@ class City : public sf::Transformable
 		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
-#endif	// CITY_H
+#endif	// MC_CITY_H
 
 // ===================================80 chars==================================
 /* EOF */

@@ -1,7 +1,7 @@
-/* play_area_bar.cc */
+/* mc_play_area_bar.cc */
 // ===================================80 chars==================================
 
-#include "play_area_bar.h"
+#include "mc_play_area_bar.h"
 
 extern std::unique_ptr <Settings>	SETTINGS;
 extern std::unique_ptr <Globals>	GLOBALS;

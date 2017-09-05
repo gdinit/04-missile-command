@@ -1,7 +1,7 @@
-/* city.cc */
+/* mc_city.cc */
 // ===================================80 chars==================================
 
-#include "city.h"
+#include "mc_city.h"
 
 City::City()
 	: m_myObjNameStr( "Unnamed City" )

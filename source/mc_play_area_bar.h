@@ -1,8 +1,8 @@
-/* play_area_bar.h */
+/* mc_play_area_bar.h */
 // ===================================80 chars==================================
 
-#ifndef PLAY_AREA_BAR_H
-#define PLAY_AREA_BAR_H
+#ifndef MC_PLAY_AREA_BAR_H
+#define MC_PLAY_AREA_BAR_H
 
 #include "essentials.h"
 #include "config.h"
@@ -52,7 +52,7 @@ class PlayAreaBar : public sf::Transformable
 		float			m_width;
 };
 
-#endif	// PLAY_AREA_BAR_H
+#endif	// MC_PLAY_AREA_BAR_H
 
 // ===================================80 chars==================================
 /* EOF */

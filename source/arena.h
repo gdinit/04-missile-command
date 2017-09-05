@@ -6,8 +6,8 @@
 
 #include "essentials.h"
 #include "config.h"
-#include "play_area_bar.h"
-#include "city.h"
+#include "mc_play_area_bar.h"
+#include "mc_city.h"
 #include "mc_aag_aim_pointer.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "make_unique.h"
