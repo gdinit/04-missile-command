@@ -5,7 +5,7 @@
 #define EN_STATE_H
 
 #include "en_essentials.h"
-#include "shared_context.h"
+#include "mc_shared_context.h"
 // make configuration values to all derived classes
 #include "config.h"
 // forward declare Settings struct

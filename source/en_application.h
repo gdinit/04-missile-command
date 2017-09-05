@@ -5,7 +5,7 @@
 #define EN_APPLICATION_H
 
 #include "en_essentials.h"
-#include "shared_context.h"
+#include "mc_shared_context.h"
 #include "en_intro_state.h"
 #include "mc_globals.h"
 #include "config.h"

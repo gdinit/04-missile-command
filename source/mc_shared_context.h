@@ -1,30 +1,11 @@
-/* shared_context.h */
+/* mc_shared_context.h */
 // ===================================80 chars==================================
 
 // This struct stores some data and makes it accessible to all game states.
 // It is instantiated in Application() & passed to each GameState as &ref.
 
-// IDEAS
-// sf::RenderWindow window = {{396, 400}, "One Room",
-// sf::Style::Titlebar | sf::Style::Close, sf::ContextSettings{0, 0,
-// 8}};
-// thor::ResourceHolder<sf::Texture, std::string> textures;
-// thor::ResourceHolder<sf::Font, std::string> fonts;
-// thor::ResourceHolder<sf::SoundBuffer, std::string> sounds;
-// sf::Music track_one;
-// thor::ActionMap<std::string> actionmap;
-// std::shared_ptr<Screen> current_room = nullptr;
-// const std::vector<int> lock_combination = {1, 0, 3};
-// const std::vector<int> pin_combination = {3, 2, 7, 6};
-// const std::string password = "NSA4u";
-// bool key = false;
-// bool combination = false;
-// bool login = false;
-// bool briefcase = false;
-// bool win = false;
-
-#ifndef SHARED_CONTEXT_H
-#define SHARED_CONTEXT_H
+#ifndef MC_SHARED_CONTEXT_H
+#define MC_SHARED_CONTEXT_H
 
 #include "arena.h"
 #include "mc_hud.h"
@@ -65,7 +46,7 @@ struct SharedContext
 	std::chrono::steady_clock::time_point tIntroFirstLaunchTime;
 };
 
-#endif	// SHARED_CONTEXT_H
+#endif	// MC_SHARED_CONTEXT_H
 
 // ===================================80 chars==================================
 /* EOF */
