@@ -1,8 +1,8 @@
-/* game_objects.h */
+/* mc_game_objects.h */
 // ===================================80 chars==================================
 
-#ifndef GAME_OBJECTS_H
-#define GAME_OBJECTS_H
+#ifndef MC_GAME_OBJECTS_H
+#define MC_GAME_OBJECTS_H
 
 #include "en_essentials.h"
 #include "make_unique.h"
@@ -11,7 +11,7 @@
 // For std::unique_ptr
 #include <memory>
 
-#endif	// GAME_OBJECTS_H
+#endif	// MC_GAME_OBJECTS_H
 
 // ===================================80 chars==================================
 /* EOF */

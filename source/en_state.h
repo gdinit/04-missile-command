@@ -1,8 +1,8 @@
-/* state.h */
+/* en_state.h */
 // ===================================80 chars==================================
 
-#ifndef STATE_H
-#define STATE_H
+#ifndef EN_STATE_H
+#define EN_STATE_H
 
 #include "en_essentials.h"
 #include "shared_context.h"
@@ -96,7 +96,7 @@ class State
 		sf::View			m_worldView;
 };
 
-#endif	// STATE_H
+#endif	// EN_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */

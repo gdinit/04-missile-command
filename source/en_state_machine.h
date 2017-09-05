@@ -1,11 +1,11 @@
 /* state_machine.h */
 // ===================================80 chars==================================
 
-#ifndef STATE_MACHINE_H
-#define STATE_MACHINE_H
+#ifndef EN_STATE_MACHINE_H
+#define EN_STATE_MACHINE_H
 
 #include "en_essentials.h"
-#include "state.h"
+#include "en_state.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
@@ -68,7 +68,7 @@ std::unique_ptr <T> StateMachine::build( StateMachine &machine
 			, replace ) );
 }
 
-#endif	// STATE_MACHINE_H
+#endif	// EN_STATE_MACHINE_H
 
 // ===================================80 chars==================================
 /* EOF */

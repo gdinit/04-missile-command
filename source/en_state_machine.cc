@@ -1,7 +1,7 @@
-/* state_machine.cc */
+/* en_state_machine.cc */
 // ===================================80 chars==================================
 
-#include "state_machine.h"
+#include "en_state_machine.h"
 
 StateMachine::StateMachine()
 	: m_resume{ false }

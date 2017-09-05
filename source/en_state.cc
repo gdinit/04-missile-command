@@ -1,7 +1,7 @@
-/* state.cc */
+/* en_state.cc */
 // ===================================80 chars==================================
 
-#include "state.h"
+#include "en_state.h"
 
 const sf::Time State::TimePerFrame =
 	sf::seconds( 1.f / C_DESIRED_FPS_FLOAT );

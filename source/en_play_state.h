@@ -5,15 +5,15 @@
 #define EN_PLAY_STATE_H
 
 #include "en_essentials.h"
-#include "state.h"
-#include "state_machine.h"
+#include "en_state.h"
+#include "en_state_machine.h"
 #include "main_menu_state.h"
 #include "en_pause_state.h"
 #include "config.h"
 // Required for centerOrigin
 #include "utility.h"
 #include "make_unique.h"
-#include "game_objects.h"
+#include "mc_game_objects.h"
 #include "arena.h"
 #include "mc_hud.h"
 
