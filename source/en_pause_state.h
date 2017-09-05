@@ -1,8 +1,8 @@
-/* pause_state.h */
+/* en_pause_state.h */
 // ===================================80 chars==================================
 
-#ifndef PAUSE_STATE_H
-#define PAUSE_STATE_H
+#ifndef EN_PAUSE_STATE_H
+#define EN_PAUSE_STATE_H
 
 #include "en_essentials.h"
 #include "state.h"
@@ -73,7 +73,7 @@ class PauseState : public State
 		sf::Sound		m_sClicked;
 };
 
-#endif	// PAUSE_STATE_H
+#endif// EN_PAUSE_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */

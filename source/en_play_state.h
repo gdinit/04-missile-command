@@ -8,7 +8,7 @@
 #include "state.h"
 #include "state_machine.h"
 #include "main_menu_state.h"
-#include "pause_state.h"
+#include "en_pause_state.h"
 #include "config.h"
 // Required for centerOrigin
 #include "utility.h"
@@ -88,7 +88,7 @@ class PlayState : public State
 		int32			m_systemResizeHourglass;
 };
 
-#endif// EN_PLAY_STATE_H
+#endif	// EN_PLAY_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */

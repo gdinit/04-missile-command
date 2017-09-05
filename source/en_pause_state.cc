@@ -1,7 +1,7 @@
-/* pause_state.cc */
+/* en_pause_state.cc */
 // ===================================80 chars==================================
 
-#include "pause_state.h"
+#include "en_pause_state.h"
 
 PauseState::PauseState( StateMachine &machine
 	, sf::RenderWindow &window
