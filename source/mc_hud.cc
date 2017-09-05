@@ -1,7 +1,7 @@
-/* hud.cc */
+/* mc_hud.cc */
 // ===================================80 chars==================================
 
-#include "hud.h"
+#include "mc_hud.h"
 
 // Required for HUD Text	TOOD remove this global
 extern std::unique_ptr <Globals> GLOBALS;

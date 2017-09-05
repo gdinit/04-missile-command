@@ -15,7 +15,7 @@
 #include "make_unique.h"
 #include "game_objects.h"
 #include "arena.h"
-#include "hud.h"
+#include "mc_hud.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>

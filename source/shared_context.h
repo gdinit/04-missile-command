@@ -27,7 +27,7 @@
 #define SHARED_CONTEXT_H
 
 #include "arena.h"
-#include "hud.h"
+#include "mc_hud.h"
 
 struct SharedContext
 {
@@ -56,18 +56,6 @@ struct SharedContext
 	int32 currentScore = -9999;
 	int32 livesLeft = -9999;
 	int32 gameLevel = -9999;
-
-	// Animation Stuff
-	bool preGameAnimationNeeded = true;
-	bool preGameAnimationRunning = false;
-	bool preGameAnimationStep1Needed = true;
-	bool preGameAnimationStep2Needed = true;
-	bool preGameAnimationStep3Needed = true;
-	bool preGameAnimationStep4Needed = true;
-	bool preGameAnimationStep1SFXNeeded = true;
-	bool preGameAnimationStep2SFXNeeded = true;
-	bool preGameAnimationStep3SFXNeeded = true;
-	bool preGameAnimationStep4SFXNeeded = true;
 
 	// Sound Stuff
 	bool reqSndPlyFromPlay = 0;
