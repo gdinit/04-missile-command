@@ -1,8 +1,8 @@
-/* play_state.h */
+/* en_play_state.h */
 // ===================================80 chars==================================
 
-#ifndef PLAY_STATE_H
-#define PLAY_STATE_H
+#ifndef EN_PLAY_STATE_H
+#define EN_PLAY_STATE_H
 
 #include "en_essentials.h"
 #include "state.h"
@@ -88,7 +88,7 @@ class PlayState : public State
 		int32			m_systemResizeHourglass;
 };
 
-#endif	// PLAY_STATE_H
+#endif// EN_PLAY_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */

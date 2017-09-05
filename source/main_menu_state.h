@@ -10,7 +10,7 @@
 #include "config.h"
 // For centerOrigin
 #include "utility.h"
-#include "play_state.h"
+#include "en_play_state.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>

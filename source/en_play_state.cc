@@ -1,7 +1,7 @@
-/* play_state.cc */
+/* en_play_state.cc */
 // ===================================80 chars==================================
 
-#include "play_state.h"
+#include "en_play_state.h"
 
 extern std::unique_ptr <Settings>	SETTINGS;
 extern std::unique_ptr <Globals>	GLOBALS;

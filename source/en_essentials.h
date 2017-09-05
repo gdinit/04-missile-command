@@ -1,8 +1,8 @@
 /* en_essentials.h */
 // ===================================80 chars==================================
 
-#ifndef ESSENTIALS_H
-#define ESSENTIALS_H
+#ifndef EN_ESSENTIALS_H
+#define EN_ESSENTIALS_H
 
 #include <cstdint>
 #include <chrono>
@@ -42,7 +42,7 @@ enum class Direction : std::int32_t {
 	, RIGHT = 4
 };
 
-#endif	// ESSENTIALS_H
+#endif	// EN_ESSENTIALS_H
 
 // ===================================80 chars==================================
 /* EOF */
