@@ -8,7 +8,7 @@
 #include "en_state.h"
 #include "en_state_machine.h"
 #include "config.h"
-#include "globals.h"
+#include "mc_globals.h"
 // For centerOrigin
 #include "utility.h"
 #include "mc_game_objects.h"

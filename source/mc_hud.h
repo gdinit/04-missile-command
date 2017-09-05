@@ -7,7 +7,7 @@
 #include "en_essentials.h"
 #include "config.h"
 // Required for HUD Text
-#include "globals.h"
+#include "mc_globals.h"
 // Required for centerOrigin
 #include "utility.h"
 

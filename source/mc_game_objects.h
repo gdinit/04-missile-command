@@ -6,7 +6,7 @@
 
 #include "en_essentials.h"
 #include "make_unique.h"
-#include "globals.h"
+#include "mc_globals.h"
 
 // For std::unique_ptr
 #include <memory>

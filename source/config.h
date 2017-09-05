@@ -5,7 +5,7 @@
 #define C_H
 
 #include "en_essentials.h"
-#include "globals.h"
+#include "mc_globals.h"
 
 // For window_title etc.
 #include <string>

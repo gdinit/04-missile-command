@@ -9,7 +9,7 @@
 // make configuration values to all derived classes
 #include "config.h"
 // forward declare Settings struct
-#include "globals.h"
+#include "mc_globals.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>

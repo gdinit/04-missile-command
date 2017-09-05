@@ -7,7 +7,7 @@
 #include "en_essentials.h"
 #include "shared_context.h"
 #include "en_intro_state.h"
-#include "globals.h"
+#include "mc_globals.h"
 #include "config.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
