@@ -1,14 +1,6 @@
 /* en_pause_state.cc */
 // ===================================80 chars==================================
 
-////////////////////////////////////////////////////////////////////////////////
-// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE
-// (BLACK BOX)  STATE.
-//
-// ALL COMMENTS & BLOCKED OUT CODE HAS BEEN REMOVED.
-// ACTUAL CONTENTS MOVED TO GAME FILE.
-////////////////////////////////////////////////////////////////////////////////
-
 #include "en_pause_state.h"
 
 PauseState::PauseState( StateMachine &machine
@@ -19,12 +11,26 @@ PauseState::PauseState( StateMachine &machine
 		"PauseState" )
 {
 	m_engineSharedContext.gameIsPaused = true;
+
+	// #if defined DBG
+	// std::cout << "[DEBUG]\tm_engineSharedContext.gameIsPaused is now: "
+	// <<
+	// m_engineSharedContext.gameIsPaused << "\t" << m_myObjNameStr << "\n";
+	// #endif
+
 	initializeState();
 }
 
 PauseState::~PauseState()
 {
 	m_engineSharedContext.gameIsPaused = false;
+
+	// #if defined DBG
+	// std::cout << "[DEBUG]\tm_engineSharedContext.gameIsPaused is now: "
+	// <<
+	// m_engineSharedContext.gameIsPaused << "\t" << m_myObjNameStr << "\n";
+	// #endif
+
 	#if defined DBG
 	std::cout << "[DEBUG]\tDestructed state:\t" << m_myObjNameStr << "\n";
 	#endif
@@ -39,16 +45,31 @@ void PauseState::initializeState()
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated state:\t\t" << m_myObjNameStr << "\n";
 	#endif
+
 	restartStateClock();
+
+	// resize stuff here
 	m_systemResizeHourglass = 0;
+	// TODO base these values on config variables
 	m_desiredAspectRatio = 640.f / 480.f;
+	// #if defined DBG
+	// std::cout << "[DEBUG]\tm_desiredAspectRatio is: \t" <<
+	// m_desiredAspectRatio << " (" << m_myObjNameStr << ")\n";
+	// #endif
+
 	m_urgentUpdateNeeded = 10;
+
+	// debug overlay font settings
 	m_font.loadFromFile( "assets/fonts/sansation.ttf" );
 	m_statisticsText.setFont( m_font );
 	m_statisticsText.setPosition( 5.f, 5.f );
 	m_statisticsText.setCharacterSize( 12u );
 	m_statisticsText.setFillColor( sf::Color::White );
+	// give me stats in the first frame,
+	// but first make up some plausible values
 	updateDebugOverlayTextIfEnabled( true );
+
+	// PressToContinue Text Line 1
 	m_fontPressToContinue.loadFromFile( "assets/fonts/sansation.ttf" );
 	m_textPressToContinue.setFont( m_fontPressToContinue );
 	m_textPressToContinue.setCharacterSize( 48u );
@@ -58,6 +79,8 @@ void PauseState::initializeState()
 	m_textPressToContinue.setPosition(
 		( m_engineSharedContext.view.getSize().x / 2 )
 		, ( m_engineSharedContext.view.getSize().y / 2 ) );
+
+	// PressToContinue Text Line 2
 	m_fontPressToContinueLine2.loadFromFile( "assets/fonts/sansation.ttf" );
 	m_textPressToContinueLine2.setFont( m_fontPressToContinue );
 	m_textPressToContinueLine2.setCharacterSize( 15u );
@@ -68,10 +91,14 @@ void PauseState::initializeState()
 	m_textPressToContinueLine2.setPosition(
 		( m_engineSharedContext.view.getSize().x / 2 )
 		, ( ( m_engineSharedContext.view.getSize().y / 2 ) + 50 ) );
+
+	// SOUNDS
 	if ( !m_sbClicked.loadFromFile(
 		     "assets/sounds/button_clicked2.wav" ) ) {
 	}
 	m_sClicked.setBuffer( m_sbClicked );
+
+	// if there is a pending play sound request, play it
 	if ( m_engineSharedContext.reqSndPlyFromPause ) {
 		m_engineSharedContext.reqSndPlyFromPause = 0;
 		m_sClicked.play();
@@ -91,18 +118,42 @@ void PauseState::update()
 {
 	sf::Time m_elapsedTime = m_clock.restart();
 	m_timeSinceLastUpdate += m_elapsedTime;
+
+	// resize stuff here
 	if ( m_systemResizeHourglass > 0 ) {
 		--m_systemResizeHourglass;
+		// report
+		// std::cout	<<
+		// "[DEBUG]\tm_systemResizeHourglass was >0\t"
+		// << "was=" << ( m_systemResizeHourglass + 1 )
+		// << "now=" << m_systemResizeHourglass << " ("
+		// << m_myObjNameStr << ")\n";
 	} else {
+		// hit else
+		//// report
+		// std::cout	<<
+		// "[DEBUG]\tm_systemResizeHourglass hit else\t"
+		// << "now=" << m_systemResizeHourglass << " ("
+		// << m_myObjNameStr << ")\n";
 	}
 
 	while ( m_timeSinceLastUpdate > State::TimePerFrame ) {
 		m_timeSinceLastUpdate -= State::TimePerFrame;
 
 		processEvents();
+
+		// a PausedState MUST not update!
+		// m_engineSharedContext.pArena->update( m_elapsedTime );
+		// m_engineSharedContext.pHud->update( m_elapsedTime );
+
+		// update statistics for the debug overlay
 		m_statisticsUpdateTime += m_elapsedTime;
 		m_statisticsNumFrames += 1;
+		// update statsText only once a second
+		// however, if just entered this state (i.e.: this is the 2nd
+		// updateStats), then immediately update
 		if ( m_urgentUpdateNeeded > 0 ) {
+			// update now!
 			--m_urgentUpdateNeeded;
 			updateDebugOverlayTextIfEnabled();
 			printConsoleDebugIfEnabled();
@@ -110,6 +161,8 @@ void PauseState::update()
 		}
 		if ( m_statisticsUpdateTime >= sf::seconds( 1.0f ) ) {
 			if ( m_statisticsNumFrames <= 1 ) {
+				// if we're playing catchup, don't bother with
+				// debugOverlayText
 				break;
 			}
 
@@ -121,19 +174,24 @@ void PauseState::update()
 			m_statisticsUpdateTime -= sf::seconds( 1.0f );
 			m_statisticsNumFrames = 0;
 		}
+		// common->update( m_elapsedTime );
 	}
 }
 
 void PauseState::processEvents()
 {
+	// fetch events
 	sf::Event evt;
 
+	// process events
 	while ( m_window.pollEvent( evt ) ) {
 		switch ( evt.type ) {
 			case sf::Event::Closed:
 				m_machine.quit();
 				break;
+			// resize stuff here
 			case sf::Event::Resized:
+				// onResize();
 				m_engineSharedContext.view = getLetterboxView(
 						m_engineSharedContext.view
 						, evt.size.width
@@ -173,6 +231,17 @@ void PauseState::processEvents()
 
 void PauseState::draw()
 {
+	// TODO reenable these without breaking engine separation
+	//// PlayState has already clear()'d the screen & drawn its objects,
+	//// now it's our turn to draw our objects on top.
+	// m_window.	draw(	m_textPressToContinue );
+	// m_window.	draw(	m_textPressToContinueLine2 );
+
+	//// statsText
+	// if ( SETTINGS->inGameOverlay ) {
+	// m_window.draw( m_statisticsText );
+	// }
+
 	m_window.display();
 }
 
