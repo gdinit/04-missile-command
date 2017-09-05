@@ -7,7 +7,7 @@
 #include "en_essentials.h"
 #include "config.h"
 //// For normalization
-// #include "utility.h"
+// #include "en_utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 // #include "en_make_unique.h"
 // ================= BEGIN: Production Assert Handling =================

@@ -9,7 +9,7 @@
 #include "en_state_machine.h"
 #include "config.h"
 // For centerOrigin
-#include "utility.h"
+#include "en_utility.h"
 #include "en_play_state.h"
 
 #include <SFML/Graphics/Sprite.hpp>

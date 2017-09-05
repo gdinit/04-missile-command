@@ -7,7 +7,7 @@
 #ifndef MC_SHARED_CONTEXT_H
 #define MC_SHARED_CONTEXT_H
 
-#include "arena.h"
+#include "en_arena.h"
 #include "mc_hud.h"
 
 struct SharedContext

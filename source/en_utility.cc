@@ -1,7 +1,7 @@
-/* utility.cc */
+/* en_utility.cc */
 // ===================================80 chars==================================
 
-#include "utility.h"
+#include "en_utility.h"
 
 void centerOrigin( sf::Text &text )
 {

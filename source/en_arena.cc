@@ -1,7 +1,7 @@
-/* arena.cc */
+/* en_arena.cc */
 // ===================================80 chars==================================
 
-#include "arena.h"
+#include "en_arena.h"
 
 // Required for lives etc.	TOOD remove this global
 extern std::unique_ptr <Globals> GLOBALS;

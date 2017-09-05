@@ -11,10 +11,10 @@
 #include "en_pause_state.h"
 #include "config.h"
 // Required for centerOrigin
-#include "utility.h"
+#include "en_utility.h"
 #include "en_make_unique.h"
 #include "mc_game_objects.h"
-#include "arena.h"
+#include "en_arena.h"
 #include "mc_hud.h"
 
 #include <SFML/Graphics/Sprite.hpp>
