@@ -1,7 +1,7 @@
-/* intro_state.cc */
+/* en_intro_state.cc */
 // ===================================80 chars==================================
 
-#include "intro_state.h"
+#include "en_intro_state.h"
 
 IntroState::IntroState( StateMachine &machine
 	, sf::RenderWindow &window

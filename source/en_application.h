@@ -6,7 +6,7 @@
 
 #include "en_essentials.h"
 #include "shared_context.h"
-#include "intro_state.h"
+#include "en_intro_state.h"
 #include "globals.h"
 #include "config.h"
 

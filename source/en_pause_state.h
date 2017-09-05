@@ -73,7 +73,7 @@ class PauseState : public State
 		sf::Sound		m_sClicked;
 };
 
-#endif// EN_PAUSE_STATE_H
+#endif	// EN_PAUSE_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */

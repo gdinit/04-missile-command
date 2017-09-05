@@ -1,8 +1,8 @@
-/* intro_state.h */
+/* en_intro_state.h */
 // ===================================80 chars==================================
 
-#ifndef INTRO_STATE_H
-#define INTRO_STATE_H
+#ifndef EN_INTRO_STATE_H
+#define EN_INTRO_STATE_H
 
 #include "en_essentials.h"
 #include "state.h"
@@ -64,7 +64,7 @@ class IntroState : public State
 		int			m_systemResizeHourglass;
 };
 
-#endif	// INTRO_STATE_H
+#endif	// EN_INTRO_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */
