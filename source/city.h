@@ -6,20 +6,15 @@
 
 #include "essentials.h"
 #include "config.h"
+#include "mc_constants.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
-#include <memory>
 // For object name
 #include <string>
 // TOOD: remove this debug line
 #include <iostream>
-// Required for RNG
-#include <random>
-// Required for RNG
-#include <chrono>
 
 class City : public sf::Transformable
 	   , public sf::Drawable
