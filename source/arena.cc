@@ -82,12 +82,16 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
+	/*
 	target. draw(	AAGAimPointer.m_sprite );
 	target. draw(	topBar.m_sprite );
 	target. draw(	leftBar.m_sprite );
 	target. draw(	bottomBar.m_sprite );
 	target. draw(	rightBar.m_sprite );
-	target. draw(	leftCity.m_sprite );
+	target. draw(	leftCity.m_sprite, sf::RenderStates::Default );
+	*/
+	leftCity.draw(target, sf::RenderStates::Default);
+	middleCity.draw(target, sf::RenderStates::Default);
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
 	// if ( m_cDetDB [ n ].HP > 0 && m_cDetDB [ n ].visible &&
@@ -110,6 +114,8 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	rightBar.newRound( res );
 	AAGAimPointer.newRound( res );
 	leftCity.newRound( res );
+	middleCity.newRound( res );
+	rightCity.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );
 	// ball.newRound( res );

@@ -41,6 +41,26 @@ City::City()
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
 	#endif
+
+	// // SET UP SPRITE
+	// m_sprite.setTexture( m_texture );
+	// m_sprite.setTextureRect( sf::IntRect( 0, 0, m_defAAGPointerW
+	// 		, m_defAAGPointerH ) );
+	// m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
+	// m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_defAAGPointerW / 2.f );
+	// // m_sprite.setPosition( 0, 0 );
+	// m_sprite.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+	// m_velocity.x = 0.f;
+	// m_velocity.y = 0.f;
+
+	// SET UP SPRITE
+	#if defined DBG
+	std::cout << "[DEBUG]\tSetting up sprite as: " << m_myObjNameStr 
+	<< "\n";
+	#endif
+	// m_sprite.setTextureRect( sf::IntRect( 0, 0, 45, 26 ) );
+	// m_sprite.setPosition( 0, 0 );
+	// m_sprite.setColor( sf::Color( 120, 104, 112 ) );
 }
 
 // TODO	color also should be passed while creating
@@ -64,12 +84,17 @@ void City::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
 {
 }
 
+// called as:
+// 	leftCity.draw(target, sf::RenderStates::Default);
 void City::draw( sf::RenderTarget &target, sf::RenderStates
 	states ) const {
 	target.draw( m_sprite );
 
 	// TODO REMOVE THIS DEBUG COUT
-	std::cout << "hit city draw\n";
+	#if defined DBG
+	std::cout << "[DEBUG]\thit city draw\tquery result\tposX: " << getX() << "\tposY: " 
+	<< getY() << "\t//" << m_myObjNameStr << "\n";
+	#endif
 }
 
 void City::newRound( sf::Vector2f res ) {
@@ -77,42 +102,47 @@ void City::newRound( sf::Vector2f res ) {
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
 	"newRound() has been triggered.\tres:" << res.x << "," << res.y << "\n";
 	#endif
-	int32	posL = 100;
-	int32	posT = 100;
-	int32	sizeW = 45;
-	int32	sizeH = 26;
+	// int32	posL = 100;
+	// int32	posT = 100;
+	// int32	sizeW = 45;
+	// int32	sizeH = 26;
 	if ( m_myObjNameStr == "leftCity" ) {
-		m_width = sizeW;
-		#if defined DBG
-		std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
-		"\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
-		m_myObjNameStr << "\n";
-		#endif
+		m_texture.loadFromFile( "assets/textures/45x26_city.png" );
+		m_sprite.setTexture( m_texture );
+		m_sprite.setPosition( res.x/2, res.y/2 );
 	} else if ( m_myObjNameStr == "middleCity" ) {
-		m_width = sizeW;
-		#if defined DBG
-		std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
-		"\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
-		m_myObjNameStr << "\n";
-		#endif
-	} else if ( m_myObjNameStr == "rightCity" ) {
-		m_width = sizeW;
-		#if defined DBG
-		std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
-		"\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
-		m_myObjNameStr << "\n";
-		#endif
+		m_texture.loadFromFile( "assets/textures/45x26_city.png" );
+		m_sprite.setTexture( m_texture );
+		m_sprite.setPosition( res.x/2 + 80, res.y/2 + 50 );
 	}
-	#if defined DBG
-	std::cout << "[DEBUG]\tCalculated position as: " << posL << "," <<
-	posT << "\n" <<	"[DEBUG]\tCalculated " << m_myObjNameStr <<
-	" size as: " << sizeW << "," << sizeH << "\n";
-	#endif
-	m_texture.loadFromFile( "assets/textures/45x26_city.png" );
-	m_sprite.setTexture( m_texture );
-	m_sprite.setTextureRect( sf::IntRect( posL, posT, sizeW, sizeH ) );
-	m_sprite.setPosition( posL, posT );
-	m_sprite.setColor( sf::Color( 120, 104, 112 ) );
+
+		// m_width = sizeW;
+		// #if defined DBG
+		// std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
+		// "\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
+		// m_myObjNameStr << "\n";
+		// #endif
+	// } else if ( m_myObjNameStr == "middleCity" ) {
+	// 	m_width = sizeW;
+	// 	#if defined DBG
+	// 	std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
+	// 	"\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
+	// 	m_myObjNameStr << "\n";
+	// 	#endif
+	// } else if ( m_myObjNameStr == "rightCity" ) {
+	// 	m_width = sizeW;
+	// 	#if defined DBG
+	// 	std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
+	// 	"\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "// " <<
+	// 	m_myObjNameStr << "\n";
+	// 	#endif
+	// }
+	// #if defined DBG
+	// std::cout << "[DEBUG]\tCalculated position as: " << posL << "," <<
+	// posT << "\n" <<	"[DEBUG]\tCalculated " << m_myObjNameStr <<
+	// " size as: " << sizeW << "," << sizeH << "\n";
+	// #endif
+
 	// save for future use
 	m_windowSize.x = res.x;
 	m_windowSize.y = res.y;
