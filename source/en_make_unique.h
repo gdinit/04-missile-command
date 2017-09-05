@@ -1,8 +1,8 @@
-/* make_unique.h */
+/* en_make_unique.h */
 // ===================================80 chars==================================
 
-#ifndef MAKE_UNIQUE_H
-#define MAKE_UNIQUE_H
+#ifndef EN_MAKE_UNIQUE_H
+#define EN_MAKE_UNIQUE_H
 
 #if __cplusplus == 201103L
 
@@ -47,7 +47,7 @@ namespace std
 
 #endif	// __cplusplus == 201103L
 
-#endif	// MAKE_UNIQUE_H
+#endif	// EN_MAKE_UNIQUE_H
 
 // ===================================80 chars==================================
 /* EOF */

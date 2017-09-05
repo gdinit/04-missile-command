@@ -1,10 +1,10 @@
-/* typedefs.h */
+/* en_typedefs.h */
 // ===================================80 chars==================================
 
-#ifndef TYPEDEFS_H
-#define TYPEDEFS_H
+#ifndef EN_TYPEDEFS_H
+#define EN_TYPEDEFS_H
 
-// For fixed width integer types
+// Required for fixed width integer types
 #include <cstdint>
 
 typedef unsigned char byte;
@@ -18,8 +18,9 @@ typedef std::uint32_t uint32;
 typedef std::int64_t int64;
 typedef std::uint64_t uint64;
 typedef wchar_t wchar;
+typedef std::string t_objectName;
 
-#endif	// TYPEDEFS_H
+#endif	// EN_TYPEDEFS_H
 
 // ===================================80 chars==================================
 /* EOF */
