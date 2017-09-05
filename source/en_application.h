@@ -26,7 +26,7 @@ class Application
 		const t_objectName	m_myObjNameStr;
 		StateMachine		m_machine;
 		sf::RenderWindow	m_window;
-		SharedContext		m_sCtxt;
+		EngineSharedContext	m_engineSharedContext;
 };
 
 #endif	// EN_APPLICATION_H

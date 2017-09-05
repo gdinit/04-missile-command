@@ -43,7 +43,7 @@ class StateMachine
 		template<typename T>
 		static std::unique_ptr <T>	build( StateMachine &machine
 		, sf::RenderWindow &window
-		, SharedContext &context
+		, EngineSharedContext &context
 		, bool replace = true );
 
 	private:
@@ -59,7 +59,7 @@ class StateMachine
 template<typename T>
 std::unique_ptr <T> StateMachine::build( StateMachine &machine
 	, sf::RenderWindow &window
-	, SharedContext &context
+	, EngineSharedContext &context
 	, bool replace )
 {
 	return std::unique_ptr <T> ( new T( machine

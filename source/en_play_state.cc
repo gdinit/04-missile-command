@@ -9,7 +9,7 @@
 
 PlayState::PlayState( StateMachine &machine
 	, sf::RenderWindow &window
-	, SharedContext &context
+	, EngineSharedContext &context
 	, bool replace )
 	: State{ machine, window, context, replace }
 	, m_myObjNameStr( "PlayState" )
@@ -34,15 +34,15 @@ void PlayState::initializeState()
 	// #if defined DBG
 	// std::cout << "[DEBUG]\tCreated state:\t\t" << m_myObjNameStr << "\n";
 	// std::cout << "[DEBUG]\tCreating New Level:\tLevel " <<
-	// m_sCtxt.gameLevel << "\n";
+	// m_engineSharedContext.gameLevel << "\n";
 	// #endif
 
 	//// TODO FIX ME ********** restartStateClock();
 	// m_systemResizeHourglass = 0;
-	// m_sCtxt.moveUpReqActive = 0;
-	// m_sCtxt.moveLeftReqActive = 0;
-	// m_sCtxt.moveDownReqActive = 0;
-	// m_sCtxt.moveRightReqActive = 0;
+	// m_engineSharedContext.moveUpReqActive = 0;
+	// m_engineSharedContext.moveLeftReqActive = 0;
+	// m_engineSharedContext.moveDownReqActive = 0;
+	// m_engineSharedContext.moveRightReqActive = 0;
 
 	//// TODO base these values on config variables
 	// m_desiredAspectRatio = 640.f / 480.f;
@@ -71,8 +71,8 @@ void PlayState::initializeState()
 	// m_sClicked.setBuffer( m_sbClicked );
 
 	//// if there is a pending play sound request, play it
-	// if ( m_sCtxt.reqSndPlyFromPlay ) {
-	// m_sCtxt.reqSndPlyFromPlay = 0;
+	// if ( m_engineSharedContext.reqSndPlyFromPlay ) {
+	// m_engineSharedContext.reqSndPlyFromPlay = 0;
 	// m_sClicked.play();
 	// }
 
@@ -88,18 +88,18 @@ void PlayState::initializeState()
 
 	//// signal arena to set up a new round
 	//// only level 1 is implemented so far
-	// m_sCtxt.gameLevel = 1;
-	// arena.newRound( m_res, m_sCtxt.gameLevel );
+	// m_engineSharedContext.gameLevel = 1;
+	// arena.newRound( m_res, m_engineSharedContext.gameLevel );
 	// hud.newRound( m_res );
 
 	//// TODO delete this?	GLOBALS->arenaNewRoundRequested = true;
 
-	// m_sCtxt.currentScore = 0;
+	// m_engineSharedContext.currentScore = 0;
 	// #if defined DBG
 	// std::cout << "[DEBUG]\tSUCCESS: Reset score." << m_myObjNameStr <<
 	// "\n";
 	// #endif
-	// m_sCtxt.livesLeft = 0;
+	// m_engineSharedContext.livesLeft = 0;
 	// #if defined DBG
 	// std::cout << "[DEBUG]\tSUCCESS: Reset lives." << m_myObjNameStr <<
 	// "\n";
@@ -130,7 +130,7 @@ void PlayState::update()
 	// std::cout << "Terminating due to returnToMainMenuRequested=1\n";
 	// #endif
 	// m_next = StateMachine::build <MainMenuState>
-	// ( m_machine, m_window, m_sCtxt, true );
+	// ( m_machine, m_window, m_engineSharedContext, true );
 	// }
 
 	// while ( m_timeSinceLastUpdate > State::TimePerFrame ) {
@@ -143,28 +143,28 @@ void PlayState::update()
 	//// TODO update for Missile Command -- add 8 directions?
 	//// obtain requested moveDirection - need to pass it to paddle
 	//// Up
-	// if ( m_sCtxt.moveUpReqActive
-	// && !m_sCtxt.moveLeftReqActive
-	// && !m_sCtxt.moveDownReqActive
-	// && !m_sCtxt.moveRightReqActive ) {
+	// if ( m_engineSharedContext.moveUpReqActive
+	// && !m_engineSharedContext.moveLeftReqActive
+	// && !m_engineSharedContext.moveDownReqActive
+	// && !m_engineSharedContext.moveRightReqActive ) {
 	// m_moveDirection = Direction::UP;
 	//// Left
-	// } else if ( m_sCtxt.moveLeftReqActive
-	// && !m_sCtxt.moveUpReqActive
-	// && !m_sCtxt.moveDownReqActive
-	// && !m_sCtxt.moveRightReqActive ) {
+	// } else if ( m_engineSharedContext.moveLeftReqActive
+	// && !m_engineSharedContext.moveUpReqActive
+	// && !m_engineSharedContext.moveDownReqActive
+	// && !m_engineSharedContext.moveRightReqActive ) {
 	// m_moveDirection = Direction::LEFT;
 	//// Down
-	// } else if ( m_sCtxt.moveDownReqActive
-	// && !m_sCtxt.moveUpReqActive
-	// && !m_sCtxt.moveLeftReqActive
-	// && !m_sCtxt.moveRightReqActive ) {
+	// } else if ( m_engineSharedContext.moveDownReqActive
+	// && !m_engineSharedContext.moveUpReqActive
+	// && !m_engineSharedContext.moveLeftReqActive
+	// && !m_engineSharedContext.moveRightReqActive ) {
 	// m_moveDirection = Direction::DOWN;
 	//// Right
-	// } else if ( m_sCtxt.moveRightReqActive
-	// && !m_sCtxt.moveUpReqActive
-	// && !m_sCtxt.moveLeftReqActive
-	// && !m_sCtxt.moveDownReqActive ) {
+	// } else if ( m_engineSharedContext.moveRightReqActive
+	// && !m_engineSharedContext.moveUpReqActive
+	// && !m_engineSharedContext.moveLeftReqActive
+	// && !m_engineSharedContext.moveDownReqActive ) {
 	// m_moveDirection = Direction::RIGHT;
 	//// None
 	// } else {
@@ -173,10 +173,10 @@ void PlayState::update()
 	// arena.update( m_elapsedTime, m_res, m_moveDirection );
 	//// why update HUD separately? process it with arena?
 	// hud.update( m_elapsedTime );
-	// if ( m_sCtxt.mustMainMenu == true ) {
-	//// go to main menu immediately (all lives lost)
+	// if ( m_engineSharedContext.mustMainMenu == true ) {
+	//// TODO rename to allLivesLost. 'go to main menu immediately (dead)'
 	// m_next = StateMachine::build <MainMenuState> (
-	// m_machine, m_window, m_sCtxt
+	// m_machine, m_window, m_engineSharedContext
 	// , true );
 	// }
 	//// update statistics for the debug overlay
@@ -244,17 +244,18 @@ void PlayState::draw()
 	m_window.clear();
 
 	// TODO reenable these without breaking engine separation
-	// m_window.setView( m_sCtxt.view );
+	// m_window.setView( m_engineSharedContext.view );
 
 	// arena.draw( m_window, sf::RenderStates::Default );
 	// hud.draw( m_window, sf::RenderStates::Default );
 
-	// if ( !m_sCtxt.gameIsPaused && SETTINGS->inGameOverlay ) {
+	// if ( !m_engineSharedContext.gameIsPaused && SETTINGS->inGameOverlay )
+	// {
 	// m_window.draw( m_statisticsText );
 	// }
 
 	//// Display only if PlayState is not doing it.
-	// if ( !m_sCtxt.gameIsPaused ) {
+	// if ( !m_engineSharedContext.gameIsPaused ) {
 	// m_window.display();
 	// }
 
@@ -286,8 +287,8 @@ void PlayState::resume()
 	// #endif
 
 	//// if there is a pending play sound request, play it
-	// if ( m_sCtxt.reqSndPlyFromPlay ) {
-	// m_sCtxt.reqSndPlyFromPlay = 0;
+	// if ( m_engineSharedContext.reqSndPlyFromPlay ) {
+	// m_engineSharedContext.reqSndPlyFromPlay = 0;
 	// m_sClicked.play();
 	// }
 }
@@ -317,8 +318,8 @@ void PlayState::processEvents()
 			// breaking engine separation
 			case sf::Event::Resized:
 				// onResize();
-				m_sCtxt.view = getLetterboxView(
-						m_sCtxt.view
+				m_engineSharedContext.view = getLetterboxView(
+						m_engineSharedContext.view
 						, evt.size.width
 						, evt.size.height );
 				break;
@@ -337,13 +338,13 @@ void PlayState::processEvents()
 					//// we will be destroyed soon but
 					//// we can request PauseState
 					//// to play it for us
-					// m_sCtxt.
+					// m_engineSharedContext.
 					// reqSndPlyFromPause = 1;
 					// m_next = StateMachine::build
 					// <PauseState> ( m_machine
 					// , m_window
 					// ,
-					// m_sCtxt
+					// m_engineSharedContext
 					// , false
 					// );
 					// break;
@@ -358,27 +359,27 @@ void PlayState::processEvents()
 					// m_machine
 					// , m_window
 					// ,
-					// m_sCtxt
+					// m_engineSharedContext
 					// , true );
 					// break;
 					// case sf::Keyboard::Up:
 					// case sf::Keyboard::W:
-					// m_sCtxt.moveUpReqActive
+					// m_engineSharedContext.moveUpReqActive
 					// = true;
 					// break;
 					// case sf::Keyboard::Left:
 					// case sf::Keyboard::A:
-					// m_sCtxt.moveLeftReqActive
+					// m_engineSharedContext.moveLeftReqActive
 					// = true;
 					// break;
 					// case sf::Keyboard::Down:
 					// case sf::Keyboard::S:
-					// m_sCtxt.moveDownReqActive
+					// m_engineSharedContext.moveDownReqActive
 					// = true;
 					// break;
 					// case sf::Keyboard::Right:
 					// case sf::Keyboard::D:
-					// m_sCtxt.moveRightReqActive
+					// m_engineSharedContext.moveRightReqActive
 					// = true;
 					// break;
 					// case sf::Keyboard::F2:
@@ -410,22 +411,22 @@ void PlayState::processEvents()
 				// switch ( evt.key.code ) {
 				// case sf::Keyboard::Up:
 				// case sf::Keyboard::W:
-				// m_sCtxt.moveUpReqActive
+				// m_engineSharedContext.moveUpReqActive
 				// = false;
 				// break;
 				// case sf::Keyboard::Left:
 				// case sf::Keyboard::A:
-				// m_sCtxt.moveLeftReqActive =
+				// m_engineSharedContext.moveLeftReqActive =
 				// false;
 				// break;
 				// case sf::Keyboard::Down:
 				// case sf::Keyboard::S:
-				// m_sCtxt.moveDownReqActive
+				// m_engineSharedContext.moveDownReqActive
 				// = false;
 				// break;
 				// case sf::Keyboard::Right:
 				// case sf::Keyboard::D:
-				// m_sCtxt.moveRightReqActive
+				// m_engineSharedContext.moveRightReqActive
 				// = false;
 				// break;
 				// default:

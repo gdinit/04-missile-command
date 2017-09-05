@@ -79,11 +79,13 @@ void Application::createWindow()
 			, C_WIN_TITLETEXT
 			, sf::Style::Default );
 	}
-	m_sCtxt.view.setSize( w, h );
-	m_sCtxt.view.setCenter( m_sCtxt.view.getSize().x / 2
-		, m_sCtxt.view.getSize().y / 2 );
-	m_sCtxt.view = getLetterboxView( m_sCtxt.view, w, h );
-	m_sCtxt.pWindow = &m_window;
+	m_engineSharedContext.view.setSize( w, h );
+	m_engineSharedContext.view.setCenter(
+		m_engineSharedContext.view.getSize().x / 2
+		, m_engineSharedContext.view.getSize().y / 2 );
+	m_engineSharedContext.view = getLetterboxView(
+			m_engineSharedContext.view, w, h );
+	m_engineSharedContext.pWindow = &m_window;
 }
 
 void Application::loadSettings()
@@ -107,14 +109,14 @@ void Application::run()
 
 	m_machine.run( StateMachine::build <IntroState> ( m_machine
 			, m_window
-			, m_sCtxt
+			, m_engineSharedContext
 			, true ) );
 
 	// Main Loop
 	while ( m_machine.running() ) {
 		m_machine.nextState();
 		m_machine.update();
-		if ( m_sCtxt.gameIsPaused ) {
+		if ( m_engineSharedContext.gameIsPaused ) {
 			m_machine.drawPrevious();
 		}
 		m_machine.draw();

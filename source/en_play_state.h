@@ -44,7 +44,7 @@ class PlayState : public State
 	public:
 		PlayState( StateMachine &machine
 		, sf::RenderWindow &window
-		, SharedContext &context
+		, EngineSharedContext &context
 		, bool replace = true );
 		virtual ~PlayState();
 		void	onResize();

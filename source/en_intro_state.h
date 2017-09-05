@@ -36,7 +36,7 @@ class IntroState : public State
 	public:
 		IntroState( StateMachine &machine
 		, sf::RenderWindow &window
-		, SharedContext &context
+		, EngineSharedContext &context
 		, bool replace = true );
 		virtual ~IntroState();
 		void	onResize();

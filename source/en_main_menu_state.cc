@@ -5,7 +5,7 @@
 
 MainMenuState::MainMenuState( StateMachine &machine
 	, sf::RenderWindow &window
-	, SharedContext &context
+	, EngineSharedContext &context
 	, bool replace )
 	: State{ machine, window, context, replace }, m_myObjNameStr(
 		"MainMenuState" )
@@ -26,8 +26,8 @@ void MainMenuState::update()
 	m_timeSinceLastUpdate += m_elapsedTime;
 
 	// TODO is this really necessary?
-	m_sCtxt.m_resx = static_cast <float> ( C_WIN_W );
-	m_sCtxt.m_resy = static_cast <float> ( C_WIN_H );
+	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
+	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
 
 	//// resize stuff here
 	// if ( m_systemResizeHourglass > 0 ) {
@@ -76,7 +76,7 @@ void MainMenuState::draw()
 	m_window.clear();
 
 	// TODO reenable these without breaking engine separation
-	// m_window.setView( m_sCtxt.view );
+	// m_window.setView( m_engineSharedContext.view );
 	// if ( SETTINGS->inGameOverlay ) {
 	// m_window.draw( m_statisticsText );
 	// }
@@ -108,9 +108,9 @@ void MainMenuState::initializeState()
 	// m_desiredAspectRatio << " //" << m_myObjNameStr << "\n";
 	// #endif
 
-	// m_sCtxt.mustMainMenu = false;
-	// m_sCtxt.m_resx = static_cast <float> ( C_WIN_W );
-	// m_sCtxt.m_resy = static_cast <float> ( C_WIN_H );
+	// m_engineSharedContext.mustMainMenu = false;
+	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
+	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
 
 	// m_urgentUpdateNeeded = 10;
 
@@ -135,8 +135,8 @@ void MainMenuState::initializeState()
 	// , C_MENU_BOX_HEIGHT ) );
 	// m_sprPlay.setOrigin( C_MENU_BOX_WIDTH / 2.f
 	// , C_MENU_BOX_HEIGHT / 2.f );
-	// m_sprPlay.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_1 ) );
+	// m_sprPlay.setPosition( ( m_engineSharedContext.view.getSize().x / 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_1 ) );
 	// m_sprPlayNeedSFX = true;
 	// m_sprPlayButtonHot = false;
 	// m_fontPlayText.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -145,8 +145,9 @@ void MainMenuState::initializeState()
 	// m_textPlay.setFillColor( sf::Color::Black );
 	// m_textPlay.setString( "play   (space)" );
 	// centerOrigin( m_textPlay );
-	// m_textPlay.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_1 ) );
+	// m_textPlay.setPosition( ( m_engineSharedContext.view.getSize().x / 2
+	// )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_1 ) );
 	//// =====================================
 
 	//// CreditsMenuButton ===================
@@ -155,8 +156,9 @@ void MainMenuState::initializeState()
 	// , C_MENU_BOX_HEIGHT ) );
 	// m_sprCredits.setOrigin( C_MENU_BOX_WIDTH / 2.f
 	// , C_MENU_BOX_HEIGHT / 2.f );
-	// m_sprCredits.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_2 ) );
+	// m_sprCredits.setPosition( ( m_engineSharedContext.view.getSize().x /
+	// 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_2 ) );
 	// m_sprCreditsNeedSFX = true;
 	// m_sprCreditsButtonHot = false;
 	// m_fontCreditsText.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -165,8 +167,9 @@ void MainMenuState::initializeState()
 	// m_textCredits.setFillColor( sf::Color::Black );
 	// m_textCredits.setString( "credits   (C)" );
 	// centerOrigin( m_textCredits );
-	// m_textCredits.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_2 ) );
+	// m_textCredits.setPosition( ( m_engineSharedContext.view.getSize().x /
+	// 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_2 ) );
 	//// =====================================
 
 	//// QuitMenuButton ======================
@@ -175,8 +178,8 @@ void MainMenuState::initializeState()
 	// , C_MENU_BOX_HEIGHT ) );
 	// m_sprQuit.setOrigin( C_MENU_BOX_WIDTH / 2.f
 	// , C_MENU_BOX_HEIGHT / 2.f );
-	// m_sprQuit.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_3 ) );
+	// m_sprQuit.setPosition( ( m_engineSharedContext.view.getSize().x / 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_3 ) );
 	// m_sprQuitNeedSFX = true;
 	// m_sprQuitButtonHot = false;
 	// m_fontQuitText.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -185,8 +188,9 @@ void MainMenuState::initializeState()
 	// m_textQuit.setFillColor( sf::Color::Black );
 	// m_textQuit.setString( "quit   (Q)" );
 	// centerOrigin( m_textQuit );
-	// m_textQuit.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_3 ) );
+	// m_textQuit.setPosition( ( m_engineSharedContext.view.getSize().x / 2
+	// )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_3 ) );
 	//// =====================================
 }
 
@@ -209,7 +213,7 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	//// DETECT CURSOR & BUTTON COLLISION
 
 	//// We shouldn't do this if window has no focus.
-	// if ( !m_sCtxt.pWindow->hasFocus() ) {
+	// if ( !m_engineSharedContext.pWindow->hasFocus() ) {
 
 	//// Window IS NOT focused, quit
 	// return;
@@ -230,8 +234,9 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	// m_sprPlay.getGlobalBounds().height ) ) {
 	// m_textPlay.setCharacterSize( 36u );
 	// centerOrigin( m_textPlay );
-	// m_textPlay.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_1 ) );
+	// m_textPlay.setPosition( ( m_engineSharedContext.view.getSize().x / 2
+	// )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_1 ) );
 	// m_sprPlayButtonHot = true;
 	// if ( m_sprPlayNeedSFX ) {
 	// m_sMouseOver.play();
@@ -242,8 +247,9 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	// m_sprPlayNeedSFX = true;
 	// m_textPlay.setCharacterSize( 28u );
 	// centerOrigin( m_textPlay );
-	// m_textPlay.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_1 ) );
+	// m_textPlay.setPosition( ( m_engineSharedContext.view.getSize().x / 2
+	// )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_1 ) );
 	// }
 	//// End MenuButton: Play ====================
 
@@ -261,8 +267,8 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	// m_textCredits.setCharacterSize( 36u );
 	// centerOrigin( m_textCredits );
 	// m_textCredits.setPosition(
-	// ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_2 ) );
+	// ( m_engineSharedContext.view.getSize().x / 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_2 ) );
 	// m_sprCreditsButtonHot = true;
 	// if ( m_sprCreditsNeedSFX ) {
 	// m_sMouseOver.play();
@@ -274,8 +280,8 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	// m_textCredits.setCharacterSize( 28u );
 	// centerOrigin( m_textCredits );
 	// m_textCredits.setPosition(
-	// ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_2 ) );
+	// ( m_engineSharedContext.view.getSize().x / 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_2 ) );
 	// }
 	//// End MenuButton: Credits ====================
 
@@ -293,8 +299,8 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	// m_textQuit.setCharacterSize( 36u );
 	// centerOrigin( m_textQuit );
 	// m_textQuit.setPosition( (
-	// m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_3 ) );
+	// m_engineSharedContext.view.getSize().x / 2 )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_3 ) );
 	// m_sprQuitButtonHot = true;
 	// if ( m_sprQuitNeedSFX ) {
 	// m_sMouseOver.play();
@@ -305,8 +311,9 @@ void MainMenuState::buttonCollisionDetectRespond( void ) noexcept
 	// m_sprQuitNeedSFX = true;
 	// m_textQuit.setCharacterSize( 28u );
 	// centerOrigin( m_textQuit );
-	// m_textQuit.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-	// , ( m_sCtxt.view.getSize().y * C_MENU_BUTTON_3 ) );
+	// m_textQuit.setPosition( ( m_engineSharedContext.view.getSize().x / 2
+	// )
+	// , ( m_engineSharedContext.view.getSize().y * C_MENU_BUTTON_3 ) );
 	// }
 	//// End MenuButton: Quit ====================
 }
@@ -327,8 +334,8 @@ void MainMenuState::processEvents()
 			// separation
 			// case sf::Event::Resized:
 			//// onResize();
-			// m_sCtxt.view = getLetterboxView(
-			// m_sCtxt.view
+			// m_engineSharedContext.view = getLetterboxView(
+			// m_engineSharedContext.view
 			// , evt.size.width
 			// , evt.size.height );
 			// break;
@@ -338,19 +345,19 @@ void MainMenuState::processEvents()
 			// if ( m_sprPlayButtonHot ) {
 			//// we will be destroyed soon but
 			//// we can request PS to play it for us
-			// m_sCtxt.reqSndPlyFromPlay = 1;
+			// m_engineSharedContext.reqSndPlyFromPlay = 1;
 			// m_next = StateMachine::build <PlayState>
 			// ( m_machine
 			// , m_window
-			// , m_sCtxt
+			// , m_engineSharedContext
 			// , true );
 			// break;
 			// } else if ( m_sprCreditsButtonHot ) {
-			// m_sCtxt.reqSndPlyFromPlay = 1;
+			// m_engineSharedContext.reqSndPlyFromPlay = 1;
 			// m_next = StateMachine::build <PlayState>
 			// ( m_machine
 			// , m_window
-			// , m_sCtxt
+			// , m_engineSharedContext
 			// , true );
 			// break;
 			// } else if ( m_sprQuitButtonHot ) {
@@ -367,7 +374,7 @@ void MainMenuState::processEvents()
 							<PlayState> ( m_machine
 								, m_window
 								,
-								m_sCtxt
+								m_engineSharedContext
 								, true );
 						break;
 					case sf::Keyboard::F2:

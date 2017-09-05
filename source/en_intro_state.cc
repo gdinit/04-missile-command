@@ -5,12 +5,12 @@
 
 IntroState::IntroState( StateMachine &machine
 	, sf::RenderWindow &window
-	, SharedContext &context
+	, EngineSharedContext &context
 	, bool replace )
 	: State{ machine, window, context, replace }, m_myObjNameStr(
 		"IntroState" )
 {
-	m_sCtxt.tIntroFirstLaunchTime =
+	m_engineSharedContext.tIntroFirstLaunchTime =
 		std::chrono::steady_clock::now();
 	initializeState();
 }
@@ -144,7 +144,7 @@ void IntroState::draw()
 {
 	// Clear the previous drawing
 	m_window.clear();
-	m_window.setView( m_sCtxt.view );
+	m_window.setView( m_engineSharedContext.view );
 	m_window.	draw(	m_bg );
 	m_window.	draw(	m_statisticsText );
 	// No need to draw if it's transparent
@@ -168,8 +168,8 @@ void IntroState::processEvents()
 				break;
 			case sf::Event::Resized:
 				// onResize();
-				m_sCtxt.view = getLetterboxView(
-						m_sCtxt.view
+				m_engineSharedContext.view = getLetterboxView(
+						m_engineSharedContext.view
 						, evt.size.width
 						, evt.size.height );
 				break;
@@ -185,7 +185,8 @@ void IntroState::processEvents()
 							<MainMenuState>
 								( m_machine
 								, m_window
-								, m_sCtxt
+								,
+								m_engineSharedContext
 								, true );
 						break;
 					case sf::Keyboard::Q:

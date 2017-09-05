@@ -41,7 +41,7 @@ class State
 	public:
 		State( StateMachine &machine
 		, sf::RenderWindow &window
-		, SharedContext &context
+		, EngineSharedContext &context
 		, bool replace = true );
 
 		virtual ~State() = default;
@@ -74,7 +74,7 @@ class State
 		std::unique_ptr <State>		m_next;
 		StateMachine &			m_machine;
 		sf::RenderWindow &		m_window;
-		SharedContext &			m_sCtxt;
+		EngineSharedContext &		m_engineSharedContext;
 		bool				m_replacing;
 		static const sf::Time		TimePerFrame;
 		int				m_statisticsNumFrames = 0;

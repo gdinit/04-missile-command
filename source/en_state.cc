@@ -8,11 +8,11 @@ const sf::Time State::TimePerFrame =
 
 State::State( StateMachine &machine
 	, sf::RenderWindow &window
-	, SharedContext &context
+	, EngineSharedContext &context
 	, bool replace )
 	: m_machine{ machine }
 	, m_window{ window }
-	, m_sCtxt{ context }
+	, m_engineSharedContext{ context }
 	, m_replacing{ replace }
 {
 }

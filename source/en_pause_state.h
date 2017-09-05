@@ -39,7 +39,7 @@ class PauseState : public State
 	public:
 		PauseState( StateMachine &machine
 		, sf::RenderWindow &window
-		, SharedContext &context
+		, EngineSharedContext &context
 		, bool replace = true );
 		virtual ~PauseState();
 		// TODO remove resize stuff now that we're using letterBox?

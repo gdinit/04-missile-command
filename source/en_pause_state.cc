@@ -5,16 +5,17 @@
 
 PauseState::PauseState( StateMachine &machine
 	, sf::RenderWindow &window
-	, SharedContext &context
+	, EngineSharedContext &context
 	, bool replace )
 	: State{ machine, window, context, replace }, m_myObjNameStr(
 		"PauseState" )
 {
-	m_sCtxt.gameIsPaused = true;
+	m_engineSharedContext.gameIsPaused = true;
 
 	// #if defined DBG
-	// std::cout << "[DEBUG]\tm_sCtxt.gameIsPaused is now: " <<
-	// m_sCtxt.gameIsPaused << "\t" << m_myObjNameStr << "\n";
+	// std::cout << "[DEBUG]\tm_engineSharedContext.gameIsPaused is now: "
+	// <<
+	// m_engineSharedContext.gameIsPaused << "\t" << m_myObjNameStr << "\n";
 	// #endif
 
 	initializeState();
@@ -22,11 +23,12 @@ PauseState::PauseState( StateMachine &machine
 
 PauseState::~PauseState()
 {
-	m_sCtxt.gameIsPaused = false;
+	m_engineSharedContext.gameIsPaused = false;
 
 	// #if defined DBG
-	// std::cout << "[DEBUG]\tm_sCtxt.gameIsPaused is now: " <<
-	// m_sCtxt.gameIsPaused << "\t" << m_myObjNameStr << "\n";
+	// std::cout << "[DEBUG]\tm_engineSharedContext.gameIsPaused is now: "
+	// <<
+	// m_engineSharedContext.gameIsPaused << "\t" << m_myObjNameStr << "\n";
 	// #endif
 
 	#if defined DBG
@@ -74,8 +76,9 @@ void PauseState::initializeState()
 	m_textPressToContinue.setFillColor( sf::Color::White );
 	m_textPressToContinue.setString( "GAME PAUSED" );
 	centerOrigin( m_textPressToContinue );
-	m_textPressToContinue.setPosition( ( m_sCtxt.view.getSize().x / 2 )
-		, ( m_sCtxt.view.getSize().y / 2 ) );
+	m_textPressToContinue.setPosition(
+		( m_engineSharedContext.view.getSize().x / 2 )
+		, ( m_engineSharedContext.view.getSize().y / 2 ) );
 
 	// PressToContinue Text Line 2
 	m_fontPressToContinueLine2.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -86,8 +89,8 @@ void PauseState::initializeState()
 		"\nPress ESC, PauseBreak, or P to continue" );
 	centerOrigin( m_textPressToContinueLine2 );
 	m_textPressToContinueLine2.setPosition(
-		( m_sCtxt.view.getSize().x / 2 )
-		, ( ( m_sCtxt.view.getSize().y / 2 ) + 50 ) );
+		( m_engineSharedContext.view.getSize().x / 2 )
+		, ( ( m_engineSharedContext.view.getSize().y / 2 ) + 50 ) );
 
 	// SOUNDS
 	if ( !m_sbClicked.loadFromFile(
@@ -96,8 +99,8 @@ void PauseState::initializeState()
 	m_sClicked.setBuffer( m_sbClicked );
 
 	// if there is a pending play sound request, play it
-	if ( m_sCtxt.reqSndPlyFromPause ) {
-		m_sCtxt.reqSndPlyFromPause = 0;
+	if ( m_engineSharedContext.reqSndPlyFromPause ) {
+		m_engineSharedContext.reqSndPlyFromPause = 0;
 		m_sClicked.play();
 	}
 }
@@ -140,8 +143,8 @@ void PauseState::update()
 		processEvents();
 
 		// a PausedState MUST not update!
-		// m_sCtxt.pArena->update( m_elapsedTime );
-		// m_sCtxt.pHud->update( m_elapsedTime );
+		// m_engineSharedContext.pArena->update( m_elapsedTime );
+		// m_engineSharedContext.pHud->update( m_elapsedTime );
 
 		// update statistics for the debug overlay
 		m_statisticsUpdateTime += m_elapsedTime;
@@ -189,8 +192,8 @@ void PauseState::processEvents()
 			// resize stuff here
 			case sf::Event::Resized:
 				// onResize();
-				m_sCtxt.view = getLetterboxView(
-						m_sCtxt.view
+				m_engineSharedContext.view = getLetterboxView(
+						m_engineSharedContext.view
 						, evt.size.width
 						, evt.size.height );
 				break;
@@ -199,7 +202,7 @@ void PauseState::processEvents()
 					case sf::Keyboard::Escape:
 					case sf::Keyboard::Pause:
 					case sf::Keyboard::P:
-						m_sCtxt.
+						m_engineSharedContext.
 						reqSndPlyFromPlay = 1;
 						m_machine.lastState();
 						break;

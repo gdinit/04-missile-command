@@ -35,7 +35,7 @@ class MainMenuState : public State
 	public:
 		MainMenuState( StateMachine &machine
 		, sf::RenderWindow &window
-		, SharedContext &context
+		, EngineSharedContext &context
 		, bool replace = true );
 		virtual ~MainMenuState();
 		// resize stuff here
