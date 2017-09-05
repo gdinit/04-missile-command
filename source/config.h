@@ -106,8 +106,10 @@ constexpr int32	CONFIG_COLUMNS = { 16 };
 ////////////////////////////////////////////////////////////////////////////////
 // WINDOW
 constexpr bool	C_WIN_FULLSCREEN { 0 };
-constexpr int32	C_WIN_W = { 640 };
-constexpr int32	C_WIN_H = { 480 };
+// constexpr int32	C_WIN_W = { 640 };
+// constexpr int32	C_WIN_H = { 480 };
+constexpr int32	C_WIN_W = { 320 };
+constexpr int32	C_WIN_H = { 240 };
 
 // DEBUG STUFF
 // NOT IN USE (Using CMake build type instead) constexpr bool	DEBUG { 1 };
