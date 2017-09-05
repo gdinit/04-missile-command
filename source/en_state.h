@@ -64,9 +64,8 @@ class State
 		void			printConsoleDebugIfEnabled();
 		void			recordObservedFPS();
 		void			dynamicallyAdjustFPSLimit();
-		// TODO reenable these without breaking engine separation
-		// unsigned short int	calcMedianFPS(
-		// std::deque <unsigned short int> records );
+		unsigned short int	calcMedianFPS(
+		std::deque <unsigned short int> records );
 		void			restartStateClock();
 		int			getStateAgeAsSeconds();
 
