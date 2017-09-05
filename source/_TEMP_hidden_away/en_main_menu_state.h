@@ -1,20 +1,17 @@
 /* main_menu_state.h */
 // ===================================80 chars==================================
 
-////////////////////////////////////////////////////////////////////////////////
-// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE 
-// (BLACK BOX)  STATE.
-//
-// ALL COMMENTS & BLOCKED OUT CODE HAS BEEN REMOVED.
-// ACTUAL CONTENTS MOVED TO GAME FILE.
-////////////////////////////////////////////////////////////////////////////////
 #ifndef EN_MAIN_MENU_STATE_H
 #define EN_MAIN_MENU_STATE_H
+
 #include "en_essentials.h"
 #include "en_state.h"
 #include "en_state_machine.h"
+// TODO remove this #include "mc_config.h"
+// For centerOrigin
 #include "en_utility.h"
 #include "en_play_state.h"
+
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
@@ -25,9 +22,14 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Window/Mouse.hpp>
+
+// for FPS text
 #include <string>
+// For round()
 #include <cmath>
+
 class StateMachine;
+
 class MainMenuState : public State
 {
 	public:
@@ -36,6 +38,7 @@ class MainMenuState : public State
 		, EngineSharedContext &context
 		, bool replace = true );
 		virtual ~MainMenuState();
+		// resize stuff here
 		void	onResize();
 		void	initializeState();
 		void	processEvents();
@@ -44,6 +47,7 @@ class MainMenuState : public State
 		void	draw();
 		void	pause();
 		void	resume();
+
 	private:
 		const t_objectName	m_myObjNameStr;
 		sf::Sprite		m_sprPlay;
@@ -51,22 +55,30 @@ class MainMenuState : public State
 		bool			m_sprPlayButtonHot;
 		sf::Font		m_fontPlayText;
 		sf::Text		m_textPlay;
+
 		sf::Sprite		m_sprCredits;
 		bool			m_sprCreditsNeedSFX;
 		bool			m_sprCreditsButtonHot;
 		sf::Font		m_fontCreditsText;
 		sf::Text		m_textCredits;
+
 		sf::Sprite		m_sprQuit;
 		bool			m_sprQuitNeedSFX;
 		bool			m_sprQuitButtonHot;
 		sf::Font		m_fontQuitText;
 		sf::Text		m_textQuit;
+
 		sf::SoundBuffer		m_sbMouseOver;
 		sf::Sound		m_sMouseOver;
 		sf::Vector2i		m_mousePos;
+
+		// window resize stuff
+		// Added to store texture size
 		sf::Texture		m_textureWhite;
 		sf::Vector2u		m_textureSize;
+		// Added to store window size
 		sf::Vector2u		m_windowSize;
+		// TODO move this to app
 		float			m_desiredAspectRatio;
 		int32			m_systemResizeHourglass;
 };
