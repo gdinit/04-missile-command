@@ -2,7 +2,7 @@
 // ===================================80 chars==================================
 
 ////////////////////////////////////////////////////////////////////////////////
-// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE 
+// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE
 // (BLACK BOX)  STATE.
 //
 // ALL COMMENTS & BLOCKED OUT CODE HAS BEEN REMOVED.
@@ -44,6 +44,7 @@ class MainMenuState : public State
 		void	draw();
 		void	pause();
 		void	resume();
+
 	private:
 		const t_objectName	m_myObjNameStr;
 		sf::Sprite		m_sprPlay;

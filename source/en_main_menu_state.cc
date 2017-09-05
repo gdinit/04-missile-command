@@ -2,8 +2,8 @@
 // ===================================80 chars==================================
 
 ////////////////////////////////////////////////////////////////////////////////
-// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE 
-// (BLACK BOX)  STATE. 
+// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE
+// (BLACK BOX)  STATE.
 //
 // ALL COMMENTS & BLOCKED OUT CODE HAS BEEN REMOVED.
 // ACTUAL CONTENTS MOVED TO GAME FILE.

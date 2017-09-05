@@ -1,23 +1,22 @@
 /* en_play_state.h */
 // ===================================80 chars==================================
 
-////////////////////////////////////////////////////////////////////////////////
-// CONTENTS OF THIS FILE HAS BEEN DELETED TO ENABLE SIMPLEST POSSIBLE
-// (BLACK BOX)  STATE.
-//
-// ALL COMMENTS & BLOCKED OUT CODE HAS BEEN REMOVED.
-// ACTUAL CONTENTS MOVED TO GAME FILE.
-////////////////////////////////////////////////////////////////////////////////
 #ifndef EN_PLAY_STATE_H
 #define EN_PLAY_STATE_H
+
 #include "en_essentials.h"
 #include "en_state.h"
 #include "en_state_machine.h"
 #include "en_main_menu_state.h"
 #include "en_pause_state.h"
+// TODO remove this #include "mc_config.h"
+// Required for centerOrigin
 #include "en_utility.h"
 #include "en_make_unique.h"
+// TODO remove this #include "mc_game_objects.h"
 #include "en_arena.h"
+// TODO remove this #include "mc_hud.h"
+
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
@@ -27,9 +26,15 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
+
+// to in-line document
+// Required for std::unique_ptr
 #include <memory>
+// Required for debugging -- TODO REMOVE THIS
 #include <iostream>
+// Required for capturing last windowResizeEvent
 #include <chrono>
+// Required for JSON
 #include <fstream>
 
 class StateMachine;
@@ -49,16 +54,27 @@ class PlayState : public State
 		void	draw();
 		void	pause();
 		void	resume();
+		// animation stuff
 		void	restartPregameAnimationClock();
 		void	drawPreGameAnimation();
 		float	getPreGameAnimationAgeAsSeconds();
 
 	private:
 		const t_objectName	m_myObjNameStr;
+		// TODO reenable these without breaking engine separation
+		// Arena			arena;
+		// TODO remove this Hud			hud;
 		sf::Vector2f		m_res;
+
+		// window resize stuff
+		// Added to store texture size
 		sf::Vector2u		m_textureSize;
+		// Added to store window size
 		sf::Vector2u		m_windowSize;
+		// TODO move this to app
 		float			m_desiredAspectRatio;
+
+		// animation stuff
 		sf::Clock		m_animationClock;
 		sf::Time		m_animationAge;
 		sf::Text		m_preGameAnimationStep1Text;
