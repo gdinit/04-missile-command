@@ -5,7 +5,7 @@
 #define  MC_HUD_H
 
 #include "en_essentials.h"
-#include "config.h"
+#include "mc_config.h"
 // Required for HUD Text
 #include "mc_globals.h"
 // Required for centerOrigin

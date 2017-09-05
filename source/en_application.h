@@ -5,10 +5,11 @@
 #define EN_APPLICATION_H
 
 #include "en_essentials.h"
-#include "mc_shared_context.h"
+#include "en_shared_context.h"
+#include "en_defines.h"
 #include "en_intro_state.h"
-#include "mc_globals.h"
-#include "config.h"
+// TODO remove this #include "mc_globals.h"
+// TODO remove this #include "mc_config.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 

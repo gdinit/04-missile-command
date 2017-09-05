@@ -9,13 +9,13 @@
 #include "en_state_machine.h"
 #include "en_main_menu_state.h"
 #include "en_pause_state.h"
-#include "config.h"
+// TODO remove this #include "mc_config.h"
 // Required for centerOrigin
 #include "en_utility.h"
 #include "en_make_unique.h"
-#include "mc_game_objects.h"
+// TODO remove this #include "mc_game_objects.h"
 #include "en_arena.h"
-#include "mc_hud.h"
+// TODO remove this #include "mc_hud.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -61,8 +61,9 @@ class PlayState : public State
 
 	private:
 		const t_objectName	m_myObjNameStr;
-		Arena			arena;
-		Hud			hud;
+		// TODO reenable these without breaking engine separation
+		// Arena			arena;
+		// TODO remove this Hud			hud;
 		sf::Vector2f		m_res;
 
 		// window resize stuff

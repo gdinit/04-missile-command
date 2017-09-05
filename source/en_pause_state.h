@@ -7,13 +7,13 @@
 #include "en_essentials.h"
 #include "en_state.h"
 #include "en_state_machine.h"
-#include "config.h"
-#include "mc_globals.h"
+// TODO remove this #include "mc_config.h"
+// TODO remove this #include "mc_globals.h"
 // For centerOrigin
 #include "en_utility.h"
-#include "mc_game_objects.h"
+// TODO remove this #include "mc_game_objects.h"
 #include "en_arena.h"
-#include "mc_hud.h"
+// TODO remove this #include "mc_hud.h"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>

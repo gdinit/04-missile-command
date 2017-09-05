@@ -7,7 +7,7 @@
 #include "en_essentials.h"
 #include "en_state.h"
 #include "en_state_machine.h"
-#include "config.h"
+// TODO remove this #include "mc_config.h"
 // For centerOrigin
 #include "en_utility.h"
 #include "en_play_state.h"

@@ -228,15 +228,16 @@ void PauseState::processEvents()
 
 void PauseState::draw()
 {
-	// PlayState has already clear()'d the screen & drawn its objects,
-	// now it's our turn to draw our objects on top.
-	m_window.	draw(	m_textPressToContinue );
-	m_window.	draw(	m_textPressToContinueLine2 );
+	// TODO reenable these without breaking engine separation
+	//// PlayState has already clear()'d the screen & drawn its objects,
+	//// now it's our turn to draw our objects on top.
+	// m_window.	draw(	m_textPressToContinue );
+	// m_window.	draw(	m_textPressToContinueLine2 );
 
-	// statsText
-	if ( SETTINGS->inGameOverlay ) {
-		m_window.draw( m_statisticsText );
-	}
+	//// statsText
+	// if ( SETTINGS->inGameOverlay ) {
+	// m_window.draw( m_statisticsText );
+	// }
 
 	m_window.display();
 }

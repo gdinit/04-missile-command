@@ -37,7 +37,7 @@ int main()
 	try
 	{
 		Application app;
-		std::cout << "Welcome to " << GA_GameName << "!\n";
+		std::cout << "Welcome to " << CONST_GAME_NAME << "!\n";
 		app.run();
 	}
 	catch ( std::runtime_error &e )

@@ -1,14 +1,14 @@
-/* mc_shared_context.h */
+/* en_shared_context.h */
 // ===================================80 chars==================================
 
 // This struct stores some data and makes it accessible to all game states.
 // It is instantiated in Application() & passed to each GameState as &ref.
 
-#ifndef MC_SHARED_CONTEXT_H
-#define MC_SHARED_CONTEXT_H
+#ifndef EN_SHARED_CONTEXT_H
+#define EN_SHARED_CONTEXT_H
 
 #include "en_arena.h"
-#include "mc_hud.h"
+// TODO remove this #include "mc_hud.h"
 
 struct SharedContext
 {
@@ -46,7 +46,7 @@ struct SharedContext
 	std::chrono::steady_clock::time_point tIntroFirstLaunchTime;
 };
 
-#endif	// MC_SHARED_CONTEXT_H
+#endif	// EN_SHARED_CONTEXT_H
 
 // ===================================80 chars==================================
 /* EOF */

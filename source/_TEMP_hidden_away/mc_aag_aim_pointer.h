@@ -5,7 +5,7 @@
 #define MC_AAG_AIM_POINTER_H
 
 #include "en_essentials.h"
-#include "config.h"
+#include "mc_config.h"
 //// For normalization
 // #include "en_utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)

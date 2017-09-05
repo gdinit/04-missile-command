@@ -1,29 +1,34 @@
-/* mc_city.h */
+/* mc_play_area_bar.h */
 // ===================================80 chars==================================
 
-#ifndef MC_CITY_H
-#define MC_CITY_H
+#ifndef MC_PLAY_AREA_BAR_H
+#define MC_PLAY_AREA_BAR_H
 
 #include "en_essentials.h"
-#include "config.h"
-#include "mc_constants.h"
+#include "mc_config.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
+#include <memory>
 // For object name
 #include <string>
 // TOOD: remove this debug line
 #include <iostream>
+// Required for RNG
+#include <random>
+// Required for RNG
+#include <chrono>
 
-class City : public sf::Transformable
-	   , public sf::Drawable
-	   , private sf::NonCopyable
+class PlayAreaBar : public sf::Transformable
+		  , public sf::Drawable
+		  , private sf::NonCopyable
 {
 	public:
-		City();
-		City( t_objectName name );
-		virtual ~City();
+		PlayAreaBar();
+		PlayAreaBar( t_objectName name );
+		virtual ~PlayAreaBar();
 		void	update( sf::Time timeSinceLastUpdate
 		, sf::Vector2f res );
 		void	draw( sf::RenderTarget &target
@@ -45,10 +50,9 @@ class City : public sf::Transformable
 		sf::Texture		m_texture;
 		sf::Vector2f		m_position;
 		float			m_width;
-		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
-#endif	// MC_CITY_H
+#endif	// MC_PLAY_AREA_BAR_H
 
 // ===================================80 chars==================================
 /* EOF */

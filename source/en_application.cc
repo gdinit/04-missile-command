@@ -3,8 +3,8 @@
 
 #include "en_application.h"
 
-extern std::unique_ptr <Settings>	SETTINGS;
-extern std::unique_ptr <Globals>	GLOBALS;
+// TODO remove this extern std::unique_ptr <Settings>	SETTINGS;
+// TODO remove this extern std::unique_ptr <Globals>	GLOBALS;
 
 Application::Application()
 	: m_myObjNameStr( "Application" )
@@ -88,9 +88,10 @@ void Application::createWindow()
 
 void Application::loadSettings()
 {
-	SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
-	SETTINGS->debugPrintToConsole = C_D_CO;
-	SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
+	// TODO remove this
+	// SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
+	// SETTINGS->debugPrintToConsole = C_D_CO;
+	// SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
 }
 
 void Application::run()
@@ -101,7 +102,7 @@ void Application::run()
 	sf::ContextSettings windowSettings;
 	createWindow();
 	windowSettings.antialiasingLevel = 8;
-	m_window.setFramerateLimit( C_DESIRED_FPS_INT );
+	m_window.setFramerateLimit( CONST_DESIRED_FPS_INT );
 	m_window.setKeyRepeatEnabled( false );
 
 	m_machine.run( StateMachine::build <IntroState> ( m_machine

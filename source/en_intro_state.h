@@ -8,7 +8,7 @@
 #include "en_state.h"
 #include "en_state_machine.h"
 #include "en_play_state.h"
-#include "config.h"
+// TODO remove this #include "mc_config.h"
 // For centerOrigin
 #include "en_utility.h"
 
@@ -22,10 +22,12 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 
-// for FPS text
+// Required for FPS text
 #include <string>
-// For round()
+// Required for round()
 #include <cmath>
+// Required for capturing First Launch Time
+#include <chrono>
 
 class StateMachine;
 

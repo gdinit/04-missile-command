@@ -4,12 +4,13 @@
 #ifndef EN_STATE_H
 #define EN_STATE_H
 
+#include "en_defines.h"
 #include "en_essentials.h"
-#include "mc_shared_context.h"
-// make configuration values to all derived classes
-#include "config.h"
-// forward declare Settings struct
-#include "mc_globals.h"
+#include "en_shared_context.h"
+//// make configuration values to all derived classes
+// TODO remove this #include "mc_config.h"
+//// forward declare Settings struct
+// TODO remove this #include "mc_globals.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
@@ -29,7 +30,7 @@
 // For round()
 #include <cmath>
 
-extern std::unique_ptr <Settings> SETTINGS;
+// TODO remove this extern std::unique_ptr <Settings> SETTINGS;
 
 sf::View getLetterboxView( sf::View view, int windowWidth, int windowHeight );
 
@@ -63,8 +64,9 @@ class State
 		void			printConsoleDebugIfEnabled();
 		void			recordObservedFPS();
 		void			dynamicallyAdjustFPSLimit();
-		unsigned short int	calcMedianFPS(
-		std::deque <unsigned short int> records );
+		// TODO reenable these without breaking engine separation
+		// unsigned short int	calcMedianFPS(
+		// std::deque <unsigned short int> records );
 		void			restartStateClock();
 		int			getStateAgeAsSeconds();
 
@@ -90,7 +92,7 @@ class State
 		short int			m_FPSAdjPosDelta = 0;
 		short int			m_FPSAdjNegDelta = 0;
 		unsigned short int		m_activeFPSLimit =
-			C_DESIRED_FPS_INT;
+			CONST_DESIRED_FPS_INT;
 		bool				m_justResumed = false;
 		// Needed to center stuff
 		sf::View			m_worldView;

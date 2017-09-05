@@ -1,8 +1,8 @@
-/* config.h */
+/* mc_config.h */
 // ===================================80 chars==================================
 
-#ifndef C_H
-#define C_H
+#ifndef MC_CONFIG_H
+#define MC_CONFIG_H
 
 #include "en_essentials.h"
 #include "mc_globals.h"
@@ -51,8 +51,8 @@ constexpr float		MC_AAGAIMPOINTER_W { 60.f };
 // TODO Prefix sections as: EN_ (Engine), BR_ (Breakout)
 
 // FPS
-constexpr int32	C_DESIRED_FPS_INT { 30 };
-constexpr float	C_DESIRED_FPS_FLOAT { 30.f };
+constexpr int32	CONST_DESIRED_FPS_INT { 30 };
+constexpr float	CONST_DESIRED_FPS_FLOAT { 30.f };
 constexpr int32	C_OBSFPS_CONTMAXSIZE { 10 };
 constexpr int32	C_OBSFPS_ACTTHRESHOLD { 5 };
 constexpr float	C_FPS_CATCHUP_STEP_F { 0.5f };
@@ -123,7 +123,7 @@ constexpr bool	C_D_DFPS_CO { 0 };
 ////////////////// END OF SOFT SETTINGS ////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-#endif	// C_H
+#endif	// MC_CONFIG_H
 
 // ===================================80 chars==================================
 /* EOF */
