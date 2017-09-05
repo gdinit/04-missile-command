@@ -90,7 +90,7 @@ void Application::createWindow()
 
 void Application::loadSettings()
 {
-	// TODO remove this
+	// TODO move this somewhere in Game
 	// SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
 	// SETTINGS->debugPrintToConsole = C_D_CO;
 	// SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
