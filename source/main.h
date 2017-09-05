@@ -4,9 +4,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "game.h"
-#include "essentials.h"
-#include "application.h"
+#include "en_essentials.h"
+#include "en_application.h"
+#include "mc_game.h"
 
 // For exception handling in main
 #include <stdexcept>

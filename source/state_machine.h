@@ -4,7 +4,7 @@
 #ifndef STATE_MACHINE_H
 #define STATE_MACHINE_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "state.h"
 
 #include <SFML/System/Time.hpp>

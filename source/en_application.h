@@ -1,10 +1,10 @@
-/* application.h */
+/* en_application.h */
 // ===================================80 chars==================================
 
-#ifndef APPLICATION_H
-#define APPLICATION_H
+#ifndef EN_APPLICATION_H
+#define EN_APPLICATION_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "shared_context.h"
 #include "intro_state.h"
 #include "globals.h"
@@ -28,7 +28,7 @@ class Application
 		SharedContext		m_sCtxt;
 };
 
-#endif	// APPLICATION_H
+#endif	// EN_APPLICATION_H
 
 // ===================================80 chars==================================
 /* EOF */

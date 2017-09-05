@@ -4,7 +4,7 @@
 #ifndef ARENA_H
 #define ARENA_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "config.h"
 #include "mc_play_area_bar.h"
 #include "mc_city.h"

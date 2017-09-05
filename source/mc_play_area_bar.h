@@ -4,7 +4,7 @@
 #ifndef MC_PLAY_AREA_BAR_H
 #define MC_PLAY_AREA_BAR_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "config.h"
 
 #include <SFML/Graphics.hpp>

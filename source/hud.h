@@ -7,7 +7,7 @@
 #ifndef  HUD_H
 #define  HUD_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "config.h"
 // Required for HUD Text
 #include "globals.h"

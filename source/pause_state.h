@@ -4,7 +4,7 @@
 #ifndef PAUSE_STATE_H
 #define PAUSE_STATE_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "state.h"
 #include "state_machine.h"
 #include "config.h"

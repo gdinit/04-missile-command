@@ -4,7 +4,7 @@
 #ifndef GAME_OBJECTS_H
 #define GAME_OBJECTS_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "make_unique.h"
 #include "globals.h"
 

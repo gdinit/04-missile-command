@@ -4,7 +4,7 @@
 #ifndef C_H
 #define C_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "globals.h"
 
 // For window_title etc.

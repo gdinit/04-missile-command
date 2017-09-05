@@ -4,7 +4,7 @@
 #ifndef MC_AAG_AIM_POINTER_H
 #define MC_AAG_AIM_POINTER_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "config.h"
 //// For normalization
 // #include "utility.h"

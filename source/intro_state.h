@@ -4,7 +4,7 @@
 #ifndef INTRO_STATE_H
 #define INTRO_STATE_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "state.h"
 #include "state_machine.h"
 #include "play_state.h"

@@ -4,7 +4,7 @@
 #ifndef MC_CITY_H
 #define MC_CITY_H
 
-#include "essentials.h"
+#include "en_essentials.h"
 #include "config.h"
 #include "mc_constants.h"
 

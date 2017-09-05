@@ -1,12 +1,12 @@
 /* game.h */
 // ===================================80 chars==================================
 
-#ifndef GAME_H
-#define GAME_H
+#ifndef MC_GAME_H
+#define MC_GAME_H
 
 const std::string GA_GameName { "Missile Command" };
 
-#endif	// GAME_H
+#endif	// MC_GAME_H
 
 // ===================================80 chars==================================
 /* EOF */

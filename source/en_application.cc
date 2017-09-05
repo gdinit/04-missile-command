@@ -1,7 +1,7 @@
-/* application.cc */
+/* en_application.cc */
 // ===================================80 chars==================================
 
-#include "application.h"
+#include "en_application.h"
 
 extern std::unique_ptr <Settings>	SETTINGS;
 extern std::unique_ptr <Globals>	GLOBALS;
