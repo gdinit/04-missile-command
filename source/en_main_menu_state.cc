@@ -1,7 +1,7 @@
 /* main_menu_state.cc */
 // ===================================80 chars==================================
 
-#include "main_menu_state.h"
+#include "en_main_menu_state.h"
 
 MainMenuState::MainMenuState( StateMachine &machine
 	, sf::RenderWindow &window

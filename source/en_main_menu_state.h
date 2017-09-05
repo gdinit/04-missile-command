@@ -1,8 +1,8 @@
 /* main_menu_state.h */
 // ===================================80 chars==================================
 
-#ifndef MAIN_MENU_STATE_H
-#define MAIN_MENU_STATE_H
+#ifndef EN_MAIN_MENU_STATE_H
+#define EN_MAIN_MENU_STATE_H
 
 #include "en_essentials.h"
 #include "en_state.h"
@@ -83,7 +83,7 @@ class MainMenuState : public State
 		int32			m_systemResizeHourglass;
 };
 
-#endif	// MAIN_MENU_STATE_H
+#endif	// EN_MAIN_MENU_STATE_H
 
 // ===================================80 chars==================================
 /* EOF */
