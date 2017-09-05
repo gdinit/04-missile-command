@@ -109,13 +109,21 @@ void City::newRound( sf::Vector2f res ) {
 	if ( m_myObjNameStr == "leftCity" ) {
 		m_texture.loadFromFile( "assets/textures/45x26_city.png" );
 		m_sprite.setTexture( m_texture );
-		m_sprite.setPosition( res.x / 2, res.y / 2 );
+		m_sprite.setPosition( ( res.x / 5 ) * 1, ( res.y / 10 ) * 8 );
 	} else if ( m_myObjNameStr == "middleCity" ) {
 		m_texture.loadFromFile( "assets/textures/45x26_city.png" );
 		m_sprite.setTexture( m_texture );
-		m_sprite.setPosition( res.x / 2 + 80, res.y / 2 + 50 );
+		m_sprite.setPosition( ( res.x / 5 ) * 3, ( res.y / 10 ) * 7.5 );
+	} else if ( m_myObjNameStr == "rightCity" ) {
+		m_texture.loadFromFile( "assets/textures/45x26_city.png" );
+		m_sprite.setTexture( m_texture );
+		m_sprite.setPosition( ( res.x / 5 ) * 3.8, ( res.y / 10 ) * 8 );
 	}
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
 
+	// REMOVE THIS /////////////////////////////////////////////////////////
 	// m_width = sizeW;
 	// #if defined DBG
 	// std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " << posT <<
@@ -142,10 +150,7 @@ void City::newRound( sf::Vector2f res ) {
 	// posT << "\n" <<	"[DEBUG]\tCalculated " << m_myObjNameStr <<
 	// " size as: " << sizeW << "," << sizeH << "\n";
 	// #endif
-
-	// save for future use
-	m_windowSize.x = res.x;
-	m_windowSize.y = res.y;
+	// REMOVE THIS /////////////////////////////////////////////////////////
 }
 
 float City::getX() const noexcept { return m_sprite.getPosition().x; }

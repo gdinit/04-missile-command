@@ -92,6 +92,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	*/
 	leftCity.draw( target, sf::RenderStates::Default );
 	middleCity.draw( target, sf::RenderStates::Default );
+	rightCity.draw( target, sf::RenderStates::Default );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
 	// if ( m_cDetDB [ n ].HP > 0 && m_cDetDB [ n ].visible &&
