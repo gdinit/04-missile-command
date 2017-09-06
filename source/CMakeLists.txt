@@ -9,7 +9,13 @@ mark_as_advanced	(PROJECT_STATIC_RUNTIME)
 list(APPEND CMAKE_MODULE_PATH	"${PROJECT_SOURCE_DIR}/cmake/modules")
 find_package(SFML 2.4 COMPONENTS graphics audio window system network)
 
-file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/*.h"  "${PROJECT_SOURCE_DIR}/*.cc")
+file(GLOB SOURCES 
+	"${PROJECT_SOURCE_DIR}/*.h"
+	"${PROJECT_SOURCE_DIR}/*.cc"
+	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui.cpp"
+	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui_draw.cpp"
+	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/imgui-sfml.cpp"
+	)
 
 if(NOT CMAKE_BUILD_TYPE) 
     set(CMAKE_BUILD_TYPE Release)
@@ -19,6 +25,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 # Compiler options
 ####################
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+	#set(warnings "-Wall -Wno-unknown-pragmas -Wextra -Werror")
 	set(warnings "-Wall -Wextra -Werror")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 	set(warnings "/W4 /WX /EHsc /Wno-unknown-pragmas")
@@ -32,14 +39,30 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 	endif()
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${SFML_INCLUDE_DIR})
+include_directories(
+	"${CMAKE_CURRENT_SOURCE_DIR}"
+	"${SFML_INCLUDE_DIR}"
+	"${PROJECT_SOURCE_DIR}/3rd-party/imgui"
+	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml")
 include(cotire)
 
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	INCLUDE_DIRECTORIES("/Library/Frameworks/")
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
-SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+####################
+# LIB SUFFIXES
+####################
+#SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+if	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
+	SET(CMAKE_FIND_LIBRARY_PREFIXES "")
+	SET(CMAKE_FIND_LIBRARY_SUFFIXES ".lib" ".dll")
+elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Linux")
+	SET(CMAKE_FIND_LIBRARY_PREFIXES "lib")
+	SET(CMAKE_FIND_LIBRARY_SUFFIXES ".so" ".a")
+endif()
+mark_as_advanced	(CMAKE_FIND_LIBRARY_PREFIXES)
+
 SET(BUILD_SHARED_LIBRARIES ON)
 
 SET(CMAKE_RC_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE}")
@@ -47,10 +70,15 @@ add_executable(
 	${PROJECT_NAME}
 	${GUI_TYPE}
 	${SOURCES}
+	${IMGUI_SFML_SOURCES}
 	${CMAKE_SOURCE_DIR}/extras/exe_icon_for_windows/resource.rc)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES})
+
 cotire(${PROJECT_NAME})
+
+# this is in trunk as of 2016Dec - let's just keep it here till it makes to the release
+# set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/release.win/Debug")
 
 set(CMAKE_SUPPRESS_REGENERATION true)
 
