@@ -239,12 +239,12 @@ void PlayState::draw()
 	////////////////////////////////////////
 	// SFML::ImGui Tests
 	ImGui::SFML::Update( m_window, deltaClock.restart() );
-	ImGui::Begin( " " );
+	ImGui::Begin( "  " );
 	if ( ImGui::Button( "Quit to Desktop" ) ) {
 		m_machine.quit();
 	}
 	ImGui::End();
-	m_window.clear();
+	// m_window.clear();
 	m_window.draw( m_shape );
 	ImGui::SFML::Render( m_window );
 	////////////////////////////////////////

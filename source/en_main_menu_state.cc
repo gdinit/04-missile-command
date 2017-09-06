@@ -20,6 +20,46 @@ MainMenuState::~MainMenuState()
 	#endif
 }
 
+void MainMenuState::initializeState()
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tCreated state:\t\t" << m_myObjNameStr << "\n";
+	#endif
+	restartStateClock();
+	// resize stuff here
+	m_systemResizeHourglass = 0;
+	// TODO base these values on config variables
+	m_desiredAspectRatio = 640.f / 480.f;
+	#if defined DBG
+	std::cout << "[DEBUG]\tm_desiredAspectRatio is: \t" <<
+	m_desiredAspectRatio << " //" << m_myObjNameStr << "\n";
+	#endif
+	m_engineSharedContext.mustMainMenu = false;
+	// TODO fix this (fast tracking during engine/game separation)
+	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
+	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
+	m_urgentUpdateNeeded = 10;
+	// debug overlay font
+	m_font.loadFromFile( "assets/fonts/sansation.ttf" );
+	m_statisticsText.setFont( m_font );
+	m_statisticsText.setPosition( 5.f, 5.f );
+	m_statisticsText.setCharacterSize( 12u );
+	m_statisticsText.setFillColor( sf::Color::White );
+	updateDebugOverlayTextIfEnabled( true );
+
+	////////////////////////////////////////
+	// SFML::ImGui Tests
+	deltaClock.restart();
+	ImGui::SFML::Init( m_window );
+	m_clicked = 0;
+	// m_shape.setFillColor( sf::Color::Green );
+	// m_shape.setRadius( 5 );
+	// m_shape.setOutlineColor( sf::Color::Red );
+	// m_shape.setOutlineThickness( 1 );
+	// m_shape.setPosition( 10, 80 );
+	////////////////////////////////////////
+}
+
 void MainMenuState::update()
 {
 	sf::Time m_elapsedTime = m_clock.restart();
@@ -74,50 +114,34 @@ void MainMenuState::draw()
 {
 	m_window.clear();
 	m_window.setView( m_engineSharedContext.view );
+
+	////////////////////////////////////////
+	// SFML::ImGui Tests
+	ImGui::SFML::Update( m_window, deltaClock.restart() );
+	ImGui::Begin( " " );
+	if ( ImGui::Button( "PLAY" ) ) {
+		// play action here
+		m_next = StateMachine::build <PlayState> ( m_machine, m_window
+				, m_engineSharedContext, true );
+	}
+	if ( ImGui::Button( "CREDITS" ) ) {
+		// TODO add CREDITS action here
+		m_next = StateMachine::build <PlayState> ( m_machine, m_window
+				, m_engineSharedContext, true );
+	}
+	if ( ImGui::Button( "QUIT TO DESKTOP" ) ) {
+		// play action here
+		m_machine.quit();
+	}
+	ImGui::End();
+	ImGui::SFML::Render( m_window );
+	////////////////////////////////////////
+
 	if ( SETTINGS->inGameOverlay ) {
 		m_window.draw( m_statisticsText );
 	}
-	m_window.display();
-}
 
-void MainMenuState::initializeState()
-{
-	#if defined DBG
-	std::cout << "[DEBUG]\tCreated state:\t\t" << m_myObjNameStr << "\n";
-	#endif
-	restartStateClock();
-	// resize stuff here
-	m_systemResizeHourglass = 0;
-	// TODO base these values on config variables
-	m_desiredAspectRatio = 640.f / 480.f;
-	#if defined DBG
-	std::cout << "[DEBUG]\tm_desiredAspectRatio is: \t" <<
-	m_desiredAspectRatio << " //" << m_myObjNameStr << "\n";
-	#endif
-	m_engineSharedContext.mustMainMenu = false;
-	// TODO fix this (fast tracking during engine/game separation)
-	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
-	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
-	m_urgentUpdateNeeded = 10;
-	// debug overlay font
-	m_font.loadFromFile( "assets/fonts/sansation.ttf" );
-	m_statisticsText.setFont( m_font );
-	m_statisticsText.setPosition( 5.f, 5.f );
-	m_statisticsText.setCharacterSize( 12u );
-	m_statisticsText.setFillColor( sf::Color::White );
-	updateDebugOverlayTextIfEnabled( true );
-	////////////////////////////////////////
-	// SFML::ImGui Tests
-	deltaClock.restart();
-	ImGui::SFML::Init( m_window );
-	m_clicked = 0;
-	// SFML::ImGui Tests
-	m_shape.setFillColor( sf::Color::Green );
-	m_shape.setRadius( 5 );
-	m_shape.setOutlineColor( sf::Color::Red );
-	m_shape.setOutlineThickness( 1 );
-	m_shape.setPosition( 10, 80 );
-	////////////////////////////////////////
+	m_window.display();
 }
 
 void MainMenuState::onResize()
@@ -140,6 +164,7 @@ void MainMenuState::processEvents()
 
 	// process events
 	while ( m_window.pollEvent( evt ) ) {
+		ImGui::SFML::ProcessEvent( evt );
 		switch ( evt.type ) {
 			case sf::Event::Closed:
 				std::cout << "Quitting on close event."
