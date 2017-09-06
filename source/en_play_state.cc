@@ -253,7 +253,7 @@ void PlayState::draw()
 		m_window.draw( m_statisticsText );
 	}
 
-	// Display only if PlayState is not doing it.
+	// Display only if PauseState is not doing it.
 	if ( !m_engineSharedContext.gameIsPaused ) {
 		m_window.display();
 	}
