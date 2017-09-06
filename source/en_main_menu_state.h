@@ -42,45 +42,46 @@ class MainMenuState : public State
 		void	onResize();
 		void	initializeState();
 		void	processEvents();
-		void	buttonCollisionDetectRespond( void ) noexcept;
+		// comment out button
+		// void	buttonCollisionDetectRespond( void ) noexcept;
 		void	update();
 		void	draw();
 		void	pause();
 		void	resume();
 
 	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Sprite		m_sprPlay;
-		bool			m_sprPlayNeedSFX;
-		bool			m_sprPlayButtonHot;
-		sf::Font		m_fontPlayText;
-		sf::Text		m_textPlay;
+		const t_objectName m_myObjNameStr;
+		// sf::Sprite		m_sprPlay;
+		// bool			m_sprPlayNeedSFX;
+		// bool			m_sprPlayButtonHot;
+		// sf::Font		m_fontPlayText;
+		// sf::Text		m_textPlay;
 
-		sf::Sprite		m_sprCredits;
-		bool			m_sprCreditsNeedSFX;
-		bool			m_sprCreditsButtonHot;
-		sf::Font		m_fontCreditsText;
-		sf::Text		m_textCredits;
+		// sf::Sprite		m_sprCredits;
+		// bool			m_sprCreditsNeedSFX;
+		// bool			m_sprCreditsButtonHot;
+		// sf::Font		m_fontCreditsText;
+		// sf::Text		m_textCredits;
 
-		sf::Sprite		m_sprQuit;
-		bool			m_sprQuitNeedSFX;
-		bool			m_sprQuitButtonHot;
-		sf::Font		m_fontQuitText;
-		sf::Text		m_textQuit;
+		// sf::Sprite		m_sprQuit;
+		// bool			m_sprQuitNeedSFX;
+		// bool			m_sprQuitButtonHot;
+		// sf::Font		m_fontQuitText;
+		// sf::Text		m_textQuit;
 
-		sf::SoundBuffer		m_sbMouseOver;
-		sf::Sound		m_sMouseOver;
-		sf::Vector2i		m_mousePos;
+		// sf::SoundBuffer		m_sbMouseOver;
+		// sf::Sound		m_sMouseOver;
+		// sf::Vector2i		m_mousePos;
 
 		// window resize stuff
 		// Added to store texture size
-		sf::Texture		m_textureWhite;
-		sf::Vector2u		m_textureSize;
+		sf::Texture	m_textureWhite;
+		sf::Vector2u	m_textureSize;
 		// Added to store window size
-		sf::Vector2u		m_windowSize;
+		sf::Vector2u	m_windowSize;
 		// TODO move this to app
-		float			m_desiredAspectRatio;
-		int32			m_systemResizeHourglass;
+		float		m_desiredAspectRatio;
+		int32		m_systemResizeHourglass;
 };
 
 #endif	// EN_MAIN_MENU_STATE_H
