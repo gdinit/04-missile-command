@@ -74,13 +74,10 @@ void MainMenuState::update()
 void MainMenuState::draw()
 {
 	m_window.clear();
-
-	// TODO fix this (fast tracking during engine/game separation)
-	// m_window.setView( m_engineSharedContext.view );
-	// if ( SETTINGS->inGameOverlay ) {
-	// m_window.draw( m_statisticsText );
-	// }
-
+	m_window.setView( m_engineSharedContext.view );
+	if ( SETTINGS->inGameOverlay ) {
+		m_window.draw( m_statisticsText );
+	}
 	// comment out button stuff
 	// m_window.	draw(	m_sprPlay );
 	// m_window.	draw(	m_textPlay );
@@ -88,7 +85,6 @@ void MainMenuState::draw()
 	// m_window.	draw(	m_textCredits );
 	// m_window.	draw(	m_sprQuit );
 	// m_window.	draw(	m_textQuit );
-
 	m_window.display();
 }
 
