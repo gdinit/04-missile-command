@@ -22,6 +22,8 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Window/Mouse.hpp>
+#include <imgui.h>
+#include <imgui-SFML.h>
 
 // for FPS text
 #include <string>
@@ -82,6 +84,10 @@ class MainMenuState : public State
 		// TODO move this to app
 		float		m_desiredAspectRatio;
 		int32		m_systemResizeHourglass;
+		// imgui stuff
+		sf::CircleShape	m_shape;
+		sf::Clock	deltaClock;
+		int32		m_clicked;
 };
 
 #endif	// EN_MAIN_MENU_STATE_H

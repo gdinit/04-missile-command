@@ -200,6 +200,19 @@ void MainMenuState::initializeState()
 	// , ( m_engineSharedContext.view.getSize().y *
 	// CONST_MENU_BUTTON_3 ) );
 	//// =====================================
+
+	////////////////////////////////////////
+	// SFML::ImGui Tests
+	deltaClock.restart();
+	ImGui::SFML::Init( m_window );
+	m_clicked = 0;
+	// SFML::ImGui Tests
+	m_shape.setFillColor( sf::Color::Green );
+	m_shape.setRadius( 5 );
+	m_shape.setOutlineColor( sf::Color::Red );
+	m_shape.setOutlineThickness( 1 );
+	m_shape.setPosition( 10, 80 );
+	////////////////////////////////////////
 }
 
 void MainMenuState::onResize()

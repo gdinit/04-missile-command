@@ -89,6 +89,7 @@ class PlayState : public State
 		sf::SoundBuffer		m_sbClicked;
 		sf::Sound		m_sClicked;
 		int32			m_systemResizeHourglass;
+		// imgui stuff
 		sf::CircleShape		m_shape;
 		sf::Clock		deltaClock;
 		int32			m_clicked;
