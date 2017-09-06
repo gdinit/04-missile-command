@@ -44,50 +44,26 @@ class MainMenuState : public State
 		void	onResize();
 		void	initializeState();
 		void	processEvents();
-		// comment out button
-		// void	buttonCollisionDetectRespond( void ) noexcept;
 		void	update();
 		void	draw();
 		void	pause();
 		void	resume();
 
 	private:
-		const t_objectName m_myObjNameStr;
-		// sf::Sprite		m_sprPlay;
-		// bool			m_sprPlayNeedSFX;
-		// bool			m_sprPlayButtonHot;
-		// sf::Font		m_fontPlayText;
-		// sf::Text		m_textPlay;
-
-		// sf::Sprite		m_sprCredits;
-		// bool			m_sprCreditsNeedSFX;
-		// bool			m_sprCreditsButtonHot;
-		// sf::Font		m_fontCreditsText;
-		// sf::Text		m_textCredits;
-
-		// sf::Sprite		m_sprQuit;
-		// bool			m_sprQuitNeedSFX;
-		// bool			m_sprQuitButtonHot;
-		// sf::Font		m_fontQuitText;
-		// sf::Text		m_textQuit;
-
-		// sf::SoundBuffer		m_sbMouseOver;
-		// sf::Sound		m_sMouseOver;
-		// sf::Vector2i		m_mousePos;
-
+		const t_objectName	m_myObjNameStr;
 		// window resize stuff
 		// Added to store texture size
-		sf::Texture	m_textureWhite;
-		sf::Vector2u	m_textureSize;
+		sf::Texture		m_textureWhite;
+		sf::Vector2u		m_textureSize;
 		// Added to store window size
-		sf::Vector2u	m_windowSize;
+		sf::Vector2u		m_windowSize;
 		// TODO move this to app
-		float		m_desiredAspectRatio;
-		int32		m_systemResizeHourglass;
+		float			m_desiredAspectRatio;
+		int32			m_systemResizeHourglass;
 		// imgui stuff
-		sf::CircleShape	m_shape;
-		sf::Clock	deltaClock;
-		int32		m_clicked;
+		sf::CircleShape		m_shape;
+		sf::Clock		deltaClock;
+		int32			m_clicked;
 };
 
 #endif	// EN_MAIN_MENU_STATE_H
