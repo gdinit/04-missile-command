@@ -11,8 +11,6 @@
 #include "en_globals.h"
 // TODO remove this #include "mc_config.h"
 
-#include <SFML/Graphics/RenderWindow.hpp>
-
 class Application
 {
 	public:

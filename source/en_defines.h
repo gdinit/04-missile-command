@@ -9,7 +9,7 @@
 //
 // ============================
 // RENAMED AND NEW
-#define CONST_GAME_NAME	"Untitled Game"
+#define CONST_GAME_NAME	"Untitled"
 #define CONST_DESIRED_FPS_INT 30
 #define CONST_DESIRED_FPS_FLOAT	30.f
 // ============================

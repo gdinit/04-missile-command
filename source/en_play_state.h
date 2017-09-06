@@ -27,6 +27,8 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
+#include <imgui.h>
+#include <imgui-SFML.h>
 
 // to in-line document
 // Required for std::unique_ptr
@@ -87,6 +89,9 @@ class PlayState : public State
 		sf::SoundBuffer		m_sbClicked;
 		sf::Sound		m_sClicked;
 		int32			m_systemResizeHourglass;
+		sf::CircleShape		m_shape;
+		sf::Clock		deltaClock;
+		int32			m_clicked;
 };
 
 #endif	// EN_PLAY_STATE_H

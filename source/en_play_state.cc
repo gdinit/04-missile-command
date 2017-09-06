@@ -101,6 +101,19 @@ void PlayState::initializeState()
 	#if defined DBG
 	std::cout << "[DEBUG]\tSUCCESS: Reset lives." << m_myObjNameStr << "\n";
 	#endif
+
+	////////////////////////////////////////
+	// SFML::ImGui Tests
+	deltaClock.restart();
+	ImGui::SFML::Init( m_window );
+	m_clicked = 0;
+	// SFML::ImGui Tests
+	m_shape.setFillColor( sf::Color::Green );
+	m_shape.setRadius( 5 );
+	m_shape.setOutlineColor( sf::Color::Red );
+	m_shape.setOutlineThickness( 1 );
+	m_shape.setPosition( 10, 80 );
+	////////////////////////////////////////
 }
 
 void PlayState::update()
@@ -217,13 +230,24 @@ void PlayState::draw()
 
 	// Always clear & draw game objects.
 	m_window.clear();
-
 	m_window.setView( m_engineSharedContext.view );
-
 	arena.draw( m_window, sf::RenderStates::Default );
 
 	// todo fixme
 	// hud.draw( m_window, sf::RenderStates::Default );
+
+	////////////////////////////////////////
+	// SFML::ImGui Tests
+	ImGui::SFML::Update( m_window, deltaClock.restart() );
+	ImGui::Begin( " " );
+	if ( ImGui::Button( "Quit to Desktop" ) ) {
+		m_machine.quit();
+	}
+	ImGui::End();
+	m_window.clear();
+	m_window.draw( m_shape );
+	ImGui::SFML::Render( m_window );
+	////////////////////////////////////////
 
 	if ( !m_engineSharedContext.gameIsPaused && SETTINGS->inGameOverlay ) {
 		m_window.draw( m_statisticsText );
@@ -271,21 +295,11 @@ void PlayState::processEvents()
 	// REMINDER:	virtual bool hasFocus() const;
 	// process events
 	while ( m_window.pollEvent( evt ) ) {
+		ImGui::SFML::ProcessEvent( evt );
 		switch ( evt.type ) {
 			case sf::Event::Closed:
 				m_machine.quit();
 				break;
-			//////////////
-			//////////////
-			//////////////
-			//////////////
-			//////////////
-			//////////////
-			//////////////
-			//////////////
-			//////////////
-			// TODO reenable these without
-			// breaking engine separation
 			case sf::Event::Resized:
 				// onResize();
 				m_engineSharedContext.view = getLetterboxView(
