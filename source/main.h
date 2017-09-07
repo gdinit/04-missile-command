@@ -4,19 +4,64 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/// ============== CONFIGURE ME ==============
+// ===================== CONFIGURE ME ======================
 // ENABLE THE NEXT LINE *AFTER* MODIFYING IT TO SUIT YOUR GAME
-// #include "ga_game_defines.h"
-/// ============== CONFIGURE ME ==============
-
+#include "game/mc_game_defines.h"
+// ===================== CONFIGURE ME ======================
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /// ============== DO NOT TOUCH ==============
 // Engine Defines
 #include "en_defines.h"
 
 #include "en_essentials.h"
 #include "en_application.h"
-
-// TODO REMOVE THIS LINE #include "mc_game.h"
 
 // For exception handling in main
 #include <stdexcept>

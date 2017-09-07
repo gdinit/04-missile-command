@@ -5,11 +5,13 @@
 #define EN_DEFINES_H
 
 // ============ BEGIN: HARDCODED ENGINE GENERIC SETTINGS ==============
-#ifndef GA_GAME_DEFINES_H
+// #ifndef MC_GAME_DEFINES_H
 //
 // ============================
 // RENAMED AND NEW
+#ifndef CONST_GAME_NAME
 #define CONST_GAME_NAME	"Untitled"
+#endif
 #define CONST_DESIRED_FPS_INT 30
 #define CONST_DESIRED_FPS_FLOAT	30.f
 // ============================
@@ -63,7 +65,7 @@
 // #define BR_BOUNCE_CHANCE_LOWP 0.24
 // #define BR_BOUNCE_CHANCE_HIGHN -0.48
 // #define BR_BOUNCE_CHANCE_HIGHP 0.48
-#endif
+// #endif
 // ============================
 //
 // ============ END: HARDCODED ENGINE GENERIC SETTINGS ==============

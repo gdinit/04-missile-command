@@ -9,7 +9,7 @@
 #include "en_defines.h"
 #include "en_intro_state.h"
 #include "en_globals.h"
-// TODO remove this #include "mc_config.h"
+#include "game/mc_game_defines.h"
 
 class Application
 {
