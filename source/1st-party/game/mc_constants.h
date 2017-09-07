@@ -6,7 +6,8 @@
 
 constexpr float	MC_CONS_CITY_H { 26.f };
 
-#endif	// MC_CONSTANTS_H
+// MC_CONSTANTS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

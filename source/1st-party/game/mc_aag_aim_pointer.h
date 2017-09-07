@@ -97,7 +97,8 @@ class AAGAimPointer : public sf::Transformable
 		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
-#endif	// MC_AAG_AIM_POINTER_H
+// MC_AAG_AIM_POINTER_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

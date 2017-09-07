@@ -45,7 +45,8 @@ class Hud : public sf::Transformable, public sf::Drawable
 		sf::Sprite		m_blueBackground;
 };
 
-#endif	// MC_HUD_H
+// MC_HUD_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

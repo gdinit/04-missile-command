@@ -55,7 +55,8 @@
 //// HUD Data
 // };
 
-#endif	// GA_SHARED_CONTEXT_H
+// GA_SHARED_CONTEXT_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

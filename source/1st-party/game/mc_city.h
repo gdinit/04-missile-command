@@ -48,7 +48,8 @@ class City : public sf::Transformable
 		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
-#endif	// MC_CITY_H
+// MC_CITY_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

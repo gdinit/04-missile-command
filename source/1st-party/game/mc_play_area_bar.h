@@ -53,7 +53,8 @@ class PlayAreaBar : public sf::Transformable
 		float			m_width;
 };
 
-#endif	// MC_PLAY_AREA_BAR_H
+// MC_PLAY_AREA_BAR_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

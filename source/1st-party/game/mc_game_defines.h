@@ -8,7 +8,8 @@
 #define CONST_DESIRED_FPS_INT 30
 #define CONST_DESIRED_FPS_FLOAT 30.f
 
-#endif	// MC_GAME_DEFINES_H
+// MC_GAME_DEFINES_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

@@ -11,7 +11,8 @@
 // For std::unique_ptr
 #include <memory>
 
-#endif	// MC_GAME_OBJECTS_H
+// MC_GAME_OBJECTS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */
