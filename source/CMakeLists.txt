@@ -18,7 +18,9 @@ file(GLOB SOURCES
 	"${PROJECT_SOURCE_DIR}/1st-party/game/*.cc"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui_draw.cpp"
+	# intentional.
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/imgui-sfml.cpp"
+	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/imgui-SFML.cpp"
 	)
 
 if(NOT CMAKE_BUILD_TYPE) 
