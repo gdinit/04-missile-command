@@ -8,8 +8,8 @@
 // '__cplusplus == 201103L' based on Keiji's comment
 // source: https://stackoverflow.com/users/4093728/keiji
 
-#ifndef EN_MAKE_UNIQUE_H
-#define EN_MAKE_UNIQUE_H
+#ifndef EN_UTIL_MAKE_UNIQUE_H
+#define EN_UTIL_MAKE_UNIQUE_H
 
 #if __cplusplus == 201103L
 
@@ -55,7 +55,7 @@ namespace std
 // __cplusplus == 201103L
 #endif
 
-// EN_MAKE_UNIQUE_H
+// EN_UTIL_MAKE_UNIQUE_H
 #endif
 
 // ===================================80 chars==================================

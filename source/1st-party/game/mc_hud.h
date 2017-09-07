@@ -12,7 +12,7 @@
 // Required for HUD Text
 #include "en_globals.h"
 // Required for centerOrigin
-#include "en_utility.h"
+#include "en_util_utility.h"
 
 #include <SFML/Graphics.hpp>
 

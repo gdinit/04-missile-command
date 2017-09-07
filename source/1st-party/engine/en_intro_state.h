@@ -10,7 +10,7 @@
 #include "en_play_state.h"
 // TODO remove this #include "mc_config.h"
 // For centerOrigin
-#include "en_utility.h"
+#include "en_util_utility.h"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>

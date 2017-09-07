@@ -10,7 +10,7 @@
 // TODO remove this #include "mc_config.h"
 #include "en_globals.h"
 // For centerOrigin
-#include "en_utility.h"
+#include "en_util_utility.h"
 // TODO remove this #include "mc_game_objects.h"
 #include "en_arena.h"
 // TODO remove this #include "mc_hud.h"

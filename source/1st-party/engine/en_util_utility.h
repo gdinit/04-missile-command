@@ -1,8 +1,8 @@
-/* utility.h */
+/* en_util_utility.h */
 // ===================================80 chars==================================
 
-#ifndef UTILITY_H
-#define UTILITY_H
+#ifndef EN_UTIL_UTILITY_H
+#define EN_UTIL_UTILITY_H
 
 // For sqrt && centerOrigin
 #include <cmath>
@@ -19,7 +19,8 @@ float		magnitudeSquared( float x, float y );
 int		magnitudeSquared( int x, int y );
 sf::Vector2f	normalize( sf::Vector2f v );
 
-#endif	// UTILITY_H
+// EN_UTIL_UTILITY_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

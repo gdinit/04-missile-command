@@ -11,7 +11,7 @@
 #include "en_essentials.h"
 #include "mc_config.h"
 //// For normalization
-// #include "en_utility.h"
+// #include "en_util_utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 // #include "en_util_make_unique.h"
 // ================= BEGIN: Production Assert Handling =================
