@@ -15,7 +15,7 @@ Here is two!
 
 Install
 -------
-There is a pre-release Windows binary available under releases.
+Nothing here yet :(
 
 Credits
 -------
