@@ -1,13 +1,14 @@
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
-set (CMAKE_CXX_STANDARD 11)
+#set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD 14)
 
 project(04-missile-command)
 SET(PROJECT_STATIC_RUNTIME FALSE CACHE BOOL "Use statically linked standard/runtime libraries?")
 mark_as_advanced	(PROJECT_STATIC_RUNTIME)
 
 list(APPEND CMAKE_MODULE_PATH	"${PROJECT_SOURCE_DIR}/cmake/modules")
-find_package(SFML 2.4 COMPONENTS graphics audio window system network)
+FIND_PACKAGE(SFML 2.4 COMPONENTS graphics audio window system network)
 
 file(GLOB SOURCES 
 	"${PROJECT_SOURCE_DIR}/*.h"
@@ -33,9 +34,11 @@ endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX)
 	if(PROJECT_STATIC_RUNTIME)
-		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -static -Wall -Wno-unknown-pragmas")
+		#SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -static -Wall -Wno-unknown-pragmas")
+		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static -Wall -Wno-unknown-pragmas")
 	else()
-		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-unknown-pragmas")
+		#SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-unknown-pragmas")
+		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wno-unknown-pragmas")
 	endif()
 endif()
 
@@ -73,7 +76,10 @@ add_executable(
 	${IMGUI_SFML_SOURCES}
 	${CMAKE_SOURCE_DIR}/extras/exe_icon_for_windows/resource.rc)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES})
+target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES} ${LUA_LIBRARIES})
+#target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES} ${LUA_LIBRARY})
+#target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES} liblua53)
+#target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES})
 
 cotire(${PROJECT_NAME})
 
