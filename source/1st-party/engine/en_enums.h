@@ -15,7 +15,8 @@ enum class Direction : std::int32_t {
 	, RIGHT = 4
 };
 
-#endif	// EN_ENUMS_H
+// EN_ENUMS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

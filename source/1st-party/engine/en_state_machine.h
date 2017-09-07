@@ -68,7 +68,8 @@ std::unique_ptr <T> StateMachine::build( StateMachine &machine
 			, replace ) );
 }
 
-#endif	// EN_STATE_MACHINE_H
+// EN_STATE_MACHINE_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

@@ -40,7 +40,8 @@ struct EngineSharedContext
 	bool reqSndPlyFromPause = 0;
 };
 
-#endif	// EN_SHARED_CONTEXT_H
+// EN_SHARED_CONTEXT_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

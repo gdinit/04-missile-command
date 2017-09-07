@@ -95,7 +95,8 @@ class PlayState : public State
 		int32			m_clicked;
 };
 
-#endif	// EN_PLAY_STATE_H
+// EN_PLAY_STATE_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

@@ -29,7 +29,8 @@ struct Globals {
 	bool returnToMainMenuRequested = 0;
 };
 
-#endif	// EN_GLOBALS_H
+// EN_GLOBALS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

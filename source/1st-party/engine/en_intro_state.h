@@ -66,7 +66,8 @@ class IntroState : public State
 		int			m_systemResizeHourglass;
 };
 
-#endif	// EN_INTRO_STATE_H
+// EN_INTRO_STATE_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

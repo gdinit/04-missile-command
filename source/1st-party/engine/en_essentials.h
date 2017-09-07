@@ -19,7 +19,8 @@
 	#endif
 #endif
 
-#endif	// EN_ESSENTIALS_H
+// EN_ESSENTIALS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

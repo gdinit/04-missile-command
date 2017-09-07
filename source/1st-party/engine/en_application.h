@@ -27,7 +27,8 @@ class Application
 		EngineSharedContext	m_engineSharedContext;
 };
 
-#endif	// EN_APPLICATION_H
+// EN_APPLICATION_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

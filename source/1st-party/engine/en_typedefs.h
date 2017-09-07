@@ -20,7 +20,8 @@ typedef std::uint64_t uint64;
 typedef wchar_t wchar;
 typedef std::string t_objectName;
 
-#endif	// EN_TYPEDEFS_H
+// EN_TYPEDEFS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

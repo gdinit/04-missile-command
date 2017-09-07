@@ -67,7 +67,8 @@ class Arena : public sf::Transformable, public sf::Drawable
 		City			rightCity = { "rightCity" };
 };
 
-#endif	// EN_ARENA_H
+// EN_ARENA_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

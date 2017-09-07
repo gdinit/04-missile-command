@@ -98,7 +98,8 @@ class State
 		sf::View			m_worldView;
 };
 
-#endif	// EN_STATE_H
+// EN_STATE_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */
