@@ -8,7 +8,7 @@
 // TODO remove this #include "mc_config.h"
 #include "mc_play_area_bar.h"
 #include "mc_city.h"
-#include "mc_aag_aim_pointer.h"
+#include "mc_gun_indicator.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "en_util_make_unique.h"
 
@@ -57,7 +57,7 @@ class Arena : public sf::Transformable, public sf::Drawable
 		sf::Vector2f		m_velocity;
 		sf::SoundBuffer		m_sndbfColPaddle;
 		sf::Sound		m_soundColPaddle;
-		AAGAimPointer		AAGAimPointer;
+		GunIndicator		GunIndicator;
 		PlayAreaBar		topBar = { "topBar" };
 		PlayAreaBar		leftBar = { "leftBar" };
 		PlayAreaBar		bottomBar = { "bottomBar" };

@@ -1,16 +1,13 @@
-/* mc_aag_aim_pointer.cc */
-// ===================================80 chars==================================
+#include "mc_gun_indicator.h"
 
-#include "mc_aag_aim_pointer.h"
-
-AAGAimPointer::AAGAimPointer()
-	: m_myObjNameStr( "AAGAimPointer" )
+GunIndicator::GunIndicator()
+	: m_myObjNameStr( "GunIndicator" )
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
 	#endif
 	// Assign Bad Define Values (to be caught by PASSERT if not overriden)
-	m_defAAGPointerW = -999;
+	m_defGunIndicatorW = -999;
 	m_defAAGPointerH = -999;
 	m_defAAGPointerV = -999;
 	// JSON
@@ -19,7 +16,7 @@ AAGAimPointer::AAGAimPointer()
 	i >> j;
 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
 		if ( it.key() == "MC_AAG_Pointer_W" ) {
-			m_defAAGPointerW = it.value();
+			m_defGunIndicatorW = it.value();
 		} else if ( it.key() == "MC_AAG_Pointer_H" ) {
 			m_defAAGPointerH = it.value();
 		} else if ( it.key() == "MC_AAG_Pointer_V" ) {
@@ -27,13 +24,13 @@ AAGAimPointer::AAGAimPointer()
 		}
 	}
 	i.close();
-	std::cout << "[TMP]\tm_defAAGPointerW is: " << m_defAAGPointerW << "\n";
+	std::cout << "[TMP]\tm_defGunIndicatorW is: " << m_defGunIndicatorW << "\n";
 	std::cout << "[TMP]\tm_defAAGPointerH is: " << m_defAAGPointerH << "\n";
 	std::cout << "[TMP]\tm_defAAGPointerV is: " << m_defAAGPointerV << "\n";
 
 	// Production Assert - ensure JSON loaded fine
-	PASSERT(        ( m_defAAGPointerW != -999 )
-		, "ERROR: m_defAAGPointerW cannot be -999!\n" );
+	PASSERT(        ( m_defGunIndicatorW != -999 )
+		, "ERROR: m_defGunIndicatorW cannot be -999!\n" );
 	PASSERT(        ( m_defAAGPointerH != -999 )
 		, "ERROR: m_defAAGPointerH cannot be -999!\n" );
 	PASSERT(        ( m_defAAGPointerV != -999 )
@@ -41,24 +38,24 @@ AAGAimPointer::AAGAimPointer()
 
 	// SET UP SPRITE
 	m_sprite.setTexture( m_texture );
-	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_defAAGPointerW
+	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_defGunIndicatorW
 			, m_defAAGPointerH ) );
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
-	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_defAAGPointerW / 2.f );
+	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_defGunIndicatorW / 2.f );
 	// m_sprite.setPosition( 0, 0 );
 	m_sprite.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
 	m_velocity.x = 0.f;
 	m_velocity.y = 0.f;
 }
 
-AAGAimPointer::~AAGAimPointer()
+GunIndicator::~GunIndicator()
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tDestructed object:\t" << m_myObjNameStr << "\n";
 	#endif
 }
 
-void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
+void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 	, Direction dir, float topBarBE, float leftBarRE, float bottomBarTE
 	, float
 	rightBarLE )
@@ -104,7 +101,7 @@ void AAGAimPointer::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 	// m_sprite.move( moveDistance );
 }
 
-void AAGAimPointer::manageMovement( sf::Vector2f res, Direction dir
+void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
 	, float topBarBE, float leftBarRE, float bottomBarTE, float rightBarLE )
 {
 	// Notes:
@@ -119,27 +116,27 @@ void AAGAimPointer::manageMovement( sf::Vector2f res, Direction dir
 	switch ( dir ) {
 		case Direction::UP:
 			// move up requested. validate & action (if legal!)
-			m_requestedMoveDistance.y = MC_AAGAIMPOINTER_MOVSTEP *
+			m_requestedMoveDistance.y = MC_GUN_INDICATOR_MOVSTEP *
 				-1.f;
 			valAndActionMove( res, dir, topBarBE, leftBarRE
 			, bottomBarTE, rightBarLE );
 			break;
 		case Direction::LEFT:
 			// move left requested. validate & action (if legal!)
-			m_requestedMoveDistance.x = MC_AAGAIMPOINTER_MOVSTEP *
+			m_requestedMoveDistance.x = MC_GUN_INDICATOR_MOVSTEP *
 				-1.f;
 			valAndActionMove( res, dir, topBarBE, leftBarRE
 			, bottomBarTE, rightBarLE );
 			break;
 		case Direction::DOWN:
 			// move up requested. validate & action (if legal!)
-			m_requestedMoveDistance.y = MC_AAGAIMPOINTER_MOVSTEP;
+			m_requestedMoveDistance.y = MC_GUN_INDICATOR_MOVSTEP;
 			valAndActionMove( res, dir, topBarBE, leftBarRE
 			, bottomBarTE, rightBarLE );
 			break;
 		case Direction::RIGHT:
 			// move right requested. validate & action (if legal!)
-			m_requestedMoveDistance.x = MC_AAGAIMPOINTER_MOVSTEP;
+			m_requestedMoveDistance.x = MC_GUN_INDICATOR_MOVSTEP;
 			valAndActionMove( res, dir, topBarBE, leftBarRE
 			, bottomBarTE, rightBarLE );
 			break;
@@ -150,7 +147,7 @@ void AAGAimPointer::manageMovement( sf::Vector2f res, Direction dir
 	}
 }
 
-void AAGAimPointer::valAndActionMove( sf::Vector2f res, Direction dir, float
+void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 	topBarBE, float leftBarRE, float bottomBarTE, float rightBarLE ) {
 	PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
 		   Direction::DOWN || dir == Direction::RIGHT )
@@ -160,7 +157,7 @@ void AAGAimPointer::valAndActionMove( sf::Vector2f res, Direction dir, float
 			m_sprite.move( m_requestedMoveDistance );
 		}
 	} else if ( dir == Direction::LEFT ) {
-		if ( getLeft() > ( leftBarRE + m_defAAGPointerW ) ) {
+		if ( getLeft() > ( leftBarRE + m_defGunIndicatorW ) ) {
 			m_sprite.move( m_requestedMoveDistance );
 		}
 	} else if ( dir == Direction::DOWN ) {
@@ -174,12 +171,12 @@ void AAGAimPointer::valAndActionMove( sf::Vector2f res, Direction dir, float
 	}
 }
 
-void AAGAimPointer::draw( sf::RenderTarget &target, sf::RenderStates states )
+void GunIndicator::draw( sf::RenderTarget &target, sf::RenderStates states )
 const {
 	// draw to be done by Arena
 }
 
-void AAGAimPointer::newRound( sf::Vector2f res ) {
+void GunIndicator::newRound( sf::Vector2f res ) {
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
 	res.x << "," << res.y << ") has been triggered.\n";
@@ -192,30 +189,26 @@ void AAGAimPointer::newRound( sf::Vector2f res ) {
 	m_windowSize.y = res.y;
 }
 
-float AAGAimPointer::getX() const noexcept {
+float GunIndicator::getX() const noexcept {
 	return m_sprite.getPosition().x;
 }
 
-float AAGAimPointer::getY() const noexcept {
+float GunIndicator::getY() const noexcept {
 	return m_sprite.getPosition().y;
 }
 
-float AAGAimPointer::getTop() const noexcept {
+float GunIndicator::getTop() const noexcept {
 	return getY() - ( m_defAAGPointerH / 2.f );
 }
 
-float AAGAimPointer::getBottom() const noexcept {
+float GunIndicator::getBottom() const noexcept {
 	return getY() + ( m_defAAGPointerH / 2.f );
 }
 
-float AAGAimPointer::getLeft() const noexcept {
-	return getX() - ( m_defAAGPointerW / 2.f );
+float GunIndicator::getLeft() const noexcept {
+	return getX() - ( m_defGunIndicatorW / 2.f );
 }
 
-float AAGAimPointer::getRight() const noexcept {
-	return getX() + ( m_defAAGPointerW / 2.f );
+float GunIndicator::getRight() const noexcept {
+	return getX() + ( m_defGunIndicatorW / 2.f );
 }
-
-// ===================================80 chars==================================
-/* EOF */
-

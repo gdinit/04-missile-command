@@ -1,12 +1,12 @@
-/* mc_aag_aim_pointer.h */
+/* mc_gun_indicator.h */
 // ===================================80 chars==================================
 
-#ifndef MC_AAG_AIM_POINTER_H
-#define MC_AAG_AIM_POINTER_H
+#ifndef MC_GUN_INDICATOR_H
+#define MC_GUN_INDICATOR_H
 
 // TODO move to JSON
-#define MC_AAGAIMPOINTER_MOVSTEP 7.9f
-#define MC_AAGAIMPOINTER_W 60.f
+#define MC_GUN_INDICATOR_MOVSTEP 7.9f
+#define MC_GUN_AIM_POINTER_W 60.f
 
 #include "en_essentials.h"
 #include "mc_config.h"
@@ -47,14 +47,14 @@
 // Required for ifstream for JSON
 #include <fstream>
 
-class AAGAimPointer : public sf::Transformable
-		    , public sf::Drawable
-		    , private sf::NonCopyable
+class GunIndicator : public sf::Transformable
+		   , public sf::Drawable
+		   , private sf::NonCopyable
 {
 	public:
 		// Anti Aircraft Gun Aim Pointer
-		AAGAimPointer();
-		virtual ~AAGAimPointer();
+		GunIndicator();
+		virtual ~GunIndicator();
 		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
 		res );
 		// void	update( sf::Time timeSinceLastUpdate
@@ -90,14 +90,14 @@ class AAGAimPointer : public sf::Transformable
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
-		float			m_defAAGPointerW = -888;
+		float			m_defGunIndicatorW = -888;
 		float			m_defAAGPointerV = -888;
 		float			m_defAAGPointerH = -888;
 		sf::Vector2f		m_requestedMoveDistance;
 		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
-// MC_AAG_AIM_POINTER_H
+// MC_GUN_INDICATOR_H
 #endif
 
 // ===================================80 chars==================================
