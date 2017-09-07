@@ -1,8 +1,8 @@
 /* mc_shared_context.h */
 // ===================================80 chars==================================
 
-#ifndef GA_SHARED_CONTEXT_H
-#define GA_SHARED_CONTEXT_H
+#ifndef MC_SHARED_CONTEXT_H
+#define MC_SHARED_CONTEXT_H
 // I think this is not in use
 // I think this is not in use
 // I think this is not in use
@@ -55,7 +55,7 @@
 //// HUD Data
 // };
 
-// GA_SHARED_CONTEXT_H
+// MC_SHARED_CONTEXT_H
 #endif
 
 // ===================================80 chars==================================
