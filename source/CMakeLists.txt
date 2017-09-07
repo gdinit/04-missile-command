@@ -16,6 +16,7 @@ file(GLOB SOURCES
 	"${PROJECT_SOURCE_DIR}/1st-party/*.cc"
 	"${PROJECT_SOURCE_DIR}/1st-party/engine/*.cc"
 	"${PROJECT_SOURCE_DIR}/1st-party/game/*.cc"
+	"${PROJECT_SOURCE_DIR}/3rd-party/ecs/*.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui_draw.cpp"
 	# intentional.
@@ -53,6 +54,7 @@ include_directories(
 	"${PROJECT_SOURCE_DIR}/1st-party"
 	"${PROJECT_SOURCE_DIR}/1st-party/engine"
 	"${PROJECT_SOURCE_DIR}/1st-party/game"
+	"${PROJECT_SOURCE_DIR}/3rd-party/ecs"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml")
 include(cotire)
