@@ -74,7 +74,7 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	// }
 	// paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
 	// , rightBar.getLeft() );
-	GunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
+	gunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	// ball.update( timeSinceLastUpdate, res );
 	// paintCells();
@@ -82,7 +82,7 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
-	// target. draw(	GunIndicator.m_sprite );
+	// target. draw(	gunIndicator.m_sprite );
 	// target. draw(	topBar.m_sprite );
 	// target. draw(	leftBar.m_sprite );
 	// target. draw(	bottomBar.m_sprite );
@@ -112,7 +112,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	leftBar.newRound( res );
 	bottomBar.newRound( res );
 	rightBar.newRound( res );
-	GunIndicator.newRound( res );
+	gunIndicator.newRound( res );
 	leftCity.newRound( res );
 	middleCity.newRound( res );
 	rightCity.newRound( res );

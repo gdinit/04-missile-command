@@ -57,7 +57,7 @@ class Arena : public sf::Transformable, public sf::Drawable
 		sf::Vector2f		m_velocity;
 		sf::SoundBuffer		m_sndbfColPaddle;
 		sf::Sound		m_soundColPaddle;
-		GunIndicator		GunIndicator;
+		GunIndicator		gunIndicator;
 		PlayAreaBar		topBar = { "topBar" };
 		PlayAreaBar		leftBar = { "leftBar" };
 		PlayAreaBar		bottomBar = { "bottomBar" };
