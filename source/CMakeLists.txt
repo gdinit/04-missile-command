@@ -11,9 +11,9 @@ list(APPEND CMAKE_MODULE_PATH	"${PROJECT_SOURCE_DIR}/cmake/modules")
 FIND_PACKAGE(SFML 2.4 COMPONENTS graphics audio window system network)
 
 file(GLOB SOURCES 
-	#"${PROJECT_SOURCE_DIR}/*.h"
-	"${PROJECT_SOURCE_DIR}/*.cc"
-	"${PROJECT_SOURCE_DIR}/game/*.cc"
+	"${PROJECT_SOURCE_DIR}/1st-party/*.cc"
+	"${PROJECT_SOURCE_DIR}/1st-party/engine/*.cc"
+	"${PROJECT_SOURCE_DIR}/1st-party/game/*.cc"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/imgui_draw.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/imgui-sfml.cpp"
@@ -46,7 +46,9 @@ endif()
 include_directories(
 	"${CMAKE_CURRENT_SOURCE_DIR}"
 	"${SFML_INCLUDE_DIR}"
-	"${PROJECT_SOURCE_DIR}/game"
+	"${PROJECT_SOURCE_DIR}/1st-party"
+	"${PROJECT_SOURCE_DIR}/1st-party/engine"
+	"${PROJECT_SOURCE_DIR}/1st-party/game"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml")
 include(cotire)
