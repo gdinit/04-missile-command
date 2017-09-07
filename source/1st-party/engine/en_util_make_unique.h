@@ -1,5 +1,12 @@
-/* en_make_unique.h */
+/* en_util_make_unique.h */
 // ===================================80 chars==================================
+
+// Version by Stephan T. Lavavej (also known by STL)
+// who originally proposed adding this function to C++14
+// source: https://stackoverflow.com/a/17902439
+//
+// '__cplusplus == 201103L' based on Keiji's comment
+// source: https://stackoverflow.com/users/4093728/keiji
 
 #ifndef EN_MAKE_UNIQUE_H
 #define EN_MAKE_UNIQUE_H
@@ -45,9 +52,11 @@ namespace std
 	make_unique( Args && ... ) = delete;
 }
 
-#endif	// __cplusplus == 201103L
+// __cplusplus == 201103L
+#endif
 
-#endif	// EN_MAKE_UNIQUE_H
+// EN_MAKE_UNIQUE_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */

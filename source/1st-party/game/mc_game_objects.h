@@ -5,7 +5,7 @@
 #define MC_GAME_OBJECTS_H
 
 #include "en_essentials.h"
-#include "en_make_unique.h"
+#include "en_util_make_unique.h"
 #include "en_globals.h"
 
 // For std::unique_ptr
