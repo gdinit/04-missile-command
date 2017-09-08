@@ -4,9 +4,10 @@
 #ifndef EN_ENUMS_H
 #define EN_ENUMS_H
 
-#include <cstdint>
 // Required for fixed width integer types
+#include <cstdint>
 
+// Required for Play State and must stay on engine side.
 enum class Direction : std::int32_t {
 	NONE = 0
 	, UP = 1
