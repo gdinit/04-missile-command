@@ -19,8 +19,8 @@
 // ============================
 // STILL NEED TO BE RENAMED TO CONTS_BLAH_BLAH
 // TODO RENAME TO CONST
-#define C_WIN_W 320
-#define C_WIN_H 240
+#define C_WIN_W 640
+#define C_WIN_H 480
 #define CONST_WIN_FULLSCREEN 0
 #define C_DEBUG_SHOW_OVERLAY 1
 #define C_D_CO 0
