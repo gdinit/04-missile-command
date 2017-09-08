@@ -34,7 +34,6 @@ int main()
 	#endif	// __APPLE__
 
 	// create & run the application
-	ecsTest();
 	try
 	{
 		Application app;
