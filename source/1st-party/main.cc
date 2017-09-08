@@ -176,8 +176,8 @@ int main()
 	} else {
 	}
 	std::string	long_path( link_path );
-	size_t		pos = long_path.find_last_of( "/\\" );
-	std::string	relative_path = long_path.substr( 0, pos );
+	size_t		pos_ = long_path.find_last_of( "/\\" );
+	std::string	relative_path = long_path.substr( 0, pos_ );
 	chdir( relative_path.c_str() );
 	// Fix for `cwd issue`: END
 	#endif	// __APPLE__
