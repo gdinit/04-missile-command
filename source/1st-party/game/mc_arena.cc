@@ -1,7 +1,7 @@
-/* en_arena.cc */
+/* mc_arena.cc */
 // ===================================80 chars==================================
 
-#include "en_arena.h"
+#include "mc_arena.h"
 
 // Required for lives etc.	TOOD remove this global
 // extern std::unique_ptr <Globals> GLOBALS;

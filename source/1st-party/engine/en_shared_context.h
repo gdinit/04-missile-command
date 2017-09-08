@@ -7,7 +7,7 @@
 #ifndef EN_SHARED_CONTEXT_H
 #define EN_SHARED_CONTEXT_H
 
-// #include "en_arena.h"
+// #include "mc_arena.h"
 // TODO remove this #include "mc_hud.h"
 
 struct EngineSharedContext

@@ -1,8 +1,8 @@
-/* en_arena.h */
+/* mc_arena.h */
 // ===================================80 chars==================================
 
-#ifndef EN_ARENA_H
-#define EN_ARENA_H
+#ifndef MC_ARENA_H
+#define MC_ARENA_H
 
 #include "en_essentials.h"
 // TODO remove this #include "mc_config.h"
@@ -67,7 +67,7 @@ class Arena : public sf::Transformable, public sf::Drawable
 		City			rightCity = { "rightCity" };
 };
 
-// EN_ARENA_H
+// MC_ARENA_H
 #endif
 
 // ===================================80 chars==================================

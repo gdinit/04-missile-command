@@ -15,7 +15,7 @@
 #include "en_util_make_unique.h"
 // TODO remove this
 #include "mc_game_objects.h"
-#include "en_arena.h"
+#include "mc_arena.h"
 // TODO remove this #include "mc_hud.h"
 
 #include <SFML/Graphics/Sprite.hpp>
