@@ -103,9 +103,12 @@ const char * getExePath()
 
 // Fix for `cwd issue`. Temporary, till we get the bundle build system in CMake:
 // END
-#endif	// __APPLE__
 
-#endif	// MAIN_H
+// __APPLE__
+#endif
+
+// MAIN_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */
