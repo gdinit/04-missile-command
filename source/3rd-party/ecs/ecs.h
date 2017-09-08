@@ -1,7 +1,8 @@
 /* en_ecs.h */
 // ===================================80 chars==================================
 
-#pragma once
+#ifndef EN_ECS_H
+#define EN_ECS_H
 
 #include <unordered_map>
 #include <functional>
@@ -1344,6 +1345,9 @@ namespace ECS
 		}
 	}
 }
+
+// EN_ECS_H
+#endif
 
 // ===================================80 chars==================================
 /* EOF */
