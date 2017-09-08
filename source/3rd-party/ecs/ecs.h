@@ -4,6 +4,8 @@
 #ifndef EN_ECS_H
 #define EN_ECS_H
 
+void ecsTest(void);
+
 #include <unordered_map>
 #include <functional>
 #include <vector>
