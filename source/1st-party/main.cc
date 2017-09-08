@@ -33,9 +33,8 @@ int main()
 	// Fix for `cwd issue`: END
 	#endif	// __APPLE__
 
-	
-
 	// create & run the application
+	ecsTest();
 	try
 	{
 		Application app;
