@@ -1,4 +1,9 @@
 {
+  "topBarXRatio": 0.23,
+  "topBarYRatio": 0.93,
+  "leftBarXRatio": 0.23,
+  "leftBarYRatio": 1.15,
+  "MC_GunIndicatorMovStep": 5,
   "MC_AAG_Pointer_W": 7,
   "MC_AAG_Pointer_H": 7,
   "MC_AAG_Pointer_V": 1
