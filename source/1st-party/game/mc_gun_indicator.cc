@@ -24,6 +24,8 @@ GunIndicator::GunIndicator()
 			m_defAAGPointerH = it.value();
 		} else if ( it.key() == "MC_AAG_Pointer_V" ) {
 			m_defAAGPointerV = it.value();
+		} else if ( it.key() == "MC_GunIndicatorMovStep" ) {
+			m_gunIndicatorMovStep = it.value();
 		}
 	}
 	i.close();
@@ -60,12 +62,14 @@ GunIndicator::~GunIndicator()
 }
 
 void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
-	, Direction dir, float topBarBE, float leftBarRE, float bottomBarTE
+	, Direction dir, float topBarBottomEdge, float leftBarRightEdge, float
+	bottomBarTopEdge
 	, float
 	rightBarLE )
 {
 	#if defined DBG
-	std::cout << "GunIndicator x,y: " << getX() << "," << getY() << "\n";
+	std::cout << "GunIndicator x,y: " << getX() << "," << getY() <<
+	"\txMultiplierRatio = " << ( getX() / m_windowSize.x ) << "\n";
 	#endif
 
 	/*
@@ -76,7 +80,8 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 	*/
 
 	// TODO update this -- dir to be removed? to be extended?
-	manageMovement( r, dir, topBarBE, leftBarRE, bottomBarTE, rightBarLE );
+	manageMovement( r, dir, topBarBottomEdge, leftBarRightEdge
+		, bottomBarTopEdge, rightBarLE );
 	//
 	// #if defined DBG
 	// std::cout << "Paddle bottom: " << getBottom() << "\n";
@@ -123,7 +128,8 @@ void GunIndicator::newRound( sf::Vector2f res ) {
 }
 
 void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
-	, float topBarBE, float leftBarRE, float bottomBarTE, float rightBarLE )
+	, float topBarBottomEdge, float leftBarRightEdge, float
+	bottomBarTopEdge, float rightBarLE )
 {
 	// Notes:
 	// 1. maybe we will move, maybe we wont...
@@ -137,58 +143,81 @@ void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
 	switch ( dir ) {
 		case Direction::UP:
 			// move up requested. validate & action (if legal!)
-			m_requestedMoveDistance.y = MC_GUN_INDICATOR_MOVSTEP *
+			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
 				-1.f;
-			valAndActionMove( res, dir, topBarBE, leftBarRE
-			, bottomBarTE, rightBarLE );
+			valAndActionMove( res, dir, topBarBottomEdge
+			, leftBarRightEdge
+			, bottomBarTopEdge, rightBarLE );
 			break;
 		case Direction::LEFT:
 			// move left requested. validate & action (if legal!)
-			m_requestedMoveDistance.x = MC_GUN_INDICATOR_MOVSTEP *
+			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
 				-1.f;
-			valAndActionMove( res, dir, topBarBE, leftBarRE
-			, bottomBarTE, rightBarLE );
+			valAndActionMove( res, dir, topBarBottomEdge
+			, leftBarRightEdge
+			, bottomBarTopEdge, rightBarLE );
 			break;
 		case Direction::DOWN:
 			// move up requested. validate & action (if legal!)
-			m_requestedMoveDistance.y = MC_GUN_INDICATOR_MOVSTEP;
-			valAndActionMove( res, dir, topBarBE, leftBarRE
-			, bottomBarTE, rightBarLE );
+			m_requestedMoveDistance.y = m_gunIndicatorMovStep;
+			valAndActionMove( res, dir, topBarBottomEdge
+			, leftBarRightEdge
+			, bottomBarTopEdge, rightBarLE );
 			break;
 		case Direction::RIGHT:
 			// move right requested. validate & action (if legal!)
-			m_requestedMoveDistance.x = MC_GUN_INDICATOR_MOVSTEP;
-			valAndActionMove( res, dir, topBarBE, leftBarRE
-			, bottomBarTE, rightBarLE );
+			m_requestedMoveDistance.x = m_gunIndicatorMovStep;
+			valAndActionMove( res, dir, topBarBottomEdge
+			, leftBarRightEdge
+			, bottomBarTopEdge, rightBarLE );
 			break;
 		case Direction::NONE:
 		default:
-			// no movement
 			break;
 	}
 }
 
+// THIS IS THE ACTUAL ONE WHICH DOES CHECKS.
+// TEMPORARILY DISABLING
+// void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
+// topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
+// rightBarLE ) {
+// PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
+// Direction::DOWN || dir == Direction::RIGHT )
+// , "dir can be LEFT or RIGHT!\n" );
+// if ( dir == Direction::UP ) {
+// if ( getTop() > topBarBottomEdge ) {
+// m_sprite.move( m_requestedMoveDistance );
+// }
+// } else if ( dir == Direction::LEFT ) {
+// if ( getLeft() > ( leftBarRightEdge + m_gunIndicatorW ) ) {
+// m_sprite.move( m_requestedMoveDistance );
+// }
+// } else if ( dir == Direction::DOWN ) {
+// if ( getBottom() < bottomBarTopEdge ) {
+// m_sprite.move( m_requestedMoveDistance );
+// }
+// } else if ( dir == Direction::RIGHT ) {
+// if ( getRight() < rightBarLE ) {
+// m_sprite.move( m_requestedMoveDistance );
+// }
+// }
+// }
+
 void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
-	topBarBE, float leftBarRE, float bottomBarTE, float rightBarLE ) {
+	topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
+	rightBarLE ) {
 	PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
 		   Direction::DOWN || dir == Direction::RIGHT )
 		, "dir can be LEFT or RIGHT!\n" );
 	if ( dir == Direction::UP ) {
-		if ( getTop() > topBarBE ) {
-			m_sprite.move( m_requestedMoveDistance );
-		}
+		m_sprite.move( m_requestedMoveDistance );
 	} else if ( dir == Direction::LEFT ) {
-		if ( getLeft() > ( leftBarRE + m_gunIndicatorW ) ) {
-			m_sprite.move( m_requestedMoveDistance );
-		}
+		m_sprite.move( m_requestedMoveDistance );
 	} else if ( dir == Direction::DOWN ) {
-		if ( getBottom() < bottomBarTE ) {
-			m_sprite.move( m_requestedMoveDistance );
-		}
+		m_sprite.move( m_requestedMoveDistance );
 	} else if ( dir == Direction::RIGHT ) {
-		if ( getRight() < rightBarLE ) {
-			m_sprite.move( m_requestedMoveDistance );
-		}
+		m_sprite.move( m_requestedMoveDistance );
 	}
 }
 

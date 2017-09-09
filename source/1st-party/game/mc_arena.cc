@@ -189,7 +189,6 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	// target. draw(	gunIndicator.m_sprite );
 	// target. draw(	topBar.m_sprite );
-	// target. draw(	leftBar.m_sprite );
 	// target. draw(	bottomBar.m_sprite );
 	// target. draw(	rightBar.m_sprite );
 	// target. draw(	leftCity.m_sprite, sf::RenderStates::Default );
@@ -197,6 +196,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	leftCity.draw( target, sf::RenderStates::Default );
 	middleCity.draw( target, sf::RenderStates::Default );
 	rightCity.draw( target, sf::RenderStates::Default );
+	leftBar.draw( target, sf::RenderStates::Default );
 	gunIndicator.draw( target, sf::RenderStates::Default );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {

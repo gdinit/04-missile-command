@@ -5,7 +5,7 @@
 #define MC_GUN_INDICATOR_H
 
 // TODO move to JSON
-#define MC_GUN_INDICATOR_MOVSTEP 7.9f
+// DELETE THIS #define MC_GUN_INDICATOR_MOVSTEP 7.9f
 #define MC_GUN_AIM_POINTER_W 60.f
 
 #include "en_essentials.h"
@@ -58,23 +58,27 @@ class GunIndicator : public sf::Transformable
 		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
 		res );
 		// void	update( sf::Time timeSinceLastUpdate
-		// , sf::Vector2f r, Direction dir, float leftBarRE, float
-		// rightBarLE );
+		// , sf::Vector2f r, Direction dir, float leftBarRightEdge,
+		// float
+		// rightBarLeftEdgeftEdge );
 		void	update( sf::Time timeSinceLastUpdate
-		, sf::Vector2f r, Direction dir, float topBarBE
-		, float leftBarRE, float bottomBarTE, float rightBarLE );
+		, sf::Vector2f r, Direction dir, float topBarBottomEdge
+		, float leftBarRightEdge, float bottomBarTopEdge, float
+		rightBarLeftEdgeftEdge );
 
 		void	draw( sf::RenderTarget &target
 		, sf::RenderStates states ) const;
 		void	newRound( sf::Vector2f res );
 		// void	manageMovement( sf::Vector2f res, Direction dir
-		// , float leftBarRE, float rightBarLE );
+		// , float leftBarRightEdge, float rightBarLeftEdgeftEdge );
 		void	manageMovement( sf::Vector2f res, Direction dir, float
-		topBarBE, float leftBarRE, float bottomBarTE, float
-		rightBarLE );
+		topBarBottomEdge, float leftBarRightEdge, float
+		bottomBarTopEdge, float
+		rightBarLeftEdgeftEdge );
 		void	valAndActionMove( sf::Vector2f res, Direction dir, float
-		topBarBE, float leftBarRE, float bottomBarTE, float
-		rightBarLE );
+		topBarBottomEdge, float leftBarRightEdge, float
+		bottomBarTopEdge, float
+		rightBarLeftEdgeftEdge );
 		float	getX()       const noexcept;
 		float	getY()       const noexcept;
 		float	getTop()     const noexcept;
@@ -95,6 +99,7 @@ class GunIndicator : public sf::Transformable
 		float			m_defAAGPointerH = -888;
 		sf::Vector2f		m_requestedMoveDistance;
 		sf::Vector2u		m_windowSize = { 0, 0 };
+		float			m_gunIndicatorMovStep = 399.f;
 };
 
 // MC_GUN_INDICATOR_H

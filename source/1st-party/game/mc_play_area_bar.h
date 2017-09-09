@@ -7,6 +7,26 @@
 #include "en_essentials.h"
 #include "mc_config.h"
 #include "en_globals.h"
+// ================= BEGIN: Production Assert Handling =================
+#include <assert.h>
+
+#ifndef EMSCRIPTEN
+#define BREAK_ACTION exit( 1 )
+#else
+#define BREAK_ACTION raise( SIGTRAP )
+#endif
+
+#define PASSERT( condition, message ) \
+	do \
+	{ \
+		if ( !( condition ) ) { \
+			std::cerr << "Assertion `"#condition "` failed in " << \
+			__FILE__ << " function " << __func__ << " line " << \
+			__LINE__ << ": " << message << std::endl; \
+			BREAK_ACTION; \
+		} \
+	} while ( false )
+// ================= END: Production Assert Handling =================
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -21,6 +41,10 @@
 #include <random>
 // Required for RNG
 #include <chrono>
+// Required for reading bar ratios from JSON db
+#include "3rd-party/json-nlohmann/v.2.1.1/json.hpp"
+// Required for ifstream for JSON
+#include <fstream>
 
 class PlayAreaBar : public sf::Transformable
 		  , public sf::Drawable
@@ -51,6 +75,11 @@ class PlayAreaBar : public sf::Transformable
 		sf::Texture		m_texture;
 		sf::Vector2f		m_position;
 		float			m_width;
+		sf::Vector2u		m_windowSize = { 0, 0 };
+		float			m_topBarXRatio = -777;
+		float			m_topBarYRatio = -666;
+		float			m_leftBarXRatio = -341.f;
+		float			m_leftBarYRatio = -342.f;
 };
 
 // MC_PLAY_AREA_BAR_H
