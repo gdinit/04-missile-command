@@ -11,6 +11,7 @@
 #include "mc_gun_indicator.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "en_util_make_unique.h"
+#include "ecs.h"
 
 #include <SFML/Graphics.hpp>
 // #include <SFML/Audio.hpp>

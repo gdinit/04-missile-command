@@ -4,8 +4,6 @@
 #ifndef MC_SHELL_ENEMY_H
 #define MC_SHELL_ENEMY_H
 
-#include 
-
 // MC_SHELL_ENEMY_H
 #endif
 
