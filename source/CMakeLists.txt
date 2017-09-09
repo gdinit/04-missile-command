@@ -28,9 +28,9 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif(NOT CMAKE_BUILD_TYPE)
 
-####################
+################################################################################
 # Compiler options
-####################
+################################################################################
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 	#set(warnings "-Wall -Wno-unknown-pragmas -Wextra -Werror")
 	set(warnings "-Wall -Wextra -Werror")
@@ -47,7 +47,10 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 		#shesSET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wno-unknown-pragmas")
 	endif()
 endif()
+################################################################################
 
+
+################################################################################
 include_directories(
 	"${CMAKE_CURRENT_SOURCE_DIR}"
 	"${SFML_INCLUDE_DIR}"
@@ -57,15 +60,22 @@ include_directories(
 	"${PROJECT_SOURCE_DIR}/3rd-party/ecs"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml")
-include(cotire)
+################################################################################
 
+
+################################################################################
+include(cotire)
+################################################################################
+
+################################################################################
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	INCLUDE_DIRECTORIES("/Library/Frameworks/")
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+################################################################################
 
-####################
+################################################################################
 # LIB SUFFIXES
-####################
+#
 #SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 if	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
 	SET(CMAKE_FIND_LIBRARY_PREFIXES "")
@@ -75,6 +85,8 @@ elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Linux")
 	SET(CMAKE_FIND_LIBRARY_SUFFIXES ".so" ".a")
 endif()
 mark_as_advanced	(CMAKE_FIND_LIBRARY_PREFIXES)
+################################################################################
+
 
 SET(BUILD_SHARED_LIBRARIES ON)
 
@@ -92,16 +104,22 @@ target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${SFML_LIBRARIES} ${SF
 #target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES} liblua53)
 #target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES})
 
+################################################################################
 cotire(${PROJECT_NAME})
+################################################################################
 
+
+################################################################################
 # this is in trunk as of 2016Dec - let's just keep it here till it makes to the release
 # set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/release.win/Debug")
-
+################################################################################
 set(CMAKE_SUPPRESS_REGENERATION true)
+################################################################################
 
-####################
+
+################################################################################
 # LINKER FLAGS
-####################
+#
 if	(${CMAKE_SYSTEM_NAME}		MATCHES "Darwin")
         set	(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "")
 elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
@@ -113,11 +131,12 @@ elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Linux")
         set	(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "")
 endif()
 mark_as_advanced	(CMAKE_EXE_LINKER_FLAGS)
+################################################################################
 
 
-####################
+################################################################################
 # EXECUTABLE_OUTPUT_PATH
-####################
+#
 set(PROJECT_BINARY_DIR "${CMAKE_SOURCE_DIR}/build" CACHE PATH "out of source, temporary build dir")
 if	(${CMAKE_SYSTEM_NAME}		MATCHES "Darwin")
         set	(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/release.mac CACHE PATH "Mac output directory")
@@ -129,47 +148,57 @@ else()
         set	(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/release.unsupported_platform CACHE PATH "UnsupportedPlatforms output directory")
 endif()
 mark_as_advanced	(EXECUTABLE_OUTPUT_PATH)
+################################################################################
 
-####################
+
+################################################################################
 # LIBRARIES
-####################
+#
 set	(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin CACHE PATH "NOT IN USE" )
 mark_as_advanced	(LIBRARY_OUTPUT_PATH)
+################################################################################
 
-
-####################
-# CUSTOM COMMANDS
-####################
-if	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
-	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/extras/dependencies $<TARGET_FILE_DIR:${PROJECT_NAME}>/)
-	# copy ASSETS for Visual Studio so that debug run can find assets
-	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_SOURCE_DIR}/build/source/assets)
-	# copy DATA for Visual Studio so that debug run can find assets
-	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data ${CMAKE_SOURCE_DIR}/build/source/data)
-endif()
 
 ################################################################################
-# PRE/POST BUILD SCRIPTS
-################################################################################
-#----------------------------------------
+# PRE/POST BUILD SCRIPTS FOR ALL PLATFORMS
+#
+#--- PRE-BUILD STUFF -------------------
 #add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
 #so far, nothing to do in pre-build stage...
-#----------------------------------------
-
-#----------------------------------------
+#---------------------------------------
+#
+#
+#--- POST-BUILD STUFF ------------------
 # copy ASSETS
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets)
 # copy DATA
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data $<TARGET_FILE_DIR:${PROJECT_NAME}>/data)
 # copy DOCUMENTATION
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/documentation $<TARGET_FILE_DIR:${PROJECT_NAME}>/documentation)
-#----------------------------------------
+################################################################################
 
+
+################################################################################
+# CUSTOM COMMANDS FOR WINDOWS BUILDS ONLY
+#
+# Note that SFML is embedded into the .EXE file so we only need to copy OpenAL.
+if	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
+	# copy dependency binaries to build dir.
+	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/extras/dependencies $<TARGET_FILE_DIR:${PROJECT_NAME}>/)
+	# copy ASSETS for Visual Studio so that debug run can find assets
+	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_SOURCE_DIR}/build/source/assets)
+	# copy DATA for Visual Studio so that debug run can find assets
+	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data ${CMAKE_SOURCE_DIR}/build/source/data)
+endif()
+################################################################################
+
+
+################################################################################
 # NOTES - Microsoft Visual Studio compiler flags
+#
 # /W4 -> For a new project, it may be best to use /W4 in all compilations; this will ensure the fewest possible hard-to-find code defects.
 # /WX -> Treats all compiler warnings as errors. For a new project, it may be best to use /WX in all compilations; resolving all warnings ensures the fewest possible hard-to-find code defects.
 # /EHsc -> Exception handling model'optimization, space and time for x86 code, space for x64 code'	
-
-# for Windows builds, copy dependency binaries to build dir (only OpenAL so far as we embed SFML into the EXE)
+################################################################################
 
 #EOF
