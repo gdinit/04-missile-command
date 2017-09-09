@@ -148,9 +148,8 @@ float PlayAreaBar::getRight() const noexcept {
 
 void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "makeTopBar()\n";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
 	#endif
-	// JSON work here: get topBarXPosRatio & topBarYPosRatio
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
 	i >> j;
@@ -167,11 +166,11 @@ void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 		}
 	}
 	i.close();
-	// TODO remove TMP couts
-	std::cout << "[TMP]\t m_topBarXPosRatio is: " << m_topBarXPosRatio <<
-	"\n";
-	std::cout << "[TMP]\t m_topBarYPosRatio is: " << m_topBarYPosRatio <<
-	"\n";
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	") m_topBarXPosRatio is: " << m_topBarXPosRatio	<<
+	"\t m_topBarYPosRatio is: " << m_topBarYPosRatio << "\n";
+	#endif
 	// Production Assert - ensure JSON loaded fine
 	PASSERT(        ( m_topBarXPosRatio > 0 )
 		, "ERROR: m_topBarXPosRatio must be > 0!\tIt is: " <<
@@ -203,9 +202,8 @@ void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 
 void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "makeLeftBar()\n";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
 	#endif
-	// JSON work here: get leftBarXPosRatio & leftBarYPosRatio
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
 	i >> j;
@@ -224,11 +222,11 @@ void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
 		}
 	}
 	i.close();
-	// TODO remove TMP couts
-	std::cout << "[TMP]\t m_leftBarXPosRatio is: " << m_leftBarXPosRatio <<
-	"\n";
-	std::cout << "[TMP]\t m_leftBarYPosRatio is: " << m_leftBarYPosRatio <<
-	"\n";
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	") m_leftBarXPosRatio  is: " << m_leftBarXPosRatio <<
+	"\t m_leftBarYPosRatio is: " << m_leftBarYPosRatio << "\n";
+	#endif
 	// Production Assert - ensure JSON loaded fine
 	PASSERT(        ( m_leftBarXPosRatio > 0 )
 		, "ERROR: m_leftBarXPosRatio must be > 0!\tIt is: " <<
@@ -261,10 +259,8 @@ void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
 
 void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
-	"makeBottomBar()\n";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
 	#endif
-	// JSON work here: get bottomBarXPosRatio & bottomBarYPosRatio
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
 	i >> j;
@@ -281,11 +277,11 @@ void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 		}
 	}
 	i.close();
-	// TODO remove TMP couts
-	std::cout << "[TMP]\t m_bottomBarXPosRatio is: " <<
-	m_bottomBarXPosRatio <<	"\n";
-	std::cout << "[TMP]\t m_bottomBarYPosRatio is: " <<
-	m_bottomBarYPosRatio <<	"\n";
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	") m_bottomBarXPosRatio is: " << m_bottomBarXPosRatio <<
+	"\t m_bottomBarYPosRatio is: " << m_bottomBarYPosRatio << "\n";
+	#endif
 	// Production Assert - ensure JSON loaded fine
 	PASSERT(        ( m_bottomBarXPosRatio > 0 )
 		, "ERROR: m_bottomBarXPosRatio must be > 0!\tIt is: " <<
@@ -318,10 +314,8 @@ void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 
 void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
-	"makeRightBar()\n";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
 	#endif
-	// JSON work here: get rightBarXPosRatio & rightBarYPosRatio
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
 	i >> j;
@@ -340,11 +334,11 @@ void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 		}
 	}
 	i.close();
-	// TODO remove TMP couts
-	std::cout << "[TMP]\t m_rightBarXPosRatio is: " <<
-	m_rightBarXPosRatio << "\n";
-	std::cout << "[TMP]\t m_rightBarYPosRatio is: " <<
-	m_rightBarYPosRatio << "\n";
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	") m_rightBarXPosRatio is: " << m_rightBarXPosRatio <<
+	"\t m_rightBarYPosRatio is: " << m_rightBarYPosRatio << "\n";
+	#endif
 	// Production Assert - ensure JSON loaded fine
 	PASSERT(        ( m_rightBarXPosRatio > 0 )
 		, "ERROR: m_rightBarXPosRatio must be > 0!\tIt is: " <<
