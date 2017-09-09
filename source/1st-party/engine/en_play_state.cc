@@ -77,11 +77,10 @@ void PlayState::initializeState()
 	}
 	m_sBlip2.setBuffer( m_sbBlip2 );
 
-	// start a new game
-
-	// TODO is this the best way?
-	m_res.x = static_cast <float> ( C_WIN_W );
-	m_res.y = static_cast <float> ( C_WIN_H );
+	// START A NEW GAME
+	m_windowSize = m_window.getSize();
+	m_res.x = static_cast <float> ( m_windowSize.x );
+	m_res.y = static_cast <float> ( m_windowSize.y );
 
 	// signal arena to set up a new round
 	// only level 1 is implemented so far
