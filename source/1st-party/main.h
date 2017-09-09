@@ -4,9 +4,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-// ECS Test
-#include "ecs.h"
-
 // ===================== CONFIGURE ME ======================
 // ENABLE THE NEXT LINE *AFTER* MODIFYING IT TO SUIT YOUR GAME
 #include "game/mc_game_defines.h"
