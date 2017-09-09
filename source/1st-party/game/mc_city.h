@@ -5,7 +5,6 @@
 #define MC_CITY_H
 
 #include "en_essentials.h"
-#include "mc_config.h"
 #include "mc_constants.h"
 
 #include <SFML/Graphics.hpp>

@@ -5,7 +5,6 @@
 #define MC_PLAY_AREA_BAR_H
 
 #include "en_essentials.h"
-#include "mc_config.h"
 #include "en_globals.h"
 // ================= BEGIN: Production Assert Handling =================
 #include <assert.h>

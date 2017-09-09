@@ -8,7 +8,6 @@
 #include "en_essentials.h"
 #include "en_shared_context.h"
 //// make configuration values to all derived classes
-// TODO remove this #include "mc_config.h"
 //// forward declare Settings struct
 #include "en_globals.h"
 

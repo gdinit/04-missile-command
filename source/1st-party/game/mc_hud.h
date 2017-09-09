@@ -8,7 +8,6 @@
 #define C_LIVES 5
 
 #include "en_essentials.h"
-#include "mc_config.h"
 // Required for HUD Text
 #include "en_globals.h"
 // Required for centerOrigin

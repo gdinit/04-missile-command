@@ -9,7 +9,6 @@
 #include "en_state_machine.h"
 #include "en_main_menu_state.h"
 #include "en_pause_state.h"
-// TODO remove this #include "mc_config.h"
 // Required for centerOrigin
 #include "en_util_utility.h"
 #include "en_util_make_unique.h"

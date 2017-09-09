@@ -8,7 +8,6 @@
 #include "en_state.h"
 #include "en_state_machine.h"
 #include "en_play_state.h"
-// TODO remove this #include "mc_config.h"
 // For centerOrigin
 #include "en_util_utility.h"
 

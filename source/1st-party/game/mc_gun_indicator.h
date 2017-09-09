@@ -9,7 +9,6 @@
 #define MC_GUN_AIM_POINTER_W 60.f
 
 #include "en_essentials.h"
-#include "mc_config.h"
 //// For normalization
 // #include "en_util_utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)

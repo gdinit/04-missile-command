@@ -5,7 +5,6 @@
 #define MC_ARENA_H
 
 #include "en_essentials.h"
-// TODO remove this #include "mc_config.h"
 #include "mc_play_area_bar.h"
 #include "mc_city.h"
 // no need as bar enum is below now! delete this line .#include "mc_constants.h"
