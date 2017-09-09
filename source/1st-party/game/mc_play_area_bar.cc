@@ -69,18 +69,30 @@ float PlayAreaBar::getY() const noexcept {
 
 float PlayAreaBar::getTop() const noexcept {
 	// return getY() - ( C_BALL_H / 2.f );
+
+	// Not in use yet. Temporary placeholder to mute complaining compiler.
+	return 0;
 }
 
 float PlayAreaBar::getBottom() const noexcept {
 	// return getY() + ( C_BALL_H / 2.f );
+
+	// Not in use yet. Temporary placeholder to mute complaining compiler.
+	return 0;
 }
 
 float PlayAreaBar::getLeft() const noexcept {
 	// return getX();
+
+	// Not in use yet. Temporary placeholder to mute complaining compiler.
+	return 0;
 }
 
 float PlayAreaBar::getRight() const noexcept {
 	// return getX() + m_width;
+
+	// Not in use yet. Temporary placeholder to mute complaining compiler.
+	return 0;
 }
 
 // ===================================80 chars==================================
