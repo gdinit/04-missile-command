@@ -5,6 +5,7 @@
 #define EN_ECS_H
 
 void ecsTest(void);
+void ecsTest2(void);
 
 #include <unordered_map>
 #include <functional>
