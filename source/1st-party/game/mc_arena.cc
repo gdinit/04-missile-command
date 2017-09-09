@@ -49,6 +49,9 @@ Arena::Arena()
 	std::cout << "[DEBUG]\tSUCCESS: Loaded sounds." << m_myObjNameStr <<
 	"\n";
 	#endif
+
+	// ECS Test
+	ecsTest();
 }
 
 Arena::~Arena() {
