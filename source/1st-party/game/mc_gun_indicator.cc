@@ -69,7 +69,8 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 {
 	#if defined DBG
 	std::cout << "GunIndicator x,y: " << getX() << "," << getY() <<
-	"\txMultiplierRatio = " << ( getX() / m_windowSize.x ) << "\n";
+	"\t xMultiplierRatio = " << ( getX() / m_windowSize.x )	<<
+	"\t\t yMultiplierRatio = " << ( getY() / m_windowSize.y ) << "\n";
 	#endif
 
 	/*

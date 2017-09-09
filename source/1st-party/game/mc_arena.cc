@@ -196,7 +196,10 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	leftCity.draw( target, sf::RenderStates::Default );
 	middleCity.draw( target, sf::RenderStates::Default );
 	rightCity.draw( target, sf::RenderStates::Default );
+	topBar.draw( target, sf::RenderStates::Default );
 	leftBar.draw( target, sf::RenderStates::Default );
+	bottomBar.draw( target, sf::RenderStates::Default );
+	rightBar.draw( target, sf::RenderStates::Default );
 	gunIndicator.draw( target, sf::RenderStates::Default );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {

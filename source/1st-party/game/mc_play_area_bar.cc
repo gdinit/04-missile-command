@@ -40,7 +40,6 @@
 
 PlayAreaBar::PlayAreaBar()
 	: m_myObjNameStr( "Unnamed PlayAreaBar" )
-	, m_width( 11.f )
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
@@ -61,7 +60,6 @@ PlayAreaBar::PlayAreaBar()
 // TODO	color also should be passed while creating
 PlayAreaBar::PlayAreaBar( t_objectName name )
 	: m_myObjNameStr( name )
-	, m_width( 11.f )
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
@@ -89,6 +87,11 @@ void PlayAreaBar::newRound( sf::Vector2f res ) {
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
 	"newRound() has been triggered.\tres:" << res.x << "," << res.y << "\n";
 	#endif
+
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
+
 	// #if defined DBG
 	// std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
 	// "newRound() has been triggered.\tres:" << res.x << "," << res.y <<
@@ -109,137 +112,14 @@ void PlayAreaBar::newRound( sf::Vector2f res ) {
 	////////////////////////////////////////////////////////////////////////
 
 	if ( m_myObjNameStr == "topBar" ) {
-		// -----------------
-		#if defined DBG
-		std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
-		"just hit >>>> m_myObjNameStr == topBar <<<<<<<\n";
-		#endif
-		// JSON work here: get topBarXRatio & topBarYRatio
-		std::ifstream	i( "data/defines.json" );
-		nlohmann::json	j;
-		i >> j;
-		for ( nlohmann::json::iterator it = j.begin(); it != j.end();
-		      ++it ) {
-			if ( it.key() == "topBarXRatio" ) {
-				m_topBarXRatio = it.value();
-				// std::cout <<
-				// "found topBarXRatio!\t value is: " <<
-				// it.value() << "\n";
-			} else if ( it.key() == "topBarYRatio" ) {
-				m_topBarYRatio = it.value();
-			} else {
-				std::cout << "just hit else!\n";
-			}
-		}
-		i.close();
-		// TODO remove TMP couts
-		std::cout << "[TMP]\t m_topBarXRatio is: " << m_topBarXRatio <<
-		"\n";
-		std::cout << "[TMP]\t m_topBarYRatio is: " << m_topBarYRatio <<
-		"\n";
-		// Production Assert - ensure JSON loaded fine
-		PASSERT(        ( m_topBarXRatio > 0 )
-			, "ERROR: m_topBarXRatio must be > 0!\tIt is: "	<<
-			m_topBarXRatio << "\n" );
-		PASSERT(        ( m_topBarYRatio > 0 )
-			, "ERROR: m_topBarYRatio must be > 0!\tIt is: "	<<
-			m_topBarYRatio << "\n" );
-		//// posL = topBarPosL;
-		//// posT = res.y * CEXPR_TBYRATIO;
-		//// sizeW = topBarSizeW;
-		//// m_width = sizeW;
-		//// sizeH = res.y * CEXPR_TBHRATIO;
-		//// #if defined DBG
-		//// std::cout << "[DEBUG]\tposL: " << posL << "\tposT:
-		/// "
-		//// << posT <<
-		//// "\tsizeW: " << sizeW << "\tsizeH: " << sizeH << "//
-		/// "
-		//// <<
-		//// m_myObjNameStr << "\n";
-		//// #endif
-		////// -----------------
+		makeTopBar( res );
 	} else if ( m_myObjNameStr == "leftBar" ) {
-		// this is ok
-		// sizeW = res.x * .20f;
-		// m_width = sizeW;
-		// posL = 0;
-		// posT = 0;
-		// sizeH = res.y / CEXPR_VBHRATIO;
-
-		// JSON
-		std::ifstream	i( "data/defines.json" );
-		nlohmann::json	j;
-		i >> j;
-		for ( nlohmann::json::iterator it = j.begin(); it != j.end();
-		      ++it ) {
-			if ( it.key() == "leftBarXRatio" ) {
-				m_leftBarXRatio = it.value();
-				std::cout << "found a XRatio!\t value is: " <<
-				it.value() << "\n";
-			} else if ( it.key() == "leftBarYRatio" ) {
-				m_leftBarYRatio = it.value();
-				std::cout << "found a YRatio!\t value is: " <<
-				it.value() << "\n";
-			} else {
-				std::cout << "just hit else!\n";
-			}
-		}
-		i.close();
-		// TODO remove TMP couts
-		std::cout << "[TMP]\t m_leftBarXRatio is: " <<
-		m_leftBarXRatio	<< "\n";
-		std::cout << "[TMP]\t m_leftBarYRatio is: " <<
-		m_leftBarYRatio	<< "\n";
-		// Production Assert - ensure JSON loaded fine
-		PASSERT(        ( m_leftBarXRatio > 0 )
-			, "ERROR: m_leftBarXRatio must be > 0!\tIt is: " <<
-			m_leftBarXRatio << "\n" );
-		PASSERT(        ( m_leftBarYRatio > 0 )
-			, "ERROR: m_leftBarYRatio must be > 0!\tIt is: " <<
-			m_leftBarYRatio << "\n" );
-
-		sizeW = res.x * .20f;
-		m_width = sizeW;
-		posL = 0;
-		posT = 0;
-		sizeH = res.y / m_leftBarYRatio;
+		makeLeftBar( res );
 	} else if ( m_myObjNameStr == "bottomBar" ) {
-		// posL = topBarPosL;
-		// posT = res.y * CEXPR_BBYRATIO;
-		// sizeW = topBarSizeW;
-		// m_width = sizeW;
-		// sizeH = res.y * CEXPR_TBHRATIO;
-		// #if defined DBG
-		// std::cout << "[DEBUG]\tposL: " << posL << "\tposT: " <<	posT
-		// <<
-		// "\tsizeW: " << sizeW << "\tsizeH: " << sizeH <<	"// " <<
-		// m_myObjNameStr << "\n";
-		// #endif
+		makeBottomBar( res );
 	} else if ( m_myObjNameStr == "rightBar" ) {
-		// sizeW = res.x * CEXPR_VBWRATIO;
-		// m_width = sizeW;
-		// posL = ( topBarPosL + topBarSizeW ) - sizeW / 2.f;
-		// posT = res.y * CEXPR_TBYRATIO;
-		// sizeH = res.y / CEXPR_VBHRATIO;
+		makeRightBar( res );
 	}
-	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
-	" position as: " << posL << "," << posT << "\n"	<<
-	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as: " << sizeW <<
-	"," << sizeH << "\n";
-	#endif
-	m_sprite.setTexture( m_texture );
-	m_sprite.setTextureRect( sf::IntRect( posL, posT, sizeW, sizeH ) );
-	m_sprite.setPosition( posL, posT );
-	// m_sprite.setPosition( res.x / 3.f, res.y / 3.f );
-	// m_sprite.setColor( sf::Color( 120, 104, 112 ) );
-	m_sprite.setColor( sf::Color( sf::Color::Red ) );
-	// =========================== reviewed 4 MC ===========================
-	// save for future use
-	m_windowSize.x = res.x;
-	m_windowSize.y = res.y;
-	// =========================== reviewed 4 MC ===========================
 }
 
 float PlayAreaBar::getX() const noexcept {
@@ -266,7 +146,236 @@ float PlayAreaBar::getRight() const noexcept {
 	// return getX() + m_width;
 }
 
-// ===================================80
-// chars==================================
+void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "makeTopBar()\n";
+	#endif
+	// JSON work here: get topBarXPosRatio & topBarYPosRatio
+	std::ifstream	i( "data/defines.json" );
+	nlohmann::json	j;
+	i >> j;
+	for ( nlohmann::json::iterator it = j.begin(); it != j.end();
+	      ++it ) {
+		if ( it.key() == "topBarXPosRatio" ) {
+			m_topBarXPosRatio = it.value();
+		} else if ( it.key() == "topBarYPosRatio" ) {
+			m_topBarYPosRatio = it.value();
+		} else if ( it.key() == "topBarWidthRatio" ) {
+			m_topBarWidthRatio = it.value();
+		} else if ( it.key() == "topBarHeightRatio" ) {
+			m_topBarHeightRatio = it.value();
+		}
+	}
+	i.close();
+	// TODO remove TMP couts
+	std::cout << "[TMP]\t m_topBarXPosRatio is: " << m_topBarXPosRatio <<
+	"\n";
+	std::cout << "[TMP]\t m_topBarYPosRatio is: " << m_topBarYPosRatio <<
+	"\n";
+	// Production Assert - ensure JSON loaded fine
+	PASSERT(        ( m_topBarXPosRatio > 0 )
+		, "ERROR: m_topBarXPosRatio must be > 0!\tIt is: " <<
+		m_topBarXPosRatio << "\n" );
+	PASSERT(        ( m_topBarYPosRatio > 0 )
+		, "ERROR: m_topBarYPosRatio must be > 0!\tIt is: " <<
+		m_topBarYPosRatio << "\n" );
+
+	m_position.x = m_windowSize.x * m_topBarXPosRatio;
+	m_position.y = m_windowSize.y * m_topBarYPosRatio;
+	// m_width = m_windowSize.x * m_topBarWidthRatio;
+	// m_height = m_windowSize.y * m_topBarHeightRatio;
+	m_dimension.x = m_windowSize.x * m_topBarWidthRatio;
+	m_dimension.y = m_windowSize.y * m_topBarHeightRatio;
+
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
+	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
+	m_dimension.x << "\t h: " << m_dimension.y << "\n";
+	#endif
+
+	m_sprite.setTexture( m_texture );
+	m_sprite.setTextureRect( sf::IntRect( m_position.x, m_position.y
+			, m_dimension.x, m_dimension.y ) );
+	m_sprite.setPosition( m_position.x, m_position.y );
+	m_sprite.setColor( sf::Color( sf::Color::Green ) );
+}
+
+void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "makeLeftBar()\n";
+	#endif
+	// JSON work here: get leftBarXPosRatio & leftBarYPosRatio
+	std::ifstream	i( "data/defines.json" );
+	nlohmann::json	j;
+	i >> j;
+	for ( nlohmann::json::iterator it = j.begin(); it != j.end();
+	      ++it ) {
+		if ( it.key() == "leftBarXPosRatio" ) {
+			m_leftBarXPosRatio = it.value();
+		} else if ( it.key() == "leftBarYPosRatio" ) {
+			m_leftBarYPosRatio = it.value();
+		} else if ( it.key() == "leftBarWidthRatio" ) {
+			m_leftBarWidthRatio = it.value();
+		} else if ( it.key() == "leftBarHeightRatio" ) {
+			m_leftBarHeightRatio = it.value();
+		} else if ( it.key() == "topBarYPosRatio" ) {
+			m_topBarYPosRatio = it.value();
+		}
+	}
+	i.close();
+	// TODO remove TMP couts
+	std::cout << "[TMP]\t m_leftBarXPosRatio is: " << m_leftBarXPosRatio <<
+	"\n";
+	std::cout << "[TMP]\t m_leftBarYPosRatio is: " << m_leftBarYPosRatio <<
+	"\n";
+	// Production Assert - ensure JSON loaded fine
+	PASSERT(        ( m_leftBarXPosRatio > 0 )
+		, "ERROR: m_leftBarXPosRatio must be > 0!\tIt is: " <<
+		m_leftBarXPosRatio << "\n" );
+	PASSERT(        ( m_leftBarYPosRatio > 0 )
+		, "ERROR: m_leftBarYPosRatio must be > 0!\tIt is: " <<
+		m_leftBarYPosRatio << "\n" );
+
+	m_position.x = m_windowSize.x * m_leftBarXPosRatio;
+	m_position.y = m_windowSize.y * m_leftBarYPosRatio;
+	// m_width = m_windowSize.x * m_leftBarWidthRatio;
+	// m_height = m_windowSize.y * m_leftBarHeightRatio;
+	m_dimension.x = m_windowSize.x * m_leftBarWidthRatio;
+	m_dimension.y = m_windowSize.y - ( m_windowSize.y *
+					   ( m_topBarYPosRatio * 2 ) );
+
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
+	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
+	m_dimension.x << "\t h: " << m_dimension.y << "\n";
+	#endif
+
+	m_sprite.setTexture( m_texture );
+	m_sprite.setTextureRect( sf::IntRect( m_position.x, m_position.y
+			, m_dimension.x, m_dimension.y ) );
+	m_sprite.setPosition( m_position.x, m_position.y );
+	m_sprite.setColor( sf::Color( sf::Color::Green ) );
+}
+
+void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
+	"makeBottomBar()\n";
+	#endif
+	// JSON work here: get bottomBarXPosRatio & bottomBarYPosRatio
+	std::ifstream	i( "data/defines.json" );
+	nlohmann::json	j;
+	i >> j;
+	for ( nlohmann::json::iterator it = j.begin(); it != j.end();
+	      ++it ) {
+		if ( it.key() == "bottomBarXPosRatio" ) {
+			m_bottomBarXPosRatio = it.value();
+		} else if ( it.key() == "bottomBarYPosRatio" ) {
+			m_bottomBarYPosRatio = it.value();
+		} else if ( it.key() == "bottomBarWidthRatio" ) {
+			m_bottomBarWidthRatio = it.value();
+		} else if ( it.key() == "bottomBarHeightRatio" ) {
+			m_bottomBarHeightRatio = it.value();
+		}
+	}
+	i.close();
+	// TODO remove TMP couts
+	std::cout << "[TMP]\t m_bottomBarXPosRatio is: " <<
+	m_bottomBarXPosRatio <<	"\n";
+	std::cout << "[TMP]\t m_bottomBarYPosRatio is: " <<
+	m_bottomBarYPosRatio <<	"\n";
+	// Production Assert - ensure JSON loaded fine
+	PASSERT(        ( m_bottomBarXPosRatio > 0 )
+		, "ERROR: m_bottomBarXPosRatio must be > 0!\tIt is: " <<
+		m_bottomBarXPosRatio << "\n" );
+	PASSERT(        ( m_bottomBarYPosRatio > 0 )
+		, "ERROR: m_bottomBarYPosRatio must be > 0!\tIt is: " <<
+		m_bottomBarYPosRatio << "\n" );
+
+	m_position.x = m_windowSize.x * m_bottomBarXPosRatio;
+	m_position.y = m_windowSize.y - ( m_windowSize.y *
+					  m_bottomBarYPosRatio );
+	// m_width = m_windowSize.x * m_bottomBarWidthRatio;
+	// m_height = m_windowSize.y * m_bottomBarHeightRatio;
+	m_dimension.x = m_windowSize.x * m_bottomBarWidthRatio;
+	m_dimension.y = m_windowSize.y * m_bottomBarHeightRatio;
+
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
+	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
+	m_dimension.x << "\t h: " << m_dimension.y << "\n";
+	#endif
+
+	m_sprite.setTexture( m_texture );
+	m_sprite.setTextureRect( sf::IntRect( m_position.x, m_position.y
+			, m_dimension.x, m_dimension.y ) );
+	m_sprite.setPosition( m_position.x, m_position.y );
+	m_sprite.setColor( sf::Color( sf::Color::Green ) );
+}
+
+void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
+	"makeRightBar()\n";
+	#endif
+	// JSON work here: get rightBarXPosRatio & rightBarYPosRatio
+	std::ifstream	i( "data/defines.json" );
+	nlohmann::json	j;
+	i >> j;
+	for ( nlohmann::json::iterator it = j.begin(); it != j.end();
+	      ++it ) {
+		if ( it.key() == "rightBarXPosRatio" ) {
+			m_rightBarXPosRatio = it.value();
+		} else if ( it.key() == "rightBarYPosRatio" ) {
+			m_rightBarYPosRatio = it.value();
+		} else if ( it.key() == "rightBarWidthRatio" ) {
+			m_rightBarWidthRatio = it.value();
+		} else if ( it.key() == "rightBarHeightRatio" ) {
+			m_rightBarHeightRatio = it.value();
+		} else if ( it.key() == "topBarYPosRatio" ) {
+			m_topBarYPosRatio = it.value();
+		}
+	}
+	i.close();
+	// TODO remove TMP couts
+	std::cout << "[TMP]\t m_rightBarXPosRatio is: " <<
+	m_rightBarXPosRatio << "\n";
+	std::cout << "[TMP]\t m_rightBarYPosRatio is: " <<
+	m_rightBarYPosRatio << "\n";
+	// Production Assert - ensure JSON loaded fine
+	PASSERT(        ( m_rightBarXPosRatio > 0 )
+		, "ERROR: m_rightBarXPosRatio must be > 0!\tIt is: " <<
+		m_rightBarXPosRatio << "\n" );
+	PASSERT(        ( m_rightBarYPosRatio > 0 )
+		, "ERROR: m_rightBarYPosRatio must be > 0!\tIt is: " <<
+		m_rightBarYPosRatio << "\n" );
+
+	m_position.x = m_windowSize.x - ( m_windowSize.x *
+					  m_rightBarXPosRatio );
+	m_position.y = m_windowSize.y * m_rightBarYPosRatio;
+	// m_width = m_windowSize.x * m_rightBarWidthRatio;
+	// m_height = m_windowSize.y * m_rightBarHeightRatio;
+	m_dimension.x = m_windowSize.x * m_rightBarWidthRatio;
+	m_dimension.y = m_windowSize.y - ( m_windowSize.y *
+					   ( m_topBarYPosRatio * 2 ) );
+
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
+	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
+	m_dimension.x << "\t h: " << m_dimension.y << "\n";
+	#endif
+
+	m_sprite.setTexture( m_texture );
+	m_sprite.setTextureRect( sf::IntRect( m_position.x, m_position.y
+			, m_dimension.x, m_dimension.y ) );
+	m_sprite.setPosition( m_position.x, m_position.y );
+	m_sprite.setColor( sf::Color( sf::Color::Green ) );
+}
+
+// ===================================80 chars==================================
 /* EOF */
 

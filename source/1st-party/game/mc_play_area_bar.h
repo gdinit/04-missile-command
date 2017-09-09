@@ -65,6 +65,10 @@ class PlayAreaBar : public sf::Transformable
 		float	getBottom()  const noexcept;
 		float	getLeft()    const noexcept;
 		float	getRight()   const noexcept;
+		void	makeTopBar( sf::Vector2f res ) noexcept;
+		void	makeLeftBar( sf::Vector2f res ) noexcept;
+		void	makeBottomBar( sf::Vector2f res ) noexcept;
+		void	makeRightBar( sf::Vector2f res ) noexcept;
 
 	protected:
 		friend class Arena;
@@ -74,12 +78,26 @@ class PlayAreaBar : public sf::Transformable
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_position;
-		float			m_width;
+		sf::Vector2f		m_dimension = { 0, 0 };
+		float			m_width = 0;
+		float			m_height = 0;
 		sf::Vector2u		m_windowSize = { 0, 0 };
-		float			m_topBarXRatio = -777;
-		float			m_topBarYRatio = -666;
-		float			m_leftBarXRatio = -341.f;
-		float			m_leftBarYRatio = -342.f;
+		float			m_topBarXPosRatio = 0;
+		float			m_topBarYPosRatio = 0;
+		float			m_topBarWidthRatio = 0;
+		float			m_topBarHeightRatio = 0;
+		float			m_leftBarXPosRatio = 0;
+		float			m_leftBarYPosRatio = 0;
+		float			m_leftBarWidthRatio = 0;
+		float			m_leftBarHeightRatio = 0;
+		float			m_bottomBarXPosRatio = 0;
+		float			m_bottomBarYPosRatio = 0;
+		float			m_bottomBarWidthRatio = 0;
+		float			m_bottomBarHeightRatio = 0;
+		float			m_rightBarXPosRatio = 0;
+		float			m_rightBarYPosRatio = 0;
+		float			m_rightBarWidthRatio = 0;
+		float			m_rightBarHeightRatio = 0;
 };
 
 // MC_PLAY_AREA_BAR_H
