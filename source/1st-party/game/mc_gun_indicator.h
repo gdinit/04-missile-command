@@ -68,16 +68,12 @@ class GunIndicator : public sf::Transformable
 		void	draw( sf::RenderTarget &target
 		, sf::RenderStates states ) const;
 		void	newRound( sf::Vector2f res );
-		// void	manageMovement( sf::Vector2f res, Direction dir
-		// , float leftBarRightEdge, float rightBarLeftEdgeftEdge );
 		void	manageMovement( sf::Vector2f res, Direction dir, float
 		topBarBottomEdge, float leftBarRightEdge, float
-		bottomBarTopEdge, float
-		rightBarLeftEdgeftEdge );
-		void	valAndActionMove( sf::Vector2f res, Direction dir, float
-		topBarBottomEdge, float leftBarRightEdge, float
-		bottomBarTopEdge, float
-		rightBarLeftEdgeftEdge );
+		bottomBarTopEdge, float rightBarLeftEdgeftEdge );
+		void	valAndActionMove( sf::Vector2f res, Direction dir
+		, float topBarBottomEdge, float leftBarRightEdge
+		, float bottomBarTopEdge, float rightBarLeftEdgeftEdge );
 		float	getX()       const noexcept;
 		float	getY()       const noexcept;
 		float	getTop()     const noexcept;
@@ -93,12 +89,12 @@ class GunIndicator : public sf::Transformable
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
-		float			m_gunIndicatorW = -888;
-		float			m_defAAGPointerV = -888;
-		float			m_defAAGPointerH = -888;
+		float			m_gunIndicatorW = -1;
+		float			m_defAAGPointerV = -1;
+		float			m_defAAGPointerH = -1;
 		sf::Vector2f		m_requestedMoveDistance;
 		sf::Vector2u		m_windowSize = { 0, 0 };
-		float			m_gunIndicatorMovStep = 399.f;
+		float			m_gunIndicatorMovStep = -1.f;
 };
 
 // MC_GUN_INDICATOR_H

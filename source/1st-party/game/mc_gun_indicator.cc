@@ -9,11 +9,6 @@ GunIndicator::GunIndicator()
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
 	#endif
-	// Assign Bad Define Values (to be caught by PASSERT if not overriden)
-	m_gunIndicatorW = -999;
-	m_defAAGPointerH = -999;
-	m_defAAGPointerV = -999;
-	// JSON
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
 	i >> j;
@@ -29,26 +24,24 @@ GunIndicator::GunIndicator()
 		}
 	}
 	i.close();
-	// TODO remove TMP couts
-	std::cout << "[TMP]\tm_gunIndicatorW is: " << m_gunIndicatorW << "\n";
-	std::cout << "[TMP]\tm_defAAGPointerH is: " << m_defAAGPointerH << "\n";
-	std::cout << "[TMP]\tm_defAAGPointerV is: " << m_defAAGPointerV << "\n";
-
-	// Production Assert - ensure JSON loaded fine
-	PASSERT(        ( m_gunIndicatorW != -999 )
-		, "ERROR: m_gunIndicatorW cannot be -999!\n" );
-	PASSERT(        ( m_defAAGPointerH != -999 )
-		, "ERROR: m_defAAGPointerH cannot be -999!\n" );
-	PASSERT(        ( m_defAAGPointerV != -999 )
-		, "ERROR: m_defAAGPointerV cannot be -999!\n" );
-
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	") \t m_gunIndicatorW is: " << m_gunIndicatorW <<
+	"\t m_defAAGPointerH: " << m_defAAGPointerH <<
+	"\t m_defAAGPointerV: " << m_defAAGPointerV << "\n";
+	#endif
+	PASSERT(        ( m_gunIndicatorW > 0 )
+		, "ERROR: m_gunIndicatorW must be > 0!\n" );
+	PASSERT(        ( m_defAAGPointerH > 0 )
+		, "ERROR: m_defAAGPointerH must be > 0!\n" );
+	PASSERT(        ( m_defAAGPointerV > 0 )
+		, "ERROR: m_defAAGPointerV must be > 0!\n" );
 	// SET UP SPRITE
 	m_sprite.setTexture( m_texture );
 	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
 			, m_defAAGPointerH ) );
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
 	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_gunIndicatorW / 2.f );
-	// m_sprite.setPosition( 0, 0 );
 	m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
 	m_velocity.x = 0.f;
 	m_velocity.y = 0.f;
