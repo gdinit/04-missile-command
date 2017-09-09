@@ -35,9 +35,6 @@ void MainMenuState::initializeState()
 	m_desiredAspectRatio << " //" << m_myObjNameStr << "\n";
 	#endif
 	m_engineSharedContext.mustMainMenu = false;
-	// TODO fix this (fast tracking during engine/game separation)
-	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
-	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
 	m_urgentUpdateNeeded = 10;
 	// debug overlay font
 	m_font.loadFromFile( "assets/fonts/sansation.ttf" );
@@ -64,10 +61,6 @@ void MainMenuState::update()
 {
 	sf::Time m_elapsedTime = m_clock.restart();
 	m_timeSinceLastUpdate += m_elapsedTime;
-
-	// TODO is this really necessary?
-	// m_engineSharedContext.m_resx = static_cast <float> ( C_WIN_W );
-	// m_engineSharedContext.m_resy = static_cast <float> ( C_WIN_H );
 
 	//// resize stuff here
 	// if ( m_systemResizeHourglass > 0 ) {
