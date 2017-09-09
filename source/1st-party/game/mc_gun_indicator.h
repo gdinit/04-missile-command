@@ -90,7 +90,7 @@ class GunIndicator : public sf::Transformable
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
-		float			m_defGunIndicatorW = -888;
+		float			m_gunIndicatorW = -888;
 		float			m_defAAGPointerV = -888;
 		float			m_defAAGPointerH = -888;
 		sf::Vector2f		m_requestedMoveDistance;

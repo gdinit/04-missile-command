@@ -7,7 +7,7 @@ GunIndicator::GunIndicator()
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
 	#endif
 	// Assign Bad Define Values (to be caught by PASSERT if not overriden)
-	m_defGunIndicatorW = -999;
+	m_gunIndicatorW = -999;
 	m_defAAGPointerH = -999;
 	m_defAAGPointerV = -999;
 	// JSON
@@ -16,7 +16,7 @@ GunIndicator::GunIndicator()
 	i >> j;
 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
 		if ( it.key() == "MC_AAG_Pointer_W" ) {
-			m_defGunIndicatorW = it.value();
+			m_gunIndicatorW = it.value();
 		} else if ( it.key() == "MC_AAG_Pointer_H" ) {
 			m_defAAGPointerH = it.value();
 		} else if ( it.key() == "MC_AAG_Pointer_V" ) {
@@ -24,13 +24,14 @@ GunIndicator::GunIndicator()
 		}
 	}
 	i.close();
-	std::cout << "[TMP]\tm_defGunIndicatorW is: " << m_defGunIndicatorW << "\n";
+	// TODO remove TMP couts
+	std::cout << "[TMP]\tm_gunIndicatorW is: " << m_gunIndicatorW << "\n";
 	std::cout << "[TMP]\tm_defAAGPointerH is: " << m_defAAGPointerH << "\n";
 	std::cout << "[TMP]\tm_defAAGPointerV is: " << m_defAAGPointerV << "\n";
 
 	// Production Assert - ensure JSON loaded fine
-	PASSERT(        ( m_defGunIndicatorW != -999 )
-		, "ERROR: m_defGunIndicatorW cannot be -999!\n" );
+	PASSERT(        ( m_gunIndicatorW != -999 )
+		, "ERROR: m_gunIndicatorW cannot be -999!\n" );
 	PASSERT(        ( m_defAAGPointerH != -999 )
 		, "ERROR: m_defAAGPointerH cannot be -999!\n" );
 	PASSERT(        ( m_defAAGPointerV != -999 )
@@ -38,12 +39,12 @@ GunIndicator::GunIndicator()
 
 	// SET UP SPRITE
 	m_sprite.setTexture( m_texture );
-	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_defGunIndicatorW
+	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
 			, m_defAAGPointerH ) );
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
-	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_defGunIndicatorW / 2.f );
+	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_gunIndicatorW / 2.f );
 	// m_sprite.setPosition( 0, 0 );
-	m_sprite.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+	m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
 	m_velocity.x = 0.f;
 	m_velocity.y = 0.f;
 }
@@ -60,6 +61,10 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 	, float
 	rightBarLE )
 {
+	#if defined DBG
+	std::cout << "GunIndicator x,y: " << getX() << "," << getY() << "\n";
+	#endif
+
 	/*
 	THESE ARE COMING FROM:
 
@@ -99,6 +104,19 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 
 	//// Now, we can move.
 	// m_sprite.move( moveDistance );
+}
+
+void GunIndicator::newRound( sf::Vector2f res ) {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
+	res.x << "," << res.y << ") has been triggered.\n";
+	#endif
+	// place the object for new round -- ball goes to the centre
+	// m_sprite.setPosition( res.x / 2.f, res.y * 0.75f );
+	m_sprite.setPosition( res.x / 2.f, res.y / 2.f );
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
 }
 
 void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
@@ -157,7 +175,7 @@ void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 			m_sprite.move( m_requestedMoveDistance );
 		}
 	} else if ( dir == Direction::LEFT ) {
-		if ( getLeft() > ( leftBarRE + m_defGunIndicatorW ) ) {
+		if ( getLeft() > ( leftBarRE + m_gunIndicatorW ) ) {
 			m_sprite.move( m_requestedMoveDistance );
 		}
 	} else if ( dir == Direction::DOWN ) {
@@ -173,20 +191,7 @@ void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 
 void GunIndicator::draw( sf::RenderTarget &target, sf::RenderStates states )
 const {
-	// draw to be done by Arena
-}
-
-void GunIndicator::newRound( sf::Vector2f res ) {
-	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
-	res.x << "," << res.y << ") has been triggered.\n";
-	#endif
-	// place the object for new round -- ball goes to the centre
-	// m_sprite.setPosition( res.x / 2.f, res.y * 0.75f );
-	m_sprite.setPosition( res.x / 2.f, res.y / 2.f );
-	// save for future use
-	m_windowSize.x = res.x;
-	m_windowSize.y = res.y;
+	target.draw( m_sprite );
 }
 
 float GunIndicator::getX() const noexcept {
@@ -206,9 +211,9 @@ float GunIndicator::getBottom() const noexcept {
 }
 
 float GunIndicator::getLeft() const noexcept {
-	return getX() - ( m_defGunIndicatorW / 2.f );
+	return getX() - ( m_gunIndicatorW / 2.f );
 }
 
 float GunIndicator::getRight() const noexcept {
-	return getX() + ( m_defGunIndicatorW / 2.f );
+	return getX() + ( m_gunIndicatorW / 2.f );
 }

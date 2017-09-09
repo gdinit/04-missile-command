@@ -181,6 +181,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	leftCity.draw( target, sf::RenderStates::Default );
 	middleCity.draw( target, sf::RenderStates::Default );
 	rightCity.draw( target, sf::RenderStates::Default );
+	gunIndicator.draw( target, sf::RenderStates::Default );
 	// target. draw(	paddle.m_sprite );
 	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
 	// if ( m_cDetDB [ n ].HP > 0 && m_cDetDB [ n ].visible &&
@@ -205,6 +206,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	leftCity.newRound( res );
 	middleCity.newRound( res );
 	rightCity.newRound( res );
+	gunIndicator.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );
 	// ball.newRound( res );
