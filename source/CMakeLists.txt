@@ -126,7 +126,7 @@ elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
 elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Linux")
 	set	(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/release.lin CACHE PATH "Linux output directory")
 else()
-        set	(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/release.unknown_platform CACHE PATH "UnknownPlatform output directory")
+        set	(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/release.unsupported_platform CACHE PATH "UnsupportedPlatforms output directory")
 endif()
 mark_as_advanced	(EXECUTABLE_OUTPUT_PATH)
 
