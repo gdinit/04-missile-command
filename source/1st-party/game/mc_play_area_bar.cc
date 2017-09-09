@@ -148,7 +148,7 @@ float PlayAreaBar::getRight() const noexcept {
 
 void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...\n";
 	#endif
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
@@ -188,7 +188,7 @@ void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
-	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	" position as: " << m_position.x << "," << m_position.y << "\t"	<<
 	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
@@ -202,7 +202,7 @@ void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 
 void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...\n";
 	#endif
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
@@ -245,7 +245,7 @@ void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
 
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
-	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	" position as: " << m_position.x << "," << m_position.y << "\t"	<<
 	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
@@ -259,7 +259,7 @@ void PlayAreaBar::makeLeftBar( sf::Vector2f res ) noexcept {
 
 void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...\n";
 	#endif
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
@@ -300,7 +300,7 @@ void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
-	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	" position as: " << m_position.x << "," << m_position.y << "\t"	<<
 	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
@@ -314,7 +314,7 @@ void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 
 void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
-	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...";
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making a bar...\n";
 	#endif
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
@@ -358,7 +358,7 @@ void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
-	" position as: " << m_position.x << "," << m_position.y << "\n"	<<
+	" position as: " << m_position.x << "," << m_position.y << "\t"	<<
 	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
