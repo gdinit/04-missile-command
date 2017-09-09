@@ -43,10 +43,12 @@ Arena::Arena()
 	"\n";
 	#endif
 
+	#if defined DBG
 	// ECS Test
 	// ecsTest2();
 	std::cout << "EntityComponentSystem Test #2" << std::endl <<
 	"==========================" << std::endl;
+	#endif
 
 	{
 		using namespace ECS;
@@ -101,8 +103,9 @@ Arena::Arena()
 					Events::OnEntityCreated &event )
 				override
 				{
-					std::cout << "An entity was created!" <<
-					std::endl;
+					#if defined DBG
+					std::cout << "An entity was created!\n";
+					#endif
 				}
 
 				virtual void receive( class World* world, const
@@ -151,8 +154,10 @@ Arena::Arena()
 		Entity*		ent = world->create();
 		auto		pos = ent->assign <Position> ( 0.f, 0.f );
 		auto		rot = ent->assign <Rotation> ( 0.f );
+		#if defined DBG
 		std::cout << "We have " << world->getCount() <<
-		" entities right now." << std::endl;
+		" entities right now.\n";
+		#endif
 	}
 }
 
