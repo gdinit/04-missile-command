@@ -1,7 +1,7 @@
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
-#set (CMAKE_CXX_STANDARD 11)
-set (CMAKE_CXX_STANDARD 14)
+set (CMAKE_CXX_STANDARD 11)
+#set (CMAKE_CXX_STANDARD 14)
 
 find_package(OpenGL REQUIRED)
 
@@ -40,11 +40,11 @@ endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX)
 	if(PROJECT_STATIC_RUNTIME)
-		#SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -static -Wall -Wno-unknown-pragmas")
-		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static -Wall -Wno-unknown-pragmas")
+		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -static -Wall -Wno-unknown-pragmas")
+		#SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -static -Wall -Wno-unknown-pragmas")
 	else()
-		#SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-unknown-pragmas")
-		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wno-unknown-pragmas")
+		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wno-unknown-pragmas")
+		#shesSET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wno-unknown-pragmas")
 	endif()
 endif()
 
