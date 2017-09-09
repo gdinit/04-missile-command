@@ -62,22 +62,20 @@ void Application::createWindow()
 		// use:	fixed-res & fullscreen
 		#if defined DBG
 		std::cout << "[DEBUG]\tFixed Resolution"
-		" with Fullscreen requested: " << h << "," << w <<
-		" Detected bpp is: " << desktopVM.bitsPerPixel << "\n";
+		" with Fullscreen Mode. Requested: " << w << "," << h <<
+		"\t Detected bpp is: " << desktopVM.bitsPerPixel << "\n";
 		#endif
-		m_window.create( sf::VideoMode( w, h
-				, desktopVM.bitsPerPixel )
+		m_window.create( sf::VideoMode( w, h, desktopVM.bitsPerPixel )
 			, CONST_GAME_NAME
 			, sf::Style::Fullscreen );
 	} else {
 		// use:	fixed-res & windowed (no fullscreen)
 		#if defined DBG
-		std::cout << "[DEBUG]\tFixed Resolution Windowed mode"
-		" Requested: " << w << "," << h << "," <<
-		" Detected bpp is: " << desktopVM.bitsPerPixel << "\n";
+		std::cout << "[DEBUG]\tFixed Resolution Windowed mode."
+		" Requested: " << w << "," << h << "\t Detected bpp is: " <<
+		desktopVM.bitsPerPixel << "\n";
 		#endif
-		m_window.create( sf::VideoMode( w, h
-				, desktopVM.bitsPerPixel )
+		m_window.create( sf::VideoMode( w, h, desktopVM.bitsPerPixel )
 			, CONST_GAME_NAME
 			, sf::Style::Default );
 	}
