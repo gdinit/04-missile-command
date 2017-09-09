@@ -3,9 +3,6 @@
 
 #include "mc_arena.h"
 
-// Required for lives etc.	TOOD remove this global
-// extern std::unique_ptr <Globals> GLOBALS;
-
 // For ImpactZone debug cout
 template<typename T>
 std::ostream & operator <<( typename std::enable_if <std::is_enum <T>::value
@@ -17,10 +14,6 @@ std::ostream & operator <<( typename std::enable_if <std::is_enum <T>::value
 
 Arena::Arena()
 	: m_myObjNameStr( "Arena" )
-	// , m_hgPaddle{ 0 }
-	// , m_hgTopBar{ 0 }
-	// , m_hgLeftBar{ 0 }
-	// , m_hgRightBar{ 0 }
 {
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
@@ -54,8 +47,6 @@ Arena::Arena()
 	// ecsTest2();
 	std::cout << "EntityComponentSystem Test #2" << std::endl <<
 	"==========================" << std::endl;
-
-
 
 {
 	using namespace ECS;
@@ -108,24 +99,24 @@ Arena::Arena()
 			virtual void receive( class World* world, const
 				SomeEvent &event ) override
 			{
-				std::cout << "I received SomeEvent with value " <<
-				event.num << "!" << std::endl;
+				std::cout << "I received SomeEvent with value "
+				<< event.num << "!" << std::endl;
 
-				// Let's delete an entity while iterating because why
-				// not?
+				/* *INDENT-OFF* */
+				// Let's delete an entity while iterating 
+				// because why not?				
 				world->all( [ & ] ( Entity* ent ) {
-						if ( ent->getEntityId() + 1 ==
-						     event.num ) {
-							world->destroy( world->getById(
-									event.num ) );
-						}
-
-						if ( ent->getEntityId() == event.num ) {
-							std::cout <<
-							"Woah, we shouldn't get here!"
-							<< std::endl;
-						}
-					} );
+					if ( ent->getEntityId() + 1 == event.num
+					 ) {
+						world->destroy( world->getById
+							( event.num ) );
+					}
+					if ( ent->getEntityId() == event.num ) {
+						std::cout << "Woah, we " << 
+						"shouldn't get here!" << "\n";
+					}
+				});
+			/* *INDENT-ON* */
 			}
 	};
 	ECS::World*	world = World::createWorld();
