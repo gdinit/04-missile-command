@@ -10,13 +10,21 @@ MainMenuState::MainMenuState( StateMachine &machine
 	: State{ machine, window, context, replace }, m_myObjNameStr(
 		"MainMenuState" )
 {
+
+	// Get size of window.
+	m_windowSize = m_window.getSize();
+	m_dimension.x = 640;
+	m_dimension.y = 480;
+
 	// SET UP SPRITE
-	m_spr1Play.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
-	m_spr1Play.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
-	m_spr2Cred.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
-	m_spr2Cred.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
-	m_spr3Exit.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
-	m_spr3Exit.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+	m_spr1Play.setOrigin( 300,300 );
+	m_spr1Play.setPosition( 300,300 );
+	//m_spr1Play.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
+	//m_spr1Play.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+	//m_spr2Cred.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
+	//m_spr2Cred.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+	//m_spr3Exit.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
+	//m_spr3Exit.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
 	initializeState();
 }
 
@@ -66,8 +74,8 @@ void MainMenuState::initializeState()
 	m_bgColor = sf::Color::Black;
 	m_tintColor = sf::Color::Black;
 	makeButtonPlay();
-	makeButtonCred();
-	makeButtonExit();
+	//makeButtonCred();
+	//makeButtonExit();
 }
 
 void MainMenuState::update()
@@ -121,16 +129,28 @@ void MainMenuState::draw()
 	////////////////////////////////////////
 	ImGui::SFML::Update( m_window, deltaClock.restart() );
 	ImGuiWindowFlags window_flags = 0;
-	window_flags |= ImGuiWindowFlags_NoTitleBar;
-	window_flags |= ImGuiWindowFlags_NoResize;
-	window_flags |= ImGuiWindowFlags_NoScrollbar;
-	window_flags |= ImGuiWindowFlags_NoCollapse;
-	// window_flags |= ImGuiWindowFlags_MenuBar;
-	// window_flags |= ImGuiWindowFlags_ShowBorders;
-	window_flags |= ImGuiWindowFlags_NoResize;
-	window_flags |= ImGuiWindowFlags_NoMove;
-	ImGui::SetNextWindowSize( ImVec2( m_windowSize.x / 2
-			, m_windowSize.y / 2 ), ImGuiCond_Always );
+
+	//window_flags |= ImGuiWindowFlags_NoTitleBar;
+	//window_flags |= ImGuiWindowFlags_NoResize;
+	//window_flags |= ImGuiWindowFlags_NoScrollbar;
+	//window_flags |= ImGuiWindowFlags_NoCollapse;
+	//// window_flags |= ImGuiWindowFlags_MenuBar;
+	//// window_flags |= ImGuiWindowFlags_ShowBorders;
+	//window_flags |= ImGuiWindowFlags_NoResize;
+	//window_flags |= ImGuiWindowFlags_NoMove;
+
+	// window_flags |= ImGuiWindowFlags_NoTitleBar;
+	// window_flags |= ImGuiWindowFlags_NoResize;
+	// window_flags |= ImGuiWindowFlags_NoScrollbar;
+	// window_flags |= ImGuiWindowFlags_NoCollapse;
+	window_flags |= ImGuiWindowFlags_MenuBar;
+	window_flags |= ImGuiWindowFlags_ShowBorders;
+
+	//ImGui::SetNextWindowSize(ImVec2(m_windowSize.x / 2
+	//	, m_windowSize.y / 2), ImGuiCond_Always);
+	// ImGui::SetNextWindowSize(ImVec2(100,100), ImGuiCond_Always);
+	// ImGui::SetNextWindowPos(ImVec2(m_windowSize.x / 2, m_windowSize.y / 2), ImGuiCond_Always);
+	ImGui::SetNextWindowPos(SetWindowPosCenterWanted = true);
 	// ImGui::Begin( " ", ( bool* )true, window_flags );
 	// ImGui::Begin( " ", std::make_unique <bool> ( true ).get(),
 	// window_flags );
@@ -155,25 +175,25 @@ void MainMenuState::draw()
 				, m_window
 				, m_engineSharedContext, true );
 	}
-	// =====================================================================
-	if ( ImGui::ImageButton( m_tex2Cred, 1 ) ) {
-		#if defined DBG
-		std::cout << "[DEBUG] (" << m_myObjNameStr << ") button " <<
-		"clicked.\n";
-		#endif
-		// TODO add CREDITS action here
-		m_next = StateMachine::build <PlayState> ( m_machine, m_window
-				, m_engineSharedContext, true );
-	}
-	// =====================================================================
-	if ( ImGui::ImageButton( m_tex3Exit, 1 ) ) {
-		#if defined DBG
-		std::cout << "[DEBUG] (" << m_myObjNameStr << ") button " <<
-		"clicked.\n";
-		#endif
-		m_machine.quit();
-	}
-	// =====================================================================
+	//// =====================================================================
+	//if ( ImGui::ImageButton( m_tex2Cred, 1 ) ) {
+	//	#if defined DBG
+	//	std::cout << "[DEBUG] (" << m_myObjNameStr << ") button " <<
+	//	"clicked.\n";
+	//	#endif
+	//	// TODO add CREDITS action here
+	//	m_next = StateMachine::build <PlayState> ( m_machine, m_window
+	//			, m_engineSharedContext, true );
+	//}
+	//// =====================================================================
+	//if ( ImGui::ImageButton( m_tex3Exit, 1 ) ) {
+	//	#if defined DBG
+	//	std::cout << "[DEBUG] (" << m_myObjNameStr << ") button " <<
+	//	"clicked.\n";
+	//	#endif
+	//	m_machine.quit();
+	//}
+	//// =====================================================================
 	ImGui::End();
 	ImGui::SFML::Render( m_window );
 	////////////////////////////////////////
@@ -277,10 +297,16 @@ void MainMenuState::makeButtonPlay() noexcept {
 	// }
 	// i.close();
 
-	m_btnPlayXPosRatio = 0.5;
-	m_btnPlayYPosRatio = 0.2;
-	m_btnPlayWidthRatio = 0.15;
-	m_btnPlayHeightRatio = 0.05;
+	//m_btnPlayXPosRatio = 0.5;
+	//m_btnPlayYPosRatio = 0.2;
+	//m_btnPlayWidthRatio = 0.15;
+	//m_btnPlayHeightRatio = 0.05;
+
+	m_btnPlayXPosRatio = 1;
+	m_btnPlayYPosRatio = 1;
+	m_btnPlayWidthRatio = 1;
+	m_btnPlayHeightRatio = 1;
+
 
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr <<
@@ -305,7 +331,9 @@ void MainMenuState::makeButtonPlay() noexcept {
 	#endif
 	m_tex1Play.loadFromFile( "assets/textures/menu-1-play.png" );
 	m_spr1Play.setTexture( m_tex1Play, true );
-	m_spr1Play.setPosition( m_position.x, m_position.y );
+	// m_spr1Play.setPosition(m_position.x, m_position.y);
+	m_spr1Play.setPosition(300,300);
+	std::cout << "bang!\n";
 }
 
 void MainMenuState::makeButtonCred() noexcept {
