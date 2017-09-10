@@ -37,6 +37,7 @@ issue at project's GitHub page here https://github.com/gdinit/
 	danhedron
 	_Dbug_
 	StonedXander
+	Mario
 	@ http://chat.sfml-dev.org/
 
 * Assert macro code taken from therocode's Thero project.
