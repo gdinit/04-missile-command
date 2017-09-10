@@ -5,8 +5,8 @@
 #define MC_GAME_DEFINES_H
 
 #define CONST_GAME_NAME "Missile Command"
-#define CONST_DESIRED_FPS_INT 30
-#define CONST_DESIRED_FPS_FLOAT 30.f
+#define CONST_DESIRED_FPS_INT 60
+#define CONST_DESIRED_FPS_FLOAT 60.f
 
 // MC_GAME_DEFINES_H
 #endif

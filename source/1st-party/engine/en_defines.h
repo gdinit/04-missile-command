@@ -12,8 +12,8 @@
 #ifndef CONST_GAME_NAME
 #define CONST_GAME_NAME	"Untitled"
 #endif
-#define CONST_DESIRED_FPS_INT 30
-#define CONST_DESIRED_FPS_FLOAT	30.f
+#define CONST_DESIRED_FPS_INT 60
+#define CONST_DESIRED_FPS_FLOAT	60.f
 // ============================
 //
 // ============================
@@ -45,8 +45,6 @@
 // constexpr float	CONST_MENU_BUTTON_3 { .70f };
 // --------------
 
-#define CONST_DESIRED_FPS_INT 30
-#define CONST_DESIRED_FPS_FLOAT 30.f
 #define C_OBSFPS_CONTMAXSIZE 10
 #define C_OBSFPS_ACTTHRESHOLD 5
 #define C_FPS_CATCHUP_STEP_F 0.5f
