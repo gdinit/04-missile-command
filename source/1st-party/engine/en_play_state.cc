@@ -236,16 +236,16 @@ void PlayState::draw()
 	// hud.draw( m_window, sf::RenderStates::Default );
 
 	////////////////////////////////////////
-	// SFML::ImGui Tests
-	ImGui::SFML::Update( m_window, deltaClock.restart() );
-	ImGui::Begin( "  " );
-	if ( ImGui::Button( "Quit to Desktop" ) ) {
-		m_machine.quit();
-	}
-	ImGui::End();
-	// m_window.clear();
-	m_window.draw( m_shape );
-	ImGui::SFML::Render( m_window );
+	//// SFML::ImGui Tests
+	// ImGui::SFML::Update( m_window, deltaClock.restart() );
+	// ImGui::Begin( "  " );
+	// if ( ImGui::Button( "Quit to Desktop" ) ) {
+	// m_machine.quit();
+	// }
+	// ImGui::End();
+	//// m_window.clear();
+	// m_window.draw( m_shape );
+	// ImGui::SFML::Render( m_window );
 	////////////////////////////////////////
 
 	if ( !m_engineSharedContext.gameIsPaused && SETTINGS->inGameOverlay ) {
