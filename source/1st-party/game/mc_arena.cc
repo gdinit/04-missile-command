@@ -198,12 +198,15 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	// target. draw(	topBar.m_sprite );
 	// target. draw(	bottomBar.m_sprite );
 	// target. draw(	rightBar.m_sprite );
-	// target. draw(	leftCity.m_sprite, sf::RenderStates::Default );
+	// target. draw(	city1.m_sprite, sf::RenderStates::Default );
 
 	terrain.draw( target, sf::RenderStates::Default );
-	leftCity.draw( target, sf::RenderStates::Default );
-	middleCity.draw( target, sf::RenderStates::Default );
-	rightCity.draw( target, sf::RenderStates::Default );
+	city1.draw( target, sf::RenderStates::Default );
+	city2.draw( target, sf::RenderStates::Default );
+	city3.draw( target, sf::RenderStates::Default );
+	city4.draw( target, sf::RenderStates::Default );
+	city5.draw( target, sf::RenderStates::Default );
+	city6.draw( target, sf::RenderStates::Default );
 	topBar.draw( target, sf::RenderStates::Default );
 	leftBar.draw( target, sf::RenderStates::Default );
 	bottomBar.draw( target, sf::RenderStates::Default );
@@ -231,9 +234,12 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	bottomBar.newRound( res );
 	rightBar.newRound( res );
 	gunIndicator.newRound( res );
-	leftCity.newRound( res );
-	middleCity.newRound( res );
-	rightCity.newRound( res );
+	city1.newRound( res );
+	city2.newRound( res );
+	city3.newRound( res );
+	city4.newRound( res );
+	city5.newRound( res );
+	city6.newRound( res );
 	gunIndicator.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );

@@ -43,7 +43,6 @@ class City : public sf::Transformable
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
 		sf::Vector2f		m_position;
-		float			m_width;
 		sf::Vector2u		m_windowSize = { 0, 0 };
 };
 
