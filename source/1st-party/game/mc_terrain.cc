@@ -9,29 +9,6 @@ Terrain::Terrain()
 	#if defined DBG
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
 	#endif
-
-	// std::ifstream	i( "data/defines.json" );
-	// nlohmann::json	j;
-	// i >> j;
-	// for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it )
-	// {
-	// if ( it.key() == "MC_Terrain_W" ) {
-	// m_dimension.x = it.value();
-	// } else if ( it.key() == "MC_Terrain_H" ) {
-	// m_dimension.y = it.value();
-	// }
-	// }
-	// i.close();
-	// #if defined DBG
-	// std::cout << "[DEBUG] (" << m_myObjNameStr <<
-	// ") \t m_dimension.x is: " << m_dimension.x << "\t m_dimension.y: " <<
-	// m_dimension.y << "\n";
-	// #endif
-	// PASSERT(        ( m_dimension.x > 0 )
-	// , "ERROR: m_dimension.x must be > 0!\n" );
-	// PASSERT(        ( m_dimension.y > 0 )
-	// , "ERROR: m_dimension.y must be > 0!\n" );
-
 	// SET UP SPRITE
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
 	m_sprite.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
@@ -67,14 +44,10 @@ void Terrain::newRound( sf::Vector2f res ) {
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
 	res.x << "," << res.y << ") has been triggered.\n";
 	#endif
-
 	// save for future use
 	m_windowSize.x = res.x;
 	m_windowSize.y = res.y;
-
 	makeTerrain( res );
-	//// TODO fix me
-	// m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
 }
 
 void Terrain::draw( sf::RenderTarget &target, sf::RenderStates states )
@@ -123,9 +96,8 @@ void Terrain::makeTerrain( sf::Vector2f res ) noexcept {
 	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
-	m_sprite.setTexture( m_texture );
-	m_sprite.setTextureRect( sf::IntRect( m_position.x, m_position.y
-			, m_dimension.x, m_dimension.y ) );
+	m_texture.loadFromFile( "assets/textures/640x64_terrain.png" );
+	m_sprite.setTexture( m_texture, true );
 	m_sprite.setPosition( m_position.x, m_position.y );
 	m_sprite.setColor( sf::Color( sf::Color::Yellow ) );
 }

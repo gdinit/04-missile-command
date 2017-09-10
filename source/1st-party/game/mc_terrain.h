@@ -13,6 +13,10 @@
 // #include "en_util_utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 // #include "en_util_make_unique.h"
+
+// #include <SFML/Graphics/Sprite.hpp>
+// #include <SFML/Graphics/Texture.hpp>
+
 // ================= BEGIN: Production Assert Handling =================
 #include <assert.h>
 
@@ -71,10 +75,10 @@ class Terrain : public sf::Transformable
 
 	private:
 		const t_objectName	m_myObjNameStr;
+		sf::Texture		m_texture;
+		sf::Sprite		m_sprite;
 		sf::Vector2f		m_position = { 0, 0 };
 		sf::Vector2f		m_dimension = { 0, 0 };
-		sf::Sprite		m_sprite;
-		sf::Texture		m_texture;
 		sf::Vector2f		m_requestedMoveDistance;
 		sf::Vector2u		m_windowSize = { 0, 0 };
 		float			m_terrainXPosRatio = 0;
