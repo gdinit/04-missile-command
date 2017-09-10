@@ -133,14 +133,23 @@ void MainMenuState::draw()
 	// window_flags );
 	bool b = true;
 	ImGui::Begin( " ", &b, window_flags );
-	// boolptr(true)
+
+	// ImGui::ImageButton( m_tex1Play, 1 )
+	// ImGui::ImageButton(const sf::Texture& texture, const int framePadding
+	// = -1, const sf::Color& bgColor = sf::Color::Transparent, const
+	// sf::Color& tintColor = sf::Color::White);
+	// ImGui::ImageButton( m_tex1Play, 1, sf::Color::Transparent,
+	// sf::Color::White );
 	// =====================================================================
-	if ( ImGui::ImageButton( m_tex1Play, 1 ) ) {
+	if ( ImGui::ImageButton( m_tex1Play, 1, sf::Color::Transparent
+		     , sf::Color::White ) ) {
+		// ImGui::ImageButton( m_tex1Play, 1 )
 		#if defined DBG
 		std::cout << "[DEBUG] (" << m_myObjNameStr << ") button " <<
 		"clicked.\n";
 		#endif
-		m_next = StateMachine::build <PlayState> ( m_machine, m_window
+		m_next = StateMachine::build <PlayState> ( m_machine
+				, m_window
 				, m_engineSharedContext, true );
 	}
 	// =====================================================================
