@@ -1,242 +1,159 @@
+/* mc_terrain.cc */
+// ===================================80 chars==================================
+
 #include "mc_terrain.h"
 
-// GunIndicator::GunIndicator()
-// 	: m_myObjNameStr( "GunIndicator" )
-// {
-// 	#if defined DBG
-// 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
-// 	#endif
-// 	std::ifstream	i( "data/defines.json" );
-// 	nlohmann::json	j;
-// 	i >> j;
-// 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
-// 		if ( it.key() == "MC_AAG_Pointer_W" ) {
-// 			m_gunIndicatorW = it.value();
-// 		} else if ( it.key() == "MC_AAG_Pointer_H" ) {
-// 			m_defAAGPointerH = it.value();
-// 		} else if ( it.key() == "MC_AAG_Pointer_V" ) {
-// 			m_defAAGPointerV = it.value();
-// 		} else if ( it.key() == "MC_GunIndicatorMovStep" ) {
-// 			m_gunIndicatorMovStep = it.value();
-// 		}
-// 	}
-// 	i.close();
-// 	#if defined DBG
-// 	std::cout << "[DEBUG] (" << m_myObjNameStr <<
-// 	") \t m_gunIndicatorW is: " << m_gunIndicatorW <<
-// 	"\t m_defAAGPointerH: " << m_defAAGPointerH <<
-// 	"\t m_defAAGPointerV: " << m_defAAGPointerV << "\n";
-// 	#endif
-// 	PASSERT(        ( m_gunIndicatorW > 0 )
-// 		, "ERROR: m_gunIndicatorW must be > 0!\n" );
-// 	PASSERT(        ( m_defAAGPointerH > 0 )
-// 		, "ERROR: m_defAAGPointerH must be > 0!\n" );
-// 	PASSERT(        ( m_defAAGPointerV > 0 )
-// 		, "ERROR: m_defAAGPointerV must be > 0!\n" );
-// 	// SET UP SPRITE
-// 	m_sprite.setTexture( m_texture );
-// 	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
-// 			, m_defAAGPointerH ) );
-// 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
-// 	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_gunIndicatorW / 2.f );
-// 	m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
-// 	m_velocity.x = 0.f;
-// 	m_velocity.y = 0.f;
-// }
+Terrain::Terrain()
+	: m_myObjNameStr( "terrain" )
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
+	#endif
 
-// GunIndicator::~GunIndicator()
-// {
-// 	#if defined DBG
-// 	std::cout << "[DEBUG]\tDestructed object:\t" << m_myObjNameStr << "\n";
-// 	#endif
-// }
+	// std::ifstream	i( "data/defines.json" );
+	// nlohmann::json	j;
+	// i >> j;
+	// for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it )
+	// {
+	// if ( it.key() == "MC_Terrain_W" ) {
+	// m_dimension.x = it.value();
+	// } else if ( it.key() == "MC_Terrain_H" ) {
+	// m_dimension.y = it.value();
+	// }
+	// }
+	// i.close();
+	// #if defined DBG
+	// std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	// ") \t m_dimension.x is: " << m_dimension.x << "\t m_dimension.y: " <<
+	// m_dimension.y << "\n";
+	// #endif
+	// PASSERT(        ( m_dimension.x > 0 )
+	// , "ERROR: m_dimension.x must be > 0!\n" );
+	// PASSERT(        ( m_dimension.y > 0 )
+	// , "ERROR: m_dimension.y must be > 0!\n" );
 
-// void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
-// 	, Direction dir, float topBarBottomEdge, float leftBarRightEdge, float
-// 	bottomBarTopEdge
-// 	, float
-// 	rightBarLE )
-// {
-// 	#if defined DBG
-// 	std::cout << "GunIndicator x,y: " << getX() << "," << getY() <<
-// 	"\t xMultiplierRatio = " << ( getX() / m_windowSize.x )	<<
-// 	"\t\t yMultiplierRatio = " << ( getY() / m_windowSize.y ) << "\n";
-// 	#endif
+	// SET UP SPRITE
+	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
+	m_sprite.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
+	m_sprite.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+}
 
-// 	/*
-// 	THESE ARE COMING FROM:
+Terrain::~Terrain()
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tDestructed object:\t" << m_myObjNameStr << "\n";
+	#endif
+}
 
-// 	paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
-// 	, rightBar.getLeft() );
-// 	*/
+void Terrain::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
+{
+}
 
-// 	// TODO update this -- dir to be removed? to be extended?
-// 	manageMovement( r, dir, topBarBottomEdge, leftBarRightEdge
-// 		, bottomBarTopEdge, rightBarLE );
-// 	//
-// 	// #if defined DBG
-// 	// std::cout << "Paddle bottom: " << getBottom() << "\n";
-// 	// #endif
+void Terrain::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
+	, Direction dir, float topBarBottomEdge, float leftBarRightEdge, float
+	bottomBarTopEdge
+	, float
+	rightBarLE )
+{
+	#if defined DBG
+	std::cout << "Terrain x,y: " << getX() << "," << getY() <<
+	"\t xMultiplierRatio = " << ( getX() / m_windowSize.x )	<<
+	"\t\t yMultiplierRatio = " << ( getY() / m_windowSize.y ) << "\n";
+	#endif
+}
 
-// 	//// calculate next step
-// 	// sf::Vector2f	moveDistance;
-// 	// moveDistance.x = ( m_velocity.x * m_defAAGPointerV ) *
-// 	// timeSinceLastUpdate.asMilliseconds();
-// 	// moveDistance.y = ( m_velocity.y * m_defAAGPointerV ) *
-// 	// timeSinceLastUpdate.asMilliseconds();
+void Terrain::newRound( sf::Vector2f res ) {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
+	res.x << "," << res.y << ") has been triggered.\n";
+	#endif
 
-// 	//// 'normal' values go as low|high as N
-// 	// float		CLAMPMAXVALPOS = 5.f;
-// 	// float		CLAMPMAXVALNEG = -5.f;
-// 	//// clamp X
-// 	// if ( moveDistance.x > CLAMPMAXVALPOS ) {
-// 	// moveDistance.x = CLAMPMAXVALPOS;
-// 	// } else if ( moveDistance.x < CLAMPMAXVALNEG ) {
-// 	// moveDistance.x = CLAMPMAXVALNEG;
-// 	// }
-// 	//// clamp Y
-// 	// if ( moveDistance.y > CLAMPMAXVALPOS ) {
-// 	// moveDistance.y = CLAMPMAXVALPOS;
-// 	// } else if ( moveDistance.y < CLAMPMAXVALNEG ) {
-// 	// moveDistance.y = CLAMPMAXVALNEG;
-// 	// }
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
 
-// 	//// Now, we can move.
-// 	// m_sprite.move( moveDistance );
-// }
+	makeTerrain( res );
+	//// TODO fix me
+	// m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
+}
 
-// void GunIndicator::newRound( sf::Vector2f res ) {
-// 	#if defined DBG
-// 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
-// 	res.x << "," << res.y << ") has been triggered.\n";
-// 	#endif
-// 	// place the object for new round -- ball goes to the centre
-// 	// m_sprite.setPosition( res.x / 2.f, res.y * 0.75f );
-// 	m_sprite.setPosition( res.x / 2.f, res.y / 2.f );
-// 	// save for future use
-// 	m_windowSize.x = res.x;
-// 	m_windowSize.y = res.y;
-// }
+void Terrain::draw( sf::RenderTarget &target, sf::RenderStates states )
+const {
+	target.draw( m_sprite );
+}
 
-// void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
-// 	, float topBarBottomEdge, float leftBarRightEdge, float
-// 	bottomBarTopEdge, float rightBarLE )
-// {
-// 	// Notes:
-// 	// 1. maybe we will move, maybe we wont...
-// 	// 2. SinglePlayer game demo scene can have a computerControlled paddle
-// 	// 3. instructed by player or AI don't matter, in any case a request is
-// 	// passed or not
-// 	m_requestedMoveDistance.x = ( 0.f );
-// 	m_requestedMoveDistance.y = ( 0.f );
+void Terrain::makeTerrain( sf::Vector2f res ) noexcept {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") Making terrain...\n";
+	#endif
+	std::ifstream	i( "data/defines.json" );
+	nlohmann::json	j;
+	i >> j;
+	for ( nlohmann::json::iterator it = j.begin(); it != j.end();
+	      ++it ) {
+		if ( it.key() == "terrainXPosRatio" ) {
+			m_terrainXPosRatio = it.value();
+		} else if ( it.key() == "terrainYPosRatio" ) {
+			m_terrainYPosRatio = it.value();
+		} else if ( it.key() == "terrainWidthRatio" ) {
+			m_terrainWidthRatio = it.value();
+		} else if ( it.key() == "terrainHeightRatio" ) {
+			m_terrainHeightRatio = it.value();
+		}
+	}
+	i.close();
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr <<
+	") m_terrainXPosRatio is: " << m_terrainXPosRatio <<
+	"\t m_terrainYPosRatio is: " << m_terrainYPosRatio << "\n";
+	#endif
+	PASSERT(        ( m_terrainXPosRatio > 0 )
+		, "ERROR: m_terrainXPosRatio must be > 0!\tIt is: " <<
+		m_terrainXPosRatio << "\n" );
+	PASSERT(        ( m_terrainYPosRatio > 0 )
+		, "ERROR: m_terrainYPosRatio must be > 0!\tIt is: " <<
+		m_terrainYPosRatio << "\n" );
+	m_position.x = m_windowSize.x * m_terrainXPosRatio;
+	m_position.y = m_windowSize.y * m_terrainYPosRatio;
+	m_dimension.x = m_windowSize.x * m_terrainWidthRatio;
+	m_dimension.y = m_windowSize.y * m_terrainHeightRatio;
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
+	" position as: " << m_position.x << "," << m_position.y << "\t"	<<
+	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
+	m_dimension.x << "\t h: " << m_dimension.y << "\n";
+	#endif
+	m_sprite.setTexture( m_texture );
+	m_sprite.setTextureRect( sf::IntRect( m_position.x, m_position.y
+			, m_dimension.x, m_dimension.y ) );
+	m_sprite.setPosition( m_position.x, m_position.y );
+	m_sprite.setColor( sf::Color( sf::Color::Yellow ) );
+}
 
-// 	// TODO add a meaningful enum here
-// 	switch ( dir ) {
-// 		case Direction::UP:
-// 			// move up requested. validate & action (if legal!)
-// 			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
-// 				-1.f;
-// 			valAndActionMove( res, dir, topBarBottomEdge
-// 			, leftBarRightEdge
-// 			, bottomBarTopEdge, rightBarLE );
-// 			break;
-// 		case Direction::LEFT:
-// 			// move left requested. validate & action (if legal!)
-// 			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
-// 				-1.f;
-// 			valAndActionMove( res, dir, topBarBottomEdge
-// 			, leftBarRightEdge
-// 			, bottomBarTopEdge, rightBarLE );
-// 			break;
-// 		case Direction::DOWN:
-// 			// move up requested. validate & action (if legal!)
-// 			m_requestedMoveDistance.y = m_gunIndicatorMovStep;
-// 			valAndActionMove( res, dir, topBarBottomEdge
-// 			, leftBarRightEdge
-// 			, bottomBarTopEdge, rightBarLE );
-// 			break;
-// 		case Direction::RIGHT:
-// 			// move right requested. validate & action (if legal!)
-// 			m_requestedMoveDistance.x = m_gunIndicatorMovStep;
-// 			valAndActionMove( res, dir, topBarBottomEdge
-// 			, leftBarRightEdge
-// 			, bottomBarTopEdge, rightBarLE );
-// 			break;
-// 		case Direction::NONE:
-// 		default:
-// 			break;
-// 	}
-// }
+float Terrain::getX() const noexcept {
+	return m_sprite.getPosition().x;
+}
 
-// // THIS IS THE ACTUAL ONE WHICH DOES CHECKS.
-// // TEMPORARILY DISABLING
-// // void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
-// // topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
-// // rightBarLE ) {
-// // PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
-// // Direction::DOWN || dir == Direction::RIGHT )
-// // , "dir can be LEFT or RIGHT!\n" );
-// // if ( dir == Direction::UP ) {
-// // if ( getTop() > topBarBottomEdge ) {
-// // m_sprite.move( m_requestedMoveDistance );
-// // }
-// // } else if ( dir == Direction::LEFT ) {
-// // if ( getLeft() > ( leftBarRightEdge + m_gunIndicatorW ) ) {
-// // m_sprite.move( m_requestedMoveDistance );
-// // }
-// // } else if ( dir == Direction::DOWN ) {
-// // if ( getBottom() < bottomBarTopEdge ) {
-// // m_sprite.move( m_requestedMoveDistance );
-// // }
-// // } else if ( dir == Direction::RIGHT ) {
-// // if ( getRight() < rightBarLE ) {
-// // m_sprite.move( m_requestedMoveDistance );
-// // }
-// // }
-// // }
+float Terrain::getY() const noexcept {
+	return m_sprite.getPosition().y;
+}
 
-// void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
-// 	topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
-// 	rightBarLE ) {
-// 	PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
-// 		   Direction::DOWN || dir == Direction::RIGHT )
-// 		, "dir can be LEFT or RIGHT!\n" );
-// 	if ( dir == Direction::UP ) {
-// 		m_sprite.move( m_requestedMoveDistance );
-// 	} else if ( dir == Direction::LEFT ) {
-// 		m_sprite.move( m_requestedMoveDistance );
-// 	} else if ( dir == Direction::DOWN ) {
-// 		m_sprite.move( m_requestedMoveDistance );
-// 	} else if ( dir == Direction::RIGHT ) {
-// 		m_sprite.move( m_requestedMoveDistance );
-// 	}
-// }
+float Terrain::getTop() const noexcept {
+	return getY() - ( m_dimension.y / 2.f );
+}
 
-// void GunIndicator::draw( sf::RenderTarget &target, sf::RenderStates states )
-// const {
-// 	target.draw( m_sprite );
-// }
+float Terrain::getBottom() const noexcept {
+	return getY() + ( m_dimension.y / 2.f );
+}
 
-// float GunIndicator::getX() const noexcept {
-// 	return m_sprite.getPosition().x;
-// }
+float Terrain::getLeft() const noexcept {
+	return getX() - ( m_dimension.x / 2.f );
+}
 
-// float GunIndicator::getY() const noexcept {
-// 	return m_sprite.getPosition().y;
-// }
+float Terrain::getRight() const noexcept {
+	return getX() + ( m_dimension.x / 2.f );
+}
 
-// float GunIndicator::getTop() const noexcept {
-// 	return getY() - ( m_defAAGPointerH / 2.f );
-// }
+// ===================================80 chars==================================
+/* EOF */
 
-// float GunIndicator::getBottom() const noexcept {
-// 	return getY() + ( m_defAAGPointerH / 2.f );
-// }
-
-// float GunIndicator::getLeft() const noexcept {
-// 	return getX() - ( m_gunIndicatorW / 2.f );
-// }
-
-// float GunIndicator::getRight() const noexcept {
-// 	return getX() + ( m_gunIndicatorW / 2.f );
-// }

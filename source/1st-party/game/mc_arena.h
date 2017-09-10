@@ -4,11 +4,11 @@
 #ifndef MC_ARENA_H
 #define MC_ARENA_H
 
+#include "mc_terrain.h"
+#include "mc_gun_indicator.h"
 #include "en_essentials.h"
 #include "mc_play_area_bar.h"
 #include "mc_city.h"
-// no need as bar enum is below now! delete this line .#include "mc_constants.h"
-#include "mc_gun_indicator.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "en_util_make_unique.h"
 #include "ecs.h"
@@ -58,6 +58,7 @@ class Arena : public sf::Transformable, public sf::Drawable
 		sf::Vector2f		m_velocity;
 		sf::SoundBuffer		m_sndbfColPaddle;
 		sf::Sound		m_soundColPaddle;
+		Terrain			terrain;
 		GunIndicator		gunIndicator;
 		PlayAreaBar		topBar = { "topBar" };
 		PlayAreaBar		leftBar = { "leftBar" };

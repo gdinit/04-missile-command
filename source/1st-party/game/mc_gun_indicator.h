@@ -35,15 +35,9 @@
 // ================= END: Production Assert Handling =================
 
 #include <SFML/Graphics.hpp>
+// Required for JSON
 #include "3rd-party/json-nlohmann/v.2.1.1/json.hpp"
-
-//// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
-// #include <memory>
-//// For object name
-// #include <string>
-//// Required for RNG
-// #include <chrono>
-// Required for ifstream for JSON
+// Required for JSON
 #include <fstream>
 
 class GunIndicator : public sf::Transformable

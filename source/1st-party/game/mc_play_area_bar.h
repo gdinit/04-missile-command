@@ -40,9 +40,9 @@
 #include <random>
 // Required for RNG
 #include <chrono>
-// Required for reading bar ratios from JSON db
+// Required for JSON
 #include "3rd-party/json-nlohmann/v.2.1.1/json.hpp"
-// Required for ifstream for JSON
+// Required for JSON
 #include <fstream>
 
 class PlayAreaBar : public sf::Transformable
@@ -76,10 +76,13 @@ class PlayAreaBar : public sf::Transformable
 		const t_objectName	m_myObjNameStr;
 		sf::Sprite		m_sprite;
 		sf::Texture		m_texture;
-		sf::Vector2f		m_position;
+		sf::Vector2f		m_position = { 0, 0 };
 		sf::Vector2f		m_dimension = { 0, 0 };
+
+		// TODO remove these two
 		float			m_width = 0;
 		float			m_height = 0;
+
 		sf::Vector2u		m_windowSize = { 0, 0 };
 		float			m_topBarXPosRatio = 0;
 		float			m_topBarYPosRatio = 0;

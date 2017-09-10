@@ -186,6 +186,8 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	// , rightBar.getLeft() );
 	gunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
+	terrain.update( timeSinceLastUpdate, res );
+	// terrain.update( timeSinceLastUpdate, res );
 	// ball.update( timeSinceLastUpdate, res );
 	// paintCells();
 	// colDetRespond();
@@ -198,6 +200,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	// target. draw(	rightBar.m_sprite );
 	// target. draw(	leftCity.m_sprite, sf::RenderStates::Default );
 
+	terrain.draw( target, sf::RenderStates::Default );
 	leftCity.draw( target, sf::RenderStates::Default );
 	middleCity.draw( target, sf::RenderStates::Default );
 	rightCity.draw( target, sf::RenderStates::Default );
@@ -222,6 +225,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	"newRound() has been triggered.\tLevel is: " << level << "\n";
 	#endif
 	// m_tmpRes = res;
+	terrain.newRound( res );
 	topBar.newRound( res );
 	leftBar.newRound( res );
 	bottomBar.newRound( res );
