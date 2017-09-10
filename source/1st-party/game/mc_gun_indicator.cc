@@ -171,33 +171,7 @@ void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
 	}
 }
 
-// THIS IS THE ACTUAL ONE WHICH DOES CHECKS.
-// TEMPORARILY DISABLING
-// void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
-// topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
-// rightBarLE ) {
-// PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
-// Direction::DOWN || dir == Direction::RIGHT )
-// , "dir can be LEFT or RIGHT!\n" );
-// if ( dir == Direction::UP ) {
-// if ( getTop() > topBarBottomEdge ) {
-// m_sprite.move( m_requestedMoveDistance );
-// }
-// } else if ( dir == Direction::LEFT ) {
-// if ( getLeft() > ( leftBarRightEdge + m_gunIndicatorW ) ) {
-// m_sprite.move( m_requestedMoveDistance );
-// }
-// } else if ( dir == Direction::DOWN ) {
-// if ( getBottom() < bottomBarTopEdge ) {
-// m_sprite.move( m_requestedMoveDistance );
-// }
-// } else if ( dir == Direction::RIGHT ) {
-// if ( getRight() < rightBarLE ) {
-// m_sprite.move( m_requestedMoveDistance );
-// }
-// }
-// }
-
+// THIS IS THE ACTUAL ONE WHICH DOES CHECKS. DISABLE FOR TROUBLESHOOTING
 void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 	topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
 	rightBarLE ) {
@@ -205,15 +179,41 @@ void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 		   Direction::DOWN || dir == Direction::RIGHT )
 		, "dir can be LEFT or RIGHT!\n" );
 	if ( dir == Direction::UP ) {
-		m_sprite.move( m_requestedMoveDistance );
+		if ( getTop() > topBarBottomEdge ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
 	} else if ( dir == Direction::LEFT ) {
-		m_sprite.move( m_requestedMoveDistance );
+		if ( getLeft() > ( leftBarRightEdge + m_gunIndicatorW ) ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
 	} else if ( dir == Direction::DOWN ) {
-		m_sprite.move( m_requestedMoveDistance );
+		if ( getBottom() < bottomBarTopEdge ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
 	} else if ( dir == Direction::RIGHT ) {
-		m_sprite.move( m_requestedMoveDistance );
+		if ( getRight() < rightBarLE ) {
+			m_sprite.move( m_requestedMoveDistance );
+		}
 	}
 }
+
+//// TODO: remove this code DEBUG ONLY CODE -- MOVE WITNHOUT RESTRAINTS
+// void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
+// topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
+// rightBarLE ) {
+// PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
+// Direction::DOWN || dir == Direction::RIGHT )
+// , "dir can be LEFT or RIGHT!\n" );
+// if ( dir == Direction::UP ) {
+// m_sprite.move( m_requestedMoveDistance );
+// } else if ( dir == Direction::LEFT ) {
+// m_sprite.move( m_requestedMoveDistance );
+// } else if ( dir == Direction::DOWN ) {
+// m_sprite.move( m_requestedMoveDistance );
+// } else if ( dir == Direction::RIGHT ) {
+// m_sprite.move( m_requestedMoveDistance );
+// }
+// }
 
 void GunIndicator::draw( sf::RenderTarget &target, sf::RenderStates states )
 const {
