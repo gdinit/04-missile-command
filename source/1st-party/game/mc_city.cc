@@ -118,6 +118,7 @@ float City::getLeft() const noexcept {
 }
 
 float City::getRight() const noexcept {
+	// TODO fix this
 
 	// return getX() + m_width;
 	return 0;
