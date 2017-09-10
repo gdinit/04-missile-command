@@ -103,14 +103,15 @@ target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${SFML_LIBRARIES} ${SF
 #target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES} ${LUA_LIBRARY})
 #target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES} liblua53)
 #target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} ${IMGUI_SFML_DEPENDENCIES})
-
+################################################################################
+set_target_properties(${PROJECT_NAME} PROPERTIES VS_STARTUP_PROJECT ${PROJECT_NAME})
 ################################################################################
 cotire(${PROJECT_NAME})
 ################################################################################
 
 
 ################################################################################
-# this is in trunk as of 2016Dec - let's just keep it here till it makes to the release
+# This didn't work. Reverting to "duplicate assets to debug dir" method for now.
 # set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/release.win/Debug")
 ################################################################################
 set(CMAKE_SUPPRESS_REGENERATION true)
@@ -137,7 +138,7 @@ mark_as_advanced	(CMAKE_EXE_LINKER_FLAGS)
 ################################################################################
 # EXECUTABLE_OUTPUT_PATH
 #
-set(PROJECT_BINARY_DIR "${CMAKE_SOURCE_DIR}/build" CACHE PATH "out of source, temporary build dir")
+set(PROJECT_BINARY_DIR "${CMAKE_SOURCE_DIR}/build" CACHE PATH "Out of source, temporary build dir")
 if	(${CMAKE_SYSTEM_NAME}		MATCHES "Darwin")
         set	(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/release.mac CACHE PATH "Mac output directory")
 elseif	(${CMAKE_SYSTEM_NAME}		MATCHES "Win")
