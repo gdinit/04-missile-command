@@ -10,7 +10,7 @@ Terrain::Terrain()
 	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
 	#endif
 	// SET UP SPRITE
-	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
+	// m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
 	m_sprite.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
 	m_sprite.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
 }
@@ -96,10 +96,11 @@ void Terrain::makeTerrain( sf::Vector2f res ) noexcept {
 	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
-	m_texture.loadFromFile( "assets/textures/640x64_terrain.png" );
+	// m_texture.loadFromFile( "assets/textures/640x64_terrain.png" );
+	m_texture.loadFromFile( "assets/textures/terrain_633x63.png" );
 	m_sprite.setTexture( m_texture, true );
 	m_sprite.setPosition( m_position.x, m_position.y );
-	m_sprite.setColor( sf::Color( sf::Color::Yellow ) );
+	// m_sprite.setColor( sf::Color( sf::Color::Black ) );
 }
 
 float Terrain::getX() const noexcept {
