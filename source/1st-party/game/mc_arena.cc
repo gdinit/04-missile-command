@@ -20,24 +20,8 @@ Arena::Arena()
 	std::cout << "[DEBUG]\tIN PROGRESS: Loading textures..." <<
 	m_myObjNameStr << "\n";
 	#endif
-	// if ( !m_squareTexture.loadFromFile(
-	// "assets/textures/texturepak.png" ) ) {
-	// std::cout << "\nERROR while attempting to load a resource!\n";
-	// exit( EXIT_FAILURE );
-	// }
 	#if defined DBG
-	// std::cout << "[DEBUG]\tSUCCESS: Loaded textures." << m_myObjNameStr
-	// <<
-	// "\n";
-	// std::cout << "[DEBUG]\tIN PROGRESS: Loading sounds..." <<
-	// m_myObjNameStr << "\n";
 	#endif
-	// if ( !m_sndbfColPaddle.loadFromFile(
-	// "assets/sounds/collision1.wav" ) ) {
-	// std::cout << "\nERROR while attempting to load a resource!\n";
-	// exit( EXIT_FAILURE );
-	// }
-	// m_soundColPaddle.setBuffer( m_sndbfColPaddle );
 	#if defined DBG
 	std::cout << "[DEBUG]\tSUCCESS: Loaded sounds." << m_myObjNameStr <<
 	"\n";
@@ -169,37 +153,13 @@ Arena::~Arena() {
 
 void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	dir ) {
-	//// Hourglass decrements
-	// if ( m_hgPaddle > 0 ) {
-	// --m_hgPaddle;
-	// }
-	// if ( m_hgTopBar > 0 ) {
-	// --m_hgTopBar;
-	// }
-	// if ( m_hgLeftBar > 0 ) {
-	// --m_hgLeftBar;
-	// }
-	// if ( m_hgRightBar > 0 ) {
-	// --m_hgRightBar;
-	// }
-	// paddle.update( timeSinceLastUpdate, res, dir, leftBar.getRight()
-	// , rightBar.getLeft() );
+	std::cout << "topBar.getLeft() is: " << topBar.getLeft() << "\n";
 	gunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	terrain.update( timeSinceLastUpdate, res );
-	// terrain.update( timeSinceLastUpdate, res );
-	// ball.update( timeSinceLastUpdate, res );
-	// paintCells();
-	// colDetRespond();
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
-	// target. draw(	gunIndicator.m_sprite );
-	// target. draw(	topBar.m_sprite );
-	// target. draw(	bottomBar.m_sprite );
-	// target. draw(	rightBar.m_sprite );
-	// target. draw(	city1.m_sprite, sf::RenderStates::Default );
-
 	terrain.draw( target, sf::RenderStates::Default );
 	city1.draw( target, sf::RenderStates::Default );
 	city2.draw( target, sf::RenderStates::Default );
@@ -208,18 +168,10 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	city5.draw( target, sf::RenderStates::Default );
 	city6.draw( target, sf::RenderStates::Default );
 	topBar.draw( target, sf::RenderStates::Default );
-	leftBar.draw( target, sf::RenderStates::Default );
+	// leftBar.draw( target, sf::RenderStates::Default );
 	bottomBar.draw( target, sf::RenderStates::Default );
-	rightBar.draw( target, sf::RenderStates::Default );
+	// rightBar.draw( target, sf::RenderStates::Default );
 	gunIndicator.draw( target, sf::RenderStates::Default );
-	// target. draw(	paddle.m_sprite );
-	// for ( int32 n = CONFIG_FIRSTCELL; n < CONFIG_LASTCELL; ++n ) {
-	// if ( m_cDetDB [ n ].HP > 0 && m_cDetDB [ n ].visible &&
-	// m_cDetDB [ n ].phantom != 1 ) {
-	// target.draw( m_cSDB [ n ] );
-	// }
-	// }
-	// target.draw( ball.m_sprite );
 }
 
 void Arena::newRound( sf::Vector2f res, int32 level ) {
