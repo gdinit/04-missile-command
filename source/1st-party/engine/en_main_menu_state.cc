@@ -13,7 +13,10 @@ MainMenuState::MainMenuState( StateMachine &machine
 	// SET UP SPRITE
 	m_spr1Play.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
 	m_spr1Play.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
-
+	m_spr2Cred.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
+	m_spr2Cred.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
+	m_spr3Exit.setOrigin( m_dimension.x / 2.f, m_dimension.y / 2.f );
+	m_spr3Exit.setPosition( m_windowSize.x / 2, m_windowSize.y / 2 );
 	initializeState();
 }
 
