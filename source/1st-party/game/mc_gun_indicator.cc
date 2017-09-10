@@ -13,13 +13,13 @@ GunIndicator::GunIndicator()
 	nlohmann::json	j;
 	i >> j;
 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
-		if ( it.key() == "MC_AAG_Pointer_W" ) {
+		if ( it.key() == "gunIndicatorW" ) {
 			m_gunIndicatorW = it.value();
-		} else if ( it.key() == "MC_AAG_Pointer_H" ) {
-			m_defAAGPointerH = it.value();
-		} else if ( it.key() == "MC_AAG_Pointer_V" ) {
-			m_defAAGPointerV = it.value();
-		} else if ( it.key() == "MC_GunIndicatorMovStep" ) {
+		} else if ( it.key() == "gunIndicatorH" ) {
+			m_gunIndicatorH = it.value();
+		} else if ( it.key() == "gunIndicatorV" ) {
+			m_gunIndicatorV = it.value();
+		} else if ( it.key() == "GunIndicatorMovStep" ) {
 			m_gunIndicatorMovStep = it.value();
 		}
 	}
@@ -27,21 +27,21 @@ GunIndicator::GunIndicator()
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr <<
 	") \t m_gunIndicatorW is: " << m_gunIndicatorW <<
-	"\t m_defAAGPointerH: " << m_defAAGPointerH <<
-	"\t m_defAAGPointerV: " << m_defAAGPointerV << "\n";
+	"\t m_gunIndicatorH: " << m_gunIndicatorH << "\t m_gunIndicatorV: " <<
+	m_gunIndicatorV << "\n";
 	#endif
 	PASSERT(        ( m_gunIndicatorW > 0 )
 		, "ERROR: m_gunIndicatorW must be > 0!\n" );
-	PASSERT(        ( m_defAAGPointerH > 0 )
-		, "ERROR: m_defAAGPointerH must be > 0!\n" );
-	PASSERT(        ( m_defAAGPointerV > 0 )
-		, "ERROR: m_defAAGPointerV must be > 0!\n" );
+	PASSERT(        ( m_gunIndicatorH > 0 )
+		, "ERROR: m_gunIndicatorH must be > 0!\n" );
+	PASSERT(        ( m_gunIndicatorV > 0 )
+		, "ERROR: m_gunIndicatorV must be > 0!\n" );
 	// SET UP SPRITE
 	m_sprite.setTexture( m_texture );
 	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
-			, m_defAAGPointerH ) );
+			, m_gunIndicatorH ) );
 	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
-	m_sprite.setOrigin( m_defAAGPointerH / 2.f, m_gunIndicatorW / 2.f );
+	m_sprite.setOrigin( m_gunIndicatorH / 2.f, m_gunIndicatorW / 2.f );
 	m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
 	m_velocity.x = 0.f;
 	m_velocity.y = 0.f;
@@ -83,9 +83,9 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 
 	//// calculate next step
 	// sf::Vector2f	moveDistance;
-	// moveDistance.x = ( m_velocity.x * m_defAAGPointerV ) *
+	// moveDistance.x = ( m_velocity.x * gunIndicatorV ) *
 	// timeSinceLastUpdate.asMilliseconds();
-	// moveDistance.y = ( m_velocity.y * m_defAAGPointerV ) *
+	// moveDistance.y = ( m_velocity.y * gunIndicatorV ) *
 	// timeSinceLastUpdate.asMilliseconds();
 
 	//// 'normal' values go as low|high as N
@@ -229,11 +229,11 @@ float GunIndicator::getY() const noexcept {
 }
 
 float GunIndicator::getTop() const noexcept {
-	return getY() - ( m_defAAGPointerH / 2.f );
+	return getY() - ( m_gunIndicatorH / 2.f );
 }
 
 float GunIndicator::getBottom() const noexcept {
-	return getY() + ( m_defAAGPointerH / 2.f );
+	return getY() + ( m_gunIndicatorH / 2.f );
 }
 
 float GunIndicator::getLeft() const noexcept {

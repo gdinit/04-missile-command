@@ -84,8 +84,8 @@ class GunIndicator : public sf::Transformable
 		sf::Texture		m_texture;
 		sf::Vector2f		m_velocity;
 		float			m_gunIndicatorW = -1;
-		float			m_defAAGPointerV = -1;
-		float			m_defAAGPointerH = -1;
+		float			m_gunIndicatorV = -1;
+		float			m_gunIndicatorH = -1;
 		sf::Vector2f		m_requestedMoveDistance;
 		sf::Vector2u		m_windowSize = { 0, 0 };
 		float			m_gunIndicatorMovStep = -1.f;
