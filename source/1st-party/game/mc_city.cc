@@ -45,17 +45,17 @@ void City::newRound( sf::Vector2f res ) {
 	m_texture.loadFromFile( "assets/textures/city_blue_42x24.png" );
 	m_sprite.setTexture( m_texture );
 	if ( m_myObjNameStr == "city1" ) {
-		m_sprite.setPosition( res.x * 0.30, res.y * 0.1 );
+		m_sprite.setPosition( res.x * 0.15320, res.y * 0.826667 );
 	} else if ( m_myObjNameStr == "city2" ) {
-		m_sprite.setPosition( res.x * 0.40, res.y * 0.2 );
+		m_sprite.setPosition( res.x * 0.25, res.y * 0.824167 );
 	} else if ( m_myObjNameStr == "city3" ) {
-		m_sprite.setPosition( res.x * 0.50, res.y * 0.3 );
+		m_sprite.setPosition( res.x * 0.351125, res.y * 0.835 );
 	} else if ( m_myObjNameStr == "city4" ) {
-		m_sprite.setPosition( res.x * 0.60, res.y * 0.4 );
+		m_sprite.setPosition( res.x * 0.546875, res.y * 0.822167 );
 	} else if ( m_myObjNameStr == "city5" ) {
-		m_sprite.setPosition( res.x * 0.70, res.y * 0.5 );
+		m_sprite.setPosition( res.x * 0.6675, res.y * 0.811333 );
 	} else if ( m_myObjNameStr == "city6" ) {
-		m_sprite.setPosition( res.x * 0.80, res.y * 0.6 );
+		m_sprite.setPosition( res.x * 0.7875, res.y * 0.829167 );
 	}
 	// save for future use
 	m_windowSize.x = res.x;
