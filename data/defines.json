@@ -25,7 +25,7 @@
   "rightBarWidthRatio": 0.0046875,
   "rightBarHeightRatio": 0.95,
   "========================================================================": 0,
-  "MC_GunIndicatorMovStep": 5,
+  "MC_GunIndicatorMovStep": 2,
   "========================================================================": 0,
   "MC_AAG_Pointer_W": 7,
   "MC_AAG_Pointer_H": 7,
