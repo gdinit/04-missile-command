@@ -177,7 +177,7 @@ void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 	rightBarLE ) {
 	PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
 		   Direction::DOWN || dir == Direction::RIGHT )
-		, "dir can be LEFT or RIGHT!\n" );
+		, "dir can be UP, LEFT, DOWN, or RIGHT!\n" );
 	if ( dir == Direction::UP ) {
 		if ( getTop() > topBarBottomEdge ) {
 			m_sprite.move( m_requestedMoveDistance );
