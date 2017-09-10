@@ -30,5 +30,18 @@
   "MC_AAG_Pointer_W": 7,
   "MC_AAG_Pointer_H": 7,
   "MC_AAG_Pointer_V": 1,
+  "========================================================================": 0,
+  "city1XPosRatio": 0.15320,
+  "city1YPosRatio": 0.826667,
+  "city2XPosRatio": 0.25,
+  "city2YPosRatio": 0.824167,
+  "city3XPosRatio": 0.351125,
+  "city3YPosRatio": 0.835,
+  "city4XPosRatio": 0.546875,
+  "city4YPosRatio": 0.822167,
+  "city5XPosRatio": 0.6675,
+  "city5YPosRatio": 0.811333,
+  "city6XPosRatio": 0.7875,
+  "city6YPosRatio": 0.829167,
   "========================================================================": 0
 }
