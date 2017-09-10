@@ -47,9 +47,6 @@ class MainMenuState : public State
 		void	draw();
 		void	pause();
 		void	resume();
-		void	makeButtonPlay() noexcept;
-		void	makeButtonCred() noexcept;
-		void	makeButtonExit() noexcept;
 
 	private:
 		const t_objectName	m_myObjNameStr;
