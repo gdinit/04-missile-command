@@ -11,26 +11,12 @@ PauseState::PauseState( StateMachine &machine
 		"PauseState" )
 {
 	m_engineSharedContext.gameIsPaused = true;
-
-	// #if defined DBG
-	// std::cout << "[DEBUG]\tm_engineSharedContext.gameIsPaused is now: "
-	// <<
-	// m_engineSharedContext.gameIsPaused << "\t" << m_myObjNameStr << "\n";
-	// #endif
-
 	initializeState();
 }
 
 PauseState::~PauseState()
 {
 	m_engineSharedContext.gameIsPaused = false;
-
-	// #if defined DBG
-	// std::cout << "[DEBUG]\tm_engineSharedContext.gameIsPaused is now: "
-	// <<
-	// m_engineSharedContext.gameIsPaused << "\t" << m_myObjNameStr << "\n";
-	// #endif
-
 	#if defined DBG
 	std::cout << "[DEBUG]\tDestructed state:\t" << m_myObjNameStr << "\n";
 	#endif
@@ -52,11 +38,6 @@ void PauseState::initializeState()
 	m_systemResizeHourglass = 0;
 	// TODO base these values on config variables
 	m_desiredAspectRatio = 640.f / 480.f;
-	// #if defined DBG
-	// std::cout << "[DEBUG]\tm_desiredAspectRatio is: \t" <<
-	// m_desiredAspectRatio << " (" << m_myObjNameStr << ")\n";
-	// #endif
-
 	m_urgentUpdateNeeded = 10;
 
 	// debug overlay font settings
@@ -122,30 +103,12 @@ void PauseState::update()
 	// resize stuff here
 	if ( m_systemResizeHourglass > 0 ) {
 		--m_systemResizeHourglass;
-		// report
-		// std::cout	<<
-		// "[DEBUG]\tm_systemResizeHourglass was >0\t"
-		// << "was=" << ( m_systemResizeHourglass + 1 )
-		// << "now=" << m_systemResizeHourglass << " ("
-		// << m_myObjNameStr << ")\n";
 	} else {
-		// hit else
-		//// report
-		// std::cout	<<
-		// "[DEBUG]\tm_systemResizeHourglass hit else\t"
-		// << "now=" << m_systemResizeHourglass << " ("
-		// << m_myObjNameStr << ")\n";
 	}
 
 	while ( m_timeSinceLastUpdate > State::TimePerFrame ) {
 		m_timeSinceLastUpdate -= State::TimePerFrame;
-
 		processEvents();
-
-		// a PausedState MUST not update!
-		// m_engineSharedContext.pArena->update( m_elapsedTime );
-		// m_engineSharedContext.pHud->update( m_elapsedTime );
-
 		// update statistics for the debug overlay
 		m_statisticsUpdateTime += m_elapsedTime;
 		m_statisticsNumFrames += 1;
@@ -174,7 +137,6 @@ void PauseState::update()
 			m_statisticsUpdateTime -= sf::seconds( 1.0f );
 			m_statisticsNumFrames = 0;
 		}
-		// common->update( m_elapsedTime );
 	}
 }
 
