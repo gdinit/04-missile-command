@@ -14,16 +14,11 @@
 // ============================
 // STILL NEED TO BE RENAMED TO CONTS_BLAH_BLAH
 // TODO RENAME TO CONST
-#define C_WIN_W 320
-#define C_WIN_H 240
-// #define C_WIN_W 640
-// #define C_WIN_H 480
-// #define C_WIN_W 800
-// #define C_WIN_H 600
-// #define C_WIN_W 1024
-// #define C_WIN_H 768
-// #define C_WIN_W 1920
-// #define C_WIN_H 1080
+// #define CONST_EN_SCREENRES_W 320
+#define CONST_EN_SCREENRES_W 640
+// #define CONST_EN_SCREENRES_W 800
+// #define CONST_EN_SCREENRES_W 1024
+// #define CONST_EN_SCREENRES_W 1920
 #define CONST_WIN_FULLSCREEN 0
 #define C_DEBUG_SHOW_OVERLAY 1
 #define C_D_CO 0

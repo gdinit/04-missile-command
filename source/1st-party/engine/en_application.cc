@@ -56,8 +56,8 @@ void Application::createWindow()
 	sf::VideoMode	desktopVM = sf::VideoMode::getDesktopMode();
 
 	int32		w = 0, h = 0;
-	h = C_WIN_H;
-	w = C_WIN_W;
+	w = CONST_EN_SCREENRES_W;
+	h = CONST_EN_SCREENRES_W / 1.333333333333333;
 	if ( CONST_WIN_FULLSCREEN ) {
 		// use:	fixed-res & fullscreen
 		#if defined DBG
