@@ -19,8 +19,10 @@
 // ============================
 // STILL NEED TO BE RENAMED TO CONTS_BLAH_BLAH
 // TODO RENAME TO CONST
-#define C_WIN_W 640
-#define C_WIN_H 480
+#define C_WIN_W 320
+#define C_WIN_H 240
+// #define C_WIN_W 640
+// #define C_WIN_H 480
 // #define C_WIN_W 800
 // #define C_WIN_H 600
 // #define C_WIN_W 1024
