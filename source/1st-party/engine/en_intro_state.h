@@ -54,7 +54,6 @@ class IntroState : public State
 		sf::Color		m_alpha;
 		sf::Font		m_fontPressToContinue;
 		sf::Text		m_textPressToContinue;
-
 		// window resize stuff
 		// Added to store texture size
 		sf::Vector2u		m_textureSize;
