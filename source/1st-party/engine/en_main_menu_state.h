@@ -60,10 +60,8 @@ class MainMenuState : public State
 		float			m_desiredAspectRatio;
 		int32			m_systemResizeHourglass;
 		// imgui stuff
-		// sf::CircleShape		m_shape;
 		sf::Clock		deltaClock;
 		int32			m_clicked;
-
 		// TODO cleanup this. imgui image button tests.
 		sf::Texture		m_tex1Play;
 		sf::Texture		m_tex2Cred;
