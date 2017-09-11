@@ -127,18 +127,17 @@ void IntroState::update()
 
 			m_statisticsUpdateTime -= sf::seconds( 1.0f );
 			m_statisticsNumFrames = 0;
-		}// exiting update statsText only once a second
-	}// exiting "m_timeSinceLastUpdate > State::TimePerFrame". --
+		}
+	}
 	// draw()
 	// will execute now.
 	if ( m_alpha.a != 0 ) {
 		m_alpha.a--;
 	}
 	m_fader.setFillColor( m_alpha );
-
 	// TODO: add delay timer here & when timer is out, automatically
 	// continue to the main menu
-}// exiting update()
+}
 
 void IntroState::draw()
 {
@@ -157,10 +156,7 @@ void IntroState::draw()
 
 void IntroState::processEvents()
 {
-	// fetch events
 	sf::Event evt;
-
-	// process events
 	while ( m_window.pollEvent( evt ) ) {
 		switch ( evt.type ) {
 			case sf::Event::Closed:
