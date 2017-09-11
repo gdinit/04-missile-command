@@ -123,7 +123,7 @@ void MainMenuState::draw()
 	/// 2 ), ImGuiCond_Always );
 	//
 	// FIXME hardcoded value. not safe. should be calculated
-	ImGui::SetNextWindowSize( ImVec2( 0, 160 ), ImGuiCond_Always );
+	ImGui::SetNextWindowSize( ImVec2( 160, 160 ), ImGuiCond_Always );
 	ImGui::SetNextWindowPosCenter( ImGuiCond_Always );
 	bool b = true;
 	ImGui::Begin( " ", &b, window_flags );
