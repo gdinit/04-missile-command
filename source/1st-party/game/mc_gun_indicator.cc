@@ -61,9 +61,19 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 	rightBarLE )
 {
 	#if defined DBG
-	std::cout << "GunIndicator x,y: " << getX() << "," << getY() <<
-	"\t xMultiplierRatio = " << ( getX() / m_windowSize.x )	<<
-	"\t\t yMultiplierRatio = " << ( getY() / m_windowSize.y ) << "\n";
+	if ( ( getX() == m_debugGunIndicatorLastPos.x )
+	     && ( getY() == m_debugGunIndicatorLastPos.y ) ) {
+		// do nothing
+	} else {
+		m_debugGunIndicatorLastPos.x = getX();
+		m_debugGunIndicatorLastPos.y = getY();
+		std::cout << "GunIndicator newPos x,y: " << getX() << "," <<
+		getY() << "\t xMultiplierRatio = " << ( getX() /
+							m_windowSize.x ) <<
+		"\t\t yMultiplierRatio = " << ( getY() /
+						m_windowSize
+						.y ) << "\n";
+	}
 	#endif
 
 	/*

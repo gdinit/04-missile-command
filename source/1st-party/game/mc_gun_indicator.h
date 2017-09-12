@@ -89,6 +89,7 @@ class GunIndicator : public sf::Transformable
 		sf::Vector2f		m_requestedMoveDistance;
 		sf::Vector2u		m_windowSize = { 0, 0 };
 		float			m_gunIndicatorMovStep = -1.f;
+		sf::Vector2u		m_debugGunIndicatorLastPos = { 0, 0 };
 };
 
 // MC_GUN_INDICATOR_H
