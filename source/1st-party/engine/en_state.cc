@@ -46,7 +46,7 @@ void State::tglDbgShowOverlay()
 void State::toggleDebugConsoleOutput()
 {
 	SETTINGS->debugPrintToConsole = !SETTINGS->debugPrintToConsole;
-	std::cout << "Console debug\t["	<< SETTINGS->debugPrintToConsole <<
+	std::cout << "\nConsole debug\t[" << SETTINGS->debugPrintToConsole <<
 	"]\n";
 }
 
@@ -93,11 +93,12 @@ void State::updateDebugOverlayTextIfEnabled()
 void State::printConsoleDebugIfEnabled()
 {
 	if ( SETTINGS->debugPrintToConsole ) {
-		std::cout << "FPS: " + std::to_string( m_statisticsNumFrames ) +
-		"\t" + "Time/Update: " + std::to_string(
+		std::cout << "\nFPS: " + std::to_string(
+			m_statisticsNumFrames ) + "\t" + "Time/Update: " +
+		std::	to_string(
 			m_statisticsUpdateTime.asMicroseconds() /
 			m_statisticsNumFrames ) + "us\t" + "updateTime: " +
-		std::to_string(
+		std::	to_string(
 			m_statisticsUpdateTime.asMicroseconds() ) + "us\n";
 	}
 }
@@ -116,7 +117,7 @@ void State::recordObservedFPS()
 		}
 		// print all values
 		if ( SETTINGS->debugPrintToConsoleFPS ) {
-			std::cout << "\t<m_observedFPSLastN>: ";
+			std::cout << "\n<m_observedFPSLastN>: ";
 			std::deque <unsigned short int>::iterator it =
 				m_observedFPSLastN.begin();
 			while ( it != m_observedFPSLastN.end() ) {
