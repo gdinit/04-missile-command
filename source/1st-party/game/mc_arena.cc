@@ -153,7 +153,6 @@ Arena::~Arena() {
 
 void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	dir ) {
-	std::cout << "topBar.getLeft() is: " << topBar.getLeft() << "\n";
 	gunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	terrain.update( timeSinceLastUpdate, res );
