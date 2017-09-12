@@ -195,7 +195,7 @@ void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 			m_sprite.move( m_requestedMoveDistance );
 		}
 	} else if ( dir == Direction::LEFT ) {
-		if ( getLeft() > ( leftBarRightEdge + m_gunIndicatorW ) ) {
+		if ( getLeft() > leftBarRightEdge ) {
 			m_sprite.move( m_requestedMoveDistance );
 		}
 	} else if ( dir == Direction::DOWN ) {
