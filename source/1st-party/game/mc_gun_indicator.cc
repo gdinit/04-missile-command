@@ -72,7 +72,9 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 							m_windowSize.x ) <<
 		"\t\t yMultiplierRatio = " << ( getY() /
 						m_windowSize
-						.y ) << "\n";
+						.
+						y )
+		<< "\n";
 	}
 	#endif
 
