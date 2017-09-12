@@ -19,6 +19,7 @@
 // ============================
 // #define CONST_SCREENRES_W 320
 #define CONST_SCREENRES_W 640
+#define CONST_SCALE 640.f
 // #define CONST_SCREENRES_W 800
 // #define CONST_SCREENRES_W 1024
 // #define CONST_SCREENRES_W 1920
