@@ -36,8 +36,9 @@ void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 	PASSERT(        ( m_rightBarYPosRatio > 0 )
 		, "ERROR: m_rightBarYPosRatio must be > 0!\tIt is: " <<
 		m_rightBarYPosRatio << "\n" );
-	m_position.x = m_windowSize.x - ( m_windowSize.x *
-					  m_rightBarXPosRatio );
+	// m_position.x = m_windowSize.x - ( m_windowSize.x *
+	// m_rightBarXPosRatio );
+	m_position.x = m_windowSize.x - 1;
 	m_position.y = m_windowSize.y * m_rightBarYPosRatio;
 	m_dimension.x = m_windowSize.x * m_rightBarWidthRatio;
 	m_dimension.y = m_windowSize.y - ( m_windowSize.y *
