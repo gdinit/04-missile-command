@@ -91,9 +91,9 @@ void Application::createWindow()
 void Application::loadSettings()
 {
 	// TODO move this somewhere in Game
-	SETTINGS->inGameOverlay = CONST_DEBUG_SHOW_OVERLAY;
-	SETTINGS->debugPrintToConsole = CONST_DEBUG_PRINT_TO_CONSOLE;
-	SETTINGS->debugPrintToConsoleFPS = CONST_DEBUG_PRINT_TO_CONSOLE_FPS;
+	SETTINGS->inGameOverlay = CONST_DEBUG_ONLAUNCH_SHOW_OVERLAY;
+	SETTINGS->debugPrintToConsole = CONST_DEBUG_ONLAUNCH_PRINT_TO_CONSOLE;
+	SETTINGS->debugPrintToConsoleFPS = CONST_DEBUG_ONLAUNCH_PRINT_TO_CONSOLE_FPS;
 }
 
 void Application::run()
