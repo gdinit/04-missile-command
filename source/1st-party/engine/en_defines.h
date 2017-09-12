@@ -4,32 +4,42 @@
 #ifndef EN_DEFINES_H
 #define EN_DEFINES_H
 
+#include "mc_game_defines.h"
+
 // ============ BEGIN: HARDCODED ENGINE GENERIC SETTINGS ==============
 //// RENAMED AND NEW
-#ifndef CONST_GAME_NAME
-#define CONST_GAME_NAME	"Untitled"
-#endif
-#define CONST_DESIRED_FPS_INT 60
-#define CONST_DESIRED_FPS_FLOAT	60.f
-// ============================
-// STILL NEED TO BE RENAMED TO CONTS_BLAH_BLAH
-// TODO RENAME TO CONST
-// #define CONST_EN_SCREENRES_W 320
-#define CONST_EN_SCREENRES_W 640
-// #define CONST_EN_SCREENRES_W 800
-// #define CONST_EN_SCREENRES_W 1024
-// #define CONST_EN_SCREENRES_W 1920
 #define CONST_WIN_FULLSCREEN 0
-#define C_DEBUG_SHOW_OVERLAY 1
-#define C_D_CO 0
-#define C_D_DFPS_CO 0
-
-#define C_OBSFPS_CONTMAXSIZE 10
-#define C_OBSFPS_ACTTHRESHOLD 5
-#define C_FPS_CATCHUP_STEP_F 0.5f
-#define C_DTYTHRESHOLD_SEC_INT 5
-#define C_FPSO_MAGE_2U_SECS_INT 1
+#define CONST_DEBUG_SHOW_OVERLAY 1
+#define CONST_DEBUG_PRINT_TO_CONSOLE 0
+#define CONST_DEBUG_PRINT_TO_CONSOLE_FPS 0
+#define CONST_OBSERVED_FPS_REGISTRY_MAXSIZE 10
+#define CONST_OBSERVED_FPS_ACTION_THRESHOLD 5
+#define CONST_MIN_STATE_AGE_2OBSERVE_ADJUST_SECS_INT 5
+#define CONST_MIN_STATE_AGE_2UPDATE_SECS_INT 1
+// ============================
+// #define CONST_SCREENRES_W 320
+#define CONST_SCREENRES_W 640
+// #define CONST_SCREENRES_W 800
+// #define CONST_SCREENRES_W 1024
+// #define CONST_SCREENRES_W 1920
 // ============ END: HARDCODED ENGINE GENERIC SETTINGS ==============
+
+// ============ BEGIN: DECIDE FINAL SETTINGS ==============
+// Game Name -- set it, only if game-define-file has not done so
+#ifndef CONST_GAME_NAME
+#define CONST_GAME_NAME "Untitled"
+#endif
+
+// FPS Int -- set it, only if game-define-file has not done so
+#ifndef CONST_DESIRED_FPS_INT
+#define CONST_DESIRED_FPS_INT 60
+#endif
+
+// FPS Float -- set it, only if game-define-file has not done so
+#ifndef CONST_DESIRED_FPS_FLOAT
+#define CONST_DESIRED_FPS_FLOAT 60.f
+#endif
+// ============ END: DECIDE FINAL SETTINGS ==============
 
 // EN_DEFINES_H
 #endif

@@ -78,9 +78,9 @@ void State::updateDebugOverlayTextIfEnabled()
 {
 	// we should not update for `too young` states or it will print values
 	// like 13084738473 FPS!
-	if ( SETTINGS->inGameOverlay &&
-	     ( getStateAgeAsSeconds() >=
-	       C_FPSO_MAGE_2U_SECS_INT ) ) {
+	if ( SETTINGS->inGameOverlay
+	     && ( getStateAgeAsSeconds()
+		  >= CONST_MIN_STATE_AGE_2UPDATE_SECS_INT ) ) {
 		m_statisticsText.setString( std::to_string(
 				m_statisticsNumFrames ) + " FPS \n" +
 			std::to_string(
@@ -104,18 +104,16 @@ void State::printConsoleDebugIfEnabled()
 
 void State::recordObservedFPS()
 {
-	if ( getStateAgeAsSeconds() <
-	     C_DTYTHRESHOLD_SEC_INT ) {
+	if ( getStateAgeAsSeconds()
+	     < CONST_MIN_STATE_AGE_2OBSERVE_ADJUST_SECS_INT ) {
 	} else {
 		// add the observed fps to the end of the queue
 		m_observedFPSLastN.push_back( m_statisticsNumFrames );
-
 		// prevent overgrowth
 		while ( m_observedFPSLastN.size() >
-			C_OBSFPS_CONTMAXSIZE ) {
+			CONST_OBSERVED_FPS_REGISTRY_MAXSIZE ) {
 			m_observedFPSLastN.pop_front();
 		}
-
 		// print all values
 		if ( SETTINGS->debugPrintToConsoleFPS ) {
 			std::cout << "\t<m_observedFPSLastN>: ";
@@ -130,14 +128,12 @@ void State::recordObservedFPS()
 
 void State::dynamicallyAdjustFPSLimit()
 {
-	// proceed only if stateAge is >
-	// C_DTYTHRESHOLD_SEC_INT
-	if ( getStateAgeAsSeconds() <
-	     C_DTYTHRESHOLD_SEC_INT ) {
+	if ( getStateAgeAsSeconds()
+	     < CONST_MIN_STATE_AGE_2OBSERVE_ADJUST_SECS_INT ) {
 	} else {
 		// act if there are at least N values in our de-queue
 		if ( m_observedFPSLastN.size() >=
-		     C_OBSFPS_ACTTHRESHOLD ) {
+		     CONST_OBSERVED_FPS_ACTION_THRESHOLD ) {
 			// get median
 			unsigned short int median = calcMedianFPS(
 					m_observedFPSLastN );

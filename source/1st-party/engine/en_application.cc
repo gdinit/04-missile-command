@@ -56,8 +56,8 @@ void Application::createWindow()
 	sf::VideoMode	desktopVM = sf::VideoMode::getDesktopMode();
 
 	int32		w = 0, h = 0;
-	w = CONST_EN_SCREENRES_W;
-	h = CONST_EN_SCREENRES_W / 1.333333333333333;
+	w = CONST_SCREENRES_W;
+	h = CONST_SCREENRES_W / 1.333333333333333;
 	if ( CONST_WIN_FULLSCREEN ) {
 		// use:	fixed-res & fullscreen
 		#if defined DBG
@@ -91,9 +91,9 @@ void Application::createWindow()
 void Application::loadSettings()
 {
 	// TODO move this somewhere in Game
-	SETTINGS->inGameOverlay = C_DEBUG_SHOW_OVERLAY;
-	SETTINGS->debugPrintToConsole = C_D_CO;
-	SETTINGS->debugPrintToConsoleFPS = C_D_DFPS_CO;
+	SETTINGS->inGameOverlay = CONST_DEBUG_SHOW_OVERLAY;
+	SETTINGS->debugPrintToConsole = CONST_DEBUG_PRINT_TO_CONSOLE;
+	SETTINGS->debugPrintToConsoleFPS = CONST_DEBUG_PRINT_TO_CONSOLE_FPS;
 }
 
 void Application::run()
