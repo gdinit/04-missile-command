@@ -28,12 +28,12 @@ void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 	") m_bottomBarXPosRatio is: " << m_bottomBarXPosRatio <<
 	"\t m_bottomBarYPosRatio is: " << m_bottomBarYPosRatio << "\n";
 	#endif
-	PASSERT(        ( m_bottomBarXPosRatio > 0 )
-		, "ERROR: m_bottomBarXPosRatio must be > 0!\tIt is: " <<
-		m_bottomBarXPosRatio << "\n" );
-	PASSERT(        ( m_bottomBarYPosRatio > 0 )
-		, "ERROR: m_bottomBarYPosRatio must be > 0!\tIt is: " <<
-		m_bottomBarYPosRatio << "\n" );
+	// PASSERT(        ( m_bottomBarXPosRatio > 0 )
+	// , "ERROR: m_bottomBarXPosRatio must be > 0!\tIt is: " <<
+	// m_bottomBarXPosRatio << "\n" );
+	// PASSERT(        ( m_bottomBarYPosRatio > 0 )
+	// , "ERROR: m_bottomBarYPosRatio must be > 0!\tIt is: " <<
+	// m_bottomBarYPosRatio << "\n" );
 
 	m_position.x = m_windowSize.x * m_bottomBarXPosRatio;
 	m_position.y = m_windowSize.y - ( m_windowSize.y *

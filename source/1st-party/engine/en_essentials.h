@@ -6,16 +6,10 @@
 
 #include "en_typedefs.h"
 #include "en_enums.h"
+// #include "en_assert.h"
 
 // For object name
 #include <string>
-
-#if defined NDEBUG
-#else
-	#ifndef DBG
-	#define DBG
-	#endif
-#endif
 
 // EN_ESSENTIALS_H
 #endif

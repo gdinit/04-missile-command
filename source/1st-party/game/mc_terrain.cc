@@ -80,12 +80,12 @@ void Terrain::makeTerrain( sf::Vector2f res ) noexcept {
 	") m_terrainXPosRatio is: " << m_terrainXPosRatio <<
 	"\t m_terrainYPosRatio is: " << m_terrainYPosRatio << "\n";
 	#endif
-	PASSERT(        ( m_terrainXPosRatio > 0 )
-		, "ERROR: m_terrainXPosRatio must be > 0!\tIt is: " <<
-		m_terrainXPosRatio << "\n" );
-	PASSERT(        ( m_terrainYPosRatio > 0 )
-		, "ERROR: m_terrainYPosRatio must be > 0!\tIt is: " <<
-		m_terrainYPosRatio << "\n" );
+	// PASSERT(        ( m_terrainXPosRatio > 0 )
+	// , "ERROR: m_terrainXPosRatio must be > 0!\tIt is: " <<
+	// m_terrainXPosRatio << "\n" );
+	// PASSERT(        ( m_terrainYPosRatio > 0 )
+	// , "ERROR: m_terrainYPosRatio must be > 0!\tIt is: " <<
+	// m_terrainYPosRatio << "\n" );
 	m_position.x = m_windowSize.x * m_terrainXPosRatio;
 	m_position.y = m_windowSize.y * m_terrainYPosRatio;
 	m_dimension.x = m_windowSize.x * m_terrainWidthRatio;

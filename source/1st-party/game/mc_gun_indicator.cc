@@ -30,12 +30,12 @@ GunIndicator::GunIndicator()
 	"\t m_gunIndicatorH: " << m_gunIndicatorH << "\t m_gunIndicatorV: " <<
 	m_gunIndicatorV << "\n";
 	#endif
-	PASSERT(        ( m_gunIndicatorW > 0 )
-		, "ERROR: m_gunIndicatorW must be > 0!\n" );
-	PASSERT(        ( m_gunIndicatorH > 0 )
-		, "ERROR: m_gunIndicatorH must be > 0!\n" );
-	PASSERT(        ( m_gunIndicatorV > 0 )
-		, "ERROR: m_gunIndicatorV must be > 0!\n" );
+	// PASSERT(        ( m_gunIndicatorW > 0 )
+	// , "ERROR: m_gunIndicatorW must be > 0!\n" );
+	// PASSERT(        ( m_gunIndicatorH > 0 )
+	// , "ERROR: m_gunIndicatorH must be > 0!\n" );
+	// PASSERT(        ( m_gunIndicatorV > 0 )
+	// , "ERROR: m_gunIndicatorV must be > 0!\n" );
 	// SET UP SPRITE
 	m_sprite.setTexture( m_texture );
 	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
@@ -187,9 +187,9 @@ void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
 void GunIndicator::valAndActionMove( sf::Vector2f res, Direction dir, float
 	topBarBottomEdge, float leftBarRightEdge, float bottomBarTopEdge, float
 	rightBarLE ) {
-	PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
-		   Direction::DOWN || dir == Direction::RIGHT )
-		, "dir can be UP, LEFT, DOWN, or RIGHT!\n" );
+	// PASSERT( ( dir == Direction::UP || dir == Direction::LEFT || dir ==
+	// Direction::DOWN || dir == Direction::RIGHT )
+	// , "dir can be UP, LEFT, DOWN, or RIGHT!\n" );
 	if ( dir == Direction::UP ) {
 		if ( getTop() > topBarBottomEdge ) {
 			m_sprite.move( m_requestedMoveDistance );
