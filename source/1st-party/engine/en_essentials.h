@@ -6,7 +6,7 @@
 
 #include "en_typedefs.h"
 #include "en_enums.h"
-// #include "en_assert.h"
+#include "en_assert.h"
 
 // For object name
 #include <string>

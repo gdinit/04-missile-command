@@ -6,27 +6,6 @@
 
 #include "en_essentials.h"
 #include "en_globals.h"
-//// ================= BEGIN: Production Assert Handling =================
-//// #include <assert.h>
-// #include <cassert>
-
-// #ifndef EMSCRIPTEN
-// #define BREAK_ACTION exit( 1 )
-// #else
-// #define BREAK_ACTION raise( SIGTRAP )
-// #endif
-
-// #define PASSERT( condition, message ) \
-//      do \
-//      { \
-//              if ( !( condition ) ) { \
-//                      std::cerr << "Assertion `"#condition "` failed in " << \
-//                      __FILE__ << " function " << __func__ << " line " << \
-//                      __LINE__ << ": " << message << std::endl; \
-//                      BREAK_ACTION; \
-//              } \
-//      } while ( false )
-//// ================= END: Production Assert Handling =================
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>

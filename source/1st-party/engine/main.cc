@@ -2,15 +2,9 @@
 // ===================================80 chars==================================
 
 #include "main.h"
-#include <assert.h>
 
 int main()
 {
-	// ============================TODO remove me assert tests =============
-	int age = 1;
-	assert( age > 10 );
-	// ============================TODO remove me assert tests =============
-
 	#if defined DBG
 	std::cout << "****************************************\n" <<
 	"*** BUILD TYPE IS: DEBUG\tAssert enabled.\n" <<

@@ -13,28 +13,6 @@
 // #include "en_util_utility.h"
 //// For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 // #include "en_util_make_unique.h"
-//// ================= BEGIN: Production Assert Handling =================
-//// #include <assert.h>
-// #include <cassert>
-
-// #ifndef EMSCRIPTEN
-// #define BREAK_ACTION exit( 1 )
-// #else
-// #define BREAK_ACTION raise( SIGTRAP )
-// #endif
-
-// #define PASSERT( condition, message ) \
-//      do \
-//      { \
-//              if ( !( condition ) ) { \
-//                      std::cerr << "Assertion `"#condition "` failed in " << \
-//                      __FILE__ << " function " << __func__ << " line " << \
-//                      __LINE__ << ": " << message << std::endl; \
-//                      BREAK_ACTION; \
-//              } \
-//      } while ( false )
-//// ================= END: Production Assert Handling =================
-
 #include <SFML/Graphics.hpp>
 // Required for JSON
 #include "3rd-party/json-nlohmann/v.2.1.1/json.hpp"
