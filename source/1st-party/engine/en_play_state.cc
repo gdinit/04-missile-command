@@ -232,7 +232,7 @@ void PlayState::draw()
 	m_window.setView( m_engineSharedContext.view );
 	arena.draw( m_window, sf::RenderStates::Default );
 
-	// todo fixme
+	// todo FIXME
 	// hud.draw( m_window, sf::RenderStates::Default );
 
 	////////////////////////////////////////

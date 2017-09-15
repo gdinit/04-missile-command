@@ -7,7 +7,7 @@
 #ifndef MC_HUD_H
 #define MC_HUD_H
 
-// TODO fixme
+// TODO FIXME
 #define C_LIVES 5
 
 #include "en_essentials.h"
