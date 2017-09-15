@@ -1,6 +1,3 @@
-/* mc_terrain.h */
-// ===================================80 chars==================================
-
 #ifndef MC_TERRAIN_H
 #define MC_TERRAIN_H
 
@@ -69,6 +66,4 @@ class Terrain : public sf::Transformable
 // MC_TERRAIN_H
 #endif
 
-// ===================================80 chars==================================
-/* EOF */
-
+.

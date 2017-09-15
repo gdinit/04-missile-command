@@ -1,6 +1,3 @@
-/* mc_play_area_bar.cc */
-// ===================================80 chars==================================
-
 #include "mc_play_area_bar.h"
 
 PlayAreaBar::PlayAreaBar()

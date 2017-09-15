@@ -1,6 +1,3 @@
-/* mc_shared_context.h */
-// ===================================80 chars==================================
-
 #ifndef MC_SHARED_CONTEXT_H
 #define MC_SHARED_CONTEXT_H
 // I think this is not in use
@@ -57,7 +54,3 @@
 
 // MC_SHARED_CONTEXT_H
 #endif
-
-// ===================================80 chars==================================
-/* EOF */
-

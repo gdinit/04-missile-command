@@ -1,6 +1,3 @@
-/* mc_gun_indicator.cc */
-// ===================================80 chars==================================
-
 #include "mc_gun_indicator.h"
 
 GunIndicator::GunIndicator()
@@ -255,7 +252,3 @@ float GunIndicator::getLeft() const noexcept {
 float GunIndicator::getRight() const noexcept {
 	return getX() + ( m_gunIndicatorW / 2.f );
 }
-
-// ===================================80 chars==================================
-/* EOF */
-
