@@ -62,7 +62,7 @@ class MainMenuState : public State
 		// imgui stuff
 		sf::Clock		deltaClock;
 		int32			m_clicked;
-		// TODO cleanup this. imgui image button tests.
+		// TODO clean-up this. imgui image button tests.
 		sf::Texture		m_tex1Play;
 		sf::Texture		m_tex2Cred;
 		sf::Texture		m_tex3Exit;
