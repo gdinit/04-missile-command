@@ -1,7 +1,6 @@
 /* en_shared_context.h */
 // ===================================80 chars=================================|
 
-.
 // This struct stores some data and makes it accessible to all game states.
 // It is instantiated in Application() & passed to each GameState as &ref.
 

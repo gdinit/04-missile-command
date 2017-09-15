@@ -1,7 +1,6 @@
 /* en_assert.h */
 // ===================================80 chars=================================|
 
-.
 // There are three types of ASSERTs
 // 1 Production-and-Debug Asserts.
 // 2 Production-Only Asserts.

@@ -1,7 +1,6 @@
 /* mc_hud.h */
 // ===================================80 chars=================================|
 
-.
 // Class to cover hud objects between play & pause states
 // e.g.: background, borders, top text (score, lives etc.)
 
