@@ -4,8 +4,8 @@
 // Class to cover hud objects between play & pause states
 // e.g.: background, borders, top text (score, lives etc.)
 
-#ifndef  MC_HUD_H
-#define  MC_HUD_H
+#ifndef MC_HUD_H
+#define MC_HUD_H
 
 // TODO fixme
 #define C_LIVES 5
