@@ -1,3 +1,6 @@
+/* mc_play_area_bar.cc */
+// ===================================80 chars=================================|
+
 #include "mc_play_area_bar.h"
 
 PlayAreaBar::PlayAreaBar()
@@ -86,6 +89,6 @@ float PlayAreaBar::getRight() const noexcept {
 	return getX() + m_width;
 }
 
-// ===================================80 chars==================================
+// ===================================80 chars=================================|
 /* EOF */
 

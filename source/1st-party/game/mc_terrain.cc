@@ -1,3 +1,6 @@
+/* mc_terrain.cc */
+// ===================================80 chars=================================|
+
 #include "mc_terrain.h"
 
 Terrain::Terrain()
@@ -123,3 +126,7 @@ float Terrain::getLeft() const noexcept {
 float Terrain::getRight() const noexcept {
 	return getX() + ( m_dimension.x / 2.f );
 }
+
+// ===================================80 chars=================================|
+/* EOF */
+

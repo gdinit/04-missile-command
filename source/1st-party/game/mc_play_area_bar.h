@@ -1,3 +1,6 @@
+/* mc_play_area_bar.h */
+// ===================================80 chars=================================|
+
 #ifndef MC_PLAY_AREA_BAR_H
 #define MC_PLAY_AREA_BAR_H
 
@@ -81,3 +84,7 @@ class PlayAreaBar : public sf::Transformable
 
 // MC_PLAY_AREA_BAR_H
 #endif
+
+// ===================================80 chars=================================|
+/* EOF */
+

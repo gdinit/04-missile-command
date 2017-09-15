@@ -1,3 +1,7 @@
+/* mc_hud.h */
+// ===================================80 chars=================================|
+
+.
 // Class to cover hud objects between play & pause states
 // e.g.: background, borders, top text (score, lives etc.)
 
@@ -47,6 +51,6 @@ class Hud : public sf::Transformable, public sf::Drawable
 // MC_HUD_H
 #endif
 
-// ===================================80 chars==================================
+// ===================================80 chars=================================|
 /* EOF */
 
