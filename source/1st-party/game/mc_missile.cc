@@ -64,7 +64,7 @@ void Missile::newRound( sf::Vector2f res ) {
 	nlohmann::json	j;
 	i >> j;
 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
-		if ( it.key() == "missileL1XPosRatiho" ) {
+		if ( it.key() == "missileL1XPosRatio" ) {
 			m_missileL1XPosRatio = it.value();
 		} else if ( it.key() == "missileL1YPosRatio" ) {
 			m_missileL1YPosRatio = it.value();
