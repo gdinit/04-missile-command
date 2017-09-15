@@ -11,7 +11,6 @@ City::City()
 	#endif
 }
 
-// TODO	color also should be passed while creating
 City::City( t_objectName name )
 	: m_myObjNameStr( name )
 {
