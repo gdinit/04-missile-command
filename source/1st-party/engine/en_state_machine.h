@@ -1,5 +1,5 @@
-/* state_machine.h */
-// ===================================80 chars==================================
+/* en_state_machine.h */
+// ===================================80 chars=================================|
 
 #ifndef EN_STATE_MACHINE_H
 #define EN_STATE_MACHINE_H
@@ -71,6 +71,6 @@ std::unique_ptr <T> StateMachine::build( StateMachine &machine
 // EN_STATE_MACHINE_H
 #endif
 
-// ===================================80 chars==================================
+// ===================================80 chars=================================|
 /* EOF */
 

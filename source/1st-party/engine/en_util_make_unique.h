@@ -1,6 +1,7 @@
 /* en_util_make_unique.h */
-// ===================================80 chars==================================
+// ===================================80 chars=================================|
 
+.
 // Version by Stephan T. Lavavej (also known by STL)
 // who originally proposed adding this function to C++14
 // source: https://stackoverflow.com/a/17902439
@@ -58,6 +59,6 @@ namespace std
 // EN_UTIL_MAKE_UNIQUE_H
 #endif
 
-// ===================================80 chars==================================
+// ===================================80 chars=================================|
 /* EOF */
 
