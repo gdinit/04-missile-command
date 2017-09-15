@@ -156,6 +156,7 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	gunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	terrain.update( timeSinceLastUpdate, res );
+	missileL1.update( timeSinceLastUpdate, res );
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
@@ -166,6 +167,7 @@ void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	city4.draw( target, sf::RenderStates::Default );
 	city5.draw( target, sf::RenderStates::Default );
 	city6.draw( target, sf::RenderStates::Default );
+	missileL1.draw( target, sf::RenderStates::Default );
 	topBar.draw( target, sf::RenderStates::Default );
 	// leftBar.draw( target, sf::RenderStates::Default );
 	bottomBar.draw( target, sf::RenderStates::Default );
@@ -191,6 +193,7 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	city4.newRound( res );
 	city5.newRound( res );
 	city6.newRound( res );
+	missileL1.newRound( res );
 	gunIndicator.newRound( res );
 	// createCells( res, level );
 	// paddle.newRound( res );

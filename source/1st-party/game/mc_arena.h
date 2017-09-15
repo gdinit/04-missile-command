@@ -9,6 +9,7 @@
 #include "en_essentials.h"
 #include "mc_play_area_bar.h"
 #include "mc_city.h"
+#include "mc_missile.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "en_util_make_unique.h"
 #include "ecs.h"
@@ -68,6 +69,7 @@ class Arena : public sf::Transformable, public sf::Drawable
 		City			city4 = { "city4" };
 		City			city5 = { "city5" };
 		City			city6 = { "city6" };
+		Missile			missileL1 = { "missileL1" };
 };
 
 // MC_ARENA_H
