@@ -43,9 +43,8 @@ void Missile::update( sf::Time timeSinceLastUpdate )
 
 void Missile::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
 {
-	std::cout << "a missile is now updating...\n";
-	std::cout << "myPos = " << getX() << "," << getY() <<
-	" a missile is now updating...\n";
+	// std::cout << "a missile is now updating...\tmyPos = " << getX() <<
+	// "," << getY() << "\n";
 }
 
 void Missile::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
@@ -66,8 +65,8 @@ void Missile::newRound( sf::Vector2f res ) {
 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
 		if ( it.key() == "missileL1XPosRatio" ) {
 			PDASSERT( it.value() > 0
-				, "missileL1XPosRatio must be > 0\t It is: "
-				<< it.value() << "\n" );
+				, "missileL1XPosRatio must be > 0\t It is: " <<
+				it.value() << "\n" );
 			m_missileL1XPosRatio = it.value();
 		} else if ( it.key() == "missileL1YPosRatio" ) {
 			m_missileL1YPosRatio = it.value();
@@ -96,7 +95,7 @@ void Missile::newRound( sf::Vector2f res ) {
 	i.close();
 
 	if ( m_myObjNameStr == "missileL1" ) {
-		m_sprite.setPosition( res.x * m_missileL1XPosRatio + 65
+		m_sprite.setPosition( res.x * m_missileL1XPosRatio
 			, res.y * m_missileL1YPosRatio );
 		// } else if ( m_myObjNameStr == "city2" ) {
 		// m_sprite.setPosition( res.x * m_city2XPosRatio
