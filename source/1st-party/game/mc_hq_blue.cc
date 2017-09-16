@@ -1,0 +1,52 @@
+/* mc_hq_blue.cc */
+// ===================================80 chars=================================|
+
+#include "mc_hq_blue.h"
+
+HQBlue::HQBlue()
+	: m_myObjNameStr( "Unnamed HQBlue" )
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
+	#endif
+}
+
+HQBlue::HQBlue( t_objectName name )
+	: m_myObjNameStr( name )
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tCreated object:\t\t" << m_myObjNameStr << "\n";
+	#endif
+}
+
+HQBlue::~HQBlue()
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tDestructed object:\t" << m_myObjNameStr << "\n";
+	#endif
+}
+
+void HQBlue::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
+{
+	#if defined DBG
+	std::cout << "[DEBUG]\tHQ updating:\t" << m_myObjNameStr << "\n";
+	#endif
+}
+
+void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
+}
+
+void HQBlue::newRound( sf::Vector2f res ) {
+	#if defined DBG
+	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " <<
+	"newRound() has been triggered.\tres:" << res.x << "," << res.y << "\n";
+	#endif
+
+	// save for future use
+	m_windowSize.x = res.x;
+	m_windowSize.y = res.y;
+}
+
+// ===================================80 chars=================================|
+/* EOF */
+
