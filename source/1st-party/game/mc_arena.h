@@ -8,8 +8,6 @@
 #include "mc_gun_indicator.h"
 #include "en_essentials.h"
 #include "mc_play_area_bar.h"
-#include "mc_city.h"
-#include "mc_missile.h"
 #include "mc_hq_blue.h"
 // For GLOBALS & SETTINGS (for now, till they are moved to play_state)
 #include "en_util_make_unique.h"
@@ -64,13 +62,6 @@ class Arena : public sf::Transformable, public sf::Drawable
 		PlayAreaBar		leftBar = { "leftBar" };
 		PlayAreaBar		bottomBar = { "bottomBar" };
 		PlayAreaBar		rightBar = { "rightBar" };
-		City			city1 = { "city1" };
-		City			city2 = { "city2" };
-		City			city3 = { "city3" };
-		City			city4 = { "city4" };
-		City			city5 = { "city5" };
-		City			city6 = { "city6" };
-		Missile			missileL1 = { "missileL1" };
 		HQBlue			hqBlue = { "hqBlue" };
 };
 

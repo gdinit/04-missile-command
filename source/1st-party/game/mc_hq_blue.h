@@ -5,6 +5,8 @@
 #define MC_HQ_BLUE_H
 
 #include "en_essentials.h"
+#include "mc_city.h"
+#include "mc_missile.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -32,6 +34,13 @@ class HQBlue : public sf::Transformable, public sf::Drawable
 	private:
 		const t_objectName	m_myObjNameStr;
 		sf::Vector2u		m_windowSize = { 0, 0 };
+		City			city1 = { "city1" };
+		City			city2 = { "city2" };
+		City			city3 = { "city3" };
+		City			city4 = { "city4" };
+		City			city5 = { "city5" };
+		City			city6 = { "city6" };
+		Missile			missileL1 = { "missileL1" };
 };
 
 // MC_HQ_BLUE_H

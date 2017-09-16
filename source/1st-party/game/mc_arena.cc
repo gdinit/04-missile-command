@@ -156,19 +156,11 @@ void Arena::update( sf::Time timeSinceLastUpdate, sf::Vector2f res, Direction
 	gunIndicator.update( timeSinceLastUpdate, res, dir, topBar.getBottom()
 		, leftBar.getRight(), bottomBar.getTop(), rightBar.getLeft() );
 	terrain.update( timeSinceLastUpdate, res );
-	missileL1.update( timeSinceLastUpdate, res );
 	hqBlue.update( timeSinceLastUpdate, res );
 }
 
 void Arena::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	terrain.draw( target, sf::RenderStates::Default );
-	city1.draw( target, sf::RenderStates::Default );
-	city2.draw( target, sf::RenderStates::Default );
-	city3.draw( target, sf::RenderStates::Default );
-	city4.draw( target, sf::RenderStates::Default );
-	city5.draw( target, sf::RenderStates::Default );
-	city6.draw( target, sf::RenderStates::Default );
-	missileL1.draw( target, sf::RenderStates::Default );
 	hqBlue.draw( target, sf::RenderStates::Default );
 	topBar.draw( target, sf::RenderStates::Default );
 	// leftBar.draw( target, sf::RenderStates::Default );
@@ -189,13 +181,6 @@ void Arena::newRound( sf::Vector2f res, int32 level ) {
 	bottomBar.newRound( res );
 	rightBar.newRound( res );
 	gunIndicator.newRound( res );
-	city1.newRound( res );
-	city2.newRound( res );
-	city3.newRound( res );
-	city4.newRound( res );
-	city5.newRound( res );
-	city6.newRound( res );
-	missileL1.newRound( res );
 	hqBlue.newRound( res );
 	gunIndicator.newRound( res );
 	// createCells( res, level );
