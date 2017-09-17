@@ -86,6 +86,26 @@ class Missile : public sf::Transformable, public sf::Drawable
 		float			m_missileC9YPosRatio = { 0 };
 		float			m_missileC0XPosRatio = { 0 };
 		float			m_missileC0YPosRatio = { 0 };
+		float			m_missileR1XPosRatio = { 0 };
+		float			m_missileR1YPosRatio = { 0 };
+		float			m_missileR2XPosRatio = { 0 };
+		float			m_missileR2YPosRatio = { 0 };
+		float			m_missileR3XPosRatio = { 0 };
+		float			m_missileR3YPosRatio = { 0 };
+		float			m_missileR4XPosRatio = { 0 };
+		float			m_missileR4YPosRatio = { 0 };
+		float			m_missileR5XPosRatio = { 0 };
+		float			m_missileR5YPosRatio = { 0 };
+		float			m_missileR6XPosRatio = { 0 };
+		float			m_missileR6YPosRatio = { 0 };
+		float			m_missileR7XPosRatio = { 0 };
+		float			m_missileR7YPosRatio = { 0 };
+		float			m_missileR8XPosRatio = { 0 };
+		float			m_missileR8YPosRatio = { 0 };
+		float			m_missileR9XPosRatio = { 0 };
+		float			m_missileR9YPosRatio = { 0 };
+		float			m_missileR0XPosRatio = { 0 };
+		float			m_missileR0YPosRatio = { 0 };
 };
 
 // MC_MISSILE_H

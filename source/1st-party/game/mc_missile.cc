@@ -146,6 +146,46 @@ void Missile::newRound( sf::Vector2f res ) {
 			m_missileC0XPosRatio = it.value();
 		} else if ( it.key() == "missileC0YPosRatio" ) {
 			m_missileC0YPosRatio = it.value();
+		} else if ( it.key() == "missileR1XPosRatio" ) {
+			m_missileR1XPosRatio = it.value();
+		} else if ( it.key() == "missileR1YPosRatio" ) {
+			m_missileR1YPosRatio = it.value();
+		} else if ( it.key() == "missileR2XPosRatio" ) {
+			m_missileR2XPosRatio = it.value();
+		} else if ( it.key() == "missileR2YPosRatio" ) {
+			m_missileR2YPosRatio = it.value();
+		} else if ( it.key() == "missileR3XPosRatio" ) {
+			m_missileR3XPosRatio = it.value();
+		} else if ( it.key() == "missileR3YPosRatio" ) {
+			m_missileR3YPosRatio = it.value();
+		} else if ( it.key() == "missileR4XPosRatio" ) {
+			m_missileR4XPosRatio = it.value();
+		} else if ( it.key() == "missileR4YPosRatio" ) {
+			m_missileR4YPosRatio = it.value();
+		} else if ( it.key() == "missileR5XPosRatio" ) {
+			m_missileR5XPosRatio = it.value();
+		} else if ( it.key() == "missileR5YPosRatio" ) {
+			m_missileR5YPosRatio = it.value();
+		} else if ( it.key() == "missileR6XPosRatio" ) {
+			m_missileR6XPosRatio = it.value();
+		} else if ( it.key() == "missileR6YPosRatio" ) {
+			m_missileR6YPosRatio = it.value();
+		} else if ( it.key() == "missileR7XPosRatio" ) {
+			m_missileR7XPosRatio = it.value();
+		} else if ( it.key() == "missileR7YPosRatio" ) {
+			m_missileR7YPosRatio = it.value();
+		} else if ( it.key() == "missileR8XPosRatio" ) {
+			m_missileR8XPosRatio = it.value();
+		} else if ( it.key() == "missileR8YPosRatio" ) {
+			m_missileR8YPosRatio = it.value();
+		} else if ( it.key() == "missileR9XPosRatio" ) {
+			m_missileR9XPosRatio = it.value();
+		} else if ( it.key() == "missileR9YPosRatio" ) {
+			m_missileR9YPosRatio = it.value();
+		} else if ( it.key() == "missileR0XPosRatio" ) {
+			m_missileR0XPosRatio = it.value();
+		} else if ( it.key() == "missileR0YPosRatio" ) {
+			m_missileR0YPosRatio = it.value();
 		}
 	}
 	i.close();
@@ -210,6 +250,36 @@ void Missile::newRound( sf::Vector2f res ) {
 	} else if ( m_myObjNameStr == "missileC0" ) {
 		m_sprite.setPosition( res.x * m_missileC0XPosRatio, res.y *
 			m_missileC0YPosRatio );
+	} else if ( m_myObjNameStr == "missileR1" ) {
+		m_sprite.setPosition( res.x * m_missileR1XPosRatio, res.y *
+			m_missileR1YPosRatio );
+	} else if ( m_myObjNameStr == "missileR2" ) {
+		m_sprite.setPosition( res.x * m_missileR2XPosRatio, res.y *
+			m_missileR2YPosRatio );
+	} else if ( m_myObjNameStr == "missileR3" ) {
+		m_sprite.setPosition( res.x * m_missileR3XPosRatio, res.y *
+			m_missileR3YPosRatio );
+	} else if ( m_myObjNameStr == "missileR4" ) {
+		m_sprite.setPosition( res.x * m_missileR4XPosRatio, res.y *
+			m_missileR4YPosRatio );
+	} else if ( m_myObjNameStr == "missileR5" ) {
+		m_sprite.setPosition( res.x * m_missileR5XPosRatio, res.y *
+			m_missileR5YPosRatio );
+	} else if ( m_myObjNameStr == "missileR6" ) {
+		m_sprite.setPosition( res.x * m_missileR6XPosRatio, res.y *
+			m_missileR6YPosRatio );
+	} else if ( m_myObjNameStr == "missileR7" ) {
+		m_sprite.setPosition( res.x * m_missileR7XPosRatio, res.y *
+			m_missileR7YPosRatio );
+	} else if ( m_myObjNameStr == "missileR8" ) {
+		m_sprite.setPosition( res.x * m_missileR8XPosRatio, res.y *
+			m_missileR8YPosRatio );
+	} else if ( m_myObjNameStr == "missileR9" ) {
+		m_sprite.setPosition( res.x * m_missileR9XPosRatio, res.y *
+			m_missileR9YPosRatio );
+	} else if ( m_myObjNameStr == "missileR0" ) {
+		m_sprite.setPosition( res.x * m_missileR0XPosRatio, res.y *
+			m_missileR0YPosRatio );
 	}
 	// save for future use
 	m_windowSize.x = res.x;

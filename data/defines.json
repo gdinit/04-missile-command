@@ -3,35 +3,35 @@
   "terrainYPosRatio": 0.81125,
   "terrainWidthRatio": 0.90,
   "terrainHeightRatio": 0.1875,
-
+  "========================================================================": 0,
   "topBarXPosRatio": 0.0078125,
   "topBarYPosRatio": 0.0625,
   "topBarWidthRatio": 0.99,
   "topBarHeightRatio": 0.0020875,
-
+  "========================================================================": 0,
   "leftBarXPosRatio": 0.0078125,
   "leftBarYPosRatio": 0.0625,
   "leftBarWidthRatio": 0.0020875,
   "leftBarHeightRatio": 0.95,
-
+  "========================================================================": 0,
   "bottomBarXPosRatio": 0.0078125,
   "bottomBarYPosRatio": 0.0625,
   "bottomBarWidthRatio": 0.99,
   "bottomBarHeightRatio": 0.0020875,
-
+  "========================================================================": 0,
   "rightBarXPosRatio": 0.0078125,
   "rightBarYPosRatio": 0.0625,
   "rightBarWidthRatio": 0.0020875,
   "rightBarHeightRatio": 0.95,
-
+  "========================================================================": 0,
   "GunIndicatorMovStep": 4,
-
+  "========================================================================": 0,
   "gunIndicatorW": 7,
   "gunIndicatorH": 7,
   "gunIndicatorV": 1,
-
+  "========================================================================": 0,
   "missileV": 5,
-
+  "========================================================================": 0,
   "missileL1XPosRatio": 0.08125,
 
   "missileL2XPosRatio": 0.06725,
@@ -45,7 +45,7 @@
   "missileL8XPosRatio": 0.06725,
   "missileL9XPosRatio": 0.09525,
   "missileL0XPosRatio": 0.03925,
-
+  "========================================================================": 0,
   "missileL1YPosRatio": 0.819333,
 
   "missileL2YPosRatio": 0.835333,
@@ -59,13 +59,7 @@
   "missileL8YPosRatio": 0.867333,
   "missileL9YPosRatio": 0.867333,
   "missileL0YPosRatio": 0.867333,
-
-
-
-
-
-
-
+  "========================================================================": 0,
   "missileC1XPosRatio": 0.478,
 
   "missileC2XPosRatio": 0.464,
@@ -79,7 +73,7 @@
   "missileC8XPosRatio": 0.464,
   "missileC9XPosRatio": 0.492,
   "missileC0XPosRatio": 0.436,
-
+  "========================================================================": 0,
   "missileC1YPosRatio": 0.818667,
 
   "missileC2YPosRatio": 0.834667,
@@ -93,7 +87,35 @@
   "missileC8YPosRatio": 0.866667,
   "missileC9YPosRatio": 0.866667,
   "missileC0YPosRatio": 0.866667,
+  "========================================================================": 0,
+  "missileR1XPosRatio": 0.93125,
 
+  "missileR2XPosRatio": 0.91725,
+  "missileR3XPosRatio": 0.94525,
+
+  "missileR4XPosRatio": 0.90325,
+  "missileR5XPosRatio": 0.93125,
+  "missileR6XPosRatio": 0.95925,
+
+  "missileR7XPosRatio": 0.97325,
+  "missileR8XPosRatio": 0.91725,
+  "missileR9XPosRatio": 0.94525,
+  "missileR0XPosRatio": 0.88925,
+  "========================================================================": 0,
+  "missileR1YPosRatio": 0.8168,
+
+  "missileR2YPosRatio": 0.8328,
+  "missileR3YPosRatio": 0.8328,
+
+  "missileR4YPosRatio": 0.8488,
+  "missileR5YPosRatio": 0.8488,
+  "missileR6YPosRatio": 0.8488,
+
+  "missileR7YPosRatio": 0.8648,
+  "missileR8YPosRatio": 0.8648,
+  "missileR9YPosRatio": 0.8648,
+  "missileR0YPosRatio": 0.8648,
+  "========================================================================": 0,
   "city1XPosRatio": 0.15320,
   "city1YPosRatio": 0.826667,
   "city2XPosRatio": 0.25,
