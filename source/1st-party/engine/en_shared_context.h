@@ -30,19 +30,10 @@ struct EngineSharedContext
 	int32 gameLevel = -9999;
 	unsigned long long int frameID = 0;
 
-	// Time Stuff
+	// Time
 	std::chrono::steady_clock::time_point tIntroFirstLaunchTime;
 
-	// d += d1 Extend the duration d by the duration d1
-	// std::chrono::duration simulationTime =
-	// std::chrono::duration_values::zero;
-	// std::chrono::duration accumulatedTime =
-	// std::chrono::duration_values::zero;
-	// auto accStart = std::chrono::system_clock::now();
-	// auto accEnd = std::chrono::system_clock::now();
-	// std::chrono::duration<double> diff = accEnd - accStart;
-
-	// Sound Stuff
+	// Sound
 	bool reqSndPlyFromPlay = 0;
 	bool reqSndPlyFromPause = 0;
 };
