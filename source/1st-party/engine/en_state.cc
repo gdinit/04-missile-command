@@ -59,14 +59,17 @@ void State::tglDbgDFPSConsOutput()
 
 void State::updateDebugOverlayTextIfEnabled( bool b )
 {
+	// we should not update for `too young` states
+	// or it will print values like 13084738473 FPS!
 	if ( SETTINGS->inGameOverlay ) {
 		if ( b ) {
 			// fabricate the initial values TODO <-- fix this
 			int short	n = CONST_DESIRED_FPS_INT;
 			int long	mil = 1000000;
-			m_statisticsText.setString( std::to_string(
-					n ) + " FPS \n" + std::to_string(
-					mil / n ) + "us\n" + std::to_string(
+			m_statisticsText.setString( "FPS: " + std::to_string(
+					n ) + "\nFrameTime: " + std::to_string(
+					mil / n ) + " us\nRunTime: " +
+				std::to_string(
 					std::chrono::duration_cast <std::chrono
 						::
 						seconds> (
@@ -77,7 +80,9 @@ void State::updateDebugOverlayTextIfEnabled( bool b )
 							  now() ) ) -
 						m_engineSharedContext.
 						tIntroFirstLaunchTime ).
-					count() ) + " s" );
+					count() ) + " s\nFID: "	+
+				std::to_string(
+					m_engineSharedContext.frameID ) );
 		} else {
 			updateDebugOverlayTextIfEnabled();
 		}
@@ -87,17 +92,15 @@ void State::updateDebugOverlayTextIfEnabled( bool b )
 // update the overlay text
 void State::updateDebugOverlayTextIfEnabled()
 {
-	// we should not update for `too young` states or it will print values
-	// like 13084738473 FPS!
 	if ( SETTINGS->inGameOverlay
 	     && ( getStateAgeAsSeconds()
 		  >= CONST_MIN_STATE_AGE_2UPDATE_SECS_INT ) ) {
-		m_statisticsText.setString( std::to_string(
-				m_statisticsNumFrames ) + " FPS \n" +
+		m_statisticsText.setString( "FPS: " + std::to_string(
+				m_statisticsNumFrames ) + "\nFrameTime: " +
 			std::to_string(
 				m_statisticsUpdateTime.
 				asMicroseconds() / m_statisticsNumFrames ) +
-			"us\n" + std::to_string(
+			" us\nRunTime: " + std::to_string(
 				std::chrono::duration_cast <std::chrono::
 					seconds> (
 					( std::chrono::steady_clock::time_point(
@@ -105,7 +108,8 @@ void State::updateDebugOverlayTextIfEnabled()
 						  now() ) ) -
 					m_engineSharedContext.
 					tIntroFirstLaunchTime ).
-				count() ) + " s" );
+				count() ) + " s\nFID: " + std::to_string(
+				m_engineSharedContext.frameID ) );
 	}
 }
 
