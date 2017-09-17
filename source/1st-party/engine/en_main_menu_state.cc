@@ -105,6 +105,7 @@ void MainMenuState::update()
 
 void MainMenuState::draw()
 {
+	m_engineSharedContext.frameID++;
 	m_window.clear();
 	m_window.setView( m_engineSharedContext.view );
 	ImGui::SFML::Update( m_window, deltaClock.restart() );

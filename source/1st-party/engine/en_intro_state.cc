@@ -141,6 +141,7 @@ void IntroState::update()
 
 void IntroState::draw()
 {
+	m_engineSharedContext.frameID++;
 	// Clear the previous drawing
 	m_window.clear();
 	m_window.setView( m_engineSharedContext.view );

@@ -193,6 +193,7 @@ void PauseState::processEvents()
 
 void PauseState::draw()
 {
+	m_engineSharedContext.frameID++;
 	// PlayState has already clear()'d the screen & drawn its objects,
 	// now it's our turn to draw our objects on top.
 	m_window.	draw(	m_textPressToContinue );

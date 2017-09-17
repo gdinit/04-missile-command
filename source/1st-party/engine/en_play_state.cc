@@ -222,6 +222,7 @@ void PlayState::update()
 
 void PlayState::draw()
 {
+	m_engineSharedContext.frameID++;
 	// This draw() executes in two states:
 	// 1. playState:	a standard draw.
 	// 2. pauseState:	an 'assist draw', to display game objects.
