@@ -46,7 +46,7 @@ void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
 	" position as: " << m_position.x << "," << m_position.y << "\t"	<<
-	"[DEBUG]\tCalculated " << m_myObjNameStr << " size as w: " <<
+	"\t\tCalculated " << m_myObjNameStr << " size as w: " <<
 	m_dimension.x << "\t h: " << m_dimension.y << "\n";
 	#endif
 	m_sprite.setTexture( m_texture );
