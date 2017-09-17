@@ -17,7 +17,7 @@ file(GLOB SOURCES
 	"${PROJECT_SOURCE_DIR}/1st-party/engine/*.cc"
 	"${PROJECT_SOURCE_DIR}/1st-party/game/*.cc"
 	#"${PROJECT_SOURCE_DIR}/3rd-party/bigint/v.2010.04.30/*.cc"
-	"${PROJECT_SOURCE_DIR}/3rd-party/ecs/v.7a43faf/*.cc"
+	"${PROJECT_SOURCE_DIR}/3rd-party/ecs/v.7a43faf/ecs.cc"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/v.1.52_wip/imgui.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/v.1.52_wip/imgui_draw.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/v.141cd93/imgui-sfml.cpp"
