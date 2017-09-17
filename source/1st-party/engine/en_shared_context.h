@@ -21,10 +21,23 @@ struct EngineSharedContext
 
 	// Game
 	bool mustMainMenu = false;
-	bool moveUpReqActive = false;
-	bool moveLeftReqActive = false;
-	bool moveDownReqActive = false;
-	bool moveRightReqActive = false;
+	// DIRECTIONS
+	// 1 UP		Num8
+	// 2 UPRIGHT	Num9
+	// 3 RIGHT	Num6
+	// 4 DOWNRIGHT	Num3
+	// 5 DOWN	Num2
+	// 6 DOWNLEFT	Num1
+	// 7 LEFT	Num4
+	// 8 LEFTUP	Num7
+	bool moveReqActiveUp = false;
+	bool moveReqActiveUpRight = false;
+	bool moveReqActiveRight = false;
+	bool moveReqActiveDownRight = false;
+	bool moveReqActiveDown = false;
+	bool moveReqActiveDownLeft = false;
+	bool moveReqActiveLeft = false;
+	bool moveReqActiveUpLeft = false;
 	int32 currentScore = -9999;
 	int32 livesLeft = -9999;
 	int32 gameLevel = -9999;

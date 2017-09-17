@@ -8,12 +8,17 @@
 #include <cstdint>
 
 // Required for Play State and must stay on engine side.
-enum class Direction : std::int32_t {
+// enum class Direction : std::int32_t {
+enum Direction : std::int32_t {
 	NONE = 0
 	, UP = 1
-	, LEFT = 2
-	, DOWN = 3
-	, RIGHT = 4
+	, UPRIGHT = 2
+	, RIGHT = 3
+	, DOWNRIGHT = 4
+	, DOWN = 5
+	, DOWNLEFT = 6
+	, LEFT = 7
+	, UPLEFT = 8
 };
 
 // EN_ENUMS_H

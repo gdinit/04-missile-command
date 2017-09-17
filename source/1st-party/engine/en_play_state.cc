@@ -40,10 +40,14 @@ void PlayState::initializeState()
 
 	restartStateClock();
 	m_systemResizeHourglass = 0;
-	m_engineSharedContext.moveUpReqActive = 0;
-	m_engineSharedContext.moveLeftReqActive = 0;
-	m_engineSharedContext.moveDownReqActive = 0;
-	m_engineSharedContext.moveRightReqActive = 0;
+	m_engineSharedContext.moveReqActiveUp = 0;
+	m_engineSharedContext.moveReqActiveUpRight = 0;
+	m_engineSharedContext.moveReqActiveRight = 0;
+	m_engineSharedContext.moveReqActiveDownRight = 0;
+	m_engineSharedContext.moveReqActiveDown = 0;
+	m_engineSharedContext.moveReqActiveDownLeft = 0;
+	m_engineSharedContext.moveReqActiveLeft = 0;
+	m_engineSharedContext.moveReqActiveUpLeft = 0;
 
 	// TODO base these values on config variables
 	m_desiredAspectRatio = 640.f / 480.f;
@@ -154,31 +158,107 @@ void PlayState::update()
 			( m_window.getSize() );
 		// TODO update for Missile Command -- add 8 directions?
 		// obtain requested moveDirection - need to pass it to paddle
-		// Up
-		if ( m_engineSharedContext.moveUpReqActive
-		     && !m_engineSharedContext.moveLeftReqActive
-		     && !m_engineSharedContext.moveDownReqActive
-		     && !m_engineSharedContext.moveRightReqActive ) {
+		//
+		// UP
+		if ( m_engineSharedContext.moveReqActiveUp
+			//
+			// && !m_engineSharedContext.moveReqActiveUp
+		     && !m_engineSharedContext.moveReqActiveUpRight
+		     && !m_engineSharedContext.moveReqActiveRight
+		     && !m_engineSharedContext.moveReqActiveDownRight
+		     && !m_engineSharedContext.moveReqActiveDown
+		     && !m_engineSharedContext.moveReqActiveDownLeft
+		     && !m_engineSharedContext.moveReqActiveLeft
+		     && !m_engineSharedContext.moveReqActiveUpLeft ) {
 			m_moveDirection = Direction::UP;
-			// Left
-		} else if ( m_engineSharedContext.moveLeftReqActive
-			    && !m_engineSharedContext.moveUpReqActive
-			    && !m_engineSharedContext.moveDownReqActive
-			    && !m_engineSharedContext.moveRightReqActive ) {
-			m_moveDirection = Direction::LEFT;
-			// Down
-		} else if ( m_engineSharedContext.moveDownReqActive
-			    && !m_engineSharedContext.moveUpReqActive
-			    && !m_engineSharedContext.moveLeftReqActive
-			    && !m_engineSharedContext.moveRightReqActive ) {
-			m_moveDirection = Direction::DOWN;
-			// Right
-		} else if ( m_engineSharedContext.moveRightReqActive
-			    && !m_engineSharedContext.moveUpReqActive
-			    && !m_engineSharedContext.moveLeftReqActive
-			    && !m_engineSharedContext.moveDownReqActive ) {
+			// UP RIGHT
+		} else if ( m_engineSharedContext.moveReqActiveUpRight
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+				// &&
+				// !m_engineSharedContext.moveReqActiveUpRight
+			    && !m_engineSharedContext.moveReqActiveRight
+			    && !m_engineSharedContext.moveReqActiveDownRight
+			    && !m_engineSharedContext.moveReqActiveDown
+			    && !m_engineSharedContext.moveReqActiveDownLeft
+			    && !m_engineSharedContext.moveReqActiveLeft
+			    && !m_engineSharedContext.moveReqActiveUpLeft ) {
+			m_moveDirection = Direction::UPRIGHT;
+			// RIGHT
+		} else if ( m_engineSharedContext.moveReqActiveRight
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+			    && !m_engineSharedContext.moveReqActiveUpRight
+				// && !m_engineSharedContext.moveReqActiveRight
+			    && !m_engineSharedContext.moveReqActiveDownRight
+			    && !m_engineSharedContext.moveReqActiveDown
+			    && !m_engineSharedContext.moveReqActiveDownLeft
+			    && !m_engineSharedContext.moveReqActiveLeft
+			    && !m_engineSharedContext.moveReqActiveUpLeft ) {
 			m_moveDirection = Direction::RIGHT;
-			// None
+			// DOWN RIGHT
+		} else if ( m_engineSharedContext.moveReqActiveDownRight
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+			    && !m_engineSharedContext.moveReqActiveUpRight
+			    && !m_engineSharedContext.moveReqActiveRight
+				// &&
+				// !m_engineSharedContext.moveReqActiveDownRight
+			    && !m_engineSharedContext.moveReqActiveDown
+			    && !m_engineSharedContext.moveReqActiveDownLeft
+			    && !m_engineSharedContext.moveReqActiveLeft
+			    && !m_engineSharedContext.moveReqActiveUpLeft ) {
+			m_moveDirection = Direction::DOWNRIGHT;
+			// DOWN
+		} else if ( m_engineSharedContext.moveReqActiveDown
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+			    && !m_engineSharedContext.moveReqActiveUpRight
+			    && !m_engineSharedContext.moveReqActiveRight
+			    && !m_engineSharedContext.moveReqActiveDownRight
+				// && !m_engineSharedContext.moveReqActiveDown
+			    && !m_engineSharedContext.moveReqActiveDownLeft
+			    && !m_engineSharedContext.moveReqActiveLeft
+			    && !m_engineSharedContext.moveReqActiveUpLeft ) {
+			m_moveDirection = Direction::DOWN;
+			// DOWN LEFT
+		} else if ( m_engineSharedContext.moveReqActiveDownLeft
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+			    && !m_engineSharedContext.moveReqActiveUpRight
+			    && !m_engineSharedContext.moveReqActiveRight
+			    && !m_engineSharedContext.moveReqActiveDownRight
+			    && !m_engineSharedContext.moveReqActiveDown
+				// &&
+				// !m_engineSharedContext.moveReqActiveDownLeft
+			    && !m_engineSharedContext.moveReqActiveLeft
+			    && !m_engineSharedContext.moveReqActiveUpLeft ) {
+			m_moveDirection = Direction::DOWNLEFT;
+			// LEFT
+		} else if ( m_engineSharedContext.moveReqActiveLeft
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+			    && !m_engineSharedContext.moveReqActiveUpRight
+			    && !m_engineSharedContext.moveReqActiveRight
+			    && !m_engineSharedContext.moveReqActiveDownRight
+			    && !m_engineSharedContext.moveReqActiveDown
+			    && !m_engineSharedContext.moveReqActiveDownLeft
+				// && !m_engineSharedContext.moveReqActiveLeft
+			    && !m_engineSharedContext.moveReqActiveUpLeft ) {
+			m_moveDirection = Direction::LEFT;
+			// UP LEFT
+		} else if ( m_engineSharedContext.moveReqActiveUpLeft
+				//
+			    && !m_engineSharedContext.moveReqActiveUp
+			    && !m_engineSharedContext.moveReqActiveUpRight
+			    && !m_engineSharedContext.moveReqActiveRight
+			    && !m_engineSharedContext.moveReqActiveDownRight
+			    && !m_engineSharedContext.moveReqActiveDown
+			    && !m_engineSharedContext.moveReqActiveDownLeft
+			    && !m_engineSharedContext.moveReqActiveLeft
+				// && !m_engineSharedContext.moveReqActiveUpLeft
+			    ) {
+			m_moveDirection = Direction::UPLEFT;
 		} else {
 			m_moveDirection = Direction::NONE;
 		}
@@ -350,28 +430,44 @@ void PlayState::processEvents()
 								m_engineSharedContext
 								, true );
 						break;
-					case sf::Keyboard::Up:
-					case sf::Keyboard::W:
+					case sf::Keyboard::Numpad8:
 						m_engineSharedContext.
-						moveUpReqActive
+						moveReqActiveUp
 							= true;
 						break;
-					case sf::Keyboard::Left:
-					case sf::Keyboard::A:
+					case sf::Keyboard::Numpad9:
 						m_engineSharedContext.
-						moveLeftReqActive
+						moveReqActiveUpRight
 							= true;
 						break;
-					case sf::Keyboard::Down:
-					case sf::Keyboard::S:
+					case sf::Keyboard::Numpad6:
 						m_engineSharedContext.
-						moveDownReqActive
+						moveReqActiveRight
 							= true;
 						break;
-					case sf::Keyboard::Right:
-					case sf::Keyboard::D:
+					case sf::Keyboard::Numpad3:
 						m_engineSharedContext.
-						moveRightReqActive
+						moveReqActiveDownRight
+							= true;
+						break;
+					case sf::Keyboard::Numpad2:
+						m_engineSharedContext.
+						moveReqActiveDown
+							= true;
+						break;
+					case sf::Keyboard::Numpad1:
+						m_engineSharedContext.
+						moveReqActiveDownLeft
+							= true;
+						break;
+					case sf::Keyboard::Numpad4:
+						m_engineSharedContext.
+						moveReqActiveLeft
+							= true;
+						break;
+					case sf::Keyboard::Numpad7:
+						m_engineSharedContext.
+						moveReqActiveUpLeft
 							= true;
 						break;
 					case sf::Keyboard::F2:
@@ -391,28 +487,44 @@ void PlayState::processEvents()
 				break;
 			case sf::Event::KeyReleased:
 				switch ( evt.key.code ) {
-					case sf::Keyboard::Up:
-					case sf::Keyboard::W:
+					case sf::Keyboard::Numpad8:
 						m_engineSharedContext.
-						moveUpReqActive
+						moveReqActiveUp
 							= false;
 						break;
-					case sf::Keyboard::Left:
-					case sf::Keyboard::A:
+					case sf::Keyboard::Numpad9:
 						m_engineSharedContext.
-						moveLeftReqActive =
-							false;
-						break;
-					case sf::Keyboard::Down:
-					case sf::Keyboard::S:
-						m_engineSharedContext.
-						moveDownReqActive
+						moveReqActiveUpRight
 							= false;
 						break;
-					case sf::Keyboard::Right:
-					case sf::Keyboard::D:
+					case sf::Keyboard::Numpad6:
 						m_engineSharedContext.
-						moveRightReqActive
+						moveReqActiveRight
+							= false;
+						break;
+					case sf::Keyboard::Numpad3:
+						m_engineSharedContext.
+						moveReqActiveDownRight
+							= false;
+						break;
+					case sf::Keyboard::Numpad2:
+						m_engineSharedContext.
+						moveReqActiveDown
+							= false;
+						break;
+					case sf::Keyboard::Numpad1:
+						m_engineSharedContext.
+						moveReqActiveDownLeft
+							= false;
+						break;
+					case sf::Keyboard::Numpad4:
+						m_engineSharedContext.
+						moveReqActiveLeft
+							= false;
+						break;
+					case sf::Keyboard::Numpad7:
+						m_engineSharedContext.
+						moveReqActiveUpLeft
 							= false;
 						break;
 					default:
