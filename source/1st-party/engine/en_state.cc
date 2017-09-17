@@ -284,22 +284,16 @@ unsigned short int State::calcMedianFPS( std::deque <unsigned short
 void State::restartStateClock()
 {
 	m_stateBirthdate.restart();
-
 	// reset the birth date 2nd time to (almost) zero out the state age.
 	// used for dynFPSadj
-	//
-	// TODO looks like we're not using this??
 	m_stateAge = m_stateBirthdate.restart();
 }
 
 int State::getStateAgeAsSeconds()
 {
 	sf::Time		tmp = sf::Time::Zero;
-
 	tmp = m_stateBirthdate.getElapsedTime();
-
 	signed short int	n = std::round( tmp.asSeconds() );
-
 	return n;
 }
 
