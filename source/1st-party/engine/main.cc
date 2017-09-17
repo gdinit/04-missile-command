@@ -33,9 +33,6 @@ int main()
 	// Fix for `cwd issue`: END
 	#endif	// __APPLE__
 
-	BigInteger	a = 65536;
-	std::cout << ( a * a * a * a * a * a * a * a ) << std::endl;
-
 	// create & run the application
 	try
 	{
