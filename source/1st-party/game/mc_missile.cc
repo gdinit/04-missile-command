@@ -3,6 +3,8 @@
 
 #include "mc_missile.h"
 
+#define DESIGNED_FOR_WIDTH 640.f
+
 // TODO -- CHANGE ME TO JSON
 // "missileW": 9,
 // "missileH": 14,
@@ -58,6 +60,8 @@ void Missile::newRound( sf::Vector2f res ) {
 	#endif
 	m_texture.loadFromFile( "assets/textures/missile_9x14.png" );
 	m_sprite.setTexture( m_texture );
+	float		multiplier = res.x / DESIGNED_FOR_WIDTH;
+	m_sprite.setScale( multiplier, multiplier );
 
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;

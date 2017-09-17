@@ -3,6 +3,8 @@
 
 #include "mc_terrain.h"
 
+#define DESIGNED_FOR_WIDTH 640.f
+
 Terrain::Terrain()
 	: m_myObjNameStr( "terrain" )
 {
@@ -100,7 +102,8 @@ void Terrain::makeTerrain( sf::Vector2f res ) noexcept {
 	m_texture.loadFromFile( "assets/textures/terrain_633x63.png" );
 	m_sprite.setTexture( m_texture, true );
 	m_sprite.setPosition( m_position.x, m_position.y );
-	// m_sprite.setColor( sf::Color( sf::Color::Black ) );
+	float multiplier = res.x / DESIGNED_FOR_WIDTH;
+	m_sprite.setScale( multiplier, multiplier );
 }
 
 float Terrain::getX() const noexcept {

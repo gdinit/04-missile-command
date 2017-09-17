@@ -3,6 +3,8 @@
 
 #include "mc_city.h"
 
+#define DESIGNED_FOR_WIDTH 640.f
+
 City::City()
 	: m_myObjNameStr( "Unnamed City" )
 {
@@ -43,6 +45,8 @@ void City::newRound( sf::Vector2f res ) {
 	// m_texture.loadFromFile( "assets/textures/45x26_city.png" );
 	m_texture.loadFromFile( "assets/textures/city_blue_42x24.png" );
 	m_sprite.setTexture( m_texture );
+	float		multiplier = res.x / DESIGNED_FOR_WIDTH;
+	m_sprite.setScale( multiplier, multiplier );
 
 	std::ifstream	i( "data/defines.json" );
 	nlohmann::json	j;
