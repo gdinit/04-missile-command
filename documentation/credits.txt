@@ -2,6 +2,7 @@ In random order.
 If you have any comments, correction requests, please let me know by creating an
 issue at project's GitHub page here https://github.com/gdinit/
 
+
 * This game is built on the very awesome C++ library SFML
 	Simple and Fast Multimedia Library
 	http://www.sfml-dev.org/ 
@@ -11,7 +12,7 @@ issue at project's GitHub page here https://github.com/gdinit/
 	programmed by Lukas 'eXpl0it3r' Dürrenberger
 	https://github.com/eXpl0it3r/SmallGameEngine
 
-* Lukas's engine code is based on original code by Anthony Lewis 
+* eXpl0it3r's engine code is based on original code by Anthony Lewis
 	http://gamedevgeek.com/tutorials/managing-game-states-in-c/
 	http://anthonylewis.com/about/
 
@@ -40,12 +41,15 @@ issue at project's GitHub page here https://github.com/gdinit/
 	Mario
 	@ http://chat.sfml-dev.org/
 
-* Assert macro code taken from therocode's Thero project.
+* Assert macro code by therocode
   	https://github.com/therocode/thero
 
 * YouTube Channel Kob's Channel provided the 1980 clone (on PS2) video which
   was used as reference during clone's development.
   	https://www.youtube.com/channel/UCI_yKOUFNYD9LwBZjOr1z0g
+
+* StopWatch code by Kjell Hedström
+	https://github.com/KjellKod/StopWatch
 
 ARTWORK & SOUNDS
 * created by gdinit:	breakout.ico Windows icon.
