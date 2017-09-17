@@ -7,9 +7,6 @@
 #ifndef EN_SHARED_CONTEXT_H
 #define EN_SHARED_CONTEXT_H
 
-// #include "mc_arena.h"
-// TODO remove this #include "mc_hud.h"
-
 struct EngineSharedContext
 {
 	// Window
