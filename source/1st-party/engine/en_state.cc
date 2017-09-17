@@ -66,23 +66,29 @@ void State::updateDebugOverlayTextIfEnabled( bool b )
 			// fabricate the initial values TODO <-- fix this
 			int short	n = CONST_DESIRED_FPS_INT;
 			int long	mil = 1000000;
-			m_statisticsText.setString( "FPS: " + std::to_string(
-					n ) + "\nFrameTime: " + std::to_string(
-					mil / n ) + " us\nRunTime: " +
-				std::to_string(
-					std::chrono::duration_cast <std::chrono
-						::
-						seconds> (
-						( std::chrono::steady_clock::
-						  time_point(
-							  std::chrono::
-							  steady_clock::
-							  now() ) ) -
+			m_statisticsText.setString(
+				// FPS
+				"FPS: "	+ std::to_string( n )
+				// FrameTime
+				+ "\nFrameTime: " + std::to_string( mil / n )
+				// FrameID
+				+ " us\nFID: " + std::to_string(
+					m_engineSharedContext.frameID
+					)
+				// RunTime
+				+ "\nRunTime: " + std::to_string(
+					std::chrono::duration_cast
+					<std::chrono::seconds> ( (
+							std::chrono::
+							steady_clock::time_point
+								( std::chrono::
+								steady_clock::
+								now() ) ) -
 						m_engineSharedContext.
-						tIntroFirstLaunchTime ).
-					count() ) + " s\nFID: "	+
-				std::to_string(
-					m_engineSharedContext.frameID ) );
+						tIntroFirstLaunchTime )
+					.count() ) + " s\n"
+				// Close
+				);
 		} else {
 			updateDebugOverlayTextIfEnabled();
 		}
@@ -95,12 +101,19 @@ void State::updateDebugOverlayTextIfEnabled()
 	if ( SETTINGS->inGameOverlay
 	     && ( getStateAgeAsSeconds()
 		  >= CONST_MIN_STATE_AGE_2UPDATE_SECS_INT ) ) {
-		m_statisticsText.setString( "FPS: " + std::to_string(
-				m_statisticsNumFrames ) + "\nFrameTime: " +
-			std::to_string(
+		m_statisticsText.setString(
+			// FPS
+			"FPS: " + std::to_string(
+				m_statisticsNumFrames )
+			// FrameTime
+			+ "\nFrameTime: " + std::to_string(
 				m_statisticsUpdateTime.
-				asMicroseconds() / m_statisticsNumFrames ) +
-			" us\nRunTime: " + std::to_string(
+				asMicroseconds() / m_statisticsNumFrames )
+			// FrameID
+			+ " us\nFID: " + std::to_string(
+				m_engineSharedContext.frameID )
+			// RunTime
+			+ "\nRunTime: " + std::to_string(
 				std::chrono::duration_cast <std::chrono::
 					seconds> (
 					( std::chrono::steady_clock::time_point(
@@ -108,8 +121,9 @@ void State::updateDebugOverlayTextIfEnabled()
 						  now() ) ) -
 					m_engineSharedContext.
 					tIntroFirstLaunchTime ).
-				count() ) + " s\nFID: " + std::to_string(
-				m_engineSharedContext.frameID ) );
+				count() ) + " s\n"
+			// Close
+			);
 	}
 }
 
