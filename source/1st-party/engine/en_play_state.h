@@ -15,6 +15,7 @@
 // TODO remove this
 #include "mc_game_objects.h"
 #include "mc_arena.h"
+#include "StopWatch.h"
 // TODO remove this #include "mc_hud.h"
 
 #include <SFML/Graphics/Sprite.hpp>
@@ -92,6 +93,8 @@ class PlayState : public State
 		sf::CircleShape		m_shape;
 		sf::Clock		deltaClock;
 		int32			m_clicked;
+
+		StopWatch		stopWatch;
 };
 
 // EN_PLAY_STATE_H
