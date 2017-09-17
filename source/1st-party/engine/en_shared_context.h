@@ -31,6 +31,7 @@ struct EngineSharedContext
 	int32 currentScore = -9999;
 	int32 livesLeft = -9999;
 	int32 gameLevel = -9999;
+	bigint frameID = 0;
 
 	// Time Stuff
 	std::chrono::steady_clock::time_point tIntroFirstLaunchTime;
