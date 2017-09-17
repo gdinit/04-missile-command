@@ -35,6 +35,7 @@ void HQBlue::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
 	city5.update( timeSinceLastUpdate, res );
 	city6.update( timeSinceLastUpdate, res );
 	missileL1.update( timeSinceLastUpdate, res );
+	missileL2.update( timeSinceLastUpdate, res );
 }
 
 void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
@@ -45,6 +46,7 @@ void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	city5.draw( target, sf::RenderStates::Default );
 	city6.draw( target, sf::RenderStates::Default );
 	missileL1.draw( target, sf::RenderStates::Default );
+	missileL2.draw( target, sf::RenderStates::Default );
 }
 
 void HQBlue::newRound( sf::Vector2f res ) {
@@ -59,6 +61,7 @@ void HQBlue::newRound( sf::Vector2f res ) {
 	city5.newRound( res );
 	city6.newRound( res );
 	missileL1.newRound( res );
+	missileL2.newRound( res );
 	// save for future use
 	m_windowSize.x = res.x;
 	m_windowSize.y = res.y;

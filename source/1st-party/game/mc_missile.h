@@ -48,6 +48,8 @@ class Missile : public sf::Transformable, public sf::Drawable
 		sf::Vector2u		m_windowSize = { 0, 0 };
 		float			m_missileL1XPosRatio = { 0 };
 		float			m_missileL1YPosRatio = { 0 };
+		float			m_missileL2XPosRatio = { 0 };
+		float			m_missileL2YPosRatio = { 0 };
 };
 
 // MC_MISSILE_H

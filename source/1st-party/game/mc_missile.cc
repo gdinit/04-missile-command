@@ -70,26 +70,10 @@ void Missile::newRound( sf::Vector2f res ) {
 			m_missileL1XPosRatio = it.value();
 		} else if ( it.key() == "missileL1YPosRatio" ) {
 			m_missileL1YPosRatio = it.value();
-			// } else if ( it.key() == "city2XPosRatio" ) {
-			// m_city2XPosRatio = it.value();
-			// } else if ( it.key() == "city2YPosRatio" ) {
-			// m_city2YPosRatio = it.value();
-			// } else if ( it.key() == "city3XPosRatio" ) {
-			// m_city3XPosRatio = it.value();
-			// } else if ( it.key() == "city3YPosRatio" ) {
-			// m_city3YPosRatio = it.value();
-			// } else if ( it.key() == "city4XPosRatio" ) {
-			// m_city4XPosRatio = it.value();
-			// } else if ( it.key() == "city4YPosRatio" ) {
-			// m_city4YPosRatio = it.value();
-			// } else if ( it.key() == "city5XPosRatio" ) {
-			// m_city5XPosRatio = it.value();
-			// } else if ( it.key() == "city5YPosRatio" ) {
-			// m_city5YPosRatio = it.value();
-			// } else if ( it.key() == "city6XPosRatio" ) {
-			// m_city6XPosRatio = it.value();
-			// } else if ( it.key() == "city6YPosRatio" ) {
-			// m_city6YPosRatio = it.value();
+		} else if ( it.key() == "missileL2XPosRatio" ) {
+			m_missileL2XPosRatio = it.value();
+		} else if ( it.key() == "missileL2YPosRatio" ) {
+			m_missileL2YPosRatio = it.value();
 		}
 	}
 	i.close();
@@ -97,10 +81,9 @@ void Missile::newRound( sf::Vector2f res ) {
 	if ( m_myObjNameStr == "missileL1" ) {
 		m_sprite.setPosition( res.x * m_missileL1XPosRatio
 			, res.y * m_missileL1YPosRatio );
-		// } else if ( m_myObjNameStr == "city2" ) {
-		// m_sprite.setPosition( res.x * m_city2XPosRatio
-		// , res.y * m_city2YPosRatio );
-		// } else if ( m_myObjNameStr == "city3" ) {
+	} else if ( m_myObjNameStr == "missileL2" ) {
+		m_sprite.setPosition( res.x * m_missileL2XPosRatio
+			, res.y * m_missileL2YPosRatio );
 		// m_sprite.setPosition( res.x * m_city3XPosRatio
 		// , res.y * m_city3YPosRatio );
 		// } else if ( m_myObjNameStr == "city4" ) {
