@@ -42,6 +42,14 @@ class HQBlue : public sf::Transformable, public sf::Drawable
 		City			city6 = { "city6" };
 		Missile			missileL1 = { "missileL1" };
 		Missile			missileL2 = { "missileL2" };
+		Missile			missileL3 = { "missileL3" };
+		Missile			missileL4 = { "missileL4" };
+		Missile			missileL5 = { "missileL5" };
+		Missile			missileL6 = { "missileL6" };
+		// Missile			missileL7 = { "missileL7" };
+		// Missile			missileL8 = { "missileL8" };
+		// Missile			missileL9 = { "missileL9" };
+		// Missile			missileL0 = { "missileL0" };
 };
 
 // MC_HQ_BLUE_H

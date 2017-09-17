@@ -1,41 +1,52 @@
 {
-  "========================================================================": 0,
   "terrainXPosRatio": 0.0078125,
   "terrainYPosRatio": 0.81125,
   "terrainWidthRatio": 0.90,
   "terrainHeightRatio": 0.1875,
-  "========================================================================": 0,
+
   "topBarXPosRatio": 0.0078125,
   "topBarYPosRatio": 0.0625,
   "topBarWidthRatio": 0.99,
   "topBarHeightRatio": 0.0020875,
-  "========================================================================": 0,
+
   "leftBarXPosRatio": 0.0078125,
   "leftBarYPosRatio": 0.0625,
   "leftBarWidthRatio": 0.0020875,
   "leftBarHeightRatio": 0.95,
-  "========================================================================": 0,
+
   "bottomBarXPosRatio": 0.0078125,
   "bottomBarYPosRatio": 0.0625,
   "bottomBarWidthRatio": 0.99,
   "bottomBarHeightRatio": 0.0020875,
-  "========================================================================": 0,
+
   "rightBarXPosRatio": 0.0078125,
   "rightBarYPosRatio": 0.0625,
   "rightBarWidthRatio": 0.0020875,
   "rightBarHeightRatio": 0.95,
-  "========================================================================": 0,
-  "---GunIndicatorMovStep": 2,
+
   "GunIndicatorMovStep": 4,
-  "========================================================================": 0,
+
   "gunIndicatorW": 7,
   "gunIndicatorH": 7,
   "gunIndicatorV": 1,
-  "========================================================================": 0,
+
   "missileV": 5,
+
   "missileL1XPosRatio": 0.08125,
   "missileL1YPosRatio": 0.819333,
-  "========================================================================": 0,
+
+  "missileL2XPosRatio": 0.06725,
+  "missileL2YPosRatio": 0.832333,
+  "missileL3XPosRatio": 0.09525,
+  "missileL3YPosRatio": 0.832333,
+
+  "missileL4XPosRatio": 0.05325,
+  "missileL4YPosRatio": 0.845333,
+  "missileL5XPosRatio": 0.08125,
+  "missileL5YPosRatio": 0.845333,
+  "missileL6XPosRatio": 0.10925,
+  "missileL6YPosRatio": 0.845333,
+
   "city1XPosRatio": 0.15320,
   "city1YPosRatio": 0.826667,
   "city2XPosRatio": 0.25,
@@ -47,6 +58,5 @@
   "city5XPosRatio": 0.6675,
   "city5YPosRatio": 0.811333,
   "city6XPosRatio": 0.7875,
-  "city6YPosRatio": 0.829167,
-  "========================================================================": 0
+  "city6YPosRatio": 0.829167
 }
