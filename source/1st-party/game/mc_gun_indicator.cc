@@ -3,6 +3,8 @@
 
 #include "mc_gun_indicator.h"
 
+#define DESIGNED_FOR_WIDTH 640.f
+
 GunIndicator::GunIndicator()
 	: m_myObjNameStr( "GunIndicator" )
 {
@@ -37,14 +39,14 @@ GunIndicator::GunIndicator()
 	PDASSERT(       ( m_gunIndicatorV > 0 )
 		, "ERROR: m_gunIndicatorV must be > 0!\n" );
 	// SET UP SPRITE
-	m_sprite.setTexture( m_texture );
-	m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
-			, m_gunIndicatorH ) );
-	m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
-	m_sprite.setOrigin( m_gunIndicatorH / 2.f, m_gunIndicatorW / 2.f );
-	m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
-	m_velocity.x = 0.f;
-	m_velocity.y = 0.f;
+	// m_sprite.setTexture( m_texture );
+	// m_sprite.setTextureRect( sf::IntRect( 0, 0, m_gunIndicatorW
+	// , m_gunIndicatorH ) );
+	// m_sprite.setColor( sf::Color( 120, 104, 112 ) );// gray-ish
+	// m_sprite.setOrigin( m_gunIndicatorH / 2.f, m_gunIndicatorW / 2.f );
+	// m_sprite.setPosition( m_windowSize.x / 3, m_windowSize.y / 2 );
+	// m_velocity.x = 0.f;
+	// m_velocity.y = 0.f;
 }
 
 GunIndicator::~GunIndicator()
@@ -125,6 +127,14 @@ void GunIndicator::newRound( sf::Vector2f res ) {
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") " << "newRound(" <<
 	res.x << "," << res.y << ") has been triggered.\n";
 	#endif
+
+	// m_texture.loadFromFile( "assets/textures/gun_indicator_22x20.png" );
+	m_texture.loadFromFile( "assets/textures/gun_indicator.png" );
+	// m_texture.loadFromFile( "assets/textures/city_blue_42x24.png" );
+	m_sprite.setTexture( m_texture );
+	float multiplier = res.x / DESIGNED_FOR_WIDTH;
+	// m_sprite.setScale( multiplier, multiplier );
+
 	// place the object for new round -- ball goes to the centre
 	// m_sprite.setPosition( res.x / 2.f, res.y * 0.75f );
 	m_sprite.setPosition( res.x / 2.f, res.y / 2.f );
