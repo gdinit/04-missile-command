@@ -90,22 +90,22 @@ void Missile::newRound( sf::Vector2f res ) {
 			m_missileL6XPosRatio = it.value();
 		} else if ( it.key() == "missileL6YPosRatio" ) {
 			m_missileL6YPosRatio = it.value();
-			// } else if ( it.key() == "missileL7XPosRatio" ) {
-			// m_missileL7XPosRatio = it.value();
-			// } else if ( it.key() == "missileL7YPosRatio" ) {
-			// m_missileL7YPosRatio = it.value();
-			// } else if ( it.key() == "missileL8XPosRatio" ) {
-			// m_missileL8XPosRatio = it.value();
-			// } else if ( it.key() == "missileL8YPosRatio" ) {
-			// m_missileL8YPosRatio = it.value();
-			// } else if ( it.key() == "missileL9XPosRatio" ) {
-			// m_missileL9XPosRatio = it.value();
-			// } else if ( it.key() == "missileL9YPosRatio" ) {
-			// m_missileL9YPosRatio = it.value();
-			// } else if ( it.key() == "missileL0XPosRatio" ) {
-			// m_missileL0XPosRatio = it.value();
-			// } else if ( it.key() == "missileL0YPosRatio" ) {
-			// m_missileL0YPosRatio = it.value();
+		} else if ( it.key() == "missileL7XPosRatio" ) {
+			m_missileL7XPosRatio = it.value();
+		} else if ( it.key() == "missileL7YPosRatio" ) {
+			m_missileL7YPosRatio = it.value();
+		} else if ( it.key() == "missileL8XPosRatio" ) {
+			m_missileL8XPosRatio = it.value();
+		} else if ( it.key() == "missileL8YPosRatio" ) {
+			m_missileL8YPosRatio = it.value();
+		} else if ( it.key() == "missileL9XPosRatio" ) {
+			m_missileL9XPosRatio = it.value();
+		} else if ( it.key() == "missileL9YPosRatio" ) {
+			m_missileL9YPosRatio = it.value();
+		} else if ( it.key() == "missileL0XPosRatio" ) {
+			m_missileL0XPosRatio = it.value();
+		} else if ( it.key() == "missileL0YPosRatio" ) {
+			m_missileL0YPosRatio = it.value();
 		}
 	}
 	i.close();
@@ -128,18 +128,18 @@ void Missile::newRound( sf::Vector2f res ) {
 	} else if ( m_myObjNameStr == "missileL6" ) {
 		m_sprite.setPosition( res.x * m_missileL6XPosRatio, res.y *
 			m_missileL6YPosRatio );
-		// } else if ( m_myObjNameStr == "missileL7" ) {
-		// m_sprite.setPosition( res.x * m_missileL7XPosRatio, res.y *
-		// m_missileL7YPosRatio );
-		// } else if ( m_myObjNameStr == "missileL8" ) {
-		// m_sprite.setPosition( res.x * m_missileL8XPosRatio, res.y *
-		// m_missileL8YPosRatio );
-		// } else if ( m_myObjNameStr == "missileL9" ) {
-		// m_sprite.setPosition( res.x * m_missileL9XPosRatio, res.y *
-		// m_missileL9YPosRatio );
-		// } else if ( m_myObjNameStr == "missileL0" ) {
-		// m_sprite.setPosition( res.x * m_missileL0XPosRatio, res.y *
-		// m_missileL0YPosRatio );
+	} else if ( m_myObjNameStr == "missileL7" ) {
+		m_sprite.setPosition( res.x * m_missileL7XPosRatio, res.y *
+			m_missileL7YPosRatio );
+	} else if ( m_myObjNameStr == "missileL8" ) {
+		m_sprite.setPosition( res.x * m_missileL8XPosRatio, res.y *
+			m_missileL8YPosRatio );
+	} else if ( m_myObjNameStr == "missileL9" ) {
+		m_sprite.setPosition( res.x * m_missileL9XPosRatio, res.y *
+			m_missileL9YPosRatio );
+	} else if ( m_myObjNameStr == "missileL0" ) {
+		m_sprite.setPosition( res.x * m_missileL0XPosRatio, res.y *
+			m_missileL0YPosRatio );
 	}
 	// save for future use
 	m_windowSize.x = res.x;

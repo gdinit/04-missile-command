@@ -33,19 +33,32 @@
   "missileV": 5,
 
   "missileL1XPosRatio": 0.08125,
-  "missileL1YPosRatio": 0.819333,
 
   "missileL2XPosRatio": 0.06725,
-  "missileL2YPosRatio": 0.832333,
   "missileL3XPosRatio": 0.09525,
-  "missileL3YPosRatio": 0.832333,
 
   "missileL4XPosRatio": 0.05325,
-  "missileL4YPosRatio": 0.845333,
   "missileL5XPosRatio": 0.08125,
-  "missileL5YPosRatio": 0.845333,
   "missileL6XPosRatio": 0.10925,
-  "missileL6YPosRatio": 0.845333,
+
+  "missileL7XPosRatio": 0.12325,
+  "missileL8XPosRatio": 0.06725,
+  "missileL9XPosRatio": 0.09525,
+  "missileL0XPosRatio": 0.03925,
+
+  "missileL1YPosRatio": 0.819333,
+
+  "missileL2YPosRatio": 0.835333,
+  "missileL3YPosRatio": 0.835333,
+
+  "missileL4YPosRatio": 0.851333,
+  "missileL5YPosRatio": 0.851333,
+  "missileL6YPosRatio": 0.851333,
+
+  "missileL7YPosRatio": 0.867333,
+  "missileL8YPosRatio": 0.867333,
+  "missileL9YPosRatio": 0.867333,
+  "missileL0YPosRatio": 0.867333,
 
   "city1XPosRatio": 0.15320,
   "city1YPosRatio": 0.826667,

@@ -40,10 +40,10 @@ void HQBlue::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
 	missileL4.update( timeSinceLastUpdate, res );
 	missileL5.update( timeSinceLastUpdate, res );
 	missileL6.update( timeSinceLastUpdate, res );
-	// missileL7.update( timeSinceLastUpdate, res );
-	// missileL8.update( timeSinceLastUpdate, res );
-	// missileL9.update( timeSinceLastUpdate, res );
-	// missileL0.update( timeSinceLastUpdate, res );
+	missileL7.update( timeSinceLastUpdate, res );
+	missileL8.update( timeSinceLastUpdate, res );
+	missileL9.update( timeSinceLastUpdate, res );
+	missileL0.update( timeSinceLastUpdate, res );
 }
 
 void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
@@ -59,10 +59,10 @@ void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	missileL4.draw( target, sf::RenderStates::Default );
 	missileL5.draw( target, sf::RenderStates::Default );
 	missileL6.draw( target, sf::RenderStates::Default );
-	// missileL7.draw( target, sf::RenderStates::Default );
-	// missileL8.draw( target, sf::RenderStates::Default );
-	// missileL9.draw( target, sf::RenderStates::Default );
-	// missileL0.draw( target, sf::RenderStates::Default );
+	missileL7.draw( target, sf::RenderStates::Default );
+	missileL8.draw( target, sf::RenderStates::Default );
+	missileL9.draw( target, sf::RenderStates::Default );
+	missileL0.draw( target, sf::RenderStates::Default );
 }
 
 void HQBlue::newRound( sf::Vector2f res ) {
@@ -82,10 +82,10 @@ void HQBlue::newRound( sf::Vector2f res ) {
 	missileL4.newRound( res );
 	missileL5.newRound( res );
 	missileL6.newRound( res );
-	// missileL7.newRound( res );
-	// missileL8.newRound( res );
-	// missileL9.newRound( res );
-	// missileL0.newRound( res );
+	missileL7.newRound( res );
+	missileL8.newRound( res );
+	missileL9.newRound( res );
+	missileL0.newRound( res );
 
 	// save for future use
 	m_windowSize.x = res.x;
