@@ -44,6 +44,16 @@ void HQBlue::update( sf::Time timeSinceLastUpdate, sf::Vector2f res )
 	missileL8.update( timeSinceLastUpdate, res );
 	missileL9.update( timeSinceLastUpdate, res );
 	missileL0.update( timeSinceLastUpdate, res );
+	missileC1.update( timeSinceLastUpdate, res );
+	missileC2.update( timeSinceLastUpdate, res );
+	missileC3.update( timeSinceLastUpdate, res );
+	missileC4.update( timeSinceLastUpdate, res );
+	missileC5.update( timeSinceLastUpdate, res );
+	missileC6.update( timeSinceLastUpdate, res );
+	missileC7.update( timeSinceLastUpdate, res );
+	missileC8.update( timeSinceLastUpdate, res );
+	missileC9.update( timeSinceLastUpdate, res );
+	missileC0.update( timeSinceLastUpdate, res );
 }
 
 void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
@@ -63,6 +73,16 @@ void HQBlue::draw( sf::RenderTarget &target, sf::RenderStates states ) const {
 	missileL8.draw( target, sf::RenderStates::Default );
 	missileL9.draw( target, sf::RenderStates::Default );
 	missileL0.draw( target, sf::RenderStates::Default );
+	missileC1.draw( target, sf::RenderStates::Default );
+	missileC2.draw( target, sf::RenderStates::Default );
+	missileC3.draw( target, sf::RenderStates::Default );
+	missileC4.draw( target, sf::RenderStates::Default );
+	missileC5.draw( target, sf::RenderStates::Default );
+	missileC6.draw( target, sf::RenderStates::Default );
+	missileC7.draw( target, sf::RenderStates::Default );
+	missileC8.draw( target, sf::RenderStates::Default );
+	missileC9.draw( target, sf::RenderStates::Default );
+	missileC0.draw( target, sf::RenderStates::Default );
 }
 
 void HQBlue::newRound( sf::Vector2f res ) {
@@ -86,6 +106,16 @@ void HQBlue::newRound( sf::Vector2f res ) {
 	missileL8.newRound( res );
 	missileL9.newRound( res );
 	missileL0.newRound( res );
+	missileC1.newRound( res );
+	missileC2.newRound( res );
+	missileC3.newRound( res );
+	missileC4.newRound( res );
+	missileC5.newRound( res );
+	missileC6.newRound( res );
+	missileC7.newRound( res );
+	missileC8.newRound( res );
+	missileC9.newRound( res );
+	missileC0.newRound( res );
 
 	// save for future use
 	m_windowSize.x = res.x;
