@@ -24,6 +24,10 @@ PlayState::~PlayState()
 	#if defined DBG
 	std::cout << "[DEBUG]\tDestructed state:\t" << m_myObjNameStr << "\n";
 	#endif
+
+	// TOD remove me
+	std::cout << "This session of PlayState runTime: " <<
+	getStateAgeAsSeconds() << std::endl;
 }
 
 void PlayState::initializeState()
@@ -34,7 +38,7 @@ void PlayState::initializeState()
 	m_engineSharedContext.gameLevel << "\n";
 	#endif
 
-	// TODO FIX ME ********** restartStateClock();
+	restartStateClock();
 	m_systemResizeHourglass = 0;
 	m_engineSharedContext.moveUpReqActive = 0;
 	m_engineSharedContext.moveLeftReqActive = 0;

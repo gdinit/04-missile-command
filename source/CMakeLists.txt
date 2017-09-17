@@ -22,7 +22,6 @@ file(GLOB SOURCES
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/v.1.52_wip/imgui_draw.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/v.141cd93/imgui-sfml.cpp"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/v.141cd93/imgui-SFML.cpp"
-	"${PROJECT_SOURCE_DIR}/3rd-party/stopwatch/v.bc950a2/StopWatch.cpp"
 	)
 
 if(NOT CMAKE_BUILD_TYPE) 
@@ -62,7 +61,6 @@ include_directories(
 	"${PROJECT_SOURCE_DIR}/3rd-party/ecs/v.7a43faf"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui/v.1.52_wip"
 	"${PROJECT_SOURCE_DIR}/3rd-party/imgui-sfml/v.141cd93"
-	"${PROJECT_SOURCE_DIR}/3rd-party/stopwatch/v.bc950a2"
 	)
 ################################################################################
 
