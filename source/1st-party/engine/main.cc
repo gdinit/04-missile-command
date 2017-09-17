@@ -2,7 +2,6 @@
 // ===================================80 chars=================================|
 
 #include "main.h"
-#include "BigIntegerLibrary.hh"
 
 int main()
 {

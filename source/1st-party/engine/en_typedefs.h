@@ -6,6 +6,7 @@
 
 // Required for fixed width integer types
 #include <cstdint>
+#include "BigIntegerLibrary.hh"
 
 typedef unsigned char byte;
 typedef std::int8_t int8;
@@ -19,6 +20,7 @@ typedef std::int64_t int64;
 typedef std::uint64_t uint64;
 typedef wchar_t wchar;
 typedef std::string t_objectName;
+typedef BigInteger bigint;
 
 // EN_TYPEDEFS_H
 #endif
