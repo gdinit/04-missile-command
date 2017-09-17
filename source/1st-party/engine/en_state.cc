@@ -66,7 +66,18 @@ void State::updateDebugOverlayTextIfEnabled( bool b )
 			int long	mil = 1000000;
 			m_statisticsText.setString( std::to_string(
 					n ) + " FPS \n" + std::to_string(
-					mil / n ) + "us\n" );
+					mil / n ) + "us\n" + std::to_string(
+					std::chrono::duration_cast <std::chrono
+						::
+						seconds> (
+						( std::chrono::steady_clock::
+						  time_point(
+							  std::chrono::
+							  steady_clock::
+							  now() ) ) -
+						m_engineSharedContext.
+						tIntroFirstLaunchTime ).
+					count() ) + " s" );
 		} else {
 			updateDebugOverlayTextIfEnabled();
 		}
@@ -86,7 +97,15 @@ void State::updateDebugOverlayTextIfEnabled()
 			std::to_string(
 				m_statisticsUpdateTime.
 				asMicroseconds() / m_statisticsNumFrames ) +
-			"us\n" );
+			"us\n" + std::to_string(
+				std::chrono::duration_cast <std::chrono::
+					seconds> (
+					( std::chrono::steady_clock::time_point(
+						  std::chrono::steady_clock::
+						  now() ) ) -
+					m_engineSharedContext.
+					tIntroFirstLaunchTime ).
+				count() ) + " s" );
 	}
 }
 
