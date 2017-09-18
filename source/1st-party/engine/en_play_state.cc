@@ -25,9 +25,11 @@ PlayState::~PlayState()
 	std::cout << "[DEBUG]\tDestructed state:\t" << m_myObjNameStr << "\n";
 	#endif
 
-	// TOD remove me
+	// TODO remove me
+	#if defined DBG
 	std::cout << "This session of PlayState runTime: " <<
 	getStateAgeAsSeconds() << std::endl;
+	#endif
 }
 
 void PlayState::initializeState()
@@ -373,11 +375,7 @@ void PlayState::resume()
 
 void PlayState::processEvents()
 {
-	// fetch events
 	sf::Event evt;
-
-	// REMINDER:	virtual bool hasFocus() const;
-	// process events
 	while ( m_window.pollEvent( evt ) ) {
 		ImGui::SFML::ProcessEvent( evt );
 		switch ( evt.type ) {
@@ -408,16 +406,6 @@ void PlayState::processEvents()
 					case sf::Keyboard::Escape:
 					case sf::Keyboard::Pause:
 					case sf::Keyboard::P:
-						// InGameMenuState is commented
-						// out for the time being and
-						// replaced with PauseState
-						// m_next = StateMachine::build
-						// <InGameMenuState> (
-						// m_machine, m_window, false );
-						//
-						// we will be destroyed soon but
-						// we can request PauseState
-						// to play it for us
 						m_engineSharedContext.
 						reqSndPlyFromPause = 1;
 						m_next = StateMachine::build
