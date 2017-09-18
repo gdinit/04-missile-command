@@ -529,6 +529,16 @@ void PlayState::processEvents()
 						break;
 					default:
 						break;
+case sf::Event::MouseButtonPressed: // fall-through
+case sf::Event::MouseButtonReleased:
+{
+int button = event.mouseButton.button;
+if (event.type == sf::Event::MouseButtonPressed &&
+button >= 0 && button < 3) {
+s_mousePressed[event.mouseButton.button] = true;
+}
+}
+break;
 				}
 				break;
 			default:
