@@ -391,6 +391,18 @@ void PlayState::processEvents()
 						, evt.size.width
 						, evt.size.height );
 				break;
+			case sf::Event::MouseButtonPressed:
+				if ( evt.mouseButton.button ==
+				     sf::Mouse::Left ) {
+					std::cout << "boomL!\n";
+					// evt.mouseButton.x
+					// evt.mouseButton.y
+					// } else if ( evt.mouseButton.button ==
+					// sf::Mouse::Right ) {
+					// std::cout << "boomR!\n";
+					//// evt.mouseButton.x
+					//// evt.mouseButton.y
+				}
 			case sf::Event::KeyPressed:
 				switch ( evt.key.code ) {
 					case sf::Keyboard::Escape:
@@ -529,16 +541,6 @@ void PlayState::processEvents()
 						break;
 					default:
 						break;
-case sf::Event::MouseButtonPressed: // fall-through
-case sf::Event::MouseButtonReleased:
-{
-int button = event.mouseButton.button;
-if (event.type == sf::Event::MouseButtonPressed &&
-button >= 0 && button < 3) {
-s_mousePressed[event.mouseButton.button] = true;
-}
-}
-break;
 				}
 				break;
 			default:
