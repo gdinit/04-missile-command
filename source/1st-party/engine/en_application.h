@@ -13,18 +13,18 @@
 
 class Application
 {
-	public:
-		Application();
-		virtual ~Application();
-		void	createWindow();
-		void	loadSettings();
-		void	run();
+public:
+	Application();
+	virtual ~Application();
+	void	createWindow();
+	void	loadSettings();
+	void	run();
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		StateMachine		m_machine;
-		sf::RenderWindow	m_window;
-		EngineSharedContext	m_engineSharedContext;
+private:
+	const t_objectName	m_myObjNameStr;
+	StateMachine		m_machine;
+	sf::RenderWindow	m_window;
+	EngineSharedContext	m_engineSharedContext;
 };
 
 // EN_APPLICATION_H

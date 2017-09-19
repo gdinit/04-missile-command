@@ -156,74 +156,67 @@ void GunIndicator::manageMovement( sf::Vector2f res, Direction dir
 	m_requestedMoveDistance.y = ( 0.f );
 
 	#define	MULTIPLIER 0.75f
-
 	switch ( dir ) {
-		// a move has been requested. validate & action (if legal!)
-		case Direction::UP:
-			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
-				-1.f;
-			valAndActionMove( res, dir, topBarBottomEdge
+	// a move has been requested. validate & action (if legal!)
+	case Direction::UP:
+		m_requestedMoveDistance.y = m_gunIndicatorMovStep * -1.f;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::UPRIGHT:
-			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
-				MULTIPLIER;
-			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
-				-1.f * MULTIPLIER;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::UPRIGHT:
+		m_requestedMoveDistance.x = m_gunIndicatorMovStep * MULTIPLIER;
+		m_requestedMoveDistance.y = m_gunIndicatorMovStep * -1.f *
+			MULTIPLIER;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::RIGHT:
-			m_requestedMoveDistance.x = m_gunIndicatorMovStep;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::RIGHT:
+		m_requestedMoveDistance.x = m_gunIndicatorMovStep;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::DOWNRIGHT:
-			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
-				MULTIPLIER;
-			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
-				MULTIPLIER;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::DOWNRIGHT:
+		m_requestedMoveDistance.x = m_gunIndicatorMovStep * MULTIPLIER;
+		m_requestedMoveDistance.y = m_gunIndicatorMovStep * MULTIPLIER;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::DOWN:
-			m_requestedMoveDistance.y = m_gunIndicatorMovStep;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::DOWN:
+		m_requestedMoveDistance.y = m_gunIndicatorMovStep;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::DOWNLEFT:
-			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
-				-1.f * MULTIPLIER;
-			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
-				MULTIPLIER;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::DOWNLEFT:
+		m_requestedMoveDistance.x = m_gunIndicatorMovStep * -1.f *
+			MULTIPLIER;
+		m_requestedMoveDistance.y = m_gunIndicatorMovStep * MULTIPLIER;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::LEFT:
-			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
-				-1.f;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::LEFT:
+		m_requestedMoveDistance.x = m_gunIndicatorMovStep * -1.f;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::UPLEFT:
-			m_requestedMoveDistance.x = m_gunIndicatorMovStep *
-				-1.f * MULTIPLIER;
-			m_requestedMoveDistance.y = m_gunIndicatorMovStep *
-				-1.f * MULTIPLIER;
-			valAndActionMove( res, dir, topBarBottomEdge
+		break;
+	case Direction::UPLEFT:
+		m_requestedMoveDistance.x = m_gunIndicatorMovStep * -1.f *
+			MULTIPLIER;
+		m_requestedMoveDistance.y = m_gunIndicatorMovStep * -1.f *
+			MULTIPLIER;
+		valAndActionMove( res, dir, topBarBottomEdge
 			, leftBarRightEdge
 			, bottomBarTopEdge, rightBarLE );
-			break;
-		case Direction::NONE:
-		default:
-			break;
+		break;
+	case Direction::NONE:
+	default:
+		break;
 	}
 }
 

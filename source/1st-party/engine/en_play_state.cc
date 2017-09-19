@@ -266,7 +266,7 @@ void PlayState::update()
 		}
 		arena.update( m_elapsedTime, m_res, m_moveDirection );
 		// why update HUD separately? process it with arena?
-		// todo fix me
+		// TODO fix me
 		// hud.update( m_elapsedTime );
 		if ( m_engineSharedContext.mustMainMenu == true ) {
 			// TODO rename to allLivesLost. 'go to main menu
@@ -379,160 +379,153 @@ void PlayState::processEvents()
 	while ( m_window.pollEvent( evt ) ) {
 		ImGui::SFML::ProcessEvent( evt );
 		switch ( evt.type ) {
-			case sf::Event::Closed:
+		case sf::Event::Closed:
+			m_machine.quit();
+			break;
+		case sf::Event::Resized:
+			// onResize();
+			m_engineSharedContext.view = getLetterboxView(
+					m_engineSharedContext.view
+					, evt.size.width
+					, evt.size.height );
+			break;
+		case sf::Event::MouseButtonPressed:
+			if ( evt.mouseButton.button ==
+			     sf::Mouse::Left ) {
+				std::cout << "boomL!\n";
+				// evt.mouseButton.x
+				// evt.mouseButton.y
+				// } else if ( evt.mouseButton.button ==
+				// sf::Mouse::Right ) {
+				// std::cout << "boomR!\n";
+				//// evt.mouseButton.x
+				//// evt.mouseButton.y
+			}
+		case sf::Event::KeyPressed:
+			switch ( evt.key.code ) {
+			case sf::Keyboard::Escape:
+			case sf::Keyboard::Pause:
+			case sf::Keyboard::P:
+				m_engineSharedContext.
+				reqSndPlyFromPause = 1;
+				m_next = StateMachine::build
+					<PauseState> ( m_machine, m_window
+						, m_engineSharedContext
+						, false
+						);
+				break;
+			case sf::Keyboard::Q:
+				std::cout << "Quitting on Q key"
+				" press. Goodbye!\n";
 				m_machine.quit();
 				break;
-			case sf::Event::Resized:
-				// onResize();
-				m_engineSharedContext.view = getLetterboxView(
-						m_engineSharedContext.view
-						, evt.size.width
-						, evt.size.height );
+			case sf::Keyboard::M:
+				m_next = StateMachine::build
+					<MainMenuState> ( m_machine, m_window
+						, m_engineSharedContext
+						, true );
 				break;
-			case sf::Event::MouseButtonPressed:
-				if ( evt.mouseButton.button ==
-				     sf::Mouse::Left ) {
-					std::cout << "boomL!\n";
-					// evt.mouseButton.x
-					// evt.mouseButton.y
-					// } else if ( evt.mouseButton.button ==
-					// sf::Mouse::Right ) {
-					// std::cout << "boomR!\n";
-					//// evt.mouseButton.x
-					//// evt.mouseButton.y
-				}
-			case sf::Event::KeyPressed:
-				switch ( evt.key.code ) {
-					case sf::Keyboard::Escape:
-					case sf::Keyboard::Pause:
-					case sf::Keyboard::P:
-						m_engineSharedContext.
-						reqSndPlyFromPause = 1;
-						m_next = StateMachine::build
-							<PauseState> ( m_machine
-								, m_window
-								,
-								m_engineSharedContext
-								, false
-								);
-						break;
-					case sf::Keyboard::Q:
-						std::cout << "Quitting on Q key"
-						" press. Goodbye!\n";
-						m_machine.quit();
-						break;
-					case sf::Keyboard::M:
-						m_next = StateMachine::build
-							<MainMenuState> (
-								m_machine
-								, m_window
-								,
-								m_engineSharedContext
-								, true );
-						break;
-					case sf::Keyboard::Numpad8:
-						m_engineSharedContext.
-						moveReqActiveUp
-							= true;
-						break;
-					case sf::Keyboard::Numpad9:
-						m_engineSharedContext.
-						moveReqActiveUpRight
-							= true;
-						break;
-					case sf::Keyboard::Numpad6:
-						m_engineSharedContext.
-						moveReqActiveRight
-							= true;
-						break;
-					case sf::Keyboard::Numpad3:
-						m_engineSharedContext.
-						moveReqActiveDownRight
-							= true;
-						break;
-					case sf::Keyboard::Numpad2:
-						m_engineSharedContext.
-						moveReqActiveDown
-							= true;
-						break;
-					case sf::Keyboard::Numpad1:
-						m_engineSharedContext.
-						moveReqActiveDownLeft
-							= true;
-						break;
-					case sf::Keyboard::Numpad4:
-						m_engineSharedContext.
-						moveReqActiveLeft
-							= true;
-						break;
-					case sf::Keyboard::Numpad7:
-						m_engineSharedContext.
-						moveReqActiveUpLeft
-							= true;
-						break;
-					case sf::Keyboard::F2:
-						this->tglDbgShowOverlay();
-						break;
-					case sf::Keyboard::F3:
-						this->
-						toggleDebugConsoleOutput();
-						break;
-					case sf::Keyboard::F4:
-						this->
-						tglDbgDFPSConsOutput();
-						break;
-					default:
-						break;
-				}
+			case sf::Keyboard::Numpad8:
+				m_engineSharedContext.
+				moveReqActiveUp = true;
 				break;
-			case sf::Event::KeyReleased:
-				switch ( evt.key.code ) {
-					case sf::Keyboard::Numpad8:
-						m_engineSharedContext.
-						moveReqActiveUp
-							= false;
-						break;
-					case sf::Keyboard::Numpad9:
-						m_engineSharedContext.
-						moveReqActiveUpRight
-							= false;
-						break;
-					case sf::Keyboard::Numpad6:
-						m_engineSharedContext.
-						moveReqActiveRight
-							= false;
-						break;
-					case sf::Keyboard::Numpad3:
-						m_engineSharedContext.
-						moveReqActiveDownRight
-							= false;
-						break;
-					case sf::Keyboard::Numpad2:
-						m_engineSharedContext.
-						moveReqActiveDown
-							= false;
-						break;
-					case sf::Keyboard::Numpad1:
-						m_engineSharedContext.
-						moveReqActiveDownLeft
-							= false;
-						break;
-					case sf::Keyboard::Numpad4:
-						m_engineSharedContext.
-						moveReqActiveLeft
-							= false;
-						break;
-					case sf::Keyboard::Numpad7:
-						m_engineSharedContext.
-						moveReqActiveUpLeft
-							= false;
-						break;
-					default:
-						break;
-				}
+			case sf::Keyboard::Numpad9:
+				m_engineSharedContext.
+				moveReqActiveUpRight = true;
+				break;
+			case sf::Keyboard::Numpad6:
+				m_engineSharedContext.
+				moveReqActiveRight
+					= true;
+				break;
+			case sf::Keyboard::Numpad3:
+				m_engineSharedContext.
+				moveReqActiveDownRight
+					= true;
+				break;
+			case sf::Keyboard::Numpad2:
+				m_engineSharedContext.
+				moveReqActiveDown
+					= true;
+				break;
+			case sf::Keyboard::Numpad1:
+				m_engineSharedContext.
+				moveReqActiveDownLeft
+					= true;
+				break;
+			case sf::Keyboard::Numpad4:
+				m_engineSharedContext.
+				moveReqActiveLeft
+					= true;
+				break;
+			case sf::Keyboard::Numpad7:
+				m_engineSharedContext.
+				moveReqActiveUpLeft
+					= true;
+				break;
+			case sf::Keyboard::F2:
+				this->tglDbgShowOverlay();
+				break;
+			case sf::Keyboard::F3:
+				this->
+				toggleDebugConsoleOutput();
+				break;
+			case sf::Keyboard::F4:
+				this->
+				tglDbgDFPSConsOutput();
 				break;
 			default:
 				break;
+			}
+			break;
+		case sf::Event::KeyReleased:
+			switch ( evt.key.code ) {
+			case sf::Keyboard::Numpad8:
+				m_engineSharedContext.
+				moveReqActiveUp
+					= false;
+				break;
+			case sf::Keyboard::Numpad9:
+				m_engineSharedContext.
+				moveReqActiveUpRight
+					= false;
+				break;
+			case sf::Keyboard::Numpad6:
+				m_engineSharedContext.
+				moveReqActiveRight
+					= false;
+				break;
+			case sf::Keyboard::Numpad3:
+				m_engineSharedContext.
+				moveReqActiveDownRight
+					= false;
+				break;
+			case sf::Keyboard::Numpad2:
+				m_engineSharedContext.
+				moveReqActiveDown
+					= false;
+				break;
+			case sf::Keyboard::Numpad1:
+				m_engineSharedContext.
+				moveReqActiveDownLeft
+					= false;
+				break;
+			case sf::Keyboard::Numpad4:
+				m_engineSharedContext.
+				moveReqActiveLeft
+					= false;
+				break;
+			case sf::Keyboard::Numpad7:
+				m_engineSharedContext.
+				moveReqActiveUpLeft
+					= false;
+				break;
+			default:
+				break;
+			}
+			break;
+		default:
+			break;
 		}
 	}
 }

@@ -24,27 +24,27 @@
 #include <iostream>
 
 class Hud : public sf::Transformable, public sf::Drawable
-	  , private sf::NonCopyable
+	, private sf::NonCopyable
 {
-	public:
-		Hud();
-		/// Hud( SharedContext &context );
-		virtual ~Hud();
-		void		update( sf::Time timeSinceLastUpdate );
-		virtual void	draw( sf::RenderTarget &target
-		, sf::RenderStates states ) const;
-		void		newRound( sf::Vector2f res );
+public:
+	Hud();
+	/// Hud( SharedContext &context );
+	virtual ~Hud();
+	void		update( sf::Time timeSinceLastUpdate );
+	virtual void	draw( sf::RenderTarget &target
+	, sf::RenderStates states ) const;
+	void		newRound( sf::Vector2f res );
 
-	protected:
+protected:
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Font		m_hudTextFont;
-		sf::Text		m_hudText;
-		sf::Vector2i		m_screenSize;
+private:
+	const t_objectName	m_myObjNameStr;
+	sf::Font		m_hudTextFont;
+	sf::Text		m_hudText;
+	sf::Vector2i		m_screenSize;
 
-		sf::Texture		m_texturePak;
-		sf::Sprite		m_blueBackground;
+	sf::Texture		m_texturePak;
+	sf::Sprite		m_blueBackground;
 };
 
 // MC_HUD_H

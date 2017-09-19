@@ -29,40 +29,40 @@
 #define BR_BOUNCE_CHANCE_HIGHP 0.48
 
 class Arena : public sf::Transformable, public sf::Drawable
-	    , private sf::NonCopyable
+	, private sf::NonCopyable
 {
-	public:
-		Arena();
-		virtual ~Arena();
-		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
-		, Direction dir );
-		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f );
-		void	draw( sf::RenderTarget &target
-		, sf::RenderStates states ) const;
-		void	newRound( sf::Vector2f res, int32 level );
-		void	createCells( sf::Vector2f res, int32 level );
-		void	colDetRespond( void );
-		void	colDetRespondBallPaddle( void );
-		void	colDetRespondBallWall( void );
-		void	colDetRespondBallGoal( void );
-		void	colDetRespondBallCell( void );
-		void	paintCells( void );
+public:
+	Arena();
+	virtual ~Arena();
+	void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
+	, Direction dir );
+	void	update( sf::Time timeSinceLastUpdate, sf::Vector2f );
+	void	draw( sf::RenderTarget &target
+	, sf::RenderStates states ) const;
+	void	newRound( sf::Vector2f res, int32 level );
+	void	createCells( sf::Vector2f res, int32 level );
+	void	colDetRespond( void );
+	void	colDetRespondBallPaddle( void );
+	void	colDetRespondBallWall( void );
+	void	colDetRespondBallGoal( void );
+	void	colDetRespondBallCell( void );
+	void	paintCells( void );
 
-	protected:
+protected:
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Sprite		m_sprite;
-		sf::Texture		m_texture;
-		sf::Vector2f		m_position;
-		sf::Vector2f		m_velocity;
-		Terrain			terrain;
-		GunIndicator		gunIndicator;
-		PlayAreaBar		topBar = { "topBar" };
-		PlayAreaBar		leftBar = { "leftBar" };
-		PlayAreaBar		bottomBar = { "bottomBar" };
-		PlayAreaBar		rightBar = { "rightBar" };
-		HQBlue			hqBlue = { "hqBlue" };
+private:
+	const t_objectName	m_myObjNameStr;
+	sf::Sprite		m_sprite;
+	sf::Texture		m_texture;
+	sf::Vector2f		m_position;
+	sf::Vector2f		m_velocity;
+	Terrain			terrain;
+	GunIndicator		gunIndicator;
+	PlayAreaBar		topBar = { "topBar" };
+	PlayAreaBar		leftBar = { "leftBar" };
+	PlayAreaBar		bottomBar = { "bottomBar" };
+	PlayAreaBar		rightBar = { "rightBar" };
+	HQBlue			hqBlue = { "hqBlue" };
 };
 
 // MC_ARENA_H

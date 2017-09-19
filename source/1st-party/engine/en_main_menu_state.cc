@@ -177,50 +177,49 @@ void MainMenuState::processEvents()
 	while ( m_window.pollEvent( evt ) ) {
 		ImGui::SFML::ProcessEvent( evt );
 		switch ( evt.type ) {
-			case sf::Event::Closed:
-				std::cout << "Quitting on close event."
+		case sf::Event::Closed:
+			std::cout << "Quitting on close event."
+			" Goodbye!\n";
+			m_machine.quit();
+		case sf::Event::Resized:
+			// onResize();
+			m_engineSharedContext.view = getLetterboxView(
+					m_engineSharedContext.view
+					, evt.size.width
+					, evt.size.height );
+			break;
+		case sf::Event::KeyPressed:
+			switch ( evt.key.code ) {
+			case sf::Keyboard::Space:
+				m_next = StateMachine::build
+					<PlayState> ( m_machine
+						, m_window
+						,
+						m_engineSharedContext
+						, true );
+				break;
+			case sf::Keyboard::F2:
+				this->tglDbgShowOverlay();
+				break;
+			case sf::Keyboard::F3:
+				this->
+				toggleDebugConsoleOutput();
+				break;
+			case sf::Keyboard::F4:
+				this->
+				tglDbgDFPSConsOutput();
+				break;
+			case sf::Keyboard::Q:
+				std::cout << "Quitting on Q key press."
 				" Goodbye!\n";
 				m_machine.quit();
-			case sf::Event::Resized:
-				// onResize();
-				m_engineSharedContext.view = getLetterboxView(
-						m_engineSharedContext.view
-						, evt.size.width
-						, evt.size.height );
-				break;
-			case sf::Event::KeyPressed:
-				switch ( evt.key.code ) {
-					case sf::Keyboard::Space:
-						m_next = StateMachine::build
-							<PlayState> ( m_machine
-								, m_window
-								,
-								m_engineSharedContext
-								, true );
-						break;
-					case sf::Keyboard::F2:
-						this->tglDbgShowOverlay();
-						break;
-					case sf::Keyboard::F3:
-						this->
-						toggleDebugConsoleOutput();
-						break;
-					case sf::Keyboard::F4:
-						this->
-						tglDbgDFPSConsOutput();
-						break;
-					case sf::Keyboard::Q:
-						std::cout <<
-						"Quitting on Q key press."
-						" Goodbye!\n";
-						m_machine.quit();
-						break;
-					default:
-						break;
-				}
 				break;
 			default:
 				break;
+			}
+			break;
+		default:
+			break;
 		}
 	}
 }

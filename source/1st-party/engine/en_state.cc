@@ -35,7 +35,7 @@ void State::tglDbgShowOverlay()
 		m_statisticsText.setString( "" );
 	} else if ( SETTINGS->inGameOverlay == false ) {
 		SETTINGS->inGameOverlay = true;
-		// immediately ugenerate some values
+		// immediately generate some values
 		// give me stats in the first frame,
 		// but first make up some plausible values
 		updateDebugOverlayTextIfEnabled( true );
@@ -64,7 +64,7 @@ void State::updateDebugOverlayTextIfEnabled( bool b )
 	if ( SETTINGS->inGameOverlay ) {
 		if ( b ) {
 			// fabricate the initial values TODO <-- fix this
-			int short	n = CONST_DESIRED_FPS_INT;
+			int short	n = CONST_FPS_INT;
 			int long	mil = 1000000;
 			m_statisticsText.setString(
 				// FPS
@@ -177,10 +177,10 @@ void State::dynamicallyAdjustFPSLimit()
 					m_observedFPSLastN );
 
 			// modify the running FPS limit
-			if ( median < CONST_DESIRED_FPS_INT ) {
+			if ( median < CONST_FPS_INT ) {
 				// our FPS is too low!
 				unsigned short int delta =
-					CONST_DESIRED_FPS_INT - median;
+					CONST_FPS_INT - median;
 				// set frameLimit to the delta corrected new
 				// value -- for large values go slow
 				if ( delta > 10 ) {
@@ -211,10 +211,10 @@ void State::dynamicallyAdjustFPSLimit()
 				}
 				// wipe the container
 				m_observedFPSLastN.clear();
-			} else if ( median > CONST_DESIRED_FPS_INT ) {
+			} else if ( median > CONST_FPS_INT ) {
 				// our FPS is too high!
 				unsigned short int delta = median -
-					CONST_DESIRED_FPS_INT;
+					CONST_FPS_INT;
 				// set frameLimit to the delta corrected new
 				// value -- for large values go slow
 				if ( delta > 10 ) {
@@ -253,7 +253,7 @@ void State::dynamicallyAdjustFPSLimit()
 					// wipe the container
 					m_observedFPSLastN.clear();
 				}
-			} else if ( median == CONST_DESIRED_FPS_INT ) {
+			} else if ( median == CONST_FPS_INT ) {
 				if ( SETTINGS->debugPrintToConsoleFPS ) {
 					std::cout <<
 					"\t(median==desired)\tFPSLimit INTACT."

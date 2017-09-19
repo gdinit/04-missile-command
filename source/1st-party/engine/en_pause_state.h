@@ -35,41 +35,41 @@ class StateMachine;
 
 class PauseState : public State
 {
-	public:
-		PauseState( StateMachine &machine
-		, sf::RenderWindow &window
-		, EngineSharedContext &context
-		, bool replace = true );
-		virtual ~PauseState();
-		// TODO remove resize stuff now that we're using letterBox?
-		// resize stuff here
-		void	onResize();
-		void	initializeState();
-		void	processEvents();
-		void	update();
-		void	draw();
-		void	pause();
-		void	resume();
+public:
+	PauseState( StateMachine &machine
+	, sf::RenderWindow &window
+	, EngineSharedContext &context
+	, bool replace = true );
+	virtual ~PauseState();
+	// TODO remove resize stuff now that we're using letterBox?
+	// resize stuff here
+	void	onResize();
+	void	initializeState();
+	void	processEvents();
+	void	update();
+	void	draw();
+	void	pause();
+	void	resume();
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Font		m_fontPressToContinue;
-		sf::Text		m_textPressToContinue;
-		sf::Font		m_fontPressToContinueLine2;
-		sf::Text		m_textPressToContinueLine2;
+private:
+	const t_objectName	m_myObjNameStr;
+	sf::Font		m_fontPressToContinue;
+	sf::Text		m_textPressToContinue;
+	sf::Font		m_fontPressToContinueLine2;
+	sf::Text		m_textPressToContinueLine2;
 
-		// window resize stuff
-		// Added to store texture size
-		sf::Vector2u		m_textureSize;
-		// Added to store window size
-		// TODO remove resize stuff now that we're using letterBox?
-		sf::Vector2u		m_windowSize;
-		// TODO move this to app
-		float			m_desiredAspectRatio;
-		int32			m_systemResizeHourglass;
+	// window resize stuff
+	// Added to store texture size
+	sf::Vector2u		m_textureSize;
+	// Added to store window size
+	// TODO remove resize stuff now that we're using letterBox?
+	sf::Vector2u		m_windowSize;
+	// TODO move this to app
+	float			m_desiredAspectRatio;
+	int32			m_systemResizeHourglass;
 
-		sf::SoundBuffer		m_sbClicked;
-		sf::Sound		m_sClicked;
+	sf::SoundBuffer		m_sbClicked;
+	sf::Sound		m_sClicked;
 };
 
 // EN_PAUSE_STATE_H

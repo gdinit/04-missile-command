@@ -31,8 +31,8 @@
 #endif
 
 // FPS Int -- set it, only if game-define-file has not done so
-#ifndef CONST_DESIRED_FPS_INT
-#define CONST_DESIRED_FPS_INT 60
+#ifndef CONST_FPS_INT
+#define CONST_FPS_INT 60
 #endif
 
 // FPS Float -- set it, only if game-define-file has not done so

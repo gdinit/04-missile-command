@@ -32,36 +32,36 @@ class StateMachine;
 
 class IntroState : public State
 {
-	public:
-		IntroState( StateMachine &machine
-		, sf::RenderWindow &window
-		, EngineSharedContext &context
-		, bool replace = true );
-		virtual ~IntroState();
-		void	onResize();
-		void	initializeState();
-		void	processEvents();
-		void	update();
-		void	draw();
-		void	pause();
-		void	resume();
+public:
+	IntroState( StateMachine &machine
+	, sf::RenderWindow &window
+	, EngineSharedContext &context
+	, bool replace = true );
+	virtual ~IntroState();
+	void	onResize();
+	void	initializeState();
+	void	processEvents();
+	void	update();
+	void	draw();
+	void	pause();
+	void	resume();
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Texture		m_bgTex;
-		sf::Sprite		m_bg;
-		sf::RectangleShape	m_fader;
-		sf::Color		m_alpha;
-		sf::Font		m_fontPressToContinue;
-		sf::Text		m_textPressToContinue;
-		// window resize stuff
-		// Added to store texture size
-		sf::Vector2u		m_textureSize;
-		// Added to store window size
-		sf::Vector2u		m_windowSize;
-		// TODO move this to app
-		float			m_desiredAspectRatio;
-		int			m_systemResizeHourglass;
+private:
+	const t_objectName	m_myObjNameStr;
+	sf::Texture		m_bgTex;
+	sf::Sprite		m_bg;
+	sf::RectangleShape	m_fader;
+	sf::Color		m_alpha;
+	sf::Font		m_fontPressToContinue;
+	sf::Text		m_textPressToContinue;
+	// window resize stuff
+	// Added to store texture size
+	sf::Vector2u		m_textureSize;
+	// Added to store window size
+	sf::Vector2u		m_windowSize;
+	// TODO move this to app
+	float			m_desiredAspectRatio;
+	int			m_systemResizeHourglass;
 };
 
 // EN_INTRO_STATE_H

@@ -38,63 +38,61 @@ class StateMachine;
 
 class State
 {
-	public:
-		State( StateMachine &machine
-		, sf::RenderWindow &window
-		, EngineSharedContext &context
-		, bool replace = true );
+public:
+	State( StateMachine &machine
+	, sf::RenderWindow &window
+	, EngineSharedContext &context
+	, bool replace = true );
 
-		virtual ~State() = default;
+	virtual ~State() = default;
 
-		State( const State & ) = delete;
+	State( const State & ) = delete;
 
-		State & operator	=( const State & ) = delete;
-		std::unique_ptr <State> next();
-		virtual void		update() = 0;
-		virtual void		draw() = 0;
-		virtual void		pause() = 0;
-		virtual void		resume() = 0;
-		bool			isReplacing();
-		void			tglDbgShowOverlay();
-		void			toggleDebugConsoleOutput();
-		void			tglDbgDFPSConsOutput();
-		void			updateDebugOverlayTextIfEnabled( bool
-		b );
-		void			updateDebugOverlayTextIfEnabled();
-		void			printConsoleDebugIfEnabled();
-		void			recordObservedFPS();
-		void			dynamicallyAdjustFPSLimit();
-		unsigned short int	calcMedianFPS(
-		std::deque <unsigned short int> records );
-		void			restartStateClock();
-		int			getStateAgeAsSeconds();
+	State & operator	=( const State & ) = delete;
+	std::unique_ptr <State> next();
+	virtual void		update() = 0;
+	virtual void		draw() = 0;
+	virtual void		pause() = 0;
+	virtual void		resume() = 0;
+	bool			isReplacing();
+	void			tglDbgShowOverlay();
+	void			toggleDebugConsoleOutput();
+	void			tglDbgDFPSConsOutput();
+	void			updateDebugOverlayTextIfEnabled( bool b );
+	void			updateDebugOverlayTextIfEnabled();
+	void			printConsoleDebugIfEnabled();
+	void			recordObservedFPS();
+	void			dynamicallyAdjustFPSLimit();
+	unsigned short int	calcMedianFPS(
+	std::deque <unsigned short int> records );
+	void			restartStateClock();
+	int			getStateAgeAsSeconds();
 
-	protected:
-		std::unique_ptr <State>		m_next;
-		StateMachine &			m_machine;
-		sf::RenderWindow &		m_window;
-		EngineSharedContext &		m_engineSharedContext;
-		bool				m_replacing;
-		static const sf::Time		TimePerFrame;
-		int				m_statisticsNumFrames = 0;
-		sf::Time			m_timeSinceLastUpdate;
-		sf::Time			m_elapsedTime;
-		sf::Clock			m_clock;
-		sf::Clock			m_stateBirthdate;
-		// TODO looks like we're not using this?
-		sf::Time			m_stateAge;
-		sf::Font			m_font;
-		sf::Text			m_statisticsText;
-		sf::Time			m_statisticsUpdateTime;
-		unsigned short int		m_urgentUpdateNeeded = 0;
-		std::deque <unsigned short int>	m_observedFPSLastN;
-		short int			m_FPSAdjPosDelta = 0;
-		short int			m_FPSAdjNegDelta = 0;
-		unsigned short int		m_activeFPSLimit =
-			CONST_DESIRED_FPS_INT;
-		bool				m_justResumed = false;
-		// Needed to center stuff
-		sf::View			m_worldView;
+protected:
+	std::unique_ptr <State>		m_next;
+	StateMachine &			m_machine;
+	sf::RenderWindow &		m_window;
+	EngineSharedContext &		m_engineSharedContext;
+	bool				m_replacing;
+	static const sf::Time		TimePerFrame;
+	int				m_statisticsNumFrames = 0;
+	sf::Time			m_timeSinceLastUpdate;
+	sf::Time			m_elapsedTime;
+	sf::Clock			m_clock;
+	sf::Clock			m_stateBirthdate;
+	// TODO looks like we're not using this?
+	sf::Time			m_stateAge;
+	sf::Font			m_font;
+	sf::Text			m_statisticsText;
+	sf::Time			m_statisticsUpdateTime;
+	unsigned short int		m_urgentUpdateNeeded = 0;
+	std::deque <unsigned short int>	m_observedFPSLastN;
+	short int			m_FPSAdjPosDelta = 0;
+	short int			m_FPSAdjNegDelta = 0;
+	unsigned short int		m_activeFPSLimit = CONST_FPS_INT;
+	bool				m_justResumed = false;
+	// Needed to center stuff
+	sf::View			m_worldView;
 };
 
 // EN_STATE_H

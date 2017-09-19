@@ -21,47 +21,47 @@
 #include <iostream>
 
 class City : public sf::Transformable
-	   , public sf::Drawable
-	   , private sf::NonCopyable
+	, public sf::Drawable
+	, private sf::NonCopyable
 {
-	public:
-		City();
-		City( t_objectName name );
-		virtual ~City();
-		void	update( sf::Time timeSinceLastUpdate
-		, sf::Vector2f res );
-		void	draw( sf::RenderTarget &target
-		, sf::RenderStates states ) const;
-		void	newRound( sf::Vector2f res );
-		float	getX()       const noexcept;
-		float	getY()       const noexcept;
-		float	getTop()     const noexcept;
-		float	getBottom()  const noexcept;
-		float	getLeft()    const noexcept;
-		float	getRight()   const noexcept;
+public:
+	City();
+	City( t_objectName name );
+	virtual ~City();
+	void	update( sf::Time timeSinceLastUpdate
+	, sf::Vector2f res );
+	void	draw( sf::RenderTarget &target
+	, sf::RenderStates states ) const;
+	void	newRound( sf::Vector2f res );
+	float	getX()       const noexcept;
+	float	getY()       const noexcept;
+	float	getTop()     const noexcept;
+	float	getBottom()  const noexcept;
+	float	getLeft()    const noexcept;
+	float	getRight()   const noexcept;
 
-	protected:
-		friend class Arena;
+protected:
+	friend class Arena;
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Sprite		m_sprite;
-		sf::Texture		m_texture;
-		sf::Vector2f		m_position;
-		sf::Vector2u		m_windowSize = { 0, 0 };
-		//
-		float			m_city1XPosRatio = { 0 };
-		float			m_city1YPosRatio = { 0 };
-		float			m_city2XPosRatio = { 0 };
-		float			m_city2YPosRatio = { 0 };
-		float			m_city3XPosRatio = { 0 };
-		float			m_city3YPosRatio = { 0 };
-		float			m_city4XPosRatio = { 0 };
-		float			m_city4YPosRatio = { 0 };
-		float			m_city5XPosRatio = { 0 };
-		float			m_city5YPosRatio = { 0 };
-		float			m_city6XPosRatio = { 0 };
-		float			m_city6YPosRatio = { 0 };
+private:
+	const t_objectName	m_myObjNameStr;
+	sf::Sprite		m_sprite;
+	sf::Texture		m_texture;
+	sf::Vector2f		m_position;
+	sf::Vector2u		m_windowSize = { 0, 0 };
+	//
+	float			m_city1XPosRatio = { 0 };
+	float			m_city1YPosRatio = { 0 };
+	float			m_city2XPosRatio = { 0 };
+	float			m_city2YPosRatio = { 0 };
+	float			m_city3XPosRatio = { 0 };
+	float			m_city3YPosRatio = { 0 };
+	float			m_city4XPosRatio = { 0 };
+	float			m_city4YPosRatio = { 0 };
+	float			m_city5XPosRatio = { 0 };
+	float			m_city5YPosRatio = { 0 };
+	float			m_city6XPosRatio = { 0 };
+	float			m_city6YPosRatio = { 0 };
 };
 
 // MC_CITY_H

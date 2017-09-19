@@ -24,46 +24,46 @@
 #include <fstream>
 
 class Terrain : public sf::Transformable
-	      , public sf::Drawable
-	      , private sf::NonCopyable
+	, public sf::Drawable
+	, private sf::NonCopyable
 {
-	public:
-		// Anti Aircraft Gun Aim Pointer
-		Terrain();
-		virtual ~Terrain();
-		void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
-		res );
-		void	update( sf::Time timeSinceLastUpdate
-		, sf::Vector2f r, Direction dir, float topBarBottomEdge
-		, float leftBarRightEdge, float bottomBarTopEdge, float
-		rightBarLeftEdgeftEdge );
+public:
+	// Anti Aircraft Gun Aim Pointer
+	Terrain();
+	virtual ~Terrain();
+	void	update( sf::Time timeSinceLastUpdate, sf::Vector2f
+	res );
+	void	update( sf::Time timeSinceLastUpdate
+	, sf::Vector2f r, Direction dir, float topBarBottomEdge
+	, float leftBarRightEdge, float bottomBarTopEdge, float
+	rightBarLeftEdgeftEdge );
 
-		void	draw( sf::RenderTarget &target
-		, sf::RenderStates states ) const;
-		void	newRound( sf::Vector2f res );
-		float	getX()       const noexcept;
-		float	getY()       const noexcept;
-		float	getTop()     const noexcept;
-		float	getBottom()  const noexcept;
-		float	getLeft()    const noexcept;
-		float	getRight()   const noexcept;
-		void	makeTerrain( sf::Vector2f res ) noexcept;
+	void	draw( sf::RenderTarget &target
+	, sf::RenderStates states ) const;
+	void	newRound( sf::Vector2f res );
+	float	getX()       const noexcept;
+	float	getY()       const noexcept;
+	float	getTop()     const noexcept;
+	float	getBottom()  const noexcept;
+	float	getLeft()    const noexcept;
+	float	getRight()   const noexcept;
+	void	makeTerrain( sf::Vector2f res ) noexcept;
 
-	protected:
-		friend class Arena;
+protected:
+	friend class Arena;
 
-	private:
-		const t_objectName	m_myObjNameStr;
-		sf::Texture		m_texture;
-		sf::Sprite		m_sprite;
-		sf::Vector2f		m_position = { 0, 0 };
-		sf::Vector2f		m_dimension = { 0, 0 };
-		sf::Vector2f		m_requestedMoveDistance;
-		sf::Vector2u		m_windowSize = { 0, 0 };
-		float			m_terrainXPosRatio = 0;
-		float			m_terrainYPosRatio = 0;
-		float			m_terrainWidthRatio = 0;
-		float			m_terrainHeightRatio = 0;
+private:
+	const t_objectName	m_myObjNameStr;
+	sf::Texture		m_texture;
+	sf::Sprite		m_sprite;
+	sf::Vector2f		m_position = { 0, 0 };
+	sf::Vector2f		m_dimension = { 0, 0 };
+	sf::Vector2f		m_requestedMoveDistance;
+	sf::Vector2u		m_windowSize = { 0, 0 };
+	float			m_terrainXPosRatio = 0;
+	float			m_terrainYPosRatio = 0;
+	float			m_terrainWidthRatio = 0;
+	float			m_terrainHeightRatio = 0;
 };
 
 // MC_TERRAIN_H

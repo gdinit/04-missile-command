@@ -160,51 +160,51 @@ void IntroState::processEvents()
 	sf::Event evt;
 	while ( m_window.pollEvent( evt ) ) {
 		switch ( evt.type ) {
-			case sf::Event::Closed:
+		case sf::Event::Closed:
+			m_machine.quit();
+			break;
+		case sf::Event::Resized:
+			// onResize();
+			m_engineSharedContext.view = getLetterboxView(
+					m_engineSharedContext.view
+					, evt.size.width
+					, evt.size.height );
+			break;
+		case sf::Event::KeyPressed:
+			// NOTE: Intro should not have pause state (no
+			// user input = already paused state!)
+			switch ( evt.key.code ) {
+			case sf::Keyboard::Escape:
+			case sf::Keyboard::Space:
+			case sf::Keyboard::Return:
+				m_next =
+					StateMachine::build
+					<MainMenuState>
+						( m_machine
+						, m_window
+						,
+						m_engineSharedContext
+						, true );
+				break;
+			case sf::Keyboard::Q:
 				m_machine.quit();
 				break;
-			case sf::Event::Resized:
-				// onResize();
-				m_engineSharedContext.view = getLetterboxView(
-						m_engineSharedContext.view
-						, evt.size.width
-						, evt.size.height );
+			case sf::Keyboard::F2:
+				this->tglDbgShowOverlay();
 				break;
-			case sf::Event::KeyPressed:
-				// NOTE: Intro should not have pause state (no
-				// user input = already paused state!)
-				switch ( evt.key.code ) {
-					case sf::Keyboard::Escape:
-					case sf::Keyboard::Space:
-					case sf::Keyboard::Return:
-						m_next =
-							StateMachine::build
-							<MainMenuState>
-								( m_machine
-								, m_window
-								,
-								m_engineSharedContext
-								, true );
-						break;
-					case sf::Keyboard::Q:
-						m_machine.quit();
-						break;
-					case sf::Keyboard::F2:
-						this->tglDbgShowOverlay();
-						break;
-					case sf::Keyboard::F3:
-						this->toggleDebugConsoleOutput();
-						break;
-					case sf::Keyboard::F4:
-						this->
-						tglDbgDFPSConsOutput();
-						break;
-					default:
-						break;
-				}
+			case sf::Keyboard::F3:
+				this->toggleDebugConsoleOutput();
+				break;
+			case sf::Keyboard::F4:
+				this->
+				tglDbgDFPSConsOutput();
 				break;
 			default:
 				break;
+			}
+			break;
+		default:
+			break;
 		}
 	}
 }

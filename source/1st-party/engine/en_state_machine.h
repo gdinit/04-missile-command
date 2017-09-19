@@ -23,37 +23,37 @@ class State;
 
 class StateMachine
 {
-	public:
-		StateMachine();
+public:
+	StateMachine();
 
-		void				run(
-		std::unique_ptr <State> state );
+	void				run(
+	std::unique_ptr <State> state );
 
-		void				nextState();
-		void				lastState();
-		void				drawPrevious();
+	void				nextState();
+	void				lastState();
+	void				drawPrevious();
 
-		void				update();
-		void				draw();
+	void				update();
+	void				draw();
 
-		bool running() { return m_running; }
+	bool running() { return m_running; }
 
-		void quit() { m_running = false; }
+	void quit() { m_running = false; }
 
-		template<typename T>
-		static std::unique_ptr <T>	build( StateMachine &machine
-		, sf::RenderWindow &window
-		, EngineSharedContext &context
-		, bool replace = true );
+	template<typename T>
+	static std::unique_ptr <T>	build( StateMachine &machine
+	, sf::RenderWindow &window
+	, EngineSharedContext &context
+	, bool replace = true );
 
-	private:
-		// The stack of states
-		// std::stack <std::unique_ptr <State> >	m_states;
-		// The vector of states
-		std::vector <std::unique_ptr <State> >	m_states;
+private:
+	// The stack of states
+	// std::stack <std::unique_ptr <State> >	m_states;
+	// The vector of states
+	std::vector <std::unique_ptr <State> >	m_states;
 
-		bool					m_resume;
-		bool					m_running;
+	bool					m_resume;
+	bool					m_running;
 };
 
 template<typename T>

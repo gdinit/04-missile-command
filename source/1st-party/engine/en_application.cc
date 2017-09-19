@@ -105,7 +105,7 @@ void Application::run()
 	sf::ContextSettings windowSettings;
 	createWindow();
 	windowSettings.antialiasingLevel = 8;
-	m_window.setFramerateLimit( CONST_DESIRED_FPS_INT );
+	m_window.setFramerateLimit( CONST_FPS_INT );
 	m_window.setKeyRepeatEnabled( false );
 
 	m_machine.run( StateMachine::build <IntroState> ( m_machine
