@@ -121,10 +121,7 @@ Arena::Arena()
 							ent->getEntityId()
 							==
 							event.num ) {
-							std::cout <<
-							"Woah, we " <<
-							"shouldn't get here!" <<
-							"\n";
+							std::cout << "Woah, we " << "shouldn't get here!" << "\n";
 						}
 					} );
 			}

@@ -28,16 +28,18 @@ void PlayAreaBar::makeBottomBar( sf::Vector2f res ) noexcept {
 	") m_bottomBarXPosRatio is: " << m_bottomBarXPosRatio <<
 	"\t m_bottomBarYPosRatio is: " << m_bottomBarYPosRatio << "\n";
 	#endif
-	PDASSERT(       ( m_bottomBarXPosRatio > 0 )
-		, "ERROR: m_bottomBarXPosRatio must be > 0!\tIt is: " <<
-		m_bottomBarXPosRatio << "\n" );
-	PDASSERT(       ( m_bottomBarYPosRatio > 0 )
-		, "ERROR: m_bottomBarYPosRatio must be > 0!\tIt is: " <<
-		m_bottomBarYPosRatio << "\n" );
+	PDASSERT( ( m_bottomBarXPosRatio > 0 )
+		,
+		"ERROR: m_bottomBarXPosRatio must be > 0!\tIt is: " << m_bottomBarXPosRatio <<
+		"\n" );
+	PDASSERT( ( m_bottomBarYPosRatio > 0 )
+		,
+		"ERROR: m_bottomBarYPosRatio must be > 0!\tIt is: " << m_bottomBarYPosRatio <<
+		"\n" );
 
 	m_position.x = m_windowSize.x * m_bottomBarXPosRatio;
-	m_position.y = m_windowSize.y - ( m_windowSize.y *
-					  m_bottomBarYPosRatio );
+	m_position.y = m_windowSize.y -
+		( m_windowSize.y * m_bottomBarYPosRatio );
 	m_dimension.x = m_windowSize.x * m_bottomBarWidthRatio;
 	m_dimension.y = m_windowSize.y * m_bottomBarHeightRatio;
 	#if defined DBG

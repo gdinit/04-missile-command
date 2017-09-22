@@ -39,9 +39,8 @@ void Hud::update( sf::Time timeSinceLastUpdate )
 	GLOBALS->currentScoreText = std::string( n_zero - old_string.length()
 			, '0' ) + old_string;
 
-	m_hudText.setString( GLOBALS->currentScoreText + "      " +
-		std::	to_string( GLOBALS->livesLeft )	+ "      " +
-		std::	to_string(
+	m_hudText.setString( GLOBALS->currentScoreText + "      " + std::to_string(
+			GLOBALS->livesLeft ) + "      " + std::to_string(
 			GLOBALS->gameLevel ) );
 	centerOrigin( m_hudText );
 }

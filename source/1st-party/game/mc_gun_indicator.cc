@@ -70,12 +70,11 @@ void GunIndicator::update( sf::Time timeSinceLastUpdate, sf::Vector2f r
 		m_debugGunIndicatorLastPos.x = getX();
 		m_debugGunIndicatorLastPos.y = getY();
 		std::cout << "GunIndicator newPos x,y: " << getX() << "," <<
-		getY() << "\t xMultiplierRatio = " << ( getX() /
-							m_windowSize.x ) <<
-		"\t\t yMultiplierRatio = " << ( getY() /
-						m_windowSize
-						.
-						y )
+		getY() << "\t xMultiplierRatio = " <<
+		  ( getX() / m_windowSize.x ) << "\t\t yMultiplierRatio = " <<
+		  ( getY() / m_windowSize
+		  .
+		  y )
 		<< "\n";
 	}
 	#endif

@@ -30,19 +30,21 @@ void PlayAreaBar::makeRightBar( sf::Vector2f res ) noexcept {
 	") m_rightBarXPosRatio is: " << m_rightBarXPosRatio <<
 	"\t m_rightBarYPosRatio is: " << m_rightBarYPosRatio << "\n";
 	#endif
-	PDASSERT(       ( m_rightBarXPosRatio > 0 )
-		, "ERROR: m_rightBarXPosRatio must be > 0!\tIt is: " <<
-		m_rightBarXPosRatio << "\n" );
-	PDASSERT(       ( m_rightBarYPosRatio > 0 )
-		, "ERROR: m_rightBarYPosRatio must be > 0!\tIt is: " <<
-		m_rightBarYPosRatio << "\n" );
-	m_position.x = m_windowSize.x - ( m_windowSize.x *
-					  m_rightBarXPosRatio );
+	PDASSERT( ( m_rightBarXPosRatio > 0 )
+		,
+		"ERROR: m_rightBarXPosRatio must be > 0!\tIt is: " << m_rightBarXPosRatio <<
+		"\n" );
+	PDASSERT( ( m_rightBarYPosRatio > 0 )
+		,
+		"ERROR: m_rightBarYPosRatio must be > 0!\tIt is: " << m_rightBarYPosRatio <<
+		"\n" );
+	m_position.x = m_windowSize.x -
+		( m_windowSize.x * m_rightBarXPosRatio );
 	m_position.x = m_windowSize.x - 1;
 	m_position.y = m_windowSize.y * m_rightBarYPosRatio;
 	m_dimension.x = m_windowSize.x * m_rightBarWidthRatio;
-	m_dimension.y = m_windowSize.y - ( m_windowSize.y *
-					   ( m_topBarYPosRatio * 2 ) );
+	m_dimension.y = m_windowSize.y -
+		( m_windowSize.y * ( m_topBarYPosRatio * 2 ) );
 	#if defined DBG
 	std::cout << "[DEBUG] (" << m_myObjNameStr << ") \tCalculated" <<
 	" position as: " << m_position.x << "," << m_position.y << "\t"	<<

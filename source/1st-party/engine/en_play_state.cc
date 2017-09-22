@@ -392,10 +392,10 @@ void PlayState::processEvents()
 		case sf::Event::MouseButtonPressed:
 			if ( evt.mouseButton.button ==
 			     sf::Mouse::Left ) {
-			    	sf::Vector2i mousePos = sf::Mouse::getPosition
-			    	(m_window);
-				std::cout << "mousePos: " << mousePos.x << ","
-				<< mousePos.y << '\n';
+				sf::Vector2i mousePos = sf::Mouse::getPosition
+						( m_window );
+				std::cout << "mousePos: " << mousePos.x <<
+				"," << mousePos.y << '\n';
 			}
 		case sf::Event::KeyPressed:
 			switch ( evt.key.code ) {

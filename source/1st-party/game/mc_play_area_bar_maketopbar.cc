@@ -28,12 +28,14 @@ void PlayAreaBar::makeTopBar( sf::Vector2f res ) noexcept {
 	") m_topBarXPosRatio is: " << m_topBarXPosRatio	<<
 	"\t m_topBarYPosRatio is: " << m_topBarYPosRatio << "\n";
 	#endif
-	PDASSERT(       ( m_topBarXPosRatio > 0 )
-		, "ERROR: m_topBarXPosRatio must be > 0!\tIt is: " <<
-		m_topBarXPosRatio << "\n" );
-	PDASSERT(       ( m_topBarYPosRatio > 0 )
-		, "ERROR: m_topBarYPosRatio must be > 0!\tIt is: " <<
-		m_topBarYPosRatio << "\n" );
+	PDASSERT( ( m_topBarXPosRatio > 0 )
+		,
+		"ERROR: m_topBarXPosRatio must be > 0!\tIt is: " << m_topBarXPosRatio <<
+		"\n" );
+	PDASSERT( ( m_topBarYPosRatio > 0 )
+		,
+		"ERROR: m_topBarYPosRatio must be > 0!\tIt is: " << m_topBarYPosRatio <<
+		"\n" );
 	m_position.x = m_windowSize.x * m_topBarXPosRatio;
 	m_position.y = m_windowSize.y * m_topBarYPosRatio;
 	m_dimension.x = m_windowSize.x * m_topBarWidthRatio;

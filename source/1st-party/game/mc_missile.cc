@@ -68,9 +68,11 @@ void Missile::newRound( sf::Vector2f res ) {
 	i >> j;
 	for ( nlohmann::json::iterator it = j.begin(); it != j.end(); ++it ) {
 		if ( it.key() == "missileL1XPosRatio" ) {
-			PDASSERT( it.value() > 0
-				, "missileL1XPosRatio must be > 0\t It is: " <<
-				it.value() << "\n" );
+			PDASSERT(
+				it.value() > 0
+				,
+				"missileL1XPosRatio must be > 0\t It is: " << it.value() <<
+				"\n" );
 			m_missileL1XPosRatio = it.value();
 		} else if ( it.key() == "missileL1YPosRatio" ) {
 			m_missileL1YPosRatio = it.value();
@@ -195,95 +197,95 @@ void Missile::newRound( sf::Vector2f res ) {
 	i.close();
 
 	if ( m_myObjNameStr == "missileL1" ) {
-		m_sprite.setPosition( res.x * m_missileL1XPosRatio, res.y *
-			m_missileL1YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL1XPosRatio
+			, res.y * m_missileL1YPosRatio );
 	} else if ( m_myObjNameStr == "missileL2" ) {
-		m_sprite.setPosition( res.x * m_missileL2XPosRatio, res.y *
-			m_missileL2YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL2XPosRatio
+			, res.y * m_missileL2YPosRatio );
 	} else if ( m_myObjNameStr == "missileL3" ) {
-		m_sprite.setPosition( res.x * m_missileL3XPosRatio, res.y *
-			m_missileL3YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL3XPosRatio
+			, res.y * m_missileL3YPosRatio );
 	} else if ( m_myObjNameStr == "missileL4" ) {
-		m_sprite.setPosition( res.x * m_missileL4XPosRatio, res.y *
-			m_missileL4YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL4XPosRatio
+			, res.y * m_missileL4YPosRatio );
 	} else if ( m_myObjNameStr == "missileL5" ) {
-		m_sprite.setPosition( res.x * m_missileL5XPosRatio, res.y *
-			m_missileL5YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL5XPosRatio
+			, res.y * m_missileL5YPosRatio );
 	} else if ( m_myObjNameStr == "missileL6" ) {
-		m_sprite.setPosition( res.x * m_missileL6XPosRatio, res.y *
-			m_missileL6YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL6XPosRatio
+			, res.y * m_missileL6YPosRatio );
 	} else if ( m_myObjNameStr == "missileL7" ) {
-		m_sprite.setPosition( res.x * m_missileL7XPosRatio, res.y *
-			m_missileL7YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL7XPosRatio
+			, res.y * m_missileL7YPosRatio );
 	} else if ( m_myObjNameStr == "missileL8" ) {
-		m_sprite.setPosition( res.x * m_missileL8XPosRatio, res.y *
-			m_missileL8YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL8XPosRatio
+			, res.y * m_missileL8YPosRatio );
 	} else if ( m_myObjNameStr == "missileL9" ) {
-		m_sprite.setPosition( res.x * m_missileL9XPosRatio, res.y *
-			m_missileL9YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL9XPosRatio
+			, res.y * m_missileL9YPosRatio );
 	} else if ( m_myObjNameStr == "missileL0" ) {
-		m_sprite.setPosition( res.x * m_missileL0XPosRatio, res.y *
-			m_missileL0YPosRatio );
+		m_sprite.setPosition( res.x * m_missileL0XPosRatio
+			, res.y * m_missileL0YPosRatio );
 	} else if ( m_myObjNameStr == "missileC1" ) {
-		m_sprite.setPosition( res.x * m_missileC1XPosRatio, res.y *
-			m_missileC1YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC1XPosRatio
+			, res.y * m_missileC1YPosRatio );
 	} else if ( m_myObjNameStr == "missileC2" ) {
-		m_sprite.setPosition( res.x * m_missileC2XPosRatio, res.y *
-			m_missileC2YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC2XPosRatio
+			, res.y * m_missileC2YPosRatio );
 	} else if ( m_myObjNameStr == "missileC3" ) {
-		m_sprite.setPosition( res.x * m_missileC3XPosRatio, res.y *
-			m_missileC3YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC3XPosRatio
+			, res.y * m_missileC3YPosRatio );
 	} else if ( m_myObjNameStr == "missileC4" ) {
-		m_sprite.setPosition( res.x * m_missileC4XPosRatio, res.y *
-			m_missileC4YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC4XPosRatio
+			, res.y * m_missileC4YPosRatio );
 	} else if ( m_myObjNameStr == "missileC5" ) {
-		m_sprite.setPosition( res.x * m_missileC5XPosRatio, res.y *
-			m_missileC5YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC5XPosRatio
+			, res.y * m_missileC5YPosRatio );
 	} else if ( m_myObjNameStr == "missileC6" ) {
-		m_sprite.setPosition( res.x * m_missileC6XPosRatio, res.y *
-			m_missileC6YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC6XPosRatio
+			, res.y * m_missileC6YPosRatio );
 	} else if ( m_myObjNameStr == "missileC7" ) {
-		m_sprite.setPosition( res.x * m_missileC7XPosRatio, res.y *
-			m_missileC7YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC7XPosRatio
+			, res.y * m_missileC7YPosRatio );
 	} else if ( m_myObjNameStr == "missileC8" ) {
-		m_sprite.setPosition( res.x * m_missileC8XPosRatio, res.y *
-			m_missileC8YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC8XPosRatio
+			, res.y * m_missileC8YPosRatio );
 	} else if ( m_myObjNameStr == "missileC9" ) {
-		m_sprite.setPosition( res.x * m_missileC9XPosRatio, res.y *
-			m_missileC9YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC9XPosRatio
+			, res.y * m_missileC9YPosRatio );
 	} else if ( m_myObjNameStr == "missileC0" ) {
-		m_sprite.setPosition( res.x * m_missileC0XPosRatio, res.y *
-			m_missileC0YPosRatio );
+		m_sprite.setPosition( res.x * m_missileC0XPosRatio
+			, res.y * m_missileC0YPosRatio );
 	} else if ( m_myObjNameStr == "missileR1" ) {
-		m_sprite.setPosition( res.x * m_missileR1XPosRatio, res.y *
-			m_missileR1YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR1XPosRatio
+			, res.y * m_missileR1YPosRatio );
 	} else if ( m_myObjNameStr == "missileR2" ) {
-		m_sprite.setPosition( res.x * m_missileR2XPosRatio, res.y *
-			m_missileR2YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR2XPosRatio
+			, res.y * m_missileR2YPosRatio );
 	} else if ( m_myObjNameStr == "missileR3" ) {
-		m_sprite.setPosition( res.x * m_missileR3XPosRatio, res.y *
-			m_missileR3YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR3XPosRatio
+			, res.y * m_missileR3YPosRatio );
 	} else if ( m_myObjNameStr == "missileR4" ) {
-		m_sprite.setPosition( res.x * m_missileR4XPosRatio, res.y *
-			m_missileR4YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR4XPosRatio
+			, res.y * m_missileR4YPosRatio );
 	} else if ( m_myObjNameStr == "missileR5" ) {
-		m_sprite.setPosition( res.x * m_missileR5XPosRatio, res.y *
-			m_missileR5YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR5XPosRatio
+			, res.y * m_missileR5YPosRatio );
 	} else if ( m_myObjNameStr == "missileR6" ) {
-		m_sprite.setPosition( res.x * m_missileR6XPosRatio, res.y *
-			m_missileR6YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR6XPosRatio
+			, res.y * m_missileR6YPosRatio );
 	} else if ( m_myObjNameStr == "missileR7" ) {
-		m_sprite.setPosition( res.x * m_missileR7XPosRatio, res.y *
-			m_missileR7YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR7XPosRatio
+			, res.y * m_missileR7YPosRatio );
 	} else if ( m_myObjNameStr == "missileR8" ) {
-		m_sprite.setPosition( res.x * m_missileR8XPosRatio, res.y *
-			m_missileR8YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR8XPosRatio
+			, res.y * m_missileR8YPosRatio );
 	} else if ( m_myObjNameStr == "missileR9" ) {
-		m_sprite.setPosition( res.x * m_missileR9XPosRatio, res.y *
-			m_missileR9YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR9XPosRatio
+			, res.y * m_missileR9YPosRatio );
 	} else if ( m_myObjNameStr == "missileR0" ) {
-		m_sprite.setPosition( res.x * m_missileR0XPosRatio, res.y *
-			m_missileR0YPosRatio );
+		m_sprite.setPosition( res.x * m_missileR0XPosRatio
+			, res.y * m_missileR0YPosRatio );
 	}
 	// save for future use
 	m_windowSize.x = res.x;
