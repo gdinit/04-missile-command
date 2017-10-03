@@ -42,6 +42,7 @@ struct EngineSharedContext
 	int32 livesLeft = -9999;
 	int32 gameLevel = -9999;
 	unsigned long long int frameID = 0;
+	bool gameDebugOverlay = true;
 
 	// Time
 	std::chrono::steady_clock::time_point tIntroFirstLaunchTime;
