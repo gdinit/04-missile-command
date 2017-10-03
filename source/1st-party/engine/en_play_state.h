@@ -60,6 +60,7 @@ public:
 	void	restartPregameAnimationClock();
 	void	drawPreGameAnimation();
 	float	getPreGameAnimationAgeAsSeconds();
+	void	tglGameDebug(void);
 
 private:
 	const t_objectName	m_myObjNameStr;

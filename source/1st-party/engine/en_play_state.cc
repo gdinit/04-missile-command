@@ -422,42 +422,32 @@ void PlayState::processEvents()
 						, true );
 				break;
 			case sf::Keyboard::Numpad8:
-				m_engineSharedContext.
-				moveReqActiveUp = true;
+			case sf::Keyboard::C:
+				m_engineSharedContext.moveReqActiveUp = 1;
 				break;
 			case sf::Keyboard::Numpad9:
-				m_engineSharedContext.
-				moveReqActiveUpRight = true;
+				m_engineSharedContext.moveReqActiveUpRight = 1;
 				break;
 			case sf::Keyboard::Numpad6:
-				m_engineSharedContext.
-				moveReqActiveRight
-					= true;
+			case sf::Keyboard::N:
+				m_engineSharedContext.moveReqActiveRight = 1;
 				break;
 			case sf::Keyboard::Numpad3:
-				m_engineSharedContext.
-				moveReqActiveDownRight
-					= true;
+				m_engineSharedContext.moveReqActiveDownRight = 1;
 				break;
 			case sf::Keyboard::Numpad2:
-				m_engineSharedContext.
-				moveReqActiveDown
-					= true;
+			case sf::Keyboard::T:
+				m_engineSharedContext.moveReqActiveDown = 1;
 				break;
 			case sf::Keyboard::Numpad1:
-				m_engineSharedContext.
-				moveReqActiveDownLeft
-					= true;
+				m_engineSharedContext.moveReqActiveDownLeft = 1;
 				break;
 			case sf::Keyboard::Numpad4:
-				m_engineSharedContext.
-				moveReqActiveLeft
-					= true;
+			case sf::Keyboard::H:
+				m_engineSharedContext.moveReqActiveLeft= 1;
 				break;
 			case sf::Keyboard::Numpad7:
-				m_engineSharedContext.
-				moveReqActiveUpLeft
-					= true;
+				m_engineSharedContext.moveReqActiveUpLeft = 1;
 				break;
 			case sf::Keyboard::F2:
 				this->tglDbgShowOverlay();
@@ -470,6 +460,9 @@ void PlayState::processEvents()
 				this->
 				tglDbgDFPSConsOutput();
 				break;
+			case sf::Keyboard::CONST_GAMEDEBUGHOTKEY:
+				this->tglGameDebug();
+				break;
 			default:
 				break;
 			}
@@ -477,44 +470,32 @@ void PlayState::processEvents()
 		case sf::Event::KeyReleased:
 			switch ( evt.key.code ) {
 			case sf::Keyboard::Numpad8:
-				m_engineSharedContext.
-				moveReqActiveUp
-					= false;
+			case sf::Keyboard::C:
+				m_engineSharedContext.moveReqActiveUp = 0;
 				break;
 			case sf::Keyboard::Numpad9:
-				m_engineSharedContext.
-				moveReqActiveUpRight
-					= false;
+				m_engineSharedContext.moveReqActiveUpRight = 0;
 				break;
 			case sf::Keyboard::Numpad6:
-				m_engineSharedContext.
-				moveReqActiveRight
-					= false;
+			case sf::Keyboard::N:
+				m_engineSharedContext.moveReqActiveRight= 0;
 				break;
 			case sf::Keyboard::Numpad3:
-				m_engineSharedContext.
-				moveReqActiveDownRight
-					= false;
+				m_engineSharedContext.moveReqActiveDownRight = 0;
 				break;
 			case sf::Keyboard::Numpad2:
-				m_engineSharedContext.
-				moveReqActiveDown
-					= false;
+			case sf::Keyboard::T:
+				m_engineSharedContext.moveReqActiveDown = 0;
 				break;
 			case sf::Keyboard::Numpad1:
-				m_engineSharedContext.
-				moveReqActiveDownLeft
-					= false;
+				m_engineSharedContext.moveReqActiveDownLeft = 0;
 				break;
 			case sf::Keyboard::Numpad4:
-				m_engineSharedContext.
-				moveReqActiveLeft
-					= false;
+			case sf::Keyboard::H:
+				m_engineSharedContext.moveReqActiveLeft = 0;
 				break;
 			case sf::Keyboard::Numpad7:
-				m_engineSharedContext.
-				moveReqActiveUpLeft
-					= false;
+				m_engineSharedContext.moveReqActiveUpLeft = 0;
 				break;
 			default:
 				break;
@@ -530,6 +511,15 @@ void PlayState::onResize()
 {
 }
 
+void PlayState::tglGameDebug(void)
+{
+	m_engineSharedContext.gameDebugOverlay 
+	= !m_engineSharedContext.gameDebugOverlay;
+	#if defined DBG
+	std::cout << "[DEBUG]\tGameDebug is now:\t" 
+	<< m_engineSharedContext.gameDebugOverlay  << "\n";
+	#endif
+}
 // ===================================80 chars=================================|
 /* EOF */
 
