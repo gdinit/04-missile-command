@@ -22,6 +22,7 @@
 // #define CONST_SCREENRES_W 800
 // #define CONST_SCREENRES_W 1024
 // #define CONST_SCREENRES_W 1920
+#define CONST_GAMEDEBUGHOTKEY F6
 // ============ END: HARDCODED ENGINE GENERIC SETTINGS ==============
 
 // ============ BEGIN: DECIDE FINAL SETTINGS ==============
