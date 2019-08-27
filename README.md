@@ -1,3 +1,4 @@
+[![Build Status](http://jenkins.kzalloc.org/buildStatus/icon?style=plastic&job=04-missile-command)](http://jenkins.kzalloc.org/job/04-missile-command/)
 # MISSILE COMMAND
 ### A clone of the Classic Game Missile Command by gdinit
 ***This Software is in PRE-ALPHA phase!***
