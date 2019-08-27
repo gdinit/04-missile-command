@@ -106,7 +106,7 @@ target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${SFML_LIBRARIES} ${SF
 ################################################################################
 set_target_properties(${PROJECT_NAME} PROPERTIES VS_STARTUP_PROJECT ${PROJECT_NAME})
 ################################################################################
-cotire(${PROJECT_NAME})
+#cotire(${PROJECT_NAME})
 ################################################################################
 
 
